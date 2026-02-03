@@ -18,7 +18,7 @@ export function Team() {
       id: 'johnson-gichuhi-bosire',
       name: 'Johnson Gichuhi Bosire',
       role: 'Advocate',
-      location: 'Nairobi',
+      location: 'Nairobi, Kenya',
       image: '/images/team-members/johnson-gichuhi-bosire.jpeg',
     },
     {

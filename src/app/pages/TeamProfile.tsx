@@ -54,7 +54,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
     'johnson-gichuhi-bosire': {
       name: 'Johnson Gichuhi Bosire',
       role: 'Advocate',
-      location: 'Nairobi',
+      location: 'Nairobi, Kenya',
       image: '/images/team-members/johnson-gichuhi-bosire.jpeg',
       bio: [
         'Johnson Gichuhi Bosire is an Advocate with experience in litigation, tax law, employment and labour relations, public interest litigation, and regulatory compliance.',
