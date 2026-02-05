@@ -92,19 +92,10 @@ export function Home() {
       image: '/images/team-members/johnson-gichuhi-bosire.jpeg',
     },
     {
-      id: 'david-mukasa',
-      name: 'David Mukasa',
-      role: 'Senior Associate, Corporate Law',
-      email: 'david@malikaokubasu.com',
-      linkedin: 'https://linkedin.com',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80',
-    },
-    {
       id: 'sarah-nambi',
-      name: 'Sarah Nambi',
-      role: 'Associate, Dispute Resolution',
-      email: 'sarah@malikaokubasu.com',
-      linkedin: 'https://linkedin.com',
+      name: 'Oduor Kevin Khamati',
+      role: 'Advocate of the High Court of Kenya',
+      linkedin: 'https://www.linkedin.com/in/oduorkhamati/',
       image: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&q=80',
     },
     {
@@ -504,10 +495,10 @@ export function Home() {
                     Phone
                   </div>
                   <a 
-                    href="tel:+256123456789" 
+                    href="tel:+254000111222" 
                     className="text-lg lg:text-xl text-[#0B1E3A] hover:text-[#132B4C] hover:underline underline-offset-4 transition-all"
                   >
-                    +256 123 456 789
+                    +254 000 111 222
                   </a>
                 </div>
                 
@@ -528,8 +519,9 @@ export function Home() {
                     Address
                   </div>
                   <p className="text-lg lg:text-xl text-[#5B6676] leading-relaxed">
-                    5th Floor, Acacia Mall<br />
-                    Kampala, Uganda
+                    5th Avenue Suites, 5th Avenue Ngong Road.<br />
+                    Suite No. 6, 4th Floor<br />
+                    P.O. Box 25926 - 00603.
                   </p>
                 </div>
               </div>

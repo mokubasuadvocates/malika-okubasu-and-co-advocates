@@ -45,11 +45,12 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <div className="flex flex-col gap-2.5 text-sm text-white/80">
-              <p>Kampala, Uganda</p>
-              <a href="tel:+256123456789" className="hover:text-white hover:underline transition-all">
-                +256 123 456 789
+              <p>5th Avenue Suites, 5th Avenue Ngong Road.</p>
+              <p>Suite No. 6, 4th Floor</p>
+              <p>P.O. Box 25926 - 00603.</p>
+              <a href="tel:+254000111222" className="hover:text-white hover:underline transition-all">
+                +254 000 111 222
               </a>
-              <p>P.O. Box 12345, Kampala</p>
               <a href="mailto:info@malikaokubasu.com" className="hover:text-white hover:underline transition-all">
                 info@malikaokubasu.com
               </a>

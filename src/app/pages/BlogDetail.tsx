@@ -90,9 +90,9 @@ const blogPosts: Record<string, {
     title: 'Corporate Governance Best Practices for Startups',
     excerpt: 'Essential governance frameworks and compliance requirements for early-stage technology companies seeking to scale in regulated markets.',
     author: {
-      name: 'David Mukasa',
-      avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80',
-      title: 'Partner, Corporate Law',
+      name: 'Johnson Gichuhi Bosire',
+      avatar: '/images/team-members/johnson-gichuhi-bosire.jpeg',
+      title: 'Advocate',
     },
     date: 'January 8, 2026',
     image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80',

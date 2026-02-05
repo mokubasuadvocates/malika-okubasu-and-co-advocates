@@ -84,8 +84,9 @@ export function Contact() {
                   <div>
                     <div className="font-bold text-[#0B1E3A] mb-1">Address</div>
                     <p className="text-[#5B6676]">
-                      5th Floor, Acacia Mall<br />
-                      Kampala, Uganda
+                      5th Avenue Suites, 5th Avenue Ngong Road.<br />
+                      Suite No. 6, 4th Floor<br />
+                      P.O. Box 25926 - 00603.
                     </p>
                   </div>
                 </div>
@@ -94,8 +95,8 @@ export function Contact() {
                   <Phone className="w-5 h-5 text-[#0B1E3A] flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-[#0B1E3A] mb-1">Phone</div>
-                    <a href="tel:+256123456789" className="text-[#5B6676] hover:text-[#0B1E3A] hover:underline">
-                      +256 123 456 789
+                    <a href="tel:+254000111222" className="text-[#5B6676] hover:text-[#0B1E3A] hover:underline">
+                      +254 000 111 222
                     </a>
                   </div>
                 </div>

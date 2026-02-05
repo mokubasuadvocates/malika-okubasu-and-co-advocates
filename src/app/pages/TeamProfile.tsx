@@ -69,6 +69,38 @@ export function TeamProfile({ id }: TeamProfileProps) {
         'Regulatory Compliance',
       ],
     },
+    'sarah-nambi': {
+      name: 'Oduor Kevin Khamati',
+      role: 'Advocate of the High Court of Kenya',
+      location: 'Nairobi, Kenya',
+      linkedin: 'https://www.linkedin.com/in/oduorkhamati/',
+      image: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=600&q=80',
+      bio: [
+        'Oduor Kevin Khamati is an Advocate of the High Court of Kenya with over six years of experience in litigation, corporate advisory, and commercial legal practice. He represents and advises individuals, companies, and institutions across a wide range of civil and commercial matters, combining courtroom advocacy with practical, business-minded counsel.',
+        'His litigation work covers dispute management, drafting pleadings and submissions, legal research, and court representation, with experience across commercial disputes, employment claims, contractual claims, and regulatory issues. He manages matters end-to-end, from initial assessment through resolution, with a structured, detail-oriented approach.',
+        'In corporate and commercial practice, Oduor advises on contracts, risk exposure, and operational legal matters. He drafts and reviews commercial agreements, employment contracts, and service arrangements, and supports clients on corporate governance, regulatory compliance, and business structuring.',
+        'Known for clear communication and sound professional judgment, he delivers solutions that protect client interests while supporting strong commercial decision-making.',
+      ],
+      expertise: [
+        'Litigation and Dispute Resolution',
+        'Commercial Contracts',
+        'Corporate Advisory',
+        'Employment Law',
+        'Regulatory Compliance',
+        'Corporate Governance',
+      ],
+      experience: [
+        {
+          title: 'Advocate of the High Court of Kenya',
+          organization: 'Private Practice',
+          period: '2018 - Present',
+        },
+      ],
+      education: [
+        'LL.B, University of Nairobi',
+        'Advocate of the High Court of Kenya (2018)',
+      ],
+    },
   };
 
   const profile = profiles[id as keyof typeof profiles] ?? profiles['malika-okubasu'];
