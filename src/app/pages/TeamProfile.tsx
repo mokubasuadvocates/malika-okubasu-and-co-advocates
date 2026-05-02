@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { Mail, Phone, Linkedin } from 'lucide-react';
-import { Button } from '../components/Button';
+import Link from "next/link";
+import { Mail, Phone, Linkedin } from "lucide-react";
+import { Button } from "../components/Button";
 
 interface TeamProfileProps {
   id: string;
@@ -8,117 +8,148 @@ interface TeamProfileProps {
 
 export function TeamProfile({ id }: TeamProfileProps) {
   const profiles = {
-    'malika-okubasu': {
-      name: 'Malika Okubasu',
-      role: 'Managing Partner',
-      location: 'Kampala',
-      phone: '+256 123 456 789',
-      email: 'malika@malikaokubasu.com',
-      linkedin: 'https://linkedin.com',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80',
+    "brenton-okubasu": {
+      name: "Brenton Okubasu",
+      role: "Founder and Consulting Partner",
+      location: "Nairobi, Kenya",
+      email: "brenton@malikaokubasu.com",
+      phone: "+254 721 789 389 / +254 141 397 048",
+      linkedin: "https://www.linkedin.com/in/brenton-o-a044b154/",
+      image: "/images/team-members/brenton-okubasu.jpeg",
       bio: [
-        'Malika Okubasu is the Managing Partner at Malika Okubasu & Company Advocates, bringing over 15 years of experience in corporate and commercial law. She advises leading businesses across East Africa on complex transactions, regulatory compliance, and corporate governance.',
-        'Before founding the firm, Malika practiced at international law firms in London and Nairobi, where she developed expertise in cross-border mergers and acquisitions, private equity, and commercial litigation. Her clients value her strategic approach and ability to deliver practical solutions to complex legal challenges.',
+        "Brenton Okubasu is an Advocate of the High Court of Kenya with a strong background in law, corporate governance, privacy, fraud examination, and intellectual property.",
+        "He holds a Bachelor of Laws degree from the University of Nairobi, where he graduated with Second Class Upper Division honours. He is also a Certified Fraud Professional, a Certified Information Privacy Professional/Europe (CIPP/E), a Fellow of Corporate Governance of the UK (FCG), and a registered Patent Agent.",
+        "Brenton is currently pursuing a Master’s degree at the University of London, further strengthening his expertise in legal practice, governance, compliance, and emerging areas of law.",
       ],
       expertise: [
-        'Corporate and Commercial Law',
-        'Mergers and Acquisitions',
-        'Private Equity and Venture Capital',
-        'Corporate Governance',
-        'Regulatory Compliance',
-        'Cross-Border Transactions',
+        "Corporate Governance",
+        "Privacy and Data Protection",
+        "Fraud Examination",
+        "Intellectual Property",
+        "Compliance",
+        "Legal Advisory Services",
       ],
       experience: [
         {
-          title: 'Managing Partner',
-          organization: 'Malika Okubasu & Company Advocates',
-          period: '2020 - Present',
+          title: "Founder and Consulting Partner",
+          organization: "Malika Okubasu & Company Advocates",
+          period: "2024 - Present",
         },
         {
-          title: 'Senior Associate',
-          organization: 'International Law Firm, Nairobi',
-          period: '2016 - 2020',
-        },
-        {
-          title: 'Associate',
-          organization: 'Leading Law Firm, London',
-          period: '2012 - 2016',
+          title: "Legal Consultant",
+          organization: "Private Practice",
+          period: "2020 - 2024",
         },
       ],
       education: [
-        'LL.M in Corporate Law, University of London',
-        'LL.B (Hons), Makerere University',
-        'Postgraduate Diploma in Legal Practice',
+        "LL.B, University of Nairobi",
+        "Certified Fraud Professional",
+        "Certified Information Privacy Professional/Europe (CIPP/E)",
+        "Fellow of Corporate Governance of the UK (FCG)",
+        "Registered Patent Agent",
+        "LL.M (in progress), University of London",
       ],
     },
-    'johnson-gichuhi-bosire': {
-      name: 'Johnson Gichuhi Bosire',
-      role: 'Advocate',
-      location: 'Nairobi, Kenya',
-      image: '/images/team-members/johnson-gichuhi-bosire.jpeg',
+    "oduor-khamati": {
+      name: "Oduor Khamati",
+      role: "Managing Partner",
+      location: "Nairobi, Kenya",
+      email: "oduor@malikaokubasu.com",
+      phone: "+254 717 259 196 / +254 141 397 048",
+      linkedin: "https://www.linkedin.com/in/oduorkhamati/",
+      image: "/images/team-members/oduor-khamati.jpeg",
       bio: [
-        'Johnson Gichuhi Bosire is an Advocate with experience in litigation, tax law, employment and labour relations, public interest litigation, and regulatory compliance.',
-        'He has worked with NGOs, community organizations, and corporate clients, contributing to legal research, policy interpretation, and governance-related initiatives.',
-        'His practice combines legal expertise with a strong interest in human rights, sustainability, and the rule of law in Kenya.',
+        "Oduor Khamati is an Advocate of the High Court of Kenya. He holds a Bachelor of Laws degree from the University of Nairobi, where he graduated with Second Class Upper Division honours. His legal training provides him with a strong foundation in legal research, advisory work, drafting, and professional legal practice.",
       ],
       expertise: [
-        'Litigation',
-        'Tax Law',
-        'Employment and Labour Relations',
-        'Public Interest Litigation',
-        'Regulatory Compliance',
-      ],
-    },
-    'sarah-nambi': {
-      name: 'Oduor Kevin Khamati',
-      role: 'Advocate of the High Court of Kenya',
-      location: 'Nairobi, Kenya',
-      linkedin: 'https://www.linkedin.com/in/oduorkhamati/',
-      image: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=600&q=80',
-      bio: [
-        'Oduor Kevin Khamati is an Advocate of the High Court of Kenya with over six years of experience in litigation, corporate advisory, and commercial legal practice. He represents and advises individuals, companies, and institutions across a wide range of civil and commercial matters, combining courtroom advocacy with practical, business-minded counsel.',
-        'His litigation work covers dispute management, drafting pleadings and submissions, legal research, and court representation, with experience across commercial disputes, employment claims, contractual claims, and regulatory issues. He manages matters end-to-end, from initial assessment through resolution, with a structured, detail-oriented approach.',
-        'In corporate and commercial practice, Oduor advises on contracts, risk exposure, and operational legal matters. He drafts and reviews commercial agreements, employment contracts, and service arrangements, and supports clients on corporate governance, regulatory compliance, and business structuring.',
-        'Known for clear communication and sound professional judgment, he delivers solutions that protect client interests while supporting strong commercial decision-making.',
-      ],
-      expertise: [
-        'Litigation and Dispute Resolution',
-        'Commercial Contracts',
-        'Corporate Advisory',
-        'Employment Law',
-        'Regulatory Compliance',
-        'Corporate Governance',
+        "Commercial Litigation",
+        "Corporate Advisory",
+        "Contract Drafting and Negotiation",
+        "Regulatory Compliance",
+        "Corporate Governance",
       ],
       experience: [
         {
-          title: 'Advocate of the High Court of Kenya',
-          organization: 'Private Practice',
-          period: '2018 - Present',
+          title: "Managing Partner",
+          organization: "Malika Okubasu & Company Advocates",
+          period: "2023 - Present",
+        },
+        {
+          title: "Advocate",
+          organization: "Private Practice",
+          period: "2018 - 2023",
         },
       ],
       education: [
-        'LL.B, University of Nairobi',
-        'Advocate of the High Court of Kenya (2018)',
+        "LL.B, University of Nairobi",
+        "Advocate of the High Court of Kenya",
+      ],
+    },
+    "susan-anyango": {
+      name: "Susan Anyango",
+      role: "Advocate of the High Court of Kenya",
+      location: "Nairobi, Kenya",
+      email: "susan@malikaokubasu.com",
+      phone: "+254 141 397 048",
+      linkedin: "https://www.linkedin.com/in/susan-anyango-aciarb-0b861a249/",
+      image: "/images/team-members/susan-anyango.jpeg",
+      bio: [
+        "Susan Anyango Odhiambo is an Advocate of the High Court of Kenya with experience in civil and commercial litigation, real estate and conveyancing law, and commercial and corporate law.",
+        "She holds a Bachelor of Laws Degree, Second Class Upper Division, from Jomo Kenyatta University of Agriculture and Technology, awarded in 2023, and was admitted to the Bar in November 2025.",
+        "Susan has previously worked as a Legal Intern at Mohammed Muigai LLP and as a Trainee Advocate and Holding Over Associate at Muma and Kanjama Advocates, where she gained practical experience in legal research, drafting, advisory work, and dispute resolution.",
+      ],
+      expertise: [
+        "Civil and Commercial Litigation",
+        "Real Estate and Conveyancing",
+        "Corporate Law",
+        "Legal Research and Drafting",
+        "Dispute Resolution",
+      ],
+      experience: [
+        {
+          title: "Advocate",
+          organization: "Malika Okubasu & Company Advocates",
+          period: "2025 - Present",
+        },
+        {
+          title: "Trainee Advocate / Holding Over Associate",
+          organization: "Muma and Kanjama Advocates",
+          period: "2024 - 2025",
+        },
+        {
+          title: "Legal Intern",
+          organization: "Mohammed Muigai LLP",
+          period: "2023 - 2024",
+        },
+      ],
+      education: [
+        "LL.B, Jomo Kenyatta University of Agriculture and Technology",
+        "Admitted to the Bar, November 2025",
       ],
     },
   };
 
-  const profile = profiles[id as keyof typeof profiles] ?? profiles['malika-okubasu'];
-  const hasContactButtons = Boolean(profile.phone || profile.email || profile.linkedin);
+  const profile =
+    profiles[id as keyof typeof profiles] ?? profiles["malika-okubasu"];
+  const hasContactButtons = Boolean(
+    profile.phone || profile.email || profile.linkedin,
+  );
   const hasDirectContact = Boolean(profile.phone || profile.email);
-  
+
   return (
     <div className="lg:pt-0 pt-[72px]">
       {/* Hero Section */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-[#5B6676] mb-8">
-            <Link href="/team" className="hover:text-[#0B1E3A]">Our Team</Link>
+          <div className="flex items-center gap-2 text-sm text-body mb-8">
+            <Link href="/team" className="hover:text-link">
+              Our Team
+            </Link>
             <span>/</span>
-            <span className="text-[#0B1E3A]">{profile.name}</span>
+            <span className="text-heading">{profile.name}</span>
           </div>
-          
+
           <div className="grid lg:grid-cols-[400px_1fr] gap-12 lg:gap-16">
             {/* Image */}
             <div>
@@ -128,20 +159,23 @@ export function TeamProfile({ id }: TeamProfileProps) {
                 className="w-full aspect-[3/4] object-cover grayscale"
               />
             </div>
-            
+
             {/* Identity & Contact */}
             <div>
-              <h1 className="text-4xl lg:text-5xl font-bold text-[#0B1E3A] mb-4 leading-tight">
+              <h1 className="text-4xl lg:text-5xl font-bold text-heading mb-4 leading-tight">
                 {profile.name}
               </h1>
-              <div className="text-xl text-[#5B6676] mb-2">{profile.role}</div>
-              <div className="text-lg text-[#5B6676] mb-8">{profile.location}</div>
-              
+              <div className="text-xl text-body mb-2">{profile.role}</div>
+              <div className="text-lg text-body mb-8">{profile.location}</div>
+
               {/* Contact Buttons */}
               {hasContactButtons && (
                 <div className="flex flex-col sm:flex-row gap-3 mb-8">
                   {profile.phone && (
-                    <Button variant="outline" href={`tel:${profile.phone}`}>
+                    <Button
+                      variant="outline"
+                      href={`tel:${profile.phone.split(" / ")[0]}`}
+                    >
                       <Phone className="w-4 h-4 mr-2" />
                       Call
                     </Button>
@@ -160,26 +194,32 @@ export function TeamProfile({ id }: TeamProfileProps) {
                   )}
                 </div>
               )}
-              
+
               {/* Direct contact info */}
               {hasDirectContact && (
-                <div className="bg-[#F2F4F7] p-6 flex flex-col gap-3">
+                <div className="bg-soft-blue p-6 flex flex-col gap-3">
                   {profile.phone && (
                     <div>
-                      <div className="text-xs uppercase tracking-wider text-[#5B6676] mb-1">
+                      <div className="text-xs uppercase tracking-wider text-body mb-1">
                         Phone
                       </div>
-                      <a href={`tel:${profile.phone}`} className="text-[#0B1E3A] hover:underline">
+                      <a
+                        href={`tel:${profile.phone.split(" / ")[0]}`}
+                        className="text-heading hover:underline"
+                      >
                         {profile.phone}
                       </a>
                     </div>
                   )}
                   {profile.email && (
                     <div>
-                      <div className="text-xs uppercase tracking-wider text-[#5B6676] mb-1">
+                      <div className="text-xs uppercase tracking-wider text-body mb-1">
                         Email
                       </div>
-                      <a href={`mailto:${profile.email}`} className="text-[#0B1E3A] hover:underline break-all">
+                      <a
+                        href={`mailto:${profile.email}`}
+                        className="text-heading hover:underline break-all"
+                      >
                         {profile.email}
                       </a>
                     </div>
@@ -190,33 +230,36 @@ export function TeamProfile({ id }: TeamProfileProps) {
           </div>
         </div>
       </section>
-      
+
       {/* Bio */}
-      <section className="py-16 lg:py-24 bg-[#F2F4F7]">
+      <section className="py-16 lg:py-24 bg-soft-blue">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <div className="max-w-4xl">
-            <h2 className="text-2xl lg:text-3xl font-bold text-[#0B1E3A] mb-6">
+            <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-6">
               Biography
             </h2>
             {profile.bio.map((paragraph, index) => (
-              <p key={index} className="text-lg text-[#5B6676] leading-relaxed mb-6">
+              <p key={index} className="text-lg text-body leading-relaxed mb-6">
                 {paragraph}
               </p>
             ))}
           </div>
         </div>
       </section>
-      
+
       {profile.expertise?.length ? (
         <section className="py-16 lg:py-24 bg-white">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
-              <h2 className="text-2xl lg:text-3xl font-bold text-[#0B1E3A] mb-6">
+              <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-6">
                 Areas of Expertise
               </h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {profile.expertise.map((area, index) => (
-                  <div key={index} className="font-serif-editorial text-lg text-[#0B1E3A]">
+                  <div
+                    key={index}
+                    className="font-serif-editorial text-lg text-heading"
+                  >
                     • {area}
                   </div>
                 ))}
@@ -225,27 +268,28 @@ export function TeamProfile({ id }: TeamProfileProps) {
           </div>
         </section>
       ) : null}
-      
+
       {/* Experience */}
       {profile.experience?.length ? (
-        <section className="py-16 lg:py-24 bg-[#F2F4F7]">
+        <section className="py-16 lg:py-24 bg-soft-blue">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
-              <h2 className="text-2xl lg:text-3xl font-bold text-[#0B1E3A] mb-8">
+              <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-8">
                 Experience
               </h2>
               <div className="flex flex-col gap-6">
                 {profile.experience.map((exp, index) => (
-                  <div key={index} className="border-l-2 border-[#0B1E3A] pl-6">
-                    <div className="text-lg font-bold text-[#0B1E3A] mb-1">
+                  <div
+                    key={index}
+                    className="border-l-2 border-brand-blue pl-6"
+                  >
+                    <div className="text-lg font-bold text-heading mb-1">
                       {exp.title}
                     </div>
-                    <div className="text-base text-[#5B6676] mb-1">
+                    <div className="text-base text-body mb-1">
                       {exp.organization}
                     </div>
-                    <div className="text-sm text-[#5B6676]">
-                      {exp.period}
-                    </div>
+                    <div className="text-sm text-body">{exp.period}</div>
                   </div>
                 ))}
               </div>
@@ -253,18 +297,18 @@ export function TeamProfile({ id }: TeamProfileProps) {
           </div>
         </section>
       ) : null}
-      
+
       {/* Education */}
       {profile.education?.length ? (
         <section className="py-16 lg:py-24 bg-white">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
-              <h2 className="text-2xl lg:text-3xl font-bold text-[#0B1E3A] mb-6">
+              <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-6">
                 Education
               </h2>
               <div className="flex flex-col gap-3">
                 {profile.education.map((edu, index) => (
-                  <div key={index} className="text-lg text-[#5B6676]">
+                  <div key={index} className="text-lg text-body">
                     • {edu}
                   </div>
                 ))}

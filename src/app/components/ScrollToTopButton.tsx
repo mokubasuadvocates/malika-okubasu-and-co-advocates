@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { ArrowUp } from "lucide-react";
 
 export function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,25 +16,27 @@ export function ScrollToTopButton() {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
 
     return () => {
-      window.removeEventListener('scroll', toggleVisibility);
+      window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 z-40 w-12 h-12 lg:w-14 lg:h-14 bg-[#0B1E3A] text-white flex items-center justify-center transition-all duration-300 hover:bg-[#132B4C] shadow-lg ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+      className={`fixed bottom-8 right-8 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-button-blue text-white shadow-lg transition-all duration-300 hover:bg-button-blue-hover lg:h-14 lg:w-14 ${
+        isVisible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-4 pointer-events-none"
       }`}
       aria-label="Scroll to top"
     >

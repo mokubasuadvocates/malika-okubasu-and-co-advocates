@@ -1,94 +1,141 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Law Firm Design Tokens */
-  --navy-950: #0B1E3A;
-  --navy-900: #132B4C;
-  --navy-overlay: rgba(11, 30, 58, 0.90);
-  --white: #FFFFFF;
-  --light-gray-bg: #F2F4F7;
-  --divider: #D7DEE7;
-  --muted-text: #5B6676;
-  
+  /* Law Firm Design Tokens - bright, logo-aligned, WCAG-aware palette */
+  --brand-blue: #2eabe2;
+  --brand-blue-ui: #147fb0;
+  --brand-blue-ui-hover: #0f6f9d;
+  --brand-blue-tint: #eef8fd;
+  --brand-grey: #808285;
+  --heading-text: #173b56;
+  --body-text: #2f343a;
+  --secondary-text: #5f6670;
+  --soft-blue-bg: #f5fbff;
+  --light-blue-bg: #eef8fd;
+  --light-neutral-bg: #f7f8fa;
+  --soft-grey-bg: #f1f2f3;
+  --border-subtle: #d9dee3;
+  --divider-subtle: #d9dee3;
+  --form-border: #808285;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --error: #dc2626;
+
+  --navy-950: #12324a;
+  --navy-900: #173b56;
+  --navy-800: #32465d;
+  --navy-overlay: rgba(18, 50, 74, 0.9);
+  --white: #ffffff;
+  --soft-bg: #f5fbff;
+  --light-bg: #eef8fd;
+  --muted-text: #5f6670;
+  --brand-cyan: #2eabe2;
+  --logo-grey: #808285;
+  --hover-bg: #eef8fd;
+
   /* Legacy tokens for compatibility */
   --font-size: 16px;
   --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
+  --foreground: #173b56;
   --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #0B1E3A;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #5B6676;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
+  --card-foreground: #173b56;
+  --popover: #ffffff;
+  --popover-foreground: #173b56;
+  --primary: #147fb0;
+  --primary-foreground: #ffffff;
+  --secondary: #eef8fd;
+  --secondary-foreground: #173b56;
+  --muted: #f7f8fa;
+  --muted-foreground: #5f6670;
+  --accent: #eef8fd;
+  --accent-foreground: #173b56;
+  --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --border: #D7DEE7;
+  --border: #d9dee3;
   --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
-  --font-weight-medium: 500;
+  --input-background: #ffffff;
+  --switch-background: #e5e7eb;
+  --font-weight-medium: 600;
   --font-weight-normal: 400;
-  --ring: #0B1E3A;
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --ring: #2eabe2;
+  --chart-1: #0f6f9d;
+  --chart-2: #2eabe2;
+  --chart-3: #5f6670;
+  --chart-4: #16a34a;
+  --chart-5: #f59e0b;
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: #ffffff;
+  --sidebar-foreground: #173b56;
+  --sidebar-primary: #147fb0;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef8fd;
+  --sidebar-accent-foreground: #173b56;
+  --sidebar-border: #d9dee3;
+  --sidebar-ring: #2eabe2;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --font-weight-medium: 500;
+  --background: #1f2d3d;
+  --foreground: #f8fafc;
+  --card: #27384c;
+  --card-foreground: #f8fafc;
+  --popover: #27384c;
+  --popover-foreground: #f8fafc;
+  --primary: #f8fafc;
+  --primary-foreground: #1f2d3d;
+  --secondary: #2eabe2;
+  --secondary-foreground: #1f2d3d;
+  --muted: #32465d;
+  --muted-foreground: #d1d5db;
+  --accent: #32465d;
+  --accent-foreground: #f8fafc;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #5f6673;
+  --input: #32465d;
+  --ring: #2eabe2;
+  --font-weight-medium: 600;
   --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --chart-1: #2eabe2;
+  --chart-2: #16a34a;
+  --chart-3: #f59e0b;
+  --chart-4: #808285;
+  --chart-5: #dc2626;
+  --sidebar: #27384c;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #2eabe2;
+  --sidebar-primary-foreground: #1f2d3d;
+  --sidebar-accent: #32465d;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #5f6673;
+  --sidebar-ring: #2eabe2;
 }
 
 @theme inline {
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-ui: var(--brand-blue-ui);
+  --color-brand-blue-ui-hover: var(--brand-blue-ui-hover);
+  --color-brand-blue-tint: var(--brand-blue-tint);
+  --color-brand-grey: var(--brand-grey);
+  --color-heading: var(--heading-text);
+  --color-body: var(--body-text);
+  --color-secondary-text: var(--secondary-text);
+  --color-link: var(--brand-blue);
+  --color-link-hover: var(--brand-blue-ui-hover);
+  --color-button-blue: var(--brand-blue-ui);
+  --color-button-blue-hover: var(--brand-blue-ui-hover);
+  --color-soft-blue: var(--soft-blue-bg);
+  --color-light-blue: var(--light-blue-bg);
+  --color-light-neutral: var(--light-neutral-bg);
+  --color-soft-grey: var(--soft-grey-bg);
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-brand-border: var(--border-subtle);
+  --color-divider: var(--divider-subtle);
+  --color-form-border: var(--form-border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -135,8 +182,9 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    @apply bg-background text-body;
+    font-family:
+      "Gilroy", "Inter", "Poppins", "Helvetica Neue", Arial, sans-serif;
   }
 
   /**
@@ -153,24 +201,28 @@
     font-size: var(--text-2xl);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    color: var(--heading-text);
   }
 
   h2 {
     font-size: var(--text-xl);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    color: var(--heading-text);
   }
 
   h3 {
     font-size: var(--text-lg);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    color: var(--heading-text);
   }
 
   h4 {
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    color: var(--heading-text);
   }
 
   label {
@@ -190,13 +242,34 @@
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
   }
-  
-  /* Editorial serif for nav and lists */
-  .font-serif-editorial {
-    font-family: 'Newsreader', Georgia, serif;
+
+  :where(
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    summary,
+    [tabindex]:not([tabindex="-1"])
+  ):focus-visible {
+    outline: 3px solid var(--brand-blue);
+    outline-offset: 3px;
   }
-  
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--secondary-text);
+    opacity: 1;
+  }
+
+  /* Historical class name retained; now maps to the primary UI font stack. */
+  .font-serif-editorial {
+    font-family:
+      "Gilroy", "Inter", "Poppins", "Helvetica Neue", Arial, sans-serif;
+  }
+
   .font-sans-primary {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family:
+      "Gilroy", "Inter", "Poppins", "Helvetica Neue", Arial, sans-serif;
   }
 }

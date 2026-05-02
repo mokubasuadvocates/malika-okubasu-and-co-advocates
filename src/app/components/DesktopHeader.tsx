@@ -1,52 +1,63 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function DesktopHeader() {
   const pathname = usePathname();
-  
+
   const navLinks = [
-    { label: 'Home', path: '/' },
-    { label: 'About Us', path: '/about' },
-    { label: 'Practice Areas', path: '/practice-areas' },
-    { label: 'Our Team', path: '/team' },
-    { label: 'Publications', path: '/publications' },
-    { label: 'Get In Touch', path: '/contact' },
+    { label: "Home", path: "/" },
+    { label: "About Us", path: "/about" },
+    { label: "Practice Areas", path: "/practice-areas" },
+    { label: "Our Team", path: "/team" },
+    { label: "Publications", path: "/publications" },
+    { label: "Get In Touch", path: "/contact" },
   ];
-  
+
   return (
-    <header className="sticky top-0 z-50 hidden lg:flex">
+    <header className="sticky top-0 z-50 hidden border-b border-brand-border bg-white/95 shadow-sm backdrop-blur-sm lg:flex">
       {/* Left brand pillar */}
-      <div className="w-[260px] bg-[#0B1E3A] flex items-start px-6 py-6">
-        <Link href="/" className="text-white">
-          <div className="leading-tight">
-            <div className="text-lg font-bold tracking-tight">Malika Okubasu,</div>
-            <div className="text-sm font-bold tracking-tight">& Company Advocates</div>
+      <div className="flex w-[260px] items-center gap-4 bg-white px-6 py-5">
+        <Link href="/" className="flex items-center gap-3">
+          <img
+            src="/images/Malika-Okubasu-Logo.jpg"
+            alt="Malika Okubasu & Company Advocates"
+            className="h-10 w-auto"
+          />
+          <div className="leading-tight text-heading">
+            <div className="text-lg font-bold tracking-tight">
+              Malika Okubasu,
+            </div>
+            <div className="text-sm font-bold tracking-tight">
+              & Company Advocates
+            </div>
           </div>
         </Link>
       </div>
-      
+
       {/* Right nav area */}
-      <div className="flex-1 bg-white/95 backdrop-blur-sm flex items-center justify-between px-8 border-b border-[#D7DEE7]">
+      <div className="flex flex-1 items-center justify-between px-8">
         <nav className="flex items-center gap-12 flex-1">
           {navLinks.slice(0, -1).map((link) => (
             <Link
               key={link.path}
               href={link.path}
-              className={`font-serif-editorial text-[17px] tracking-wider hover:underline underline-offset-4 decoration-[#0B1E3A] transition-all ${
-                pathname === link.path ? 'underline' : ''
+              className={`font-serif-editorial text-[17px] font-semibold tracking-normal text-heading underline-offset-4 decoration-2 decoration-brand-blue transition-all hover:text-link hover:underline ${
+                pathname === link.path ? "text-link underline" : ""
               }`}
             >
               {link.label}
             </Link>
           ))}
         </nav>
-        
+
         {/* Get In Touch button */}
         <Link href="/contact">
-          <button className="border-2 border-[#0B1E3A] bg-white px-6 py-2.5 flex items-center gap-2 hover:bg-[#F2F4F7] transition-colors">
-            <span className="text-sm font-sans-primary font-medium">Get In Touch</span>
+          <button className="flex items-center gap-2 rounded-sm border-2 border-brand-blue bg-white px-6 py-2.5 text-link transition-colors hover:bg-light-blue hover:text-link-hover">
+            <span className="text-sm font-sans-primary font-medium">
+              Get In Touch
+            </span>
           </button>
         </Link>
       </div>
