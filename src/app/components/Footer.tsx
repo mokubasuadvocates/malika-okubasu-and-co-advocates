@@ -22,7 +22,7 @@ export function Footer() {
             <h3 className="text-lg font-bold mb-4 text-white">About Us</h3>
             <p className="text-sm leading-relaxed text-soft-blue">
               Malika Okubasu & Company Advocates is a leading law firm providing
-              comprehensive legal solutions to complex business challenges. We
+              comprehensive legal solutions to complex challenges. We
               combine deep expertise with practical insight to deliver
               exceptional results for our clients.
             </p>
@@ -58,10 +58,10 @@ export function Footer() {
                 +254 141 397 048
               </a>
               <a
-                href="mailto:info@malikaokubasu.com"
+                href="mailto:legal@mokubasuadvocates.com"
                 className="transition-all hover:text-link hover:underline"
               >
-                info@malikaokubasu.com
+                legal@mokubasuadvocates.com
               </a>
               <a
                 href="https://linkedin.com"

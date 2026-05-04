@@ -507,10 +507,10 @@ export function Home() {
                     Email
                   </div>
                   <a
-                    href="mailto:info@malikaokubasu.com"
+                    href="mailto:legal@mokubasuadvocates.com"
                     className="text-lg lg:text-xl text-heading hover:text-link hover:underline underline-offset-4 transition-all"
                   >
-                    info@malikaokubasu.com
+                    legal@mokubasuadvocates.com
                   </a>
                 </div>
 

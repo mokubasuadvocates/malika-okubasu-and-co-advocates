@@ -1,5 +1,11 @@
-import { PracticeAreaDetail } from '../../pages/PracticeAreaDetail';
+import { PracticeAreaDetail } from "../../pages/PracticeAreaDetail";
 
-export default function Page() {
-  return <PracticeAreaDetail />;
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default function Page({ params }: PageProps) {
+  return <PracticeAreaDetail slug={params.slug} />;
 }
