@@ -1,0 +1,80 @@
+export const practiceAreas = [
+  {
+    id: "corporate-commercial",
+    title: "Corporate and Commercial",
+    description: "General corporate, commercial and contract briefs.",
+    details:
+      "Our corporate team handles complex transactions and day-to-day business advisory with a commercially focused approach.",
+    services: [
+      "General corporate, commercial and contract briefs",
+      "Company secretarial",
+      "Mergers and acquisitions",
+      "Joint ventures",
+    ],
+    sectorExpertise: [],
+  },
+  {
+    id: "dispute-resolution",
+    title: "Dispute Resolution",
+    description: "[Insert short introductory paragraph here]",
+    details: "[Insert supporting paragraph here]",
+    services: [], // Add numbered services here
+    sectorExpertise: [], // Add descriptive expertise here if applicable
+  },
+  {
+    id: "media-tech-ip",
+    title: "Media, Technology & Intellectual Property",
+    description: "[Insert short introductory paragraph here]",
+    details: "[Insert supporting paragraph here]",
+    services: [],
+    sectorExpertise: [],
+  },
+  {
+    id: "energy-climate",
+    title: "Energy, Natural Resources & Climate Change",
+    description: "[Insert short introductory paragraph here]",
+    details: "[Insert supporting paragraph here]",
+    services: [],
+    sectorExpertise: [],
+  },
+  {
+    id: "real-estate-finance",
+    title: "Real Estate, Banking & Finance",
+    description: "[Insert short introductory paragraph here]",
+    details: "[Insert supporting paragraph here]",
+    services: [],
+    sectorExpertise: [],
+  },
+  {
+    id: "family-law",
+    title: "Family Law",
+    description: "[Insert short introductory paragraph here]",
+    details: "[Insert supporting paragraph here]",
+    services: [],
+    sectorExpertise: [],
+  },
+  {
+    id: "policy-legislative-drafting",
+    title: "Policy & Legislative Drafting",
+    description: "[Insert short introductory paragraph here]",
+    details: "[Insert supporting paragraph here]",
+    services: [],
+    sectorExpertise: [],
+  },
+  {
+    id: "regional-integration",
+    title: "Regional Integration",
+    description: "[Insert short introductory paragraph here]",
+    details: "[Insert supporting paragraph here]",
+    services: [],
+    sectorExpertise: [],
+  },
+  {
+    id: "employment-labour",
+    title: "Employment & Labour Relations",
+    description: "[Insert short introductory paragraph here]",
+    details: "[Insert supporting paragraph here]",
+    services: [],
+    sectorExpertise: [],
+  },
+];
