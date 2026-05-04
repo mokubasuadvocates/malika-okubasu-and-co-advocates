@@ -193,9 +193,6 @@ export function Home() {
 
         <div className="mx-auto grid min-h-screen max-w-[1280px] items-center gap-10 px-6 pt-28 pb-16 lg:min-h-[720px] lg:grid-cols-[52%_48%] lg:px-12 lg:pt-12 xl:gap-16">
           <div>
-            <div className="mb-5 inline-flex rounded-full border border-brand-border bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-link">
-              Nairobi-based legal counsel
-            </div>
             <h1 className="max-w-[760px] text-4xl font-bold leading-[1.06] tracking-tight text-heading sm:text-5xl lg:text-6xl xl:text-7xl">
               Effective solutions to complex legal and business challenges
             </h1>
@@ -532,9 +529,7 @@ export function Home() {
               </div>
 
               <Link href="/contact">
-                <Button variant="primary">
-                  Contact Us
-                </Button>
+                <Button variant="primary">Contact Us</Button>
               </Link>
             </div>
           </div>

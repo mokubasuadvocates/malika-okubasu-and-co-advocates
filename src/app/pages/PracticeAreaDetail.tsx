@@ -29,7 +29,7 @@ export function PracticeAreaDetail() {
         role: "Founder and Consulting Partner",
         location: "Nairobi, Kenya",
         phone: "+254 721 789 389 / +254 141 397 048",
-        email: "info@malikaokubasu.com",
+        email: "legal@mokubasuadvocates.com",
         image: "/images/team-members/brenton-okubasu.jpeg",
       },
       {
@@ -37,7 +37,7 @@ export function PracticeAreaDetail() {
         role: "Managing Partner",
         location: "Nairobi, Kenya",
         phone: "+254 717 259 196 / +254 141 397 048",
-        email: "info@malikaokubasu.com",
+        email: "oduor.khamati@mokubasuadvocates.com",
         image: "/images/team-members/oduor-khamati.jpeg",
       },
       {
@@ -45,7 +45,7 @@ export function PracticeAreaDetail() {
         role: "Associate",
         location: "Nairobi, Kenya",
         phone: "+254 141 397 048",
-        email: "info@malikaokubasu.com",
+        email: "susan.anyango@mokubasuadvocates.com",
         image: "/images/team-members/susan-anyango.jpeg",
       },
     ],
