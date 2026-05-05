@@ -18,6 +18,7 @@ export function Footer() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
           {/* About Column */}
+          
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">About Us</h3>
             <p className="text-sm leading-relaxed text-soft-blue">

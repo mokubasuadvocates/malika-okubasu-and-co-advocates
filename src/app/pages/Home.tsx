@@ -109,6 +109,82 @@ export function Home() {
 
   return (
     <div>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LegalService",
+            name: "Malika Okubasu & Company Advocates",
+            url: "https://mokubasuadvocates.com",
+            email: "legal@mokubasuadvocates.com",
+            telephone: "+254141397048",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress:
+                "5th Avenue Suites, 5th Avenue Ngong Road, Suite No. 6, 4th Floor",
+              addressLocality: "Nairobi",
+              postalCode: "00603",
+              addressCountry: "KE",
+            },
+            areaServed: {
+              "@type": "Country",
+              name: "Kenya",
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Malika Okubasu & Company Advocates",
+            url: "https://mokubasuadvocates.com",
+          }),
+        }}
+      />
+      {/* Team Member Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Brenton Okubasu",
+              worksFor: {
+                "@type": "LegalService",
+                name: "Malika Okubasu & Company Advocates",
+              },
+              url: "https://mokubasuadvocates.com/team",
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Oduor Khamati",
+              worksFor: {
+                "@type": "LegalService",
+                name: "Malika Okubasu & Company Advocates",
+              },
+              url: "https://mokubasuadvocates.com/team",
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Susan Anyango",
+              worksFor: {
+                "@type": "LegalService",
+                name: "Malika Okubasu & Company Advocates",
+              },
+              url: "https://mokubasuadvocates.com/team",
+            },
+          ]),
+        }}
+      />
+
       {/* 1) Bright Premium Hero Section with Integrated Navigation */}
       <section className="relative overflow-hidden bg-soft-blue">
         {/* Desktop: Header + Navigation */}
@@ -135,9 +211,9 @@ export function Home() {
             <nav className="flex items-center gap-12">
               {[
                 ["Home", "/"],
-                ["About Us", "/about"],
+                ["About Us", "/about-us"],
                 ["Practice Areas", "/practice-areas"],
-                ["Our Team", "/team"],
+                ["Our Team", "/our-team"],
                 ["Publications", "/publications"],
               ].map(([label, href]) => (
                 <Link
@@ -194,16 +270,26 @@ export function Home() {
         <div className="mx-auto grid min-h-screen max-w-[1280px] items-center gap-10 px-6 pt-28 pb-16 lg:min-h-[720px] lg:grid-cols-[52%_48%] lg:px-12 lg:pt-12 xl:gap-16">
           <div>
             <h1 className="max-w-[760px] text-4xl font-bold leading-[1.06] tracking-tight text-heading sm:text-5xl lg:text-6xl xl:text-7xl">
-              Effective solutions to complex legal and business challenges
+              Malika Okubasu & Company Advocates
             </h1>
             <p className="mt-6 max-w-[620px] text-lg leading-relaxed text-body lg:text-xl">
               Practical, responsive legal support for individuals, institutions,
               and businesses navigating high-stakes decisions.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact">
-                <Button variant="primary">Book a Consultation</Button>
-              </Link>
+              {process.env.NEXT_PUBLIC_BOOKINGS_URL ? (
+                <Link
+                  href={process.env.NEXT_PUBLIC_BOOKINGS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="primary">Book a Consultation</Button>
+                </Link>
+              ) : (
+                <Link href="/contact">
+                  <Button variant="primary">Book a Consultation</Button>
+                </Link>
+              )}
               <Link href="/practice-areas">
                 <Button variant="outline">Explore Practice Areas</Button>
               </Link>
@@ -283,7 +369,7 @@ export function Home() {
               </p>
 
               <div>
-                <Link href="/about">
+                <Link href="/about-us">
                   <Button
                     variant="outline"
                     className="border-brand-blue bg-white text-link hover:bg-white"
@@ -332,13 +418,23 @@ export function Home() {
 
           {/* Compact CTA Strip */}
           <div className="mt-12 lg:mt-16 xl:mt-20 bg-soft-blue h-[72px] lg:h-[80px] flex items-center px-6 lg:px-12">
-            <Link
-              href="/contact"
-              className="font-bold text-heading text-base lg:text-lg hover:underline underline-offset-4 transition-all flex items-center gap-2"
-            >
-              Book a Consultation
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+            {process.env.NEXT_PUBLIC_BOOKINGS_URL ? (
+              <a
+                href={process.env.NEXT_PUBLIC_BOOKINGS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-heading text-base lg:text-lg hover:underline underline-offset-4 transition-all"
+              >
+                Book a Consultation
+              </a>
+            ) : (
+              <Link
+                href="/contact"
+                className="font-bold text-heading text-base lg:text-lg hover:underline underline-offset-4 transition-all"
+              >
+                Book a Consultation
+              </Link>
+            )}
           </div>
         </div>
       </section>
@@ -456,7 +552,7 @@ export function Home() {
           </div>
 
           <div className="mt-10 lg:mt-14">
-            <Link href="/team">
+            <Link href="/our-team">
               <Button variant="outline">View Our Team</Button>
             </Link>
           </div>
@@ -582,7 +678,7 @@ export function Home() {
             Home
           </Link>
           <Link
-            href="/about"
+            href="/about-us"
             onClick={() => setIsMobileMenuOpen(false)}
             className="text-heading text-3xl font-bold tracking-tight hover:text-link transition-colors"
           >
@@ -596,7 +692,7 @@ export function Home() {
             Practice Areas
           </Link>
           <Link
-            href="/team"
+            href="/our-team"
             onClick={() => setIsMobileMenuOpen(false)}
             className="text-heading text-3xl font-bold tracking-tight hover:text-link transition-colors"
           >
