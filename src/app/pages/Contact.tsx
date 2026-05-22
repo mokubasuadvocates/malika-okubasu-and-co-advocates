@@ -1,8 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { MapPin, Phone, Mail, ArrowRight, Linkedin } from "lucide-react";
 import { Button } from "../components/Button";
+import { OFFICIAL_LINKEDIN_URL } from "../constants/social";
+
+declare global {
+  interface Window {
+    turnstile: any;
+  }
+}
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -12,29 +19,153 @@ export function Contact() {
     subject: "",
     message: "",
     consent: false,
+    companyWebsite: "",
+    turnstileToken: "",
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submissionMessage, setSubmissionMessage] = useState<string | null>(null);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
+  const turnstileContainerRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetId = useRef<string | null>(null);
+  const hasTurnstile =
+    typeof process !== "undefined" &&
+    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    if (!hasTurnstile || typeof window === "undefined") return;
+
+    const loadTurnstile = () => {
+      if (window.turnstile && turnstileContainerRef.current) {
+        if (turnstileWidgetId.current === null) {
+          try {
+            turnstileWidgetId.current = window.turnstile.render(
+              turnstileContainerRef.current,
+              {
+                sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+                theme: "light",
+              }
+            );
+          } catch (error) {
+            console.error("Turnstile render error:", error);
+          }
+        }
+      }
+    };
+
+    const script = document.querySelector(
+      'script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]'
+    );
+    if (script) {
+      loadTurnstile();
+    } else {
+      const newScript = document.createElement("script");
+      newScript.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+      newScript.async = true;
+      newScript.defer = true;
+      newScript.onload = loadTurnstile;
+      document.head.appendChild(newScript);
+    }
+  }, [hasTurnstile]);
+
+  const validateEmail = (value: string) =>
+    /^\S+@\S+\.\S+$/.test(value.trim());
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmissionMessage(null);
+    setSubmissionError(null);
 
-    // Simple validation
+    const trimmedData = {
+      fullName: formData.fullName.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      subject: formData.subject.trim(),
+      message: formData.message.trim(),
+      consent: formData.consent,
+      companyWebsite: formData.companyWebsite.trim(),
+      turnstileToken: formData.turnstileToken,
+    };
+
     const newErrors: Record<string, string> = {};
-    if (!formData.fullName) newErrors.fullName = "Full name is required";
-    if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.message) newErrors.message = "Message is required";
-    if (!formData.consent) newErrors.consent = "You must agree to continue";
+    if (!trimmedData.fullName) newErrors.fullName = "Full name is required";
+    if (!trimmedData.email) {
+      newErrors.email = "Email is required";
+    } else if (!validateEmail(trimmedData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+    if (!trimmedData.message) newErrors.message = "Message is required";
+    if (!trimmedData.consent)
+      newErrors.consent = "You must agree to continue";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
 
-    // Submit form (mock)
-    setIsSubmitted(true);
     setErrors({});
+    setIsSubmitting(true);
+
+    // Get Turnstile token if available
+    let turnstileToken = "";
+    if (hasTurnstile && window.turnstile && turnstileWidgetId.current !== null) {
+      try {
+        turnstileToken = window.turnstile.getResponse(turnstileWidgetId.current) || "";
+      } catch (error) {
+        console.error("Error getting Turnstile response:", error);
+      }
+    }
+
+    try {
+      const payload = {
+        ...trimmedData,
+        turnstileToken,
+      };
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Message could not be sent.");
+      }
+
+      setSubmissionMessage("Thank you. Your message has been sent successfully.");
+      setIsSubmitted(true);
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+        consent: false,
+        companyWebsite: "",
+        turnstileToken: "",
+      });
+
+      // Reset Turnstile
+      if (hasTurnstile && window.turnstile && turnstileWidgetId.current !== null) {
+        try {
+          window.turnstile.reset(turnstileWidgetId.current);
+        } catch (error) {
+          console.error("Error resetting Turnstile:", error);
+        }
+      }
+    } catch (error) {
+      console.error("Contact form submission failed", error);
+      setSubmissionError(
+        "Sorry, your message could not be sent. Please email us directly at legal@mokubasuadvocates.com."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: string, value: string | boolean) => {
@@ -76,9 +207,9 @@ export function Contact() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left: Contact Details */}
             <div>
-              <h1 className="text-4xl lg:text-5xl font-bold text-heading mb-8 leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-bold text-heading mb-8 leading-tight">
                 Get In Touch
-              </h1>
+              </h2>
 
               <div className="flex flex-col gap-6 mb-8">
                 <div className="flex items-start gap-4">
@@ -120,6 +251,21 @@ export function Contact() {
                     </a>
                   </div>
                 </div>
+
+                <div className="flex items-start gap-4">
+                  <Linkedin className="w-5 h-5 text-heading flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-bold text-heading mb-1">LinkedIn</div>
+                    <a
+                      href={OFFICIAL_LINKEDIN_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-body hover:text-link hover:underline"
+                    >
+                      Malika Okubasu & Company Advocates
+                    </a>
+                  </div>
+                </div>
               </div>
 
               <Button variant="outline" className="mb-8">
@@ -147,6 +293,18 @@ export function Contact() {
                   We'll respond as soon as possible.
                 </p>
 
+                {submissionError && (
+                  <div className="mb-6 rounded-md border border-error/20 bg-error/10 px-4 py-3 text-sm text-error">
+                    {submissionError}
+                  </div>
+                )}
+
+                {submissionMessage && (
+                  <div className="mb-6 rounded-md border border-brand-blue/20 bg-white px-4 py-3 text-sm text-heading">
+                    {submissionMessage}
+                  </div>
+                )}
+
                 {isSubmitted ? (
                   <div className="bg-white p-6 border-l-4 border-brand-blue">
                     <h3 className="font-bold text-heading mb-2">Thank you!</h3>
@@ -167,6 +325,7 @@ export function Contact() {
                       </label>
                       <input
                         id="fullName"
+                        name="fullName"
                         type="text"
                         value={formData.fullName}
                         onChange={(e) =>
@@ -195,6 +354,7 @@ export function Contact() {
                       </label>
                       <input
                         id="email"
+                        name="email"
                         type="email"
                         value={formData.email}
                         onChange={(e) => handleChange("email", e.target.value)}
@@ -219,6 +379,7 @@ export function Contact() {
                       </label>
                       <input
                         id="phone"
+                        name="phone"
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => handleChange("phone", e.target.value)}
@@ -236,6 +397,7 @@ export function Contact() {
                       </label>
                       <input
                         id="subject"
+                        name="subject"
                         type="text"
                         value={formData.subject}
                         onChange={(e) =>
@@ -255,6 +417,7 @@ export function Contact() {
                       </label>
                       <textarea
                         id="message"
+                        name="message"
                         rows={6}
                         value={formData.message}
                         onChange={(e) =>
@@ -275,6 +438,7 @@ export function Contact() {
                     <div>
                       <label className="flex items-start gap-3 cursor-pointer">
                         <input
+                          name="consent"
                           type="checkbox"
                           checked={formData.consent}
                           onChange={(e) =>
@@ -294,8 +458,32 @@ export function Contact() {
                       )}
                     </div>
 
-                    <Button type="submit" variant="solid" className="w-full">
-                      Send Message
+                    {/* Honeypot Field */}
+                    <input
+                      name="companyWebsite"
+                      type="text"
+                      value={formData.companyWebsite}
+                      onChange={(e) =>
+                        handleChange("companyWebsite", e.target.value)
+                      }
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      style={{ display: "none" }}
+                    />
+
+                    {/* Turnstile */}
+                    {hasTurnstile && (
+                      <div ref={turnstileContainerRef} className="mb-4" />
+                    )}
+
+                    <Button
+                      type="submit"
+                      variant="solid"
+                      className="w-full"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
                 )}

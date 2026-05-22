@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -8,9 +9,9 @@ export function DesktopHeader() {
 
   const navLinks = [
     { label: "Home", path: "/" },
-    { label: "About Us", path: "/about" },
+    { label: "About Us", path: "/about-us" },
     { label: "Practice Areas", path: "/practice-areas" },
-    { label: "Our Team", path: "/team" },
+    { label: "Our Team", path: "/our-team" },
     { label: "Publications", path: "/publications" },
     { label: "Get In Touch", path: "/contact" },
   ];
@@ -19,11 +20,18 @@ export function DesktopHeader() {
     <header className="sticky top-0 z-50 hidden border-b border-brand-border bg-white/95 shadow-sm backdrop-blur-sm lg:flex">
       {/* Left brand pillar */}
       <div className="flex w-[260px] items-center gap-4 bg-white px-6 py-5">
-        <Link href="/" className="flex items-center gap-3">
-          <img
-            src="/images/Malika-Okubasu-Logo.jpg"
-            alt="Malika Okubasu & Company Advocates"
-            className="h-10 w-auto"
+        <Link
+          href="/"
+          aria-label="Malika Okubasu & Company Advocates home"
+          className="flex items-center gap-3"
+        >
+          <Image
+            src="/logo-mark.png"
+            alt="Malika Okubasu & Company Advocates logo"
+            width={48}
+            height={48}
+            priority
+            className="h-12 w-12 object-contain"
           />
           <div className="leading-tight text-heading">
             <div className="text-lg font-bold tracking-tight">
@@ -44,7 +52,10 @@ export function DesktopHeader() {
               key={link.path}
               href={link.path}
               className={`font-serif-editorial text-[17px] font-semibold tracking-normal text-heading underline-offset-4 decoration-2 decoration-brand-blue transition-all hover:text-link hover:underline ${
-                pathname === link.path ? "text-link underline" : ""
+                pathname === link.path ||
+                (link.path !== "/" && pathname.startsWith(`${link.path}/`))
+                  ? "text-link underline"
+                  : ""
               }`}
             >
               {link.label}
@@ -53,12 +64,13 @@ export function DesktopHeader() {
         </nav>
 
         {/* Get In Touch button */}
-        <Link href="/contact">
-          <button className="flex items-center gap-2 rounded-sm border-2 border-brand-blue bg-white px-6 py-2.5 text-link transition-colors hover:bg-light-blue hover:text-link-hover">
-            <span className="text-sm font-sans-primary font-medium">
-              Get In Touch
-            </span>
-          </button>
+        <Link
+          href="/contact"
+          className="flex items-center gap-2 rounded-sm border-2 border-brand-blue bg-white px-6 py-2.5 text-link transition-colors hover:bg-light-blue hover:text-link-hover"
+        >
+          <span className="text-sm font-sans-primary font-medium">
+            Get In Touch
+          </span>
         </Link>
       </div>
     </header>

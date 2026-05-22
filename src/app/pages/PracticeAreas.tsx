@@ -22,7 +22,7 @@ export function PracticeAreas() {
               Practice Areas
             </h1>
             <p className="text-lg lg:text-xl text-body leading-relaxed">
-              We provide comprehensive legal services across nine specialized
+              We provide comprehensive legal services across specialized
               practice areas, combining deep expertise with practical insight to
               deliver effective solutions for our clients.
             </p>

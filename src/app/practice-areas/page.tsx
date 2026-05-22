@@ -1,16 +1,16 @@
 import { PracticeAreas } from "../pages/PracticeAreas";
 
 export const metadata = {
-  title: "Practice Areas | Malika Okubasu & Company Advocates",
+  title: "Practice Areas",
   description:
-    "Explore the legal services offered by Malika Okubasu & Company Advocates, including corporate law, dispute resolution, conveyancing, employment law, family law, and legal advisory.",
+    "Explore the legal services offered by Malika Okubasu & Company Advocates, including corporate law, dispute resolution, conveyancing, employment law, family law, and legal consultancy.",
   alternates: {
-    canonical: "https://mokubasuadvocates.com/practice-areas",
+    canonical: "/practice-areas",
   },
   openGraph: {
     title: "Practice Areas | Malika Okubasu & Company Advocates",
     description:
-      "Explore the legal services offered by Malika Okubasu & Company Advocates, including corporate law, dispute resolution, conveyancing, employment law, family law, and legal advisory.",
+      "Explore the legal services offered by Malika Okubasu & Company Advocates, including corporate law, dispute resolution, conveyancing, employment law, family law, and legal consultancy.",
     url: "https://mokubasuadvocates.com/practice-areas",
     siteName: "Malika Okubasu & Company Advocates",
     type: "website",
@@ -19,7 +19,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Practice Areas | Malika Okubasu & Company Advocates",
     description:
-      "Explore the legal services offered by Malika Okubasu & Company Advocates, including corporate law, dispute resolution, conveyancing, employment law, family law, and legal advisory.",
+      "Explore the legal services offered by Malika Okubasu & Company Advocates, including corporate law, dispute resolution, conveyancing, employment law, family law, and legal consultancy.",
   },
 };
 

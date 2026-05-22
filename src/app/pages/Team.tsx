@@ -120,7 +120,7 @@ export function Team() {
 
                   <div className="mt-6">
                     <Link
-                      href={`/team/${member.id}`}
+                      href={`/our-team/${member.id}`}
                       className="text-heading font-bold hover:underline underline-offset-4 inline-flex items-center gap-2"
                     >
                       View Profile

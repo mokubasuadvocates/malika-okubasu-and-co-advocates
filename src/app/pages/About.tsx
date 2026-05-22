@@ -2,26 +2,9 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "../components/Button";
 import { Divider } from "../components/Divider";
+import { practiceAreas } from "../../../practiceAreas";
 
 export function About() {
-  const practiceAreas = [
-    { label: "Corporate & Commercial", path: "/practice-areas" },
-    { label: "Dispute Resolution", path: "/practice-areas" },
-    {
-      label: "Media, Technology & Intellectual Property",
-      path: "/practice-areas",
-    },
-    {
-      label: "Energy, Natural Resources & Climate Change",
-      path: "/practice-areas",
-    },
-    { label: "Real Estate, Banking & Finance", path: "/practice-areas" },
-    { label: "Family Law", path: "/practice-areas" },
-    { label: "Policy & Legislative Drafting", path: "/practice-areas" },
-    { label: "Regional Integration", path: "/practice-areas" },
-    { label: "Employment & Labour Relations", path: "/practice-areas" },
-  ];
-
   const objectives = [
     "To deliver an exceptional client experience through consistent quality, responsiveness, and professionalism.",
     "To provide timely, innovative, and practical legal solutions aligned to client priorities.",
@@ -296,11 +279,11 @@ export function About() {
           <div className="grid lg:grid-cols-3 gap-6 lg:gap-x-12 lg:gap-y-8 mb-10 lg:mb-14">
             {practiceAreas.map((area) => (
               <Link
-                key={area.label}
-                href={area.path}
+                key={area.id}
+                href={`/practice-areas/${area.id}`}
                 className="font-serif-editorial text-lg lg:text-xl text-heading leading-relaxed hover:underline underline-offset-4 transition-all"
               >
-                {area.label}
+                {area.title}
               </Link>
             ))}
           </div>

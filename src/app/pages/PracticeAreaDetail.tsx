@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowRight, Mail, Phone } from "lucide-react";
 import { Button } from "../components/Button";
 import { practiceAreas } from "../../../practiceAreas";
@@ -8,17 +9,14 @@ interface PracticeAreaDetailProps {
 }
 
 export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
-  // If no slug provided, this is an error
   if (!slug) {
-    return null;
+    notFound();
   }
 
-  // Find the practice area based on the slug
   const practiceArea = practiceAreas.find((area) => area.id === slug);
 
-  // If practice area not found, return null (will trigger 404)
   if (!practiceArea) {
-    return null;
+    notFound();
   }
 
   const teamContacts = [
@@ -59,7 +57,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
       href: string;
     }>
   > = {
-    "corporate-commercial": [
+    "corporate-commercial-law": [
       {
         title: "Structuring Cross-Border M&A in East Africa",
         tag: "Corporate",
@@ -139,7 +137,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
         href: "/publications",
       },
     ],
-    "real-estate-finance": [
+    "conveyancing-real-estate": [
       {
         title: "Financing Strategies for Property Development",
         tag: "Real Estate",
@@ -183,7 +181,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
         href: "/publications",
       },
     ],
-    "employment-labour": [
+    "employment-law": [
       {
         title: "Employment Law Best Practices for Kenyan Employers",
         tag: "Labour",
@@ -251,8 +249,9 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button>Request a Consultation</Button>
+                <Button href="/contact">Request a Consultation</Button>
                 <Button
+                  href="mailto:legal@mokubasuadvocates.com"
                   variant="outline"
                   className="border-brand-blue text-link hover:bg-light-blue"
                 >
@@ -399,12 +398,17 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
+              href="/contact"
               variant="outline"
               className="border-brand-blue text-link hover:bg-light-blue"
             >
               Request a Consultation
             </Button>
-            <Button variant="text" className="text-white hover:text-body">
+            <Button
+              href="mailto:legal@mokubasuadvocates.com"
+              variant="text"
+              className="text-white hover:text-body"
+            >
               Email the Firm
             </Button>
           </div>

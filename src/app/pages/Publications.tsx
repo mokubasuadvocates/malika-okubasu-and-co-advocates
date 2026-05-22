@@ -95,7 +95,7 @@ export function Publications() {
         <div className="relative max-w-[1280px] mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
             <h1 className="text-4xl lg:text-6xl font-bold text-heading mb-6 leading-tight tracking-tight">
-              Insights
+              Publications
             </h1>
             <p className="text-lg lg:text-xl text-body leading-relaxed">
               Stay informed with expert analysis, legal updates, and thought

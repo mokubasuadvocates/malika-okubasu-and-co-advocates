@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { Linkedin } from "lucide-react";
+import { OFFICIAL_LINKEDIN_URL } from "../constants/social";
 
 export function Footer() {
   const quickLinks = [
     { label: "Home", path: "/" },
-    { label: "About Us", path: "/about" },
+    { label: "About Us", path: "/about-us" },
     { label: "Practice Areas", path: "/practice-areas" },
-    { label: "Our Team", path: "/team" },
+    { label: "Our Team", path: "/our-team" },
     { label: "Publications", path: "/publications" },
     { label: "Get In Touch", path: "/contact" },
   ];
@@ -65,13 +66,13 @@ export function Footer() {
                 legal@mokubasuadvocates.com
               </a>
               <a
-                href="https://linkedin.com"
+                href={OFFICIAL_LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 flex items-center gap-2 transition-all hover:text-link"
               >
                 <Linkedin className="w-4 h-4" />
-                <span className="hover:underline">LinkedIn</span>
+                <span className="hover:underline">Company LinkedIn</span>
               </a>
             </div>
           </div>

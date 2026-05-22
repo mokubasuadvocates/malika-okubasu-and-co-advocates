@@ -1,7 +1,7 @@
 export const practiceAreas = [
   {
-    id: "corporate-commercial",
-    title: "Corporate and Commercial",
+    id: "corporate-commercial-law",
+    title: "Corporate and Commercial Law",
     description:
       "The department understands both the complexities and the skills required to provide an efficient and effective service to our clients in relation to corporate and commercial law transactions.",
     details:
@@ -73,10 +73,10 @@ export const practiceAreas = [
     sectorExpertise: [],
   },
   {
-    id: "real-estate-finance",
-    title: "Real Estate, Banking & Finance",
+    id: "conveyancing-real-estate",
+    title: "Conveyancing and Real Estate",
     description:
-      "The Firm has extensive knowledge and experience in providing excellent services to clients in a wide range of proprietary transactions. We pride ourselves in giving our clients quality legal advice based on sound due diligence in an area where utmost caution and efficiency are encouraged.",
+      "The Firm has extensive knowledge and experience in conveyancing, real estate, banking, and finance transactions. We pride ourselves in giving our clients quality legal advice based on sound due diligence in an area where utmost caution and efficiency are encouraged.",
     details:
       "Some of the services we provide in this department include: General banking and investment structures; Project Finance, Infrastructure and Construction; Structuring and perfection of security documentation in favor of lending/finance institutions such as charges, musharakah, debentures, guarantees, indemnities, loan agreements and deeds of assignments; Debt structuring; Lending and syndicated lending; Advisories on securitization and asset-backed securities, project financing and securities review; Islamic Banking and Finance (Takaful); Construction law and advisory; Legal advisory services to real estate developers, investors and purchasers in the acquisition, development, financing, sale and(sub) leasing of real estate, drafting and review agreements for sale, transfers, (sub) leases, novation agreements; Advisories on Stamp Duty and Capital Gains Tax and other property-related taxes.",
     services: [],
@@ -90,6 +90,24 @@ export const practiceAreas = [
     details:
       "Specifically, the services we render in this Department include divorce, separation, child custody and access, guardianship, child maintenance, alimony, and spousal maintenance, distribution of matrimonial property, adoption, and guardianship, drafting of wills, setting up of trusts and succession matters. Our Team understands that this is a most personal and sensitive area of the law, where trust and confidentiality are critical, and strives to provide effective and compassionate representation in all areas of domestic relations through negotiation, mediation, litigation being the last resort. The Team deals with all matters with focus and pragmatism, being conscientious of the fact that the family related matters generate considerable stress for the client and have the greatest potential of having a lasting impact.",
     services: [],
+    sectorExpertise: [],
+  },
+  {
+    id: "legal-consultancy",
+    title: "Legal Consultancy",
+    description:
+      "We provide practical legal consultancy services to individuals, businesses, institutions, and public-sector clients that need clear legal opinions, compliance support, contract review, and strategic advisory services.",
+    details:
+      "Our legal consultancy work is designed to help clients make informed decisions, manage risk, and move forward with confidence. We support clients through legal research, contract drafting and review, regulatory compliance advice, governance support, legal opinions, transaction support, and ongoing advisory retainers. The Firm combines technical legal analysis with practical commercial judgment so that advice is clear, timely, and actionable.",
+    services: [
+      "Legal opinions and advisory memoranda",
+      "Contract drafting, review, and negotiation support",
+      "Regulatory compliance advice",
+      "Corporate governance support",
+      "Legal risk assessment",
+      "Transaction and project advisory",
+      "Ongoing legal advisory retainers",
+    ],
     sectorExpertise: [],
   },
   {
@@ -113,8 +131,8 @@ export const practiceAreas = [
     sectorExpertise: [],
   },
   {
-    id: "employment-labour",
-    title: "Employment & Labour Relations",
+    id: "employment-law",
+    title: "Employment Law",
     description:
       "We advise businesses, corporations and individuals across the spectrum of labor and employment-related matters. In addition, we provide legal advice to employers on compliance issues under various labor and employment laws with a view to strengthening our clients' internal structures to ensure compliance with the requirements of the law and limit risk exposure.",
     details:

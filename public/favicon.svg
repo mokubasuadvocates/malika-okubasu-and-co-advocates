@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-label="Malika Okubasu &amp; Company Advocates logo mark">
+  <rect width="192" height="192" fill="#ffffff"/>
+  <circle cx="96" cy="96" r="88" fill="#2fa9dc"/>
+  <text x="96" y="67" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" letter-spacing="2">MOA</text>
+  <line x1="48" y1="91" x2="144" y2="91" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <line x1="96" y1="83" x2="96" y2="145" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="96" cy="80" r="13" fill="#ffffff"/>
+  <circle cx="96" cy="151" r="16" fill="#ffffff"/>
+  <circle cx="51" cy="91" r="9" fill="none" stroke="#ffffff" stroke-width="8"/>
+  <circle cx="141" cy="91" r="9" fill="none" stroke="#ffffff" stroke-width="8"/>
+  <path d="M51 101 35 137M51 101 67 137M35 137a16 10 0 0 0 32 0" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M141 101 125 137M141 101 157 137M125 137a16 10 0 0 0 32 0" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

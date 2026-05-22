@@ -1,4 +1,4 @@
-import { TeamProfile } from '../../pages/TeamProfile';
+import { redirect } from "next/navigation";
 
 interface PageProps {
   params: {
@@ -7,5 +7,5 @@ interface PageProps {
 }
 
 export default function Page({ params }: PageProps) {
-  return <TeamProfile id={params.id} />;
+  redirect(`/our-team/${params.id}`);
 }

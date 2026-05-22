@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Mail, Linkedin, Menu, X } from "lucide-react";
 import { Button } from "../components/Button";
 import { Divider } from "../components/Divider";
 import { useState, useEffect } from "react";
+import { practiceAreas } from "../../../practiceAreas";
 
 export function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,18 +22,6 @@ export function Home() {
       document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
-
-  const practiceAreas = [
-    "Corporate And Commercial",
-    "Dispute Resolution",
-    "Media, Technology & Intellectual Property",
-    "Energy, Natural Resources Climate Change",
-    "Real Estate, Banking & Finance",
-    "Family Law",
-    "Policy & Legislative Drafting",
-    "Regional Integration",
-    "Employment & Labour Relations",
-  ];
 
   const expectations = [
     {
@@ -109,92 +99,23 @@ export function Home() {
 
   return (
     <div>
-      {/* Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LegalService",
-            name: "Malika Okubasu & Company Advocates",
-            url: "https://mokubasuadvocates.com",
-            email: "legal@mokubasuadvocates.com",
-            telephone: "+254141397048",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress:
-                "5th Avenue Suites, 5th Avenue Ngong Road, Suite No. 6, 4th Floor",
-              addressLocality: "Nairobi",
-              postalCode: "00603",
-              addressCountry: "KE",
-            },
-            areaServed: {
-              "@type": "Country",
-              name: "Kenya",
-            },
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "Malika Okubasu & Company Advocates",
-            url: "https://mokubasuadvocates.com",
-          }),
-        }}
-      />
-      {/* Team Member Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            {
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Brenton Okubasu",
-              worksFor: {
-                "@type": "LegalService",
-                name: "Malika Okubasu & Company Advocates",
-              },
-              url: "https://mokubasuadvocates.com/team",
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Oduor Khamati",
-              worksFor: {
-                "@type": "LegalService",
-                name: "Malika Okubasu & Company Advocates",
-              },
-              url: "https://mokubasuadvocates.com/team",
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Susan Anyango",
-              worksFor: {
-                "@type": "LegalService",
-                name: "Malika Okubasu & Company Advocates",
-              },
-              url: "https://mokubasuadvocates.com/team",
-            },
-          ]),
-        }}
-      />
-
       {/* 1) Bright Premium Hero Section with Integrated Navigation */}
       <section className="relative overflow-hidden bg-soft-blue">
         {/* Desktop: Header + Navigation */}
         <div className="hidden h-[88px] border-b border-brand-border bg-white/95 px-6 shadow-sm backdrop-blur-sm lg:flex">
           <div className="flex h-full w-[280px] items-center gap-4 py-4">
-            <Link href="/" className="flex items-center gap-3 text-heading">
-              <img
-                src="/images/Malika-Okubasu-Logo.jpg"
-                alt="Malika Okubasu & Company Advocates"
-                className="h-10 w-auto"
+            <Link
+              href="/"
+              aria-label="Malika Okubasu & Company Advocates home"
+              className="flex items-center gap-3 text-heading"
+            >
+              <Image
+                src="/logo-mark.png"
+                alt="Malika Okubasu & Company Advocates logo"
+                width={48}
+                height={48}
+                priority
+                className="h-12 w-12 object-contain"
               />
               <div className="leading-none">
                 <div className="text-2xl font-bold tracking-tight leading-[26px]">
@@ -239,11 +160,18 @@ export function Home() {
         {/* Mobile: Top Header Bar */}
         <div className="absolute top-0 left-0 right-0 z-30 flex border-b border-brand-border bg-white/95 shadow-sm backdrop-blur-sm lg:hidden">
           <div className="flex-1 px-5 py-5">
-            <Link href="/" className="flex items-center gap-3 text-heading">
-              <img
-                src="/images/Malika-Okubasu-Logo.jpg"
-                alt="Malika Okubasu & Company Advocates"
-                className="h-8 w-auto"
+            <Link
+              href="/"
+              aria-label="Malika Okubasu & Company Advocates home"
+              className="flex items-center gap-3 text-heading"
+            >
+              <Image
+                src="/logo-mark.png"
+                alt="Malika Okubasu & Company Advocates logo"
+                width={40}
+                height={40}
+                priority
+                className="h-10 w-10 object-contain"
               />
               <div className="leading-tight">
                 <div className="text-lg font-bold tracking-tight">
@@ -326,12 +254,13 @@ export function Home() {
             {/* Right: 3-column list */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-x-10 lg:gap-y-8">
               {practiceAreas.map((area) => (
-                <div
-                  key={area}
-                  className="font-serif-editorial text-lg lg:text-xl text-heading leading-relaxed"
+                <Link
+                  key={area.id}
+                  href={`/practice-areas/${area.id}`}
+                  className="font-serif-editorial text-lg lg:text-xl text-heading leading-relaxed underline-offset-4 hover:text-link hover:underline"
                 >
-                  {area}
-                </div>
+                  {area.title}
+                </Link>
               ))}
             </div>
           </div>
@@ -644,9 +573,18 @@ export function Home() {
           <div className="flex-1 px-5 py-5">
             <Link
               href="/"
-              className="text-heading"
+              aria-label="Malika Okubasu & Company Advocates home"
+              className="flex items-center gap-3 text-heading"
               onClick={() => setIsMobileMenuOpen(false)}
             >
+              <Image
+                src="/logo-mark.png"
+                alt="Malika Okubasu & Company Advocates logo"
+                width={40}
+                height={40}
+                priority
+                className="h-10 w-10 object-contain"
+              />
               <div className="leading-tight">
                 <div className="text-lg font-bold tracking-tight">
                   Malika Okubasu

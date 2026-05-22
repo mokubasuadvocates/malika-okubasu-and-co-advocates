@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Mail, Phone, Linkedin } from "lucide-react";
 import { Button } from "../components/Button";
 
@@ -129,8 +130,12 @@ export function TeamProfile({ id }: TeamProfileProps) {
     },
   };
 
-  const profile =
-    profiles[id as keyof typeof profiles] ?? profiles["malika-okubasu"];
+  const profile = profiles[id as keyof typeof profiles];
+
+  if (!profile) {
+    notFound();
+  }
+
   const hasContactButtons = Boolean(
     profile.phone || profile.email || profile.linkedin,
   );
@@ -143,9 +148,9 @@ export function TeamProfile({ id }: TeamProfileProps) {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-body mb-8">
-            <Link href="/team" className="hover:text-link">
-              Our Team
-            </Link>
+                <Link href="/our-team" className="hover:text-link">
+                  Our Team
+                </Link>
             <span>/</span>
             <span className="text-heading">{profile.name}</span>
           </div>

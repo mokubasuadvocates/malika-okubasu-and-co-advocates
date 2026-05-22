@@ -1,11 +1,11 @@
 import { Publications } from "../pages/Publications";
 
 export const metadata = {
-  title: "Publications | Malika Okubasu & Company Advocates",
+  title: "Publications",
   description:
     "Read legal updates, insights, and publications from Malika Okubasu & Company Advocates.",
   alternates: {
-    canonical: "https://mokubasuadvocates.com/publications",
+    canonical: "/publications",
   },
   openGraph: {
     title: "Publications | Malika Okubasu & Company Advocates",

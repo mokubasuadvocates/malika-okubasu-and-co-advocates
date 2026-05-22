@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { Divider } from "../components/Divider";
 
@@ -92,8 +93,8 @@ const blogPosts: Record<
     },
   },
 
-  "3": {
-    id: 3,
+  "2": {
+    id: 2,
     tags: ["IP", "Technology"],
     title: "Protecting Intellectual Property in the Digital Age",
     excerpt:
@@ -156,8 +157,8 @@ const blogPosts: Record<
         "Protecting intellectual property in the digital age requires combining traditional legal tools with technological solutions and strategic business practices. Companies must move beyond reactive enforcement toward proactive IP strategies that align with digital business models. As technology continues to evolve, staying informed about legal developments and maintaining flexibility in IP strategies will be essential for preserving competitive advantage.",
     },
   },
-  "4": {
-    id: 4,
+  "3": {
+    id: 3,
     tags: ["Employment", "Labour Law"],
     title: "Remote Work: Legal Considerations for Employers",
     excerpt:
@@ -220,8 +221,8 @@ const blogPosts: Record<
         "Remote work offers significant benefits for both employers and employees, but requires careful legal planning and ongoing compliance monitoring. As legal frameworks continue to evolve in response to changing work patterns, employers should regularly review their remote work policies with legal counsel. Proactive compliance and clear communication help mitigate legal risks while enabling the flexibility that makes remote work attractive.",
     },
   },
-  "5": {
-    id: 5,
+  "4": {
+    id: 4,
     tags: ["Real Estate", "Finance"],
     title: "Real Estate Investment Trusts: Opportunities in East Africa",
     excerpt:
@@ -284,8 +285,8 @@ const blogPosts: Record<
         "REITs represent an important innovation for East African real estate markets, offering liquidity, diversification, and professional management to investors while providing developers with alternative capital sources. Despite current challenges, the long-term outlook remains positive as regulatory frameworks mature, institutional capacity develops, and investor awareness grows. Success will require patience, strong governance, and realistic expectations about market development timelines.",
     },
   },
-  "6": {
-    id: 6,
+  "5": {
+    id: 5,
     tags: ["Dispute Resolution", "Arbitration"],
     title: "Arbitration vs. Litigation: Choosing the Right Path",
     excerpt:
@@ -354,21 +355,7 @@ export function BlogDetail({ id }: { id?: string }) {
   const post = id ? blogPosts[id] : null;
 
   if (!post) {
-    return (
-      <div className="lg:pt-[88px] pt-[72px] min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-heading mb-4">
-            Article Not Found
-          </h1>
-          <Link
-            href="/publications"
-            className="text-heading hover:underline underline-offset-4"
-          >
-            Return to Publications
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   return (

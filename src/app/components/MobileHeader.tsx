@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
@@ -9,9 +10,9 @@ export function MobileHeader() {
 
   const navLinks = [
     { label: "Home", path: "/" },
-    { label: "About Us", path: "/about" },
+    { label: "About Us", path: "/about-us" },
     { label: "Practice Areas", path: "/practice-areas" },
-    { label: "Our Team", path: "/team" },
+    { label: "Our Team", path: "/our-team" },
     { label: "Publications", path: "/publications" },
     { label: "Get In Touch", path: "/contact" },
   ];
@@ -33,11 +34,18 @@ export function MobileHeader() {
       {/* Mobile Header Bar */}
       <header className="fixed top-0 left-0 right-0 z-50 flex border-b border-brand-border bg-white shadow-sm lg:hidden">
         <div className="flex-1 px-5 py-4">
-          <Link href="/" className="flex items-center gap-3 text-heading">
-            <img
-              src="/images/Malika-Okubasu-Logo.jpg"
-              alt="Malika Okubasu & Company Advocates"
-              className="h-8 w-auto"
+          <Link
+            href="/"
+            aria-label="Malika Okubasu & Company Advocates home"
+            className="flex items-center gap-3 text-heading"
+          >
+            <Image
+              src="/logo-mark.png"
+              alt="Malika Okubasu & Company Advocates logo"
+              width={40}
+              height={40}
+              priority
+              className="h-10 w-10 object-contain"
             />
             <div className="leading-tight">
               <div className="text-base font-bold tracking-tight">

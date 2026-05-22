@@ -1,42 +1,55 @@
 import { MetadataRoute } from "next";
+import { practiceAreas } from "../../practiceAreas";
+
+const baseUrl = "https://mokubasuadvocates.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const lastModified = new Date();
+  const mainPages: MetadataRoute.Sitemap = [
     {
-      url: "https://mokubasuadvocates.com/",
-      lastModified: new Date(),
+      url: `${baseUrl}/`,
+      lastModified,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: "https://mokubasuadvocates.com/about-us",
-      lastModified: new Date(),
+      url: `${baseUrl}/about-us`,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://mokubasuadvocates.com/practice-areas",
-      lastModified: new Date(),
+      url: `${baseUrl}/practice-areas`,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://mokubasuadvocates.com/our-team",
-      lastModified: new Date(),
+      url: `${baseUrl}/our-team`,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://mokubasuadvocates.com/publications",
-      lastModified: new Date(),
+      url: `${baseUrl}/publications`,
+      lastModified,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: "https://mokubasuadvocates.com/contact",
-      lastModified: new Date(),
+      url: `${baseUrl}/contact`,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
   ];
+
+  const practiceAreaPages: MetadataRoute.Sitemap = practiceAreas.map((area) => ({
+    url: `${baseUrl}/practice-areas/${area.id}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...mainPages, ...practiceAreaPages];
 }
