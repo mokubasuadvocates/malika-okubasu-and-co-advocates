@@ -38,7 +38,7 @@ export function Footer() {
                 <Link
                   key={link.path}
                   href={link.path}
-                  className="inline-block text-sm text-white/75 underline-offset-4 transition-all hover:translate-x-1 hover:text-gold-hover hover:underline"
+                  className="inline-block text-sm text-white/75 underline-offset-4 transition-all motion-safe:hover:translate-x-1 hover:text-gold-hover hover:underline"
                 >
                   {link.label}
                 </Link>
@@ -54,7 +54,7 @@ export function Footer() {
                 href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-3 transition-all hover:translate-x-1 hover:text-gold-hover hover:underline"
+                className="flex items-start gap-3 transition-all motion-safe:hover:translate-x-1 hover:text-gold-hover hover:underline"
               >
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
                 <span>5th Avenue Suites Ngong Road, Suite No. 6 4th Floor</span>
@@ -65,14 +65,14 @@ export function Footer() {
               </div>
               <a
                 href="tel:+254141397048"
-                className="flex items-center gap-3 transition-all hover:translate-x-1 hover:text-gold-hover hover:underline"
+                className="flex items-center gap-3 transition-all motion-safe:hover:translate-x-1 hover:text-gold-hover hover:underline"
               >
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 <span>+254 141 397 048</span>
               </a>
               <a
                 href="mailto:legal@mokubasuadvocates.com"
-                className="flex items-center gap-3 transition-all hover:translate-x-1 hover:text-gold-hover hover:underline"
+                className="flex items-center gap-3 transition-all motion-safe:hover:translate-x-1 hover:text-gold-hover hover:underline"
               >
                 <Mail className="w-4 h-4 flex-shrink-0" />
                 <span>legal@mokubasuadvocates.com</span>
@@ -81,7 +81,7 @@ export function Footer() {
                 href={OFFICIAL_LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 transition-all hover:translate-x-1 hover:text-gold-hover hover:underline"
+                className="flex items-center gap-3 transition-all motion-safe:hover:translate-x-1 hover:text-gold-hover hover:underline"
               >
                 <Linkedin className="w-4 h-4 flex-shrink-0" />
                 <span>Malika Okubasu & Co Advocates</span>
@@ -91,10 +91,36 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 border-t border-white/15 pt-8 text-center text-sm text-white/70">
-          <p>
-            &copy; {new Date().getFullYear()} Malika Okubasu & Company
-            Advocates. All rights reserved.
+        <div className="mt-12 border-t border-white/15 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm text-white/70">
+          <div className="flex flex-wrap items-center gap-4">
+            <Link 
+              href="/privacy-policy" 
+              className="transition-colors hover:text-gold-hover hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-sm"
+            >
+              Privacy Policy
+            </Link>
+            <span aria-hidden="true" className="text-white/30">|</span>
+            <Link 
+              href="/cookie-policy" 
+              className="transition-colors hover:text-gold-hover hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-sm"
+            >
+              Cookie Policy
+            </Link>
+            <span aria-hidden="true" className="text-white/30">|</span>
+            <button 
+              type="button"
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  window.dispatchEvent(new Event("open-cookie-settings"));
+                }
+              }}
+              className="transition-colors hover:text-gold-hover hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-sm"
+            >
+              Cookie Settings
+            </button>
+          </div>
+          <p className="copy-protected">
+            &copy; 2026 Malika Okubasu & Company Advocates. All rights Reserved.
           </p>
         </div>
       </div>

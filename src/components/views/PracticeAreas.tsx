@@ -46,17 +46,17 @@ export function PracticeAreas() {
                 <div className="absolute inset-x-0 top-0 h-1 bg-gold" />
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
-                    <h2 className="text-xl lg:text-2xl font-bold text-heading mb-3 transition-colors group-hover:text-gold">
+                    <h2 className="text-xl lg:text-2xl font-bold text-heading mb-3 transition-colors group-hover:text-gold-text">
                       {area.title}
                     </h2>
                     <p className="text-body leading-relaxed">
                       {area.excerpt}
                     </p>
-                    <span className="mt-5 inline-block text-sm font-bold text-heading transition-colors group-hover:text-gold">
+                    <span className="mt-5 inline-block text-sm font-bold text-heading transition-colors group-hover:text-gold-text">
                       View Practice Area
                     </span>
                   </div>
-                  <ArrowRight className="w-6 h-6 text-gold flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-6 h-6 text-gold-text flex-shrink-0 mt-1 motion-safe:group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             ))}

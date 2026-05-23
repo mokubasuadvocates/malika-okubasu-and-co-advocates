@@ -89,7 +89,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
             href="/publications"
             className="group inline-flex min-h-10 items-center gap-2 rounded-sm text-sm text-body transition-colors hover:text-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
           >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <ArrowLeft className="w-4 h-4 motion-safe:group-hover:-translate-x-1 transition-transform" />
             <span>Back to Publications</span>
           </Link>
         </div>
@@ -131,7 +131,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
             <div className="flex min-w-0 items-center gap-3">
               <Image
                 src={author.image}
-                alt={author.name}
+                alt=""
                 width={48}
                 height={48}
                 className="h-11 w-11 flex-shrink-0 rounded-full object-cover lg:grayscale lg:hover:grayscale-0 transition-all duration-500 sm:h-12 sm:w-12"
@@ -206,7 +206,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
               <Image
                 src={author.image}
-                alt={author.name}
+                alt=""
                 width={64}
                 height={64}
                 className="h-14 w-14 flex-shrink-0 rounded-full object-cover lg:grayscale lg:hover:grayscale-0 transition-all duration-500 sm:h-16 sm:w-16"

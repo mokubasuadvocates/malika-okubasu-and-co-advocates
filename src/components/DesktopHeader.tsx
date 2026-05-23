@@ -90,7 +90,7 @@ export function DesktopHeader() {
               <a
                 key={href}
                 href={href}
-                className="flex items-center gap-2 whitespace-nowrap transition-colors hover:text-gold-hover"
+                className="flex items-center gap-2 whitespace-nowrap transition-colors hover:text-gold-text-hover"
               >
                 <Icon className="h-4 w-4 text-gold" aria-hidden="true" />
                 <span>{label}</span>
@@ -100,7 +100,7 @@ export function DesktopHeader() {
               href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-w-0 items-center gap-2 transition-colors hover:text-gold-hover"
+              className="flex min-w-0 items-center gap-2 transition-colors hover:text-gold-text-hover"
             >
               <MapPin className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
               <span className="truncate">
@@ -114,7 +114,7 @@ export function DesktopHeader() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Malika Okubasu & Company Advocates on LinkedIn"
-            className="rounded-full p-1 text-white transition-colors hover:text-gold-hover"
+            className="rounded-full p-1 text-white transition-colors hover:text-gold-text-hover"
           >
             <Linkedin className="h-4 w-4" aria-hidden="true" />
           </a>
@@ -150,15 +150,15 @@ export function DesktopHeader() {
           >
             <Link
               href="/"
-              data-active={pathname === "/"}
-              className="nav-underline text-[15px] font-bold text-navy transition-colors hover:text-gold"
+              aria-current={pathname === "/" ? "page" : undefined}
+              className="nav-underline text-[15px] font-bold text-navy transition-colors hover:text-gold-text"
             >
               Home
             </Link>
             <Link
               href="/about-us"
-              data-active={isActive("/about-us")}
-              className="nav-underline text-[15px] font-bold text-navy transition-colors hover:text-gold"
+              aria-current={isActive("/about-us") ? "page" : undefined}
+              className="nav-underline text-[15px] font-bold text-navy transition-colors hover:text-gold-text"
             >
               About Us
             </Link>
@@ -173,10 +173,11 @@ export function DesktopHeader() {
                 type="button"
                 onClick={toggleDropdown}
                 onKeyDown={handleKeyDown}
-                aria-haspopup="true"
+                aria-haspopup="menu"
                 aria-expanded={isDropdownOpen}
-                data-active={isPracticeActive}
-                className="nav-underline flex items-center gap-1 text-[15px] font-bold text-navy transition-colors hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 rounded-sm"
+                aria-controls="desktop-practice-dropdown"
+                aria-current={isPracticeActive ? "page" : undefined}
+                className="nav-underline flex items-center gap-1 text-[15px] font-bold text-navy transition-colors hover:text-gold-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 rounded-sm"
               >
                 Practice Areas
                 <ChevronDown
@@ -186,8 +187,9 @@ export function DesktopHeader() {
               </button>
 
               <div 
+                id="desktop-practice-dropdown"
                 className={`absolute left-1/2 top-full w-[420px] max-w-[calc(100vw-2rem)] -translate-x-1/2 translate-y-3 rounded-lg border border-[rgba(0,62,99,0.12)] bg-white p-3 shadow-[0_18px_45px_rgba(0,47,77,0.16)] transition-all duration-200 ${
-                  isDropdownOpen ? "pointer-events-auto translate-y-2 opacity-100" : "pointer-events-none opacity-0"
+                  isDropdownOpen ? "pointer-events-auto translate-y-2 opacity-100 visible" : "pointer-events-none opacity-0 invisible"
                 }`}
               >
                 <div className="border-b border-[rgba(0,62,99,0.1)] px-3 pb-2 text-xs font-bold uppercase text-gold">
@@ -197,7 +199,7 @@ export function DesktopHeader() {
                   <Link
                     href="/practice-areas"
                     onClick={() => setIsDropdownOpen(false)}
-                    className="rounded-md px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-soft-bg hover:text-gold focus-visible:outline-none focus-visible:bg-soft-bg focus-visible:text-gold"
+                    className="rounded-md px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-soft-bg hover:text-gold-text focus-visible:outline-none focus-visible:bg-soft-bg focus-visible:text-gold"
                   >
                     View All Practice Areas
                   </Link>
@@ -206,7 +208,7 @@ export function DesktopHeader() {
                       key={item.path}
                       href={item.path}
                       onClick={() => setIsDropdownOpen(false)}
-                      className="rounded-md px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-soft-bg hover:text-gold focus-visible:outline-none focus-visible:bg-soft-bg focus-visible:text-gold"
+                      className="rounded-md px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-soft-bg hover:text-gold-text focus-visible:outline-none focus-visible:bg-soft-bg focus-visible:text-gold"
                     >
                       {item.label}
                     </Link>
@@ -219,8 +221,8 @@ export function DesktopHeader() {
               <Link
                 key={link.path}
                 href={link.path}
-                data-active={isActive(link.path)}
-                className="nav-underline text-[15px] font-bold text-navy transition-colors hover:text-gold"
+                aria-current={isActive(link.path) ? "page" : undefined}
+                className="nav-underline text-[15px] font-bold text-navy transition-colors hover:text-gold-text"
               >
                 {link.label}
               </Link>
@@ -229,7 +231,7 @@ export function DesktopHeader() {
 
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-lg bg-navy px-5 py-3 text-sm font-bold text-white shadow-[0_10px_24px_rgba(0,62,99,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold hover:text-white"
+            className="inline-flex items-center justify-center rounded-lg bg-navy px-5 py-3 text-sm font-bold text-white shadow-[0_10px_24px_rgba(0,62,99,0.18)] transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:bg-gold hover:text-white"
           >
             Get In Touch
           </Link>

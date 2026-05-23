@@ -7,6 +7,7 @@
   --color-blue-accent: #0b5f8f;
   --color-gold: #bc9b62;
   --color-gold-hover: #d4b276;
+  --color-gold-text: #826a3d;
   --color-charcoal: #212121;
   --color-soft-bg: #f5f8fa;
   --color-white: #ffffff;
@@ -139,6 +140,8 @@
   --color-gold: #bc9b62;
   --color-gold-hover: #d4b276;
   --color-goldHover: #d4b276;
+  --color-gold-text: var(--color-gold-text);
+  --color-goldText: var(--color-gold-text);
   --color-charcoal: #212121;
   --color-soft-bg: #f5f8fa;
   --color-softBg: #f5f8fa;

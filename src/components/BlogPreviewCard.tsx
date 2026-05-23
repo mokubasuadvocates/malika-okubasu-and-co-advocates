@@ -28,12 +28,12 @@ export function BlogPreviewCard({
       <article className="grid min-w-0 gap-6 rounded-sm bg-white motion-safe:transition-all motion-safe:duration-300 motion-safe:group-hover:-translate-y-1 motion-safe:group-hover:shadow-[0_18px_40px_rgba(0,62,99,0.10)] sm:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.78fr)] lg:gap-12">
         <div className="order-2 flex min-w-0 flex-col justify-center lg:order-1">
           <div className="mb-4">
-            <span className="inline-block max-w-full text-[0.72rem] font-bold uppercase leading-relaxed tracking-[0.14em] text-heading transition-colors group-hover:text-gold">
+            <span className="inline-block max-w-full text-[0.72rem] font-bold uppercase leading-relaxed tracking-[0.14em] text-heading transition-colors group-hover:text-gold-text">
               {displayPracticeArea}
             </span>
           </div>
 
-          <h2 className="mb-4 max-w-full break-words text-[1.55rem] font-bold leading-[1.15] text-heading transition-colors group-hover:text-gold sm:text-3xl lg:text-[2.35rem] xl:text-4xl">
+          <h2 className="mb-4 max-w-full break-words text-[1.55rem] font-bold leading-[1.15] text-heading transition-colors group-hover:text-gold-text sm:text-3xl lg:text-[2.35rem] xl:text-4xl">
             {post.title}
           </h2>
 
@@ -44,7 +44,7 @@ export function BlogPreviewCard({
           <div className="flex items-center gap-3">
             <Image
               src={author.image}
-              alt={author.name}
+              alt=""
               width={40}
               height={40}
               className="h-10 w-10 rounded-full object-cover transition-all duration-500"
@@ -57,7 +57,7 @@ export function BlogPreviewCard({
             </div>
           </div>
 
-          <div className="mt-6 text-sm font-bold text-heading underline-offset-4 transition-colors group-hover:text-gold group-hover:underline">
+          <div className="mt-6 text-sm font-bold text-heading underline-offset-4 transition-colors group-hover:text-gold-text group-hover:underline">
             Read More
           </div>
         </div>

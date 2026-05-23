@@ -161,7 +161,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
             <div>
               <Image
                 src={profile.image}
-                alt={profile.name}
+                alt=""
                 width={400}
                 height={533}
                 priority

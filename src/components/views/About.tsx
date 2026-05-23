@@ -297,7 +297,7 @@ export function About() {
             <div className="bg-soft-blue h-[72px] lg:h-[80px] flex items-center px-6 lg:px-12 hover:bg-soft-blue transition-colors group cursor-pointer">
               <span className="font-bold text-heading text-base lg:text-lg flex items-center gap-3">
                 View All Practice Areas
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 motion-safe:group-hover:translate-x-1 transition-transform" />
               </span>
             </div>
           </Link>

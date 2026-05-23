@@ -183,7 +183,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
                 <div className="w-24 h-24 mx-auto mb-4 overflow-hidden rounded-full">
                   <Image
                     src={contact.image}
-                    alt={contact.name}
+                    alt=""
                     width={96}
                     height={96}
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"

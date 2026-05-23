@@ -38,6 +38,7 @@ export function Contact() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submissionMessage, setSubmissionMessage] = useState<string | null>(null);
   const [submissionError, setSubmissionError] = useState<string | null>(null);
+  const errorSummaryRef = useRef<HTMLDivElement>(null);
   const turnstileContainerRef = useRef<HTMLDivElement>(null);
   const turnstileWidgetId = useRef<string | null>(null);
   const hasTurnstile =
@@ -112,6 +113,9 @@ export function Contact() {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      setTimeout(() => {
+        errorSummaryRef.current?.focus();
+      }, 0);
       return;
     }
 
@@ -283,7 +287,7 @@ export function Contact() {
                 href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-lg px-8 py-3.5 font-sans-primary font-semibold shadow-sm transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 bg-navy text-white hover:bg-gold hover:text-white mb-8"
+                className="inline-flex items-center justify-center rounded-lg px-8 py-3.5 font-sans-primary font-semibold shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 bg-navy text-white hover:bg-gold hover:text-white mb-8"
               >
                 Get Directions
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -320,6 +324,17 @@ export function Contact() {
                   </div>
                 )}
 
+                {Object.keys(errors).length > 0 && (
+                  <div
+                    ref={errorSummaryRef}
+                    tabIndex={-1}
+                    role="alert"
+                    className="mb-6 rounded-md border border-error/20 bg-error/10 px-4 py-3 text-sm text-error focus:outline-none focus:ring-2 focus:ring-error focus:ring-offset-2 focus:ring-offset-soft-blue"
+                  >
+                    Please fix the errors below before submitting your message.
+                  </div>
+                )}
+
                 {submissionMessage && (
                   <div className="mb-6 rounded-md border border-brand-blue/20 bg-white px-4 py-3 text-sm text-heading">
                     {submissionMessage}
@@ -352,6 +367,8 @@ export function Contact() {
                         onChange={(e) =>
                           handleChange("fullName", e.target.value)
                         }
+                        aria-invalid={!!errors.fullName}
+                        aria-describedby={errors.fullName ? "fullName-error" : undefined}
                         className={`w-full px-4 py-3 bg-white border ${
                           errors.fullName
                             ? "border-error"
@@ -359,7 +376,7 @@ export function Contact() {
                         } focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2`}
                       />
                       {errors.fullName && (
-                        <p className="text-sm text-error mt-1">
+                        <p id="fullName-error" className="text-sm text-error mt-1">
                           {errors.fullName}
                         </p>
                       )}
@@ -379,12 +396,14 @@ export function Contact() {
                         type="email"
                         value={formData.email}
                         onChange={(e) => handleChange("email", e.target.value)}
+                        aria-invalid={!!errors.email}
+                        aria-describedby={errors.email ? "email-error" : undefined}
                         className={`w-full px-4 py-3 bg-white border ${
                           errors.email ? "border-error" : "border-form-border"
                         } focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2`}
                       />
                       {errors.email && (
-                        <p className="text-sm text-error mt-1">
+                        <p id="email-error" className="text-sm text-error mt-1">
                           {errors.email}
                         </p>
                       )}
@@ -444,12 +463,14 @@ export function Contact() {
                         onChange={(e) =>
                           handleChange("message", e.target.value)
                         }
+                        aria-invalid={!!errors.message}
+                        aria-describedby={errors.message ? "message-error" : undefined}
                         className={`w-full px-4 py-3 bg-white border ${
                           errors.message ? "border-error" : "border-form-border"
                         } focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2 resize-none`}
                       />
                       {errors.message && (
-                        <p className="text-sm text-error mt-1">
+                        <p id="message-error" className="text-sm text-error mt-1">
                           {errors.message}
                         </p>
                       )}
@@ -465,6 +486,8 @@ export function Contact() {
                           onChange={(e) =>
                             handleChange("consent", e.target.checked)
                           }
+                          aria-invalid={!!errors.consent}
+                          aria-describedby={errors.consent ? "consent-error" : undefined}
                           className="mt-1 w-4 h-4 border-form-border text-link focus:ring-brand-blue"
                         />
                         <span className="text-sm text-body">
@@ -473,7 +496,7 @@ export function Contact() {
                         </span>
                       </label>
                       {errors.consent && (
-                        <p className="text-sm text-error mt-1">
+                        <p id="consent-error" className="text-sm text-error mt-1">
                           {errors.consent}
                         </p>
                       )}
@@ -497,6 +520,10 @@ export function Contact() {
                     {hasTurnstile && (
                       <div ref={turnstileContainerRef} className="mb-4" />
                     )}
+
+                    <div className="text-xs text-body italic bg-white/50 p-4 border-l-2 border-gold mb-2">
+                      <strong>Disclaimer:</strong> Please do not include confidential legal information. Submitting this form does not create an advocate-client relationship.
+                    </div>
 
                     <Button
                       type="submit"

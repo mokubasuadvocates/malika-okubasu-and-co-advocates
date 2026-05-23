@@ -134,7 +134,7 @@ export function Home() {
                   href={`/practice-areas/${area.id}`}
                   className="group block underline-offset-4 transition-colors"
                 >
-                  <span className="font-serif-editorial block text-lg leading-snug text-heading transition-colors group-hover:text-gold group-hover:underline lg:text-xl">
+                  <span className="font-serif-editorial block text-lg leading-snug text-heading transition-colors group-hover:text-gold-text group-hover:underline lg:text-xl">
                     {area.title}
                   </span>
                 </Link>
@@ -195,7 +195,7 @@ export function Home() {
                   width={800}
                   height={600}
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="w-full aspect-[4/3] rounded-md object-cover hover:scale-[1.02] transition-transform duration-700"
+                  className="w-full aspect-[4/3] rounded-md object-cover motion-safe:hover:scale-[1.02] motion-safe:transition-transform duration-700"
                 />
               </div>
             </div>
@@ -300,11 +300,11 @@ export function Home() {
                 <div className="overflow-hidden mb-4 rounded-sm">
                   <Image
                     src={member.image}
-                    alt={member.name}
+                    alt=""
                     width={400}
                     height={533}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="w-full aspect-[3/4] object-cover lg:grayscale lg:group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                    className="w-full aspect-[3/4] object-cover lg:grayscale lg:group-hover:grayscale-0 motion-safe:group-hover:scale-105 motion-safe:transition-all duration-500"
                   />
                 </div>
 
@@ -321,7 +321,7 @@ export function Home() {
                     {member.email && (
                       <a
                         href={`mailto:${member.email}`}
-                        className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-gold hover:underline underline-offset-4 transition-all"
+                        className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-gold-text hover:underline underline-offset-4 transition-all"
                       >
                         <Mail className="w-4 h-4 flex-shrink-0" />
                         <span className="break-all">{member.email}</span>
@@ -330,7 +330,7 @@ export function Home() {
                     {member.phone && (
                       <a
                         href={`tel:${member.phone.split(" / ")[0]}`}
-                        className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-gold hover:underline underline-offset-4 transition-all"
+                        className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-gold-text hover:underline underline-offset-4 transition-all"
                       >
                         <Phone className="w-4 h-4 flex-shrink-0" />
                         <span className="break-words">{member.phone}</span>
@@ -341,7 +341,7 @@ export function Home() {
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-gold hover:underline underline-offset-4 transition-all"
+                        className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-gold-text hover:underline underline-offset-4 transition-all"
                       >
                         <Linkedin className="w-4 h-4 flex-shrink-0" />
                         <span>LinkedIn</span>
@@ -394,7 +394,7 @@ export function Home() {
                   href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-lg px-6 py-3 font-sans-primary font-semibold shadow-sm transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 bg-navy text-white hover:bg-gold hover:text-white"
+                  className="inline-flex items-center justify-center rounded-lg px-6 py-3 font-sans-primary font-semibold shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 bg-navy text-white hover:bg-gold hover:text-white"
                 >
                   Get Directions
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -411,7 +411,7 @@ export function Home() {
                   </div>
                   <a
                     href="tel:+254141397048"
-                    className="text-lg lg:text-xl text-heading hover:text-gold hover:underline underline-offset-4 transition-all"
+                    className="text-lg lg:text-xl text-heading hover:text-gold-text hover:underline underline-offset-4 transition-all"
                   >
                     +254 141 397 048
                   </a>
@@ -423,7 +423,7 @@ export function Home() {
                   </div>
                   <a
                     href="mailto:legal@mokubasuadvocates.com"
-                    className="text-lg lg:text-xl text-heading hover:text-gold hover:underline underline-offset-4 transition-all"
+                    className="text-lg lg:text-xl text-heading hover:text-gold-text hover:underline underline-offset-4 transition-all"
                   >
                     legal@mokubasuadvocates.com
                   </a>
