@@ -38,7 +38,7 @@ export function Footer() {
                 <Link
                   key={link.path}
                   href={link.path}
-                  className="text-sm font-bold text-white underline-offset-4 transition-all hover:text-gold-hover hover:underline"
+                  className="text-sm text-white/75 underline-offset-4 transition-all hover:text-gold-hover hover:underline"
                 >
                   {link.label}
                 </Link>
