@@ -95,13 +95,13 @@ export function TeamProfile({ id }: TeamProfileProps) {
       linkedin: "https://www.linkedin.com/in/susan-anyango-aciarb-0b861a249/",
       image: "/images/team-members/susan-anyango.jpeg",
       bio: [
-        "Susan Anyango Odhiambo is an Advocate of the High Court of Kenya with experience in civil and commercial litigation, real estate and conveyancing law, and commercial and corporate law.",
+        "Susan Anyango Odhiambo is an Advocate of the High Court of Kenya with experience in civil and commercial litigation, real estate, banking and finance law, and commercial and corporate law.",
         "She holds a Bachelor of Laws Degree, Second Class Upper Division, from Jomo Kenyatta University of Agriculture and Technology, awarded in 2023, and was admitted to the Bar in November 2025.",
         "Susan has previously worked as a Legal Intern at Mohammed Muigai LLP and as a Trainee Advocate and Holding Over Associate at Muma and Kanjama Advocates, where she gained practical experience in legal research, drafting, advisory work, and dispute resolution.",
       ],
       expertise: [
         "Civil and Commercial Litigation",
-        "Real Estate and Conveyancing",
+        "Real Estate, Banking and Finance",
         "Corporate Law",
         "Legal Research and Drafting",
         "Dispute Resolution",

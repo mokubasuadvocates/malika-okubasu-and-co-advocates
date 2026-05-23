@@ -151,14 +151,19 @@ export function Home() {
             </div>
 
             {/* Right: 3-column list */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-x-10 lg:gap-y-8">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-8">
               {practiceAreas.map((area) => (
                 <Link
                   key={area.id}
                   href={`/practice-areas/${area.id}`}
-                  className="font-serif-editorial text-lg lg:text-xl text-heading leading-relaxed underline-offset-4 transition-colors hover:text-gold hover:underline"
+                  className="group block underline-offset-4 transition-colors"
                 >
-                  {area.title}
+                  <span className="font-serif-editorial block text-lg leading-snug text-heading transition-colors group-hover:text-gold group-hover:underline lg:text-xl">
+                    {area.title}
+                  </span>
+                  <span className="mt-2 block text-sm leading-relaxed text-body">
+                    {area.excerpt}
+                  </span>
                 </Link>
               ))}
             </div>

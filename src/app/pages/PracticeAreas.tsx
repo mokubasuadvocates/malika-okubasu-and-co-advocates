@@ -34,7 +34,7 @@ export function PracticeAreas() {
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <div className="grid gap-6 lg:grid-cols-2">
-            {practiceAreas.map((area, index) => (
+            {practiceAreas.map((area) => (
               <Link
                 key={area.id}
                 href={`/practice-areas/${area.id}`}
@@ -47,8 +47,11 @@ export function PracticeAreas() {
                       {area.title}
                     </h2>
                     <p className="text-body leading-relaxed">
-                      {area.description}
+                      {area.excerpt}
                     </p>
+                    <span className="mt-5 inline-block text-sm font-bold text-heading transition-colors group-hover:text-gold">
+                      View Practice Area
+                    </span>
                   </div>
                   <ArrowRight className="w-6 h-6 text-gold flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" />
                 </div>

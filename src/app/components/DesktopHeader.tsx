@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { OFFICIAL_LINKEDIN_URL } from "../constants/social";
+import { practiceAreas } from "../../../practiceAreas";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -13,20 +14,10 @@ const navLinks = [
   { label: "Publications", path: "/publications" },
 ];
 
-const practiceLinks = [
-  { label: "Dispute Resolution", path: "/practice-areas/dispute-resolution" },
-  {
-    label: "Corporate & Commercial Law",
-    path: "/practice-areas/corporate-commercial-law",
-  },
-  {
-    label: "Conveyancing & Real Estate",
-    path: "/practice-areas/conveyancing-real-estate",
-  },
-  { label: "Employment Law", path: "/practice-areas/employment-law" },
-  { label: "Family Law", path: "/practice-areas/family-law" },
-  { label: "Legal Consultancy", path: "/practice-areas/legal-consultancy" },
-];
+const practiceLinks = practiceAreas.map((area) => ({
+  label: area.title,
+  path: `/practice-areas/${area.id}`,
+}));
 
 const utilityItems = [
   { label: "+254 141 397 048", href: "tel:+254141397048", icon: Phone },
@@ -135,7 +126,7 @@ export function DesktopHeader() {
                 />
               </Link>
 
-              <div className="pointer-events-none absolute left-1/2 top-full w-[360px] -translate-x-1/2 translate-y-3 rounded-lg border border-[rgba(0,62,99,0.12)] bg-white p-3 opacity-0 shadow-[0_18px_45px_rgba(0,47,77,0.16)] transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-2 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-2 group-focus-within:opacity-100">
+              <div className="pointer-events-none absolute left-1/2 top-full w-[420px] max-w-[calc(100vw-2rem)] -translate-x-1/2 translate-y-3 rounded-lg border border-[rgba(0,62,99,0.12)] bg-white p-3 opacity-0 shadow-[0_18px_45px_rgba(0,47,77,0.16)] transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-2 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-2 group-focus-within:opacity-100">
                 <div className="border-b border-[rgba(0,62,99,0.1)] px-3 pb-2 text-xs font-bold uppercase text-gold">
                   Legal Services
                 </div>

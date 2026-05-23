@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { OFFICIAL_LINKEDIN_URL } from "../constants/social";
+import { practiceAreas } from "../../../practiceAreas";
 
 const mainLinks = [
   { label: "Home", path: "/" },
@@ -23,20 +24,10 @@ const mainLinks = [
   { label: "Publications", path: "/publications" },
 ];
 
-const practiceLinks = [
-  { label: "Dispute Resolution", path: "/practice-areas/dispute-resolution" },
-  {
-    label: "Corporate & Commercial Law",
-    path: "/practice-areas/corporate-commercial-law",
-  },
-  {
-    label: "Conveyancing & Real Estate",
-    path: "/practice-areas/conveyancing-real-estate",
-  },
-  { label: "Employment Law", path: "/practice-areas/employment-law" },
-  { label: "Family Law", path: "/practice-areas/family-law" },
-  { label: "Legal Consultancy", path: "/practice-areas/legal-consultancy" },
-];
+const practiceLinks = practiceAreas.map((area) => ({
+  label: area.title,
+  path: `/practice-areas/${area.id}`,
+}));
 
 const mobileContactItems = [
   {

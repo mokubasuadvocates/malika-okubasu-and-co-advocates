@@ -57,9 +57,9 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
       href: string;
     }>
   > = {
-    "corporate-commercial-law": [
+    "corporate-and-commercial-law": [
       {
-        title: "Structuring Cross-Border M&A in East Africa",
+        title: "Structuring Corporate Transactions in Kenya",
         tag: "Corporate",
         author: "Brenton Okubasu",
         date: "March 10, 2026",
@@ -68,7 +68,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
         href: "/publications",
       },
       {
-        title: "Best Practices for Joint Ventures and Corporate Finance",
+        title: "Best Practices for Shareholder Arrangements",
         tag: "Finance",
         author: "Oduor Khamati",
         date: "February 25, 2026",
@@ -97,7 +97,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
         href: "/publications",
       },
     ],
-    "media-tech-ip": [
+    "media-technology-and-intellectual-property": [
       {
         title: "Protecting Digital Assets in the Media Sector",
         tag: "IP",
@@ -117,7 +117,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
         href: "/publications",
       },
     ],
-    "energy-climate": [
+    "energy-natural-resources-and-climate-change": [
       {
         title: "Legal Frameworks for Renewable Energy Projects",
         tag: "Energy",
@@ -137,9 +137,9 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
         href: "/publications",
       },
     ],
-    "conveyancing-real-estate": [
+    "real-estate-banking-and-finance": [
       {
-        title: "Financing Strategies for Property Development",
+        title: "Due Diligence in Property and Financing Transactions",
         tag: "Real Estate",
         author: "Brenton Okubasu",
         date: "February 18, 2026",
@@ -148,7 +148,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
         href: "/publications",
       },
     ],
-    "family-law": [
+    "family-law-and-succession-planning": [
       {
         title: "Navigating Matrimonial Property and Succession Matters",
         tag: "Family",
@@ -170,7 +170,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
         href: "/publications",
       },
     ],
-    "regional-integration": [
+    "regional-integration-and-cross-border-advisory": [
       {
         title: "Regional Trade Law and Cross-Border Compliance",
         tag: "Regional",
@@ -181,9 +181,9 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
         href: "/publications",
       },
     ],
-    "employment-law": [
+    "employment-and-labour-relations": [
       {
-        title: "Employment Law Best Practices for Kenyan Employers",
+        title: "Employment and Labour Relations Best Practices for Kenyan Employers",
         tag: "Labour",
         author: "Susan Anyango",
         date: "May 1, 2026",
@@ -209,8 +209,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
   // Create a strapline from the description
   const strapline = "Practical advice. Strong representation. Clear outcomes.";
 
-  // Split details into overview paragraphs
-  const overview = practiceArea.details.split(". ").filter((p) => p.trim());
+  const overview = [practiceArea.details];
 
   return (
     <div>
@@ -294,7 +293,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
 
             <div className="space-y-6 text-body leading-relaxed">
               {overview.map((paragraph, index) => (
-                <p key={index}>{paragraph}.</p>
+                <p key={index}>{paragraph}</p>
               ))}
             </div>
           </div>

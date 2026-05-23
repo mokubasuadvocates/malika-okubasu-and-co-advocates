@@ -1,143 +1,199 @@
 export const practiceAreas = [
   {
-    id: "corporate-commercial-law",
+    id: "corporate-and-commercial-law",
     title: "Corporate and Commercial Law",
+    excerpt:
+      "Day-to-day business advisory, incorporation, structuring, contracts, shareholder arrangements, and corporate governance support for companies operating in Kenya.",
     description:
-      "The department understands both the complexities and the skills required to provide an efficient and effective service to our clients in relation to corporate and commercial law transactions.",
+      "We advise businesses operating in Kenya on their day-to-day legal needs and strategic transactions. Our work covers entity incorporation via the Business Registration Service (BRS), company structuring, shareholder arrangements, commercial contracts, and corporate governance. We support start-ups, SMEs, and established companies in building legally sound operations while remaining responsive to the realities of the local market, enabling clients to transact efficiently and manage risk effectively.",
     details:
-      "We are well placed to provide complete advice across all practice areas of commercial transactions including on all legal, regulatory, and tax aspects of investing and establishing operations in Kenya. We pride ourselves in our ability to provide prompt and high-quality services to our clients commensurate to their respective business needs. We provide legal advice and related services on a wide range of commercial matters including:",
+      "We advise businesses operating in Kenya on their day-to-day legal needs and strategic transactions. Our work covers entity incorporation via the Business Registration Service (BRS), company structuring, shareholder arrangements, commercial contracts, and corporate governance. We support start-ups, SMEs, and established companies in building legally sound operations while remaining responsive to the realities of the local market, enabling clients to transact efficiently and manage risk effectively.",
+    metaTitle:
+      "Corporate and Commercial Law | Malika Okubasu & Company Advocates",
+    metaDescription:
+      "Corporate and commercial legal advisory in Kenya covering incorporation, structuring, shareholder arrangements, contracts, and corporate governance.",
     services: [
-      "General corporate, commercial and contract briefs",
-      "Company Secretarial",
-      "Mergers and Acquisitions",
-      "Joint Ventures",
-      "Corporate Finance and Securitization",
-      "Corporate restructuring",
-      "Franchising",
-      "Legal Compliance & Corporate Governance Audit",
-      "Tax law advisory",
-      "Immigration Law services and advisories",
-      "Competition law advisory",
-      "Projects & Infrastructure",
-      "Capital Markets and Securities law",
-      "Public-Private Partnerships",
-      "Mining",
-      "Energy, Oil and Gas law",
+      "Entity incorporation via the Business Registration Service (BRS)",
+      "Company structuring and shareholder arrangements",
+      "Commercial contracts and transaction support",
+      "Corporate governance advisory",
+      "Legal support for start-ups, SMEs, and established companies",
     ],
     sectorExpertise: [],
   },
   {
     id: "dispute-resolution",
     title: "Dispute Resolution",
+    excerpt:
+      "Civil and commercial dispute representation across courts and alternative dispute resolution forums, from early settlement strategy to full litigation.",
     description:
-      "With the client's specific business or other objectives at the top of our mind, this department focuses on dealing with disputes that may arise or have arisen in an efficient and effective manner whilst drawing upon our extensive experience, trusted judgment, and insight to develop a customized strategy for each case.",
+      "We represent clients in civil and commercial disputes across all levels, from navigating the jurisdictional boundaries of the Small Claims Court to representation in the High Court and Supreme Court, as well as alternative dispute resolution forums. We approach each matter with a clear understanding of the client’s objectives, whether that is early settlement or full litigation. Our team develops focused legal strategies grounded in strong legal analysis and practical judgment to achieve timely and cost-effective outcomes.",
     details:
-      "Our dispute resolution lawyers employ the most appropriate tools and strategies for each stage of the process and each unique situation. Apart from having an amazing track record for conducting successful trials in the courtroom, the department is equally well equipped with knowledge and skills in handling legal matters out of the courtroom either through negotiations, mediation, or arbitration. The department has a pool of knowledge and expertise in dispute resolution mechanisms such as litigation, domestic and international arbitrations, negotiation, and mediation having settled complex disputes involving commercial transactions. Practice before international courts and tribunals like the East African Court of Justice (EACJ), the International Court of Justice (ICJ), the International Criminal Court (ICC), the African Court on Human and Peoples' Rights (AfCHPR) as well as other international courts and tribunals squarely find accommodation in this department.",
+      "We represent clients in civil and commercial disputes across all levels, from navigating the jurisdictional boundaries of the Small Claims Court to representation in the High Court and Supreme Court, as well as alternative dispute resolution forums. We approach each matter with a clear understanding of the client’s objectives, whether that is early settlement or full litigation. Our team develops focused legal strategies grounded in strong legal analysis and practical judgment to achieve timely and cost-effective outcomes.",
+    metaTitle: "Dispute Resolution | Malika Okubasu & Company Advocates",
+    metaDescription:
+      "Civil and commercial dispute resolution services in Kenya, including litigation, settlement strategy, and alternative dispute resolution.",
     services: [
-      "Commercial litigation and arbitration",
-      "Aviation disputes",
-      "Partnership and Shareholders'/Directors' disputes",
-      "Family and Succession law",
-      "Land and environmental disputes",
-      "Intellectual Property litigation",
-      "Debt collection and recovery",
-      "Banking law and banking securities enforcement",
-      "Insurance litigation",
-      "Corporate Insolvency disputes",
-      "Constitutional and Judicial Review litigation",
-      "Electoral disputes",
-      "Public Procurement related disputes",
-      "Medical Negligence suits",
-      "Criminal and Civil litigation",
+      "Civil and commercial disputes",
+      "Small Claims Court advisory",
+      "High Court and Supreme Court representation",
+      "Alternative dispute resolution",
+      "Settlement strategy and litigation planning",
     ],
     sectorExpertise: [],
   },
   {
-    id: "media-tech-ip",
-    title: "Media, Technology & Intellectual Property",
+    id: "media-technology-and-intellectual-property",
+    title: "Media, Technology and Intellectual Property",
+    excerpt:
+      "Intellectual property, technology agreements, data protection, and digital regulation support for Kenya’s technology and creative sectors.",
     description:
-      "We provide an array of high-quality services to clients within the technology, media, and telecommunications industries. We provide strategic commercial advice to a wide range of industry sectors in regard to technology and intellectual property law with a consistent level of attention to detail, client service, efficiency, and a deep understanding of our client's objectives.",
+      "We advise clients in Kenya’s growing technology and creative sectors on protecting and commercialising their ideas. Our services include intellectual property registration and enforcement, technology agreements, and comprehensive advice on the Data Protection Act 2019 and digital regulation. We provide guidance that supports innovation while ensuring strict compliance with Kenyan law.",
     details:
-      "Technological advancement has brought to the fore the dire need to protect and safeguard numerous inventions for purposes of proper utilization. Intellectual Property has become one of the most critical legal areas as companies and individuals continue to expand and protect their technology, brands, products, data, and services all over the world. In this regard, being well-versed with the requirements of protection and proper utilization of technology, the Firm provides a full range of media law, intellectual property law, privacy, and technology law services for both individuals and businesses within the region. We have demonstrated a solid and indisputable track record of representation of our clients in Trade Marks, Copyrights, Utility Models, Industrial Designs, and Patents whether before Kenya Industrial Property Institute (KIPI), African Regional Property Institute (ARIPO), or the World Intellectual Property Organization (WIPO). We have had a stellar performance in national jurisdiction-based IP protection in countries like Ghana, Ethiopia, the Federal Republic of Nigeria, and the United Republic of Tanzania.",
-    services: [],
-    sectorExpertise: [],
-  },
-  {
-    id: "energy-climate",
-    title: "Energy, Natural Resources & Climate Change",
-    description:
-      "The Firm has developed in-depth sector know-how and has the ability to provide innovative and cutting-edge solutions to clients within the energy, natural resources, and climate change sector. Indeed, the Firm provides a range of services related to energy, natural resources, environmental law, and climate change sectors. The Firm has acted for various renewable energy firms and oil and gas entities.",
-    details:
-      "We have provided advisory and drafting services in relation to the exploration, development, and operationalization of oil and gas properties, including concession, drilling, development, production-sharing, joint-venture and operating agreements. Further to the foregoing, the Firm has developed extensive knowledge in environmental issues including climate change and other sustainability issues, green building financing, carbon trading and construction standards and practices, low impact development, and renewable energy. Our Team provides legal services to a wide range of National and County Governments, government entities, and non-state actors on the regulatory framework for environmental and climate change.",
-    services: [],
-    sectorExpertise: [],
-  },
-  {
-    id: "conveyancing-real-estate",
-    title: "Conveyancing and Real Estate",
-    description:
-      "The Firm has extensive knowledge and experience in conveyancing, real estate, banking, and finance transactions. We pride ourselves in giving our clients quality legal advice based on sound due diligence in an area where utmost caution and efficiency are encouraged.",
-    details:
-      "Some of the services we provide in this department include: General banking and investment structures; Project Finance, Infrastructure and Construction; Structuring and perfection of security documentation in favor of lending/finance institutions such as charges, musharakah, debentures, guarantees, indemnities, loan agreements and deeds of assignments; Debt structuring; Lending and syndicated lending; Advisories on securitization and asset-backed securities, project financing and securities review; Islamic Banking and Finance (Takaful); Construction law and advisory; Legal advisory services to real estate developers, investors and purchasers in the acquisition, development, financing, sale and(sub) leasing of real estate, drafting and review agreements for sale, transfers, (sub) leases, novation agreements; Advisories on Stamp Duty and Capital Gains Tax and other property-related taxes.",
-    services: [],
-    sectorExpertise: [],
-  },
-  {
-    id: "family-law",
-    title: "Family Law",
-    description:
-      "The Firm provides responsive and personalized services to clients in relation to their family legal concerns. These services range from matrimonial disputes to succession and children-related matters.",
-    details:
-      "Specifically, the services we render in this Department include divorce, separation, child custody and access, guardianship, child maintenance, alimony, and spousal maintenance, distribution of matrimonial property, adoption, and guardianship, drafting of wills, setting up of trusts and succession matters. Our Team understands that this is a most personal and sensitive area of the law, where trust and confidentiality are critical, and strives to provide effective and compassionate representation in all areas of domestic relations through negotiation, mediation, litigation being the last resort. The Team deals with all matters with focus and pragmatism, being conscientious of the fact that the family related matters generate considerable stress for the client and have the greatest potential of having a lasting impact.",
-    services: [],
-    sectorExpertise: [],
-  },
-  {
-    id: "legal-consultancy",
-    title: "Legal Consultancy",
-    description:
-      "We provide practical legal consultancy services to individuals, businesses, institutions, and public-sector clients that need clear legal opinions, compliance support, contract review, and strategic advisory services.",
-    details:
-      "Our legal consultancy work is designed to help clients make informed decisions, manage risk, and move forward with confidence. We support clients through legal research, contract drafting and review, regulatory compliance advice, governance support, legal opinions, transaction support, and ongoing advisory retainers. The Firm combines technical legal analysis with practical commercial judgment so that advice is clear, timely, and actionable.",
+      "We advise clients in Kenya’s growing technology and creative sectors on protecting and commercialising their ideas. Our services include intellectual property registration and enforcement, technology agreements, and comprehensive advice on the Data Protection Act 2019 and digital regulation. We provide guidance that supports innovation while ensuring strict compliance with Kenyan law.",
+    metaTitle:
+      "Media, Technology and Intellectual Property | Malika Okubasu & Company Advocates",
+    metaDescription:
+      "Legal advisory for Kenya’s technology and creative sectors, including IP registration, enforcement, technology agreements, and data protection compliance.",
     services: [
-      "Legal opinions and advisory memoranda",
-      "Contract drafting, review, and negotiation support",
-      "Regulatory compliance advice",
-      "Corporate governance support",
-      "Legal risk assessment",
-      "Transaction and project advisory",
-      "Ongoing legal advisory retainers",
+      "Intellectual property registration and enforcement",
+      "Technology agreements",
+      "Data Protection Act 2019 advisory",
+      "Digital regulation compliance",
+      "Commercialisation support for creative and technology assets",
     ],
     sectorExpertise: [],
   },
   {
-    id: "policy-legislative-drafting",
-    title: "Policy & Legislative Drafting",
+    id: "energy-natural-resources-and-climate-change",
+    title: "Energy, Natural Resources and Climate Change",
+    excerpt:
+      "Regulatory compliance, project structuring, ESG advisory, licensing, and policy support for energy, natural resource, and climate initiatives.",
     description:
-      "We assist our clients in promoting policy change, contributing to the drafting of legislation, and managing regulatory risk that could affect their businesses. We regularly assist our clients in analyzing proposed legislation to keep them informed of the potential changes as well as how they may impact their operations.",
+      "We support clients involved in energy and natural resource projects across Kenya. Our experience includes advising on regulatory compliance, project structuring, and integrating modern ESG (Environmental, Social, and Governance) principles. We work with clients in renewable energy, oil and gas, and emerging climate-related initiatives, helping them navigate licensing requirements and policy developments within the Kenyan framework.",
     details:
-      "We have contributed to the development and drafting of a significant number of legislation in Kenya by offering legal advice and support to the policy-making institutions, government departments, legislators, regulatory authorities, and other stakeholders to draft legislation in the public finance, energy, public and administrative law, procurement, health and infrastructure sectors. Our support to clients includes the conduct of unique and quality research and analyses locally, while incorporating international best practices for each specific sector thereby ensuring that our drafting and review of the current or proposed policies and legislation can withstand public scrutiny. The Department is tasked with carrying out of gap analyses to determine legal lacunae with a view to improving the existing legislation. We are regularly consulted by government entities, both at the national and county levels, in respect of the drafting of new laws or subsidiary legislation. Further, we have advised various interest groups on certain (proposed) legislation.",
-    services: [],
+      "We support clients involved in energy and natural resource projects across Kenya. Our experience includes advising on regulatory compliance, project structuring, and integrating modern ESG (Environmental, Social, and Governance) principles. We work with clients in renewable energy, oil and gas, and emerging climate-related initiatives, helping them navigate licensing requirements and policy developments within the Kenyan framework.",
+    metaTitle:
+      "Energy, Natural Resources and Climate Change | Malika Okubasu & Company Advocates",
+    metaDescription:
+      "Energy, natural resources, and climate change legal advisory in Kenya, including regulatory compliance, project structuring, ESG, licensing, and policy developments.",
+    services: [
+      "Regulatory compliance",
+      "Project structuring",
+      "ESG advisory",
+      "Renewable energy, oil and gas support",
+      "Licensing and policy development guidance",
+    ],
     sectorExpertise: [],
   },
   {
-    id: "regional-integration",
-    title: "Regional Integration",
+    id: "real-estate-banking-and-finance",
+    title: "Real Estate, Banking and Finance",
+    excerpt:
+      "Property transactions, financing arrangements, secured lending, leases, due diligence, Ardhisasa processes, and Sectional Properties Act compliance.",
     description:
-      "We appreciate that globalization has made the world to be like a village. The strong economic, social, political, security and geographical motives have made States come together and establish institutions for a predictable international order. As a result, opportunities are availed both at the regional and international levels for clients.",
+      "We act for clients in property transactions and financing arrangements, including acquisitions, disposals, leases, secured lending, and comprehensive due diligence for off-plan purchases. Our approach is grounded in thorough due diligence and an expert understanding of land laws, including navigating the Ardhisasa platform and ensuring compliance with the Sectional Properties Act 2020. We ensure transactions are properly structured, risks are identified early, and our clients’ interests are fully protected.",
     details:
-      "With the coming into force of the African Continental Free Trade Area (ACFTA), the department now finds itself advising clients beyond the traditional opportunities within the East African Community (EAC), the African Economic Community (AEC), the African Union (AU), the Southern African Development Community (SADC) or the Economic Communities of West African States (ECOWAS). It is also through this department that we help our clients who wish to enter into regional/international partnerships and agreements as a way of exhausting business opportunities available in the international markets. On a related note, we also ensure wholesome professional development through regional and international legal professional bodies like the East African Law Society (EALS), the Pan-African Lawyers Union (PALU), and the International Bar Association (IBA) all of which ensure that our lawyers remain well informed and connected at the global level.",
-    services: [],
+      "We act for clients in property transactions and financing arrangements, including acquisitions, disposals, leases, secured lending, and comprehensive due diligence for off-plan purchases. Our approach is grounded in thorough due diligence and an expert understanding of land laws, including navigating the Ardhisasa platform and ensuring compliance with the Sectional Properties Act 2020. We ensure transactions are properly structured, risks are identified early, and our clients’ interests are fully protected.",
+    metaTitle:
+      "Real Estate, Banking and Finance | Malika Okubasu & Company Advocates",
+    metaDescription:
+      "Real estate, banking, and finance legal services in Kenya covering acquisitions, disposals, leases, secured lending, due diligence, Ardhisasa, and sectional property compliance.",
+    services: [
+      "Acquisitions, disposals, and leases",
+      "Secured lending and financing arrangements",
+      "Due diligence for off-plan purchases",
+      "Ardhisasa platform support",
+      "Sectional Properties Act 2020 compliance",
+    ],
     sectorExpertise: [],
   },
   {
-    id: "employment-law",
-    title: "Employment Law",
+    id: "employment-and-labour-relations",
+    title: "Employment and Labour Relations",
+    excerpt:
+      "Employment contracts, redundancy processes, morality clauses, labour law compliance, OSHA 2007 advisory, internal policies, and court representation.",
     description:
-      "We advise businesses, corporations and individuals across the spectrum of labor and employment-related matters. In addition, we provide legal advice to employers on compliance issues under various labor and employment laws with a view to strengthening our clients' internal structures to ensure compliance with the requirements of the law and limit risk exposure.",
+      "We advise employers and employees on employment law matters under the Kenyan legal framework. Our services include drafting employment contracts, managing redundancy processes, drafting morality clauses, and ensuring full compliance with labour laws, including OSHA 2007. We work with organisations to strengthen internal policies and provide robust representation in the Employment and Labour Relations Court.",
     details:
-      "In this regard, we assist our clients with the drafting of the individual employment contracts, Collective Bargaining Agreements (CBA's), Human Resource Policies, employee benefit plans, and other employment policies. We provide expertise across: Recruitment; Disciplinary process; Termination; Redundancy; Retirement; Equal opportunity issues; Employment discrimination claims; Collective bargaining negotiations; Human resource legal audit; Employment and Labour disputes; and Employment & labor relations policy advisories to State & private sector.",
-    services: [],
+      "We advise employers and employees on employment law matters under the Kenyan legal framework. Our services include drafting employment contracts, managing redundancy processes, drafting morality clauses, and ensuring full compliance with labour laws, including OSHA 2007. We work with organisations to strengthen internal policies and provide robust representation in the Employment and Labour Relations Court.",
+    metaTitle:
+      "Employment and Labour Relations | Malika Okubasu & Company Advocates",
+    metaDescription:
+      "Employment and labour relations legal services in Kenya, including contracts, redundancy, morality clauses, OSHA 2007 compliance, policies, and court representation.",
+    services: [
+      "Employment contracts",
+      "Redundancy process advisory",
+      "Morality clauses",
+      "Labour law and OSHA 2007 compliance",
+      "Employment and Labour Relations Court representation",
+    ],
+    sectorExpertise: [],
+  },
+  {
+    id: "policy-and-legislative-drafting",
+    title: "Policy and Legislative Drafting",
+    excerpt:
+      "Policy drafting, proposed legislation analysis, regulatory compliance advice, and statutory change support for organisations operating in Kenya.",
+    description:
+      "We assist clients in engaging with Kenya’s regulatory and legislative environment. Our work includes drafting impactful policies, analysing proposed legislation, and advising on regulatory compliance. We help clients understand how statutory changes may affect their operations, empowering them to manage regulatory risk effectively.",
+    details:
+      "We assist clients in engaging with Kenya’s regulatory and legislative environment. Our work includes drafting impactful policies, analysing proposed legislation, and advising on regulatory compliance. We help clients understand how statutory changes may affect their operations, empowering them to manage regulatory risk effectively.",
+    metaTitle:
+      "Policy and Legislative Drafting | Malika Okubasu & Company Advocates",
+    metaDescription:
+      "Policy and legislative drafting support in Kenya, including policy drafting, proposed legislation analysis, regulatory compliance, and statutory change advisory.",
+    services: [
+      "Policy drafting",
+      "Proposed legislation analysis",
+      "Regulatory compliance advisory",
+      "Statutory change impact analysis",
+      "Regulatory risk management",
+    ],
+    sectorExpertise: [],
+  },
+  {
+    id: "regional-integration-and-cross-border-advisory",
+    title: "Regional Integration and Cross-Border Advisory",
+    excerpt:
+      "Cross-border transaction, international trade, EAC, and AfCFTA advisory for clients navigating regional opportunities and regulatory risk.",
+    description:
+      "We advise clients on legal and regulatory issues arising from cross-border transactions and international trade laws. With increasing regional integration under frameworks such as the East African Community (EAC) and AfCFTA, we support clients in navigating differing legal systems and taking advantage of opportunities in the region while managing associated risks.",
+    details:
+      "We advise clients on legal and regulatory issues arising from cross-border transactions and international trade laws. With increasing regional integration under frameworks such as the East African Community (EAC) and AfCFTA, we support clients in navigating differing legal systems and taking advantage of opportunities in the region while managing associated risks.",
+    metaTitle:
+      "Regional Integration and Cross-Border Advisory | Malika Okubasu & Company Advocates",
+    metaDescription:
+      "Cross-border legal advisory for regional transactions and international trade, including EAC and AfCFTA regulatory issues and risk management.",
+    services: [
+      "Cross-border transaction advisory",
+      "International trade law support",
+      "EAC and AfCFTA advisory",
+      "Regional regulatory risk management",
+      "Multi-jurisdictional legal coordination",
+    ],
+    sectorExpertise: [],
+  },
+  {
+    id: "family-law-and-succession-planning",
+    title: "Family Law and Succession Planning",
+    excerpt:
+      "Discreet family law support covering matrimonial disputes, child custody, maintenance, wills, trusts, probate, and succession planning.",
+    description:
+      "We provide legal support on sensitive family matters, including matrimonial disputes, child custody, maintenance, and comprehensive succession planning. We recognize the personal nature of these issues and approach them with discretion and sensitivity, helping to protect family wealth through well-structured wills, trusts, and probate administration.",
+    details:
+      "We provide legal support on sensitive family matters, including matrimonial disputes, child custody, maintenance, and comprehensive succession planning. We recognize the personal nature of these issues and approach them with discretion and sensitivity, helping to protect family wealth through well-structured wills, trusts, and probate administration.",
+    metaTitle:
+      "Family Law and Succession Planning | Malika Okubasu & Company Advocates",
+    metaDescription:
+      "Family law and succession planning services in Kenya, including matrimonial disputes, child custody, maintenance, wills, trusts, probate, and estate planning.",
+    services: [
+      "Matrimonial disputes",
+      "Child custody and maintenance",
+      "Succession planning",
+      "Wills and trusts",
+      "Probate administration",
+    ],
     sectorExpertise: [],
   },
 ];
