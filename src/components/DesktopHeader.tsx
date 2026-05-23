@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { OFFICIAL_LINKEDIN_URL } from "../constants/social";
-import { practiceAreas } from "../../../practiceAreas";
+import { OFFICIAL_LINKEDIN_URL } from "@/constants/social";
+import { practiceAreas } from "@/constants/practiceAreas";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -53,7 +53,7 @@ export function DesktopHeader() {
             <span className="flex min-w-0 items-center gap-2">
               <MapPin className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
               <span className="truncate">
-                5th Avenue Suites, Ngong Road, Nairobi
+                5th Avenue Suites Ngong Road, Suite No. 6 4th Floor
               </span>
             </span>
           </div>

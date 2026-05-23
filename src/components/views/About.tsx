@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Button } from "../components/Button";
-import { Divider } from "../components/Divider";
-import { practiceAreas } from "../../../practiceAreas";
+import { Button } from "@/components/Button";
+import { Divider } from "@/components/Divider";
+import { practiceAreas } from "@/constants/practiceAreas";
 
 export function About() {
   const objectives = [

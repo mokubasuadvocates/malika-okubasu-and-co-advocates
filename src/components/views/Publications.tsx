@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Divider } from "../components/Divider";
+import { Divider } from "@/components/Divider";
 
 export function Publications() {
   const [currentPage, setCurrentPage] = useState(1);

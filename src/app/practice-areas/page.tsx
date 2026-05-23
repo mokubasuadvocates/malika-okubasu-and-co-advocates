@@ -1,4 +1,4 @@
-import { PracticeAreas } from "../pages/PracticeAreas";
+import { PracticeAreas } from "@/components/views/PracticeAreas";
 
 export const metadata = {
   title: "Practice Areas",

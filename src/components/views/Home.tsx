@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { Linkedin } from "lucide-react";
-import { Button } from "../components/Button";
-import { Divider } from "../components/Divider";
-import { practiceAreas } from "../../../practiceAreas";
+import { Button } from "@/components/Button";
+import { Divider } from "@/components/Divider";
+import { practiceAreas } from "@/constants/practiceAreas";
 
 export function Home() {
   const expectations = [

@@ -2,7 +2,7 @@ import './globals.css';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { GoogleTagManager } from '@next/third-parties/google';
-import { Layout } from './components/Layout';
+import { Layout } from '@/components/Layout';
 
 export const metadata: Metadata = {
   title: {

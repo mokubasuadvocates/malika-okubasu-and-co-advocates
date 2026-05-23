@@ -1,6 +1,6 @@
-import JsonLd from "./components/JsonLd";
-import { OFFICIAL_LINKEDIN_URL } from "./constants/social";
-import { Home } from "./pages/Home";
+import JsonLd from "@/components/JsonLd";
+import { OFFICIAL_LINKEDIN_URL } from "@/constants/social";
+import { Home } from "@/components/views/Home";
 
 export const metadata = {
   title: {

@@ -2,8 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import { MapPin, Phone, Mail, ArrowRight, Linkedin } from "lucide-react";
-import { Button } from "../components/Button";
-import { OFFICIAL_LINKEDIN_URL } from "../constants/social";
+import { Button } from "@/components/Button";
+import { OFFICIAL_LINKEDIN_URL } from "@/constants/social";
 
 declare global {
   interface Window {

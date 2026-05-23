@@ -14,8 +14,8 @@ import {
   Phone,
   X,
 } from "lucide-react";
-import { OFFICIAL_LINKEDIN_URL } from "../constants/social";
-import { practiceAreas } from "../../../practiceAreas";
+import { OFFICIAL_LINKEDIN_URL } from "@/constants/social";
+import { practiceAreas } from "@/constants/practiceAreas";
 
 const mainLinks = [
   { label: "Home", path: "/" },
@@ -41,7 +41,7 @@ const mobileContactItems = [
     icon: Mail,
   },
   {
-    label: "5th Avenue Suites, Ngong Road, Nairobi",
+    label: "5th Avenue Suites Ngong Road, Suite No. 6 4th Floor",
     icon: MapPin,
   },
   {

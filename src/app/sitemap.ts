@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { practiceAreas } from "../../practiceAreas";
+import { practiceAreas } from "@/constants/practiceAreas";
 
 const baseUrl = "https://mokubasuadvocates.com";
 

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Mail, Phone } from "lucide-react";
-import { Button } from "../components/Button";
-import { practiceAreas } from "../../../practiceAreas";
+import { Button } from "@/components/Button";
+import { practiceAreas } from "@/constants/practiceAreas";
 
 interface PracticeAreaDetailProps {
   slug?: string;

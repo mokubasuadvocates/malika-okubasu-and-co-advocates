@@ -1,4 +1,4 @@
-import { Team } from "../pages/Team";
+import { Team } from "@/components/views/Team";
 
 export const metadata = {
   title: "Our Team",

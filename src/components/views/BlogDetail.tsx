@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { Divider } from "../components/Divider";
+import { Divider } from "@/components/Divider";
 
 const blogPosts: Record<
   string,

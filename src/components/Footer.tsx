@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Linkedin } from "lucide-react";
-import { OFFICIAL_LINKEDIN_URL } from "../constants/social";
+import { OFFICIAL_LINKEDIN_URL } from "@/constants/social";
 
 export function Footer() {
   const quickLinks = [

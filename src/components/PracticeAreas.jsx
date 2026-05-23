@@ -1,5 +1,5 @@
 import React from "react";
-import { practiceAreas } from "../data/practiceAreas";
+import { practiceAreas } from "@/constants/practiceAreas";
 import PracticeAreaCard from "./PracticeAreaCard";
 
 export default function PracticeAreas() {

@@ -1,4 +1,4 @@
-import { Publications } from "../pages/Publications";
+import { Publications } from "@/components/views/Publications";
 
 export const metadata = {
   title: "Publications",

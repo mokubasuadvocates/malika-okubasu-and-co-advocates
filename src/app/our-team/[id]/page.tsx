@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { TeamProfile } from "../../pages/TeamProfile";
+import { TeamProfile } from "@/components/views/TeamProfile";
 
 const teamProfiles = [
   {

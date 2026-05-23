@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Mail, Phone, Linkedin } from "lucide-react";
-import { Button } from "../components/Button";
+import { Button } from "@/components/Button";
 
 interface TeamProfileProps {
   id: string;

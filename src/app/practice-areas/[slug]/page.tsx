@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { PracticeAreaDetail } from "../../pages/PracticeAreaDetail";
-import { practiceAreas } from "../../../../practiceAreas";
+import { PracticeAreaDetail } from "@/components/views/PracticeAreaDetail";
+import { practiceAreas } from "@/constants/practiceAreas";
 
 interface PageProps {
   params: {
