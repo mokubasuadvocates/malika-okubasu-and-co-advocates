@@ -38,7 +38,7 @@ export function Footer() {
                 <Link
                   key={link.path}
                   href={link.path}
-                  className="text-sm text-white/75 underline-offset-4 transition-all hover:text-gold-hover hover:underline"
+                  className="inline-block text-sm text-white/75 underline-offset-4 transition-all hover:translate-x-1 hover:text-gold-hover hover:underline"
                 >
                   {link.label}
                 </Link>
@@ -60,14 +60,14 @@ export function Footer() {
               </div>
               <a
                 href="tel:+254141397048"
-                className="flex items-center gap-3 transition-all hover:text-gold-hover hover:underline"
+                className="flex items-center gap-3 transition-all hover:translate-x-1 hover:text-gold-hover hover:underline"
               >
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 <span>+254 141 397 048</span>
               </a>
               <a
                 href="mailto:legal@mokubasuadvocates.com"
-                className="flex items-center gap-3 transition-all hover:text-gold-hover hover:underline"
+                className="flex items-center gap-3 transition-all hover:translate-x-1 hover:text-gold-hover hover:underline"
               >
                 <Mail className="w-4 h-4 flex-shrink-0" />
                 <span>legal@mokubasuadvocates.com</span>
@@ -76,7 +76,7 @@ export function Footer() {
                 href={OFFICIAL_LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 transition-all hover:text-gold-hover hover:underline"
+                className="flex items-center gap-3 transition-all hover:translate-x-1 hover:text-gold-hover hover:underline"
               >
                 <Linkedin className="w-4 h-4 flex-shrink-0" />
                 <span>Malika Okubasu & Co Advocates</span>
