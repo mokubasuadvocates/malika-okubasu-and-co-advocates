@@ -3,7 +3,17 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Linkedin, Mail, MapPin, Menu, Phone, X } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Linkedin,
+  Mail,
+  MapPin,
+  Menu,
+  Phone,
+  X,
+} from "lucide-react";
 import { OFFICIAL_LINKEDIN_URL } from "../constants/social";
 
 const mainLinks = [
@@ -28,9 +38,38 @@ const practiceLinks = [
   { label: "Legal Consultancy", path: "/practice-areas/legal-consultancy" },
 ];
 
+const mobileContactItems = [
+  {
+    label: "+254 141 397 048",
+    href: "tel:+254141397048",
+    icon: Phone,
+  },
+  {
+    label: "legal@mokubasuadvocates.com",
+    href: "mailto:legal@mokubasuadvocates.com",
+    icon: Mail,
+  },
+  {
+    label: "5th Avenue Suites, Ngong Road, Nairobi",
+    icon: MapPin,
+  },
+  {
+    label: "LinkedIn",
+    href: OFFICIAL_LINKEDIN_URL,
+    icon: Linkedin,
+    isExternal: true,
+    ariaLabel: "Malika Okubasu & Company Advocates on LinkedIn",
+  },
+];
+
+const MOBILE_CONTACT_ROTATION_MS = 5000;
+
 export function MobileHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPracticeOpen, setIsPracticeOpen] = useState(false);
+  const [activeContactIndex, setActiveContactIndex] = useState(0);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isContactPaused, setIsContactPaused] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
@@ -40,15 +79,88 @@ export function MobileHeader() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
+
+    updatePreference();
+    mediaQuery.addEventListener("change", updatePreference);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updatePreference);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion || isContactPaused) {
+      return;
+    }
+
+    const interval = window.setInterval(() => {
+      setActiveContactIndex((index) => (index + 1) % mobileContactItems.length);
+    }, MOBILE_CONTACT_ROTATION_MS);
+
+    return () => {
+      window.clearInterval(interval);
+    };
+  }, [prefersReducedMotion, isContactPaused]);
+
   const closeMenu = () => {
     setIsOpen(false);
     setIsPracticeOpen(false);
   };
 
+  const activeContactItem = mobileContactItems[activeContactIndex];
+  const ActiveContactIcon = activeContactItem.icon;
+  const mobileContactContent = (
+    <span className="flex min-w-0 items-center justify-center gap-1.5 whitespace-nowrap">
+      <ActiveContactIcon className="h-3.5 w-3.5 shrink-0 text-gold" aria-hidden="true" />
+      <span className="truncate">{activeContactItem.label}</span>
+    </span>
+  );
+
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-[rgba(0,62,99,0.12)] bg-white shadow-[0_10px_30px_rgba(0,62,99,0.08)] lg:hidden">
-        <div className="h-11 overflow-x-auto bg-[linear-gradient(90deg,#002f4d_0%,#003e63_55%,#0b5f8f_100%)] text-white">
+        <div
+          className="relative h-11 bg-[linear-gradient(90deg,#002f4d_0%,#003e63_55%,#0b5f8f_100%)] text-white md:hidden"
+          onFocus={() => setIsContactPaused(true)}
+          onBlur={() => setIsContactPaused(false)}
+          onMouseEnter={() => setIsContactPaused(true)}
+          onMouseLeave={() => setIsContactPaused(false)}
+        >
+          <ChevronLeft
+            className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-gold/70"
+            aria-hidden="true"
+          />
+          <div className="flex h-full items-center justify-center px-8 py-2 text-[12px]">
+            {activeContactItem.href ? (
+              <a
+                key={activeContactItem.label}
+                href={activeContactItem.href}
+                target={activeContactItem.isExternal ? "_blank" : undefined}
+                rel={activeContactItem.isExternal ? "noopener noreferrer" : undefined}
+                aria-label={activeContactItem.ariaLabel}
+                className="mobile-contact-rotator flex max-w-[calc(100vw-5rem)] items-center justify-center transition-colors hover:text-gold-hover"
+              >
+                {mobileContactContent}
+              </a>
+            ) : (
+              <span
+                key={activeContactItem.label}
+                className="mobile-contact-rotator flex max-w-[calc(100vw-5rem)] items-center justify-center"
+              >
+                {mobileContactContent}
+              </span>
+            )}
+          </div>
+          <ChevronRight
+            className="pointer-events-none absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-gold/70"
+            aria-hidden="true"
+          />
+        </div>
+
+        <div className="hidden h-11 overflow-x-auto bg-[linear-gradient(90deg,#002f4d_0%,#003e63_55%,#0b5f8f_100%)] text-white md:block">
           <div className="flex min-w-max items-center gap-5 px-4 py-2 text-[12px]">
             <a
               href="tel:+254141397048"

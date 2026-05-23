@@ -354,3 +354,28 @@
     transform: scaleX(1);
   }
 }
+
+@media (max-width: 767px) {
+  .mobile-contact-rotator {
+    animation: mobileContactFade 500ms ease-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-contact-rotator {
+    animation: none;
+    transition: none;
+  }
+}
+
+@keyframes mobileContactFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
