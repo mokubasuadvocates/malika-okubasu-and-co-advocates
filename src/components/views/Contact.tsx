@@ -5,9 +5,18 @@ import { MapPin, Phone, Mail, ArrowRight, Linkedin } from "lucide-react";
 import { Button } from "@/components/Button";
 import { OFFICIAL_LINKEDIN_URL } from "@/constants/social";
 
+type TurnstileApi = {
+  render: (
+    container: HTMLElement,
+    options: { sitekey: string; theme: "light" | "dark" | "auto" }
+  ) => string;
+  getResponse: (widgetId: string) => string;
+  reset: (widgetId: string) => void;
+};
+
 declare global {
   interface Window {
-    turnstile: any;
+    turnstile?: TurnstileApi;
   }
 }
 
@@ -44,7 +53,7 @@ export function Contact() {
             turnstileWidgetId.current = window.turnstile.render(
               turnstileContainerRef.current,
               {
-                sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+                sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "",
                 theme: "light",
               }
             );
@@ -193,7 +202,7 @@ export function Contact() {
               Get In Touch
             </h1>
             <p className="text-lg lg:text-xl text-body leading-relaxed">
-              We're here to help. Reach out to discuss your legal needs and
+              We&apos;re here to help. Reach out to discuss your legal needs and
               discover how our team can provide the guidance and support you
               require.
             </p>
@@ -290,7 +299,7 @@ export function Contact() {
                   Send us a message
                 </h2>
                 <p className="text-body mb-8">
-                  We'll respond as soon as possible.
+                  We&apos;ll respond as soon as possible.
                 </p>
 
                 {submissionError && (
@@ -309,7 +318,7 @@ export function Contact() {
                   <div className="bg-white p-6 border-l-4 border-brand-blue">
                     <h3 className="font-bold text-heading mb-2">Thank you!</h3>
                     <p className="text-body">
-                      Your message has been received. We'll get back to you
+                      Your message has been received. We&apos;ll get back to you
                       within 24 hours.
                     </p>
                   </div>

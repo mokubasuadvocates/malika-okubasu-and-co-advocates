@@ -1,11 +1,10 @@
 
-  # Premium Law Firm Website UI
+# Malika Okubasu & Company Advocates
 
-  This is a code bundle for Premium Law Firm Website UI. The original project is available at https://www.figma.com/design/Kv7xvtcMYpiRWyuRCbMTi9/Premium-Law-Firm-Website-UI.
+Website for Malika Okubasu & Company Advocates.
 
-  ## Running the code
+## Running the code
 
-  Run `npm i` to install the dependencies.
+Run `npm i` to install the dependencies.
 
-  Run `npm run dev` to start the development server.
-  
+Run `npm run dev` to start the development server.

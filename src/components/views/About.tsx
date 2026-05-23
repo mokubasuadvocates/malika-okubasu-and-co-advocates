@@ -50,7 +50,7 @@ export function About() {
               individuals, institutions, and businesses. We are committed to
               delivering clear, results-focused advice and representation—built
               on integrity, professionalism, and a deep understanding of our
-              clients' goals.
+              clients&apos; goals.
             </p>
 
             {process.env.NEXT_PUBLIC_BOOKINGS_URL ? (
@@ -88,7 +88,7 @@ export function About() {
                 We approach every instruction with a commercial mindset and a
                 human touch. Whether we are advising on transactions, resolving
                 disputes, or providing ongoing legal support, our focus is
-                simple: protect our clients' interests, reduce risk, and help
+                simple: protect our clients&apos; interests, reduce risk, and help
                 them move forward with confidence.
               </p>
 

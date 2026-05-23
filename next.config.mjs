@@ -19,6 +19,31 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/publications/1",
+        destination: "/publications",
+        permanent: true,
+      },
+      {
+        source: "/publications/2",
+        destination: "/publications",
+        permanent: true,
+      },
+      {
+        source: "/publications/3",
+        destination: "/publications",
+        permanent: true,
+      },
+      {
+        source: "/publications/4",
+        destination: "/publications",
+        permanent: true,
+      },
+      {
+        source: "/publications/5",
+        destination: "/publications",
+        permanent: true,
+      },
+      {
         source: "/practice-areas/corporate-commercial",
         destination: "/practice-areas/corporate-and-commercial-law",
         permanent: true,
@@ -50,12 +75,14 @@ const nextConfig = {
       },
       {
         source: "/practice-areas/media-tech-ip",
-        destination: "/practice-areas/media-technology-and-intellectual-property",
+        destination:
+          "/practice-areas/media-technology-and-intellectual-property",
         permanent: true,
       },
       {
         source: "/practice-areas/energy-climate",
-        destination: "/practice-areas/energy-natural-resources-and-climate-change",
+        destination:
+          "/practice-areas/energy-natural-resources-and-climate-change",
         permanent: true,
       },
       {

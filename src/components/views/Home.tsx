@@ -1,10 +1,10 @@
-"use client";
-
 import Link from "next/link";
 import { Linkedin } from "lucide-react";
+import { BlogPreviewCard } from "@/components/BlogPreviewCard";
 import { Button } from "@/components/Button";
 import { Divider } from "@/components/Divider";
 import { practiceAreas } from "@/constants/practiceAreas";
+import { getPublishedBlogPosts } from "@/data/blogs";
 
 export function Home() {
   const expectations = [
@@ -27,35 +27,7 @@ export function Home() {
     },
   ];
 
-  const featuredInsights = [
-    {
-      id: 1,
-      category: "Corporate",
-      title: "Navigating Cross-Border M&A in East Africa",
-      excerpt:
-        "An in-depth analysis of the regulatory landscape and practical considerations for cross-border mergers and acquisitions.",
-      image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80",
-    },
-    {
-      id: 2,
-      category: "Governance",
-      title: "Corporate Governance Best Practices for Startups",
-      excerpt:
-        "Essential governance frameworks and compliance requirements for early-stage technology companies.",
-      image:
-        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&q=80",
-    },
-    {
-      id: 3,
-      category: "IP & Technology",
-      title: "Protecting Intellectual Property in the Digital Age",
-      excerpt:
-        "Strategic approaches to safeguarding intellectual property rights in an increasingly digital environment.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80",
-    },
-  ];
+  const featuredInsights = getPublishedBlogPosts().slice(0, 3);
 
   const teamPreview = [
     {
@@ -93,9 +65,8 @@ export function Home() {
               Malika Okubasu & Company Advocates
             </h1>
             <p className="mt-6 max-w-[650px] text-lg leading-relaxed text-white/85 lg:text-xl">
-              Malika Okubasu & Company Advocates is a leading law firm
-              providing comprehensive legal solutions to complex business
-              challenges.
+              Malika Okubasu & Company Advocates is a leading law firm providing
+              comprehensive legal solutions to complex business challenges.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               {process.env.NEXT_PUBLIC_BOOKINGS_URL ? (
@@ -104,21 +75,15 @@ export function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button variant="gold">
-                    Book a Consultation
-                  </Button>
+                  <Button variant="gold">Book a Consultation</Button>
                 </Link>
               ) : (
                 <Link href="/contact">
-                  <Button variant="gold">
-                    Book a Consultation
-                  </Button>
+                  <Button variant="gold">Book a Consultation</Button>
                 </Link>
               )}
               <Link href="/practice-areas">
-                <Button variant="inverseOutline">
-                  Explore Practice Areas
-                </Button>
+                <Button variant="inverseOutline">Explore Practice Areas</Button>
               </Link>
             </div>
           </div>
@@ -280,41 +245,13 @@ export function Home() {
             Featured Insights
           </h2>
 
-          <div className="grid gap-8 lg:gap-12">
-            {featuredInsights.map((insight) => (
-              <Link
-                key={insight.id}
-                href="/publications"
-                className="group block"
-              >
-                <div className="premium-card bg-white rounded-lg overflow-hidden">
-                  <div className="grid lg:grid-cols-[300px_1fr] gap-0">
-                    {/* Thumbnail */}
-                    <div className="overflow-hidden">
-                      <img
-                        src={insight.image}
-                        alt={insight.title}
-                        className="w-full h-48 lg:h-full object-cover grayscale group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6 lg:p-8">
-                      <div className="text-xs lg:text-sm uppercase tracking-wider text-link mb-3 font-medium">
-                        {insight.category}
-                      </div>
-
-                      <h3 className="text-xl lg:text-2xl font-bold text-heading mb-4 group-hover:text-gold transition-colors leading-snug">
-                        {insight.title}
-                      </h3>
-
-                      <p className="text-base lg:text-lg text-body leading-relaxed">
-                        {insight.excerpt}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+          <div className="flex flex-col gap-10 lg:gap-12">
+            {featuredInsights.map((insight, index) => (
+              <BlogPreviewCard
+                key={insight.slug}
+                post={insight}
+                priority={index === 0}
+              />
             ))}
           </div>
 
@@ -461,7 +398,6 @@ export function Home() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

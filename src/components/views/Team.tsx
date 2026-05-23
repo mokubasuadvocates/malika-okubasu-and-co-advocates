@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Mail, Phone, Linkedin } from "lucide-react";
-import { Divider } from "@/components/Divider";
 
 export function Team() {
   const team = [

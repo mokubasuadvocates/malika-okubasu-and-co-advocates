@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { practiceAreas } from "@/constants/practiceAreas";
+import { blogPosts } from "@/data/blogs";
 
 const baseUrl = "https://mokubasuadvocates.com";
 
@@ -44,12 +45,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const practiceAreaPages: MetadataRoute.Sitemap = practiceAreas.map((area) => ({
-    url: `${baseUrl}/practice-areas/${area.id}`,
-    lastModified,
+  const practiceAreaPages: MetadataRoute.Sitemap = practiceAreas.map(
+    (area) => ({
+      url: `${baseUrl}/practice-areas/${area.id}`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })
+  );
+
+  const publicationPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${baseUrl}/publications/${post.slug}`,
+    lastModified: new Date(post.dateModified),
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
-  return [...mainPages, ...practiceAreaPages];
+  return [...mainPages, ...practiceAreaPages, ...publicationPages];
 }

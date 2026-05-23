@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Divider } from "@/components/Divider";
 import { practiceAreas } from "@/constants/practiceAreas";
 
 export function PracticeAreas() {
