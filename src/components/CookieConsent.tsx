@@ -167,7 +167,8 @@ export function CookieConsent() {
     setChoices((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  if (!showBanner && !showModal) return null;
+  // The floating icon needs to render even if banner and modal are hidden,
+  // so we remove the early return that was previously here.
 
   return (
     <>
