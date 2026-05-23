@@ -50,10 +50,15 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">Contact Us</h3>
             <div className="flex flex-col gap-4 text-sm text-white/75">
-              <div className="flex items-start gap-3">
+              <a 
+                href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 transition-all hover:translate-x-1 hover:text-gold-hover hover:underline"
+              >
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
                 <span>5th Avenue Suites Ngong Road, Suite No. 6 4th Floor</span>
-              </div>
+              </a>
               <div className="flex items-start gap-3">
                 <Mailbox className="w-4 h-4 flex-shrink-0 mt-0.5" />
                 <span>P.O. Box 25926 - 00603</span>
