@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, Linkedin } from "lucide-react";
 
@@ -6,7 +7,7 @@ export function Team() {
     {
       id: "brenton-okubasu",
       name: "Brenton Okubasu",
-      role: "Founding Partner (On Leave of Absence)",
+      role: "Founding Partner (On leave of absence), Malika Okubasu and Company Advocates",
       location: "Nairobi, Kenya",
       email: "legal@mokubasuadvocates.com",
       phone: "+254 721 789 389 / +254 141 397 048",
@@ -16,7 +17,7 @@ export function Team() {
     {
       id: "oduor-khamati",
       name: "Oduor Khamati",
-      role: "Managing Partner",
+      role: "Managing Partner, Malika Okubasu and Company Advocates",
       location: "Nairobi, Kenya",
       email: "oduor.khamati@mokubasuadvocates.com",
       phone: "+254 717 259 196 / +254 141 397 048",
@@ -26,7 +27,7 @@ export function Team() {
     {
       id: "susan-anyango",
       name: "Susan Anyango",
-      role: "Advocate of the High Court of Kenya",
+      role: "Associate, Malika Okubasu and Company Advocates",
       location: "Nairobi, Kenya",
       email: "susan.anyango@mokubasuadvocates.com",
       phone: "+254 141 397 048",
@@ -40,10 +41,13 @@ export function Team() {
       {/* Hero Section */}
       <section className="relative bg-soft-blue border-b border-brand-border py-20 lg:py-32">
         <div className="absolute inset-0 overflow-hidden">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600&q=80"
             alt="Legal team collaboration"
-            className="w-full h-full object-cover opacity-30 grayscale"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover opacity-30 grayscale"
           />
         </div>
 
@@ -68,10 +72,13 @@ export function Team() {
               <div key={member.id} className="group">
                 {/* Portrait */}
                 <div className="overflow-hidden mb-5">
-                  <img
+                  <Image
                     src={member.image}
                     alt={member.name}
-                    className="w-full aspect-[3/4] object-cover grayscale group-hover:scale-105 transition-transform duration-500"
+                    width={600}
+                    height={800}
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    className="w-full aspect-[3/4] object-cover lg:grayscale lg:group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                   />
                 </div>
 

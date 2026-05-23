@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Mail, Phone } from "lucide-react";
@@ -60,10 +61,13 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
       {/* Hero */}
       <section className="relative bg-soft-blue border-b border-brand-border py-16 lg:py-20">
         <div className="absolute inset-0 overflow-hidden">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80"
             alt={practiceArea.title}
-            className="w-full h-full object-cover opacity-30 grayscale"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover opacity-30 grayscale"
           />
         </div>
 
@@ -177,10 +181,12 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
             {teamContacts.map((contact, index) => (
               <div key={index} className="text-center">
                 <div className="w-24 h-24 mx-auto mb-4 overflow-hidden rounded-full">
-                  <img
+                  <Image
                     src={contact.image}
                     alt={contact.name}
-                    className="w-full h-full object-cover"
+                    width={96}
+                    height={96}
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                   />
                 </div>
                 <h3 className="text-lg font-bold text-heading mb-1">

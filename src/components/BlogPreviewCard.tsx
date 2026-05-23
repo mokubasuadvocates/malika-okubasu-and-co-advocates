@@ -47,7 +47,7 @@ export function BlogPreviewCard({
               alt={author.name}
               width={40}
               height={40}
-              className="h-10 w-10 rounded-full object-cover grayscale"
+              className="h-10 w-10 rounded-full object-cover transition-all duration-500"
             />
             <div>
               <div className="text-sm font-bold text-heading">
@@ -69,7 +69,7 @@ export function BlogPreviewCard({
             fill
             priority={priority}
             sizes="(min-width: 1024px) 42vw, 100vw"
-            className="object-cover grayscale motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-105"
+            className="object-cover motion-safe:transition-all motion-safe:duration-500 motion-safe:group-hover:scale-105"
           />
         </div>
       </article>

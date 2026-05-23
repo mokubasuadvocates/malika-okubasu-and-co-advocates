@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { Divider } from "@/components/Divider";
 import JsonLd from "@/components/JsonLd";
+import { ReadingProgress } from "@/components/ReadingProgress";
 import {
   getBlogAuthor,
   getBlogPost,
@@ -78,6 +79,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
 
   return (
     <div className="overflow-x-hidden">
+      <ReadingProgress />
       <JsonLd data={jsonLd} />
 
       {/* Back Button */}
@@ -103,7 +105,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
               fill
               priority
               sizes="(min-width: 1120px) 1120px, 100vw"
-              className="object-cover grayscale"
+              className="object-cover"
             />
           </div>
         </div>
@@ -132,7 +134,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
                 alt={author.name}
                 width={48}
                 height={48}
-                className="h-11 w-11 flex-shrink-0 rounded-full object-cover grayscale sm:h-12 sm:w-12"
+                className="h-11 w-11 flex-shrink-0 rounded-full object-cover lg:grayscale lg:hover:grayscale-0 transition-all duration-500 sm:h-12 sm:w-12"
               />
               <div className="min-w-0">
                 <Link
@@ -207,7 +209,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
                 alt={author.name}
                 width={64}
                 height={64}
-                className="h-14 w-14 flex-shrink-0 rounded-full object-cover grayscale sm:h-16 sm:w-16"
+                className="h-14 w-14 flex-shrink-0 rounded-full object-cover lg:grayscale lg:hover:grayscale-0 transition-all duration-500 sm:h-16 sm:w-16"
               />
               <div className="min-w-0">
                 <Link

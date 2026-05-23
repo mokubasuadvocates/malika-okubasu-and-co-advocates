@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { MapPin, Phone, Mail, ArrowRight, Linkedin } from "lucide-react";
 import { Button } from "@/components/Button";
 import { OFFICIAL_LINKEDIN_URL } from "@/constants/social";
@@ -189,10 +190,13 @@ export function Contact() {
       {/* Hero Section */}
       <section className="relative bg-soft-blue border-b border-brand-border py-20 lg:py-32">
         <div className="absolute inset-0 overflow-hidden">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80"
             alt="Contact us"
-            className="w-full h-full object-cover opacity-30 grayscale"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover opacity-30 grayscale"
           />
         </div>
 
@@ -226,11 +230,9 @@ export function Contact() {
                   <div>
                     <div className="font-bold text-heading mb-1">Address</div>
                     <p className="text-body">
-                      5th Avenue Suites, 5th Avenue Ngong Road.
+                      5th Avenue Suites Ngong Road, Suite No. 6 4th Floor
                       <br />
-                      Suite No. 6, 4th Floor
-                      <br />
-                      P.O. Box 25926 - 00603.
+                      P.O. Box 25926 - 00603
                     </p>
                   </div>
                 </div>
@@ -277,18 +279,28 @@ export function Contact() {
                 </div>
               </div>
 
-              <Button variant="outline" className="mb-8">
+              <a 
+                href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-lg px-8 py-3.5 font-sans-primary font-semibold shadow-sm transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 bg-navy text-white hover:bg-gold hover:text-white mb-8"
+              >
                 Get Directions
                 <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              </a>
 
-              {/* Map Placeholder */}
-              <div className="w-full h-[300px] bg-soft-blue border border-brand-border rounded-lg overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80"
-                  alt="Map location"
-                  className="w-full h-full object-cover grayscale opacity-60"
+              {/* Map Iframe */}
+              <div className="w-full h-[360px] bg-soft-blue border border-[rgba(0,62,99,0.12)] rounded-lg overflow-hidden shadow-sm">
+                <iframe
+                  title="Map showing Malika Okubasu & Company Advocates at 5th Avenue Suites, Ngong Road, Nairobi"
+                  src="https://www.google.com/maps?q=5th%20Avenue%20Suites%20Ngong%20Road%20Nairobi&output=embed"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full border-0"
                 />
+                <div className="sr-only">
+                  Malika Okubasu & Company Advocates, 5th Avenue Suites, Ngong Road, Nairobi
+                </div>
               </div>
             </div>
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/Button";
@@ -32,10 +33,13 @@ export function About() {
       {/* Hero Section */}
       <section className="relative bg-soft-blue border-b border-brand-border py-20 lg:py-32">
         <div className="absolute inset-0 overflow-hidden">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=80"
             alt="Law office"
-            className="w-full h-full object-cover opacity-30 grayscale"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover opacity-30 grayscale"
           />
         </div>
 

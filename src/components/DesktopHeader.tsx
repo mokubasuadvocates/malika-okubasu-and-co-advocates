@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -31,9 +32,54 @@ const utilityItems = [
 export function DesktopHeader() {
   const pathname = usePathname();
   const isPracticeActive = pathname === "/practice-areas" || pathname.startsWith("/practice-areas/");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const isActive = (path: string) =>
     pathname === path || (path !== "/" && pathname.startsWith(`${path}/`));
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 200);
+  };
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isDropdownOpen) {
+        setIsDropdownOpen(false);
+      }
+    };
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleEscape);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDropdownOpen]);
+
+  const toggleDropdown = (e: React.MouseEvent | React.KeyboardEvent) => {
+    e.preventDefault();
+    setIsDropdownOpen((prev) => !prev);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setIsDropdownOpen((prev) => !prev);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 hidden bg-white shadow-[0_10px_30px_rgba(0,62,99,0.08)] lg:block">
@@ -50,12 +96,17 @@ export function DesktopHeader() {
                 <span>{label}</span>
               </a>
             ))}
-            <span className="flex min-w-0 items-center gap-2">
+            <a 
+              href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-w-0 items-center gap-2 transition-colors hover:text-gold-hover"
+            >
               <MapPin className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
               <span className="truncate">
                 5th Avenue Suites Ngong Road, Suite No. 6 4th Floor
               </span>
-            </span>
+            </a>
           </div>
 
           <a
@@ -112,30 +163,50 @@ export function DesktopHeader() {
               About Us
             </Link>
 
-            <div className="group relative">
-              <Link
-                href="/practice-areas"
+            <div 
+              className="group relative" 
+              ref={dropdownRef}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                type="button"
+                onClick={toggleDropdown}
+                onKeyDown={handleKeyDown}
                 aria-haspopup="true"
+                aria-expanded={isDropdownOpen}
                 data-active={isPracticeActive}
-                className="nav-underline flex items-center gap-1 text-[15px] font-bold text-navy transition-colors hover:text-gold"
+                className="nav-underline flex items-center gap-1 text-[15px] font-bold text-navy transition-colors hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 rounded-sm"
               >
                 Practice Areas
                 <ChevronDown
-                  className="h-4 w-4 transition-transform group-hover:rotate-180 group-focus-within:rotate-180"
+                  className={`h-4 w-4 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
                   aria-hidden="true"
                 />
-              </Link>
+              </button>
 
-              <div className="pointer-events-none absolute left-1/2 top-full w-[420px] max-w-[calc(100vw-2rem)] -translate-x-1/2 translate-y-3 rounded-lg border border-[rgba(0,62,99,0.12)] bg-white p-3 opacity-0 shadow-[0_18px_45px_rgba(0,47,77,0.16)] transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-2 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-2 group-focus-within:opacity-100">
+              <div 
+                className={`absolute left-1/2 top-full w-[420px] max-w-[calc(100vw-2rem)] -translate-x-1/2 translate-y-3 rounded-lg border border-[rgba(0,62,99,0.12)] bg-white p-3 shadow-[0_18px_45px_rgba(0,47,77,0.16)] transition-all duration-200 ${
+                  isDropdownOpen ? "pointer-events-auto translate-y-2 opacity-100" : "pointer-events-none opacity-0"
+                }`}
+              >
                 <div className="border-b border-[rgba(0,62,99,0.1)] px-3 pb-2 text-xs font-bold uppercase text-gold">
                   Legal Services
                 </div>
                 <div className="grid gap-1 pt-2">
+                  <Link
+                    href="/practice-areas"
+                    onClick={() => setIsDropdownOpen(false)}
+                    className="rounded-md px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-soft-bg hover:text-gold focus-visible:outline-none focus-visible:bg-soft-bg focus-visible:text-gold"
+                  >
+                    View All Practice Areas
+                  </Link>
                   {practiceLinks.map((item) => (
                     <Link
                       key={item.path}
                       href={item.path}
-                      className="rounded-md px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-soft-bg hover:text-gold focus-visible:bg-soft-bg focus-visible:text-gold"
+                      onClick={() => setIsDropdownOpen(false)}
+                      className="rounded-md px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-soft-bg hover:text-gold focus-visible:outline-none focus-visible:bg-soft-bg focus-visible:text-gold"
                     >
                       {item.label}
                     </Link>

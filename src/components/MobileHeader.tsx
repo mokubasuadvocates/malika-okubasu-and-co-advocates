@@ -42,7 +42,10 @@ const mobileContactItems = [
   },
   {
     label: "5th Avenue Suites Ngong Road, Suite No. 6 4th Floor",
+    href: "https://maps.app.goo.gl/enkR4yrDCPXHHYpSA",
     icon: MapPin,
+    isExternal: true,
+    ariaLabel: "View location on Google Maps",
   },
   {
     label: "LinkedIn",
@@ -129,7 +132,7 @@ export function MobileHeader() {
           <button
             type="button"
             onClick={showPreviousContactItem}
-            className="absolute left-1 top-0 flex h-full w-8 items-center justify-center text-gold/70 transition-colors hover:text-gold focus-visible:text-gold"
+            className="absolute left-1 top-0 flex h-full w-11 items-center justify-center text-gold/70 transition-colors hover:text-gold focus-visible:text-gold"
             aria-label="Show previous contact item"
           >
             <ChevronLeft className="h-3.5 w-3.5" aria-hidden="true" />
@@ -158,7 +161,7 @@ export function MobileHeader() {
           <button
             type="button"
             onClick={showNextContactItem}
-            className="absolute right-1 top-0 flex h-full w-8 items-center justify-center text-gold/70 transition-colors hover:text-gold focus-visible:text-gold"
+            className="absolute right-1 top-0 flex h-full w-11 items-center justify-center text-gold/70 transition-colors hover:text-gold focus-visible:text-gold"
             aria-label="Show next contact item"
           >
             <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -181,10 +184,16 @@ export function MobileHeader() {
               <Mail className="h-3.5 w-3.5 text-gold" aria-hidden="true" />
               <span>legal@mokubasuadvocates.com</span>
             </a>
-            <span className="flex items-center gap-1.5 whitespace-nowrap">
+            <a
+              href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View location on Google Maps"
+              className="flex items-center gap-1.5 whitespace-nowrap transition-colors hover:text-gold-hover"
+            >
               <MapPin className="h-3.5 w-3.5 text-gold" aria-hidden="true" />
               <span>Ngong Road, Nairobi</span>
-            </span>
+            </a>
             <a
               href={OFFICIAL_LINKEDIN_URL}
               target="_blank"
@@ -271,9 +280,10 @@ export function MobileHeader() {
               <button
                 type="button"
                 onClick={() => setIsPracticeOpen((value) => !value)}
-                className="mr-2 inline-flex h-10 w-10 items-center justify-center rounded-md text-navy transition-colors hover:bg-soft-bg hover:text-gold"
+                className="mr-2 inline-flex h-11 w-11 items-center justify-center rounded-md text-navy transition-colors hover:bg-soft-bg hover:text-gold"
                 aria-label="Toggle practice areas links"
                 aria-expanded={isPracticeOpen}
+                aria-controls="mobile-practice-areas"
               >
                 <ChevronDown
                   className={`h-5 w-5 transition-transform ${
@@ -284,20 +294,34 @@ export function MobileHeader() {
               </button>
             </div>
 
-            {isPracticeOpen && (
-              <div className="grid gap-1 border-t border-[rgba(0,62,99,0.12)] bg-soft-bg p-2">
-                {practiceLinks.map((link) => (
+            <div
+              id="mobile-practice-areas"
+              className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                isPracticeOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              }`}
+            >
+              <div className="overflow-hidden">
+                <div className="grid gap-1 border-t border-[rgba(0,62,99,0.12)] bg-soft-bg p-2">
                   <Link
-                    key={link.path}
-                    href={link.path}
+                    href="/practice-areas"
                     onClick={closeMenu}
-                    className="rounded-md px-3 py-2 text-base font-semibold text-navy transition-colors hover:bg-white hover:text-gold"
+                    className="rounded-md px-3 py-2 text-base font-semibold text-navy transition-colors hover:bg-white hover:text-gold focus-visible:outline-none focus-visible:bg-white focus-visible:text-gold"
                   >
-                    {link.label}
+                    View All Practice Areas
                   </Link>
-                ))}
+                  {practiceLinks.map((link) => (
+                    <Link
+                      key={link.path}
+                      href={link.path}
+                      onClick={closeMenu}
+                      className="rounded-md px-3 py-2 text-base font-semibold text-navy transition-colors hover:bg-white hover:text-gold focus-visible:outline-none focus-visible:bg-white focus-visible:text-gold"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            )}
+            </div>
           </div>
 
           {mainLinks.slice(2).map((link) => (

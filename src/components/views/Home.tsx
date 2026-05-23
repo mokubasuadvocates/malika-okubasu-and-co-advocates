@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Linkedin } from "lucide-react";
+import { Linkedin, ArrowRight, Mail, Phone } from "lucide-react";
 import { BlogPreviewCard } from "@/components/BlogPreviewCard";
 import { Button } from "@/components/Button";
 import { Divider } from "@/components/Divider";
@@ -33,21 +34,27 @@ export function Home() {
     {
       id: "brenton-okubasu",
       name: "Brenton Okubasu",
-      role: "Founder and Consulting Partner",
+      role: "Founding Partner (On leave of absence), Malika Okubasu and Company Advocates",
+      email: "legal@mokubasuadvocates.com",
+      phone: "+254 721 789 389 / +254 141 397 048",
       linkedin: "https://www.linkedin.com/in/brenton-o-a044b154/",
       image: "/images/team-members/brenton-okubasu.jpeg",
     },
     {
       id: "oduor-khamati",
       name: "Oduor Khamati",
-      role: "Managing Partner",
+      role: "Managing Partner, Malika Okubasu and Company Advocates",
+      email: "oduor.khamati@mokubasuadvocates.com",
+      phone: "+254 717 259 196 / +254 141 397 048",
       linkedin: "https://www.linkedin.com/in/oduorkhamati/",
       image: "/images/team-members/oduor-khamati.jpeg",
     },
     {
       id: "susan-anyango",
       name: "Susan Anyango",
-      role: "Advocate of the High Court of Kenya",
+      role: "Associate, Malika Okubasu and Company Advocates",
+      email: "susan.anyango@mokubasuadvocates.com",
+      phone: "+254 141 397 048",
       linkedin: "https://www.linkedin.com/in/susan-anyango-aciarb-0b861a249/",
       image: "/images/team-members/susan-anyango.jpeg",
     },
@@ -90,9 +97,13 @@ export function Home() {
 
           <div className="relative">
             <div className="premium-card overflow-hidden rounded-lg border border-white/20 bg-white/10 p-3 shadow-xl shadow-black/20 backdrop-blur-sm">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=90"
                 alt="Modern corporate architecture"
+                width={1200}
+                height={800}
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="h-[360px] w-full rounded-md object-cover lg:h-[520px]"
               />
             </div>
@@ -178,9 +189,12 @@ export function Home() {
             {/* Right: Image */}
             <div className="order-first lg:order-last">
               <div className="relative overflow-hidden rounded-lg border border-brand-border bg-white p-3 shadow-lg shadow-brand-blue/10">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80"
                   alt="Firm office"
+                  width={800}
+                  height={600}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="w-full aspect-[4/3] rounded-md object-cover hover:scale-[1.02] transition-transform duration-700"
                 />
               </div>
@@ -279,15 +293,18 @@ export function Home() {
             Meet the people behind Malika Okubasu & Company Advocates.
           </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {teamPreview.map((member) => (
               <div key={member.id} className="group">
                 {/* Portrait */}
                 <div className="overflow-hidden mb-4 rounded-sm">
-                  <img
+                  <Image
                     src={member.image}
                     alt={member.name}
-                    className="w-full aspect-[3/4] object-cover grayscale group-hover:scale-105 transition-transform duration-500"
+                    width={400}
+                    height={533}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="w-full aspect-[3/4] object-cover lg:grayscale lg:group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                   />
                 </div>
 
@@ -301,6 +318,24 @@ export function Home() {
                   </div>
 
                   <div className="flex flex-col gap-2">
+                    {member.email && (
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-gold hover:underline underline-offset-4 transition-all"
+                      >
+                        <Mail className="w-4 h-4 flex-shrink-0" />
+                        <span className="break-all">{member.email}</span>
+                      </a>
+                    )}
+                    {member.phone && (
+                      <a
+                        href={`tel:${member.phone.split(" / ")[0]}`}
+                        className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-gold hover:underline underline-offset-4 transition-all"
+                      >
+                        <Phone className="w-4 h-4 flex-shrink-0" />
+                        <span className="break-words">{member.phone}</span>
+                      </a>
+                    )}
                     {member.linkedin && (
                       <a
                         href={member.linkedin}
@@ -308,7 +343,7 @@ export function Home() {
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-gold hover:underline underline-offset-4 transition-all"
                       >
-                        <Linkedin className="w-4 h-4" />
+                        <Linkedin className="w-4 h-4 flex-shrink-0" />
                         <span>LinkedIn</span>
                       </a>
                     )}
@@ -340,13 +375,30 @@ export function Home() {
                 within 24 hours.
               </p>
 
-              {/* Map Placeholder */}
-              <div className="w-full h-[280px] lg:h-[320px] rounded-sm border border-brand-border overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80"
-                  alt="Location map"
-                  className="w-full h-full object-cover grayscale opacity-70"
+              {/* Map Iframe */}
+              <div className="w-full h-[280px] lg:h-[320px] rounded-sm border border-[rgba(0,62,99,0.12)] overflow-hidden shadow-sm">
+                <iframe
+                  title="Map showing Malika Okubasu & Company Advocates at 5th Avenue Suites, Ngong Road, Nairobi"
+                  src="https://www.google.com/maps?q=5th%20Avenue%20Suites%20Ngong%20Road%20Nairobi&output=embed"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full border-0"
                 />
+                <div className="sr-only">
+                  Malika Okubasu & Company Advocates, 5th Avenue Suites, Ngong Road, Nairobi
+                </div>
+              </div>
+
+              <div className="mt-6">
+                <a 
+                  href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-lg px-6 py-3 font-sans-primary font-semibold shadow-sm transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 bg-navy text-white hover:bg-gold hover:text-white"
+                >
+                  Get Directions
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
               </div>
             </div>
 
@@ -382,11 +434,9 @@ export function Home() {
                     Address
                   </div>
                   <p className="text-lg lg:text-xl text-body leading-relaxed">
-                    5th Avenue Suites, 5th Avenue Ngong Road.
+                    5th Avenue Suites Ngong Road, Suite No. 6 4th Floor
                     <br />
-                    Suite No. 6, 4th Floor
-                    <br />
-                    P.O. Box 25926 - 00603.
+                    P.O. Box 25926 - 00603
                   </p>
                 </div>
               </div>

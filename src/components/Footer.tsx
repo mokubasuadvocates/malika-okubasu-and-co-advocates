@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Linkedin } from "lucide-react";
+import { Linkedin, MapPin, Mailbox, Phone, Mail } from "lucide-react";
 import { OFFICIAL_LINKEDIN_URL } from "@/constants/social";
 
 export function Footer() {
@@ -32,13 +32,13 @@ export function Footer() {
 
           {/* Quick Links Column */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-4 text-white">Quick Links</h3>
             <nav className="flex flex-col gap-2.5">
               {quickLinks.map((link) => (
                 <Link
                   key={link.path}
                   href={link.path}
-                  className="text-sm text-white/75 underline-offset-4 transition-all hover:text-gold-hover hover:underline"
+                  className="text-sm font-bold text-white underline-offset-4 transition-all hover:text-gold-hover hover:underline"
                 >
                   {link.label}
                 </Link>
@@ -49,30 +49,37 @@ export function Footer() {
           {/* Contact Column */}
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">Contact Us</h3>
-            <div className="flex flex-col gap-2.5 text-sm text-white/75">
-              <p>5th Avenue Suites, 5th Avenue Ngong Road.</p>
-              <p>Suite No. 6, 4th Floor</p>
-              <p>P.O. Box 25926 - 00603.</p>
+            <div className="flex flex-col gap-4 text-sm text-white/75">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                <span>5th Avenue Suites Ngong Road, Suite No. 6 4th Floor</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mailbox className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                <span>P.O. Box 25926 - 00603</span>
+              </div>
               <a
                 href="tel:+254141397048"
-                className="transition-all hover:text-gold-hover hover:underline"
+                className="flex items-center gap-3 transition-all hover:text-gold-hover hover:underline"
               >
-                +254 141 397 048
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                <span>+254 141 397 048</span>
               </a>
               <a
                 href="mailto:legal@mokubasuadvocates.com"
-                className="transition-all hover:text-gold-hover hover:underline"
+                className="flex items-center gap-3 transition-all hover:text-gold-hover hover:underline"
               >
-                legal@mokubasuadvocates.com
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                <span>legal@mokubasuadvocates.com</span>
               </a>
               <a
                 href={OFFICIAL_LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 flex items-center gap-2 transition-all hover:text-gold-hover"
+                className="flex items-center gap-3 transition-all hover:text-gold-hover hover:underline"
               >
-                <Linkedin className="w-4 h-4" />
-                <span className="hover:underline">Company LinkedIn</span>
+                <Linkedin className="w-4 h-4 flex-shrink-0" />
+                <span>Malika Okubasu & Co Advocates</span>
               </a>
             </div>
           </div>

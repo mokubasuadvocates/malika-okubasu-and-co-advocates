@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Mail, Phone, Linkedin } from "lucide-react";
@@ -11,7 +12,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
   const profiles = {
     "brenton-okubasu": {
       name: "Brenton Okubasu",
-      role: "Founder and Consulting Partner",
+      role: "Founding Partner (On leave of absence), Malika Okubasu and Company Advocates",
       location: "Nairobi, Kenya",
       email: "legal@mokubasuadvocates.com",
       phone: "+254 721 789 389 / +254 141 397 048",
@@ -53,7 +54,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
     },
     "oduor-khamati": {
       name: "Oduor Khamati",
-      role: "Managing Partner",
+      role: "Managing Partner, Malika Okubasu and Company Advocates",
       location: "Nairobi, Kenya",
       email: "oduor.khamati@mokubasuadvocates.com",
       phone: "+254 717 259 196 / +254 141 397 048",
@@ -88,7 +89,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
     },
     "susan-anyango": {
       name: "Susan Anyango",
-      role: "Advocate of the High Court of Kenya",
+      role: "Associate, Malika Okubasu and Company Advocates",
       location: "Nairobi, Kenya",
       email: "susan.anyango@mokubasuadvocates.com",
       phone: "+254 141 397 048",
@@ -158,10 +159,14 @@ export function TeamProfile({ id }: TeamProfileProps) {
           <div className="grid lg:grid-cols-[400px_1fr] gap-12 lg:gap-16">
             {/* Image */}
             <div>
-              <img
+              <Image
                 src={profile.image}
                 alt={profile.name}
-                className="w-full aspect-[3/4] object-cover grayscale"
+                width={400}
+                height={533}
+                priority
+                sizes="(max-width: 1024px) 100vw, 400px"
+                className="w-full aspect-[3/4] object-cover lg:grayscale lg:hover:grayscale-0 transition-all duration-500"
               />
             </div>
 
