@@ -161,9 +161,6 @@ export function Home() {
                   <span className="font-serif-editorial block text-lg leading-snug text-heading transition-colors group-hover:text-gold group-hover:underline lg:text-xl">
                     {area.title}
                   </span>
-                  <span className="mt-2 block text-sm leading-relaxed text-body">
-                    {area.excerpt}
-                  </span>
                 </Link>
               ))}
             </div>

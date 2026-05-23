@@ -60,7 +60,6 @@ export function MobileHeader() {
   const [isPracticeOpen, setIsPracticeOpen] = useState(false);
   const [activeContactIndex, setActiveContactIndex] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [isContactPaused, setIsContactPaused] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
@@ -83,7 +82,7 @@ export function MobileHeader() {
   }, []);
 
   useEffect(() => {
-    if (prefersReducedMotion || isContactPaused) {
+    if (prefersReducedMotion) {
       return;
     }
 
@@ -94,11 +93,22 @@ export function MobileHeader() {
     return () => {
       window.clearInterval(interval);
     };
-  }, [prefersReducedMotion, isContactPaused]);
+  }, [activeContactIndex, prefersReducedMotion]);
 
   const closeMenu = () => {
     setIsOpen(false);
     setIsPracticeOpen(false);
+  };
+
+  const showPreviousContactItem = () => {
+    setActiveContactIndex(
+      (index) =>
+        (index - 1 + mobileContactItems.length) % mobileContactItems.length,
+    );
+  };
+
+  const showNextContactItem = () => {
+    setActiveContactIndex((index) => (index + 1) % mobileContactItems.length);
   };
 
   const activeContactItem = mobileContactItems[activeContactIndex];
@@ -115,16 +125,16 @@ export function MobileHeader() {
       <header className="sticky top-0 z-50 border-b border-[rgba(0,62,99,0.12)] bg-white shadow-[0_10px_30px_rgba(0,62,99,0.08)] lg:hidden">
         <div
           className="relative h-11 bg-[linear-gradient(90deg,#002f4d_0%,#003e63_55%,#0b5f8f_100%)] text-white md:hidden"
-          onFocus={() => setIsContactPaused(true)}
-          onBlur={() => setIsContactPaused(false)}
-          onMouseEnter={() => setIsContactPaused(true)}
-          onMouseLeave={() => setIsContactPaused(false)}
         >
-          <ChevronLeft
-            className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-gold/70"
-            aria-hidden="true"
-          />
-          <div className="flex h-full items-center justify-center px-8 py-2 text-[12px]">
+          <button
+            type="button"
+            onClick={showPreviousContactItem}
+            className="absolute left-1 top-0 flex h-full w-8 items-center justify-center text-gold/70 transition-colors hover:text-gold focus-visible:text-gold"
+            aria-label="Show previous contact item"
+          >
+            <ChevronLeft className="h-3.5 w-3.5" aria-hidden="true" />
+          </button>
+          <div className="flex h-full items-center justify-center px-10 py-2 text-[12px]">
             {activeContactItem.href ? (
               <a
                 key={activeContactItem.label}
@@ -145,10 +155,14 @@ export function MobileHeader() {
               </span>
             )}
           </div>
-          <ChevronRight
-            className="pointer-events-none absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-gold/70"
-            aria-hidden="true"
-          />
+          <button
+            type="button"
+            onClick={showNextContactItem}
+            className="absolute right-1 top-0 flex h-full w-8 items-center justify-center text-gold/70 transition-colors hover:text-gold focus-visible:text-gold"
+            aria-label="Show next contact item"
+          >
+            <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
+          </button>
         </div>
 
         <div className="hidden h-11 overflow-x-auto bg-[linear-gradient(90deg,#002f4d_0%,#003e63_55%,#0b5f8f_100%)] text-white md:block">
