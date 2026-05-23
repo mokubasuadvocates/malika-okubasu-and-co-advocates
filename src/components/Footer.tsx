@@ -106,18 +106,6 @@ export function Footer() {
             >
               Cookie Policy
             </Link>
-            <span aria-hidden="true" className="text-white/30">|</span>
-            <button 
-              type="button"
-              onClick={() => {
-                if (typeof window !== "undefined") {
-                  window.dispatchEvent(new Event("open-cookie-settings"));
-                }
-              }}
-              className="transition-colors hover:text-gold-hover hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-sm"
-            >
-              Cookie Settings
-            </button>
           </div>
           <p className="copy-protected">
             &copy; 2026 Malika Okubasu & Company Advocates. All rights Reserved.

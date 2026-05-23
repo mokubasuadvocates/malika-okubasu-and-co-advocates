@@ -393,7 +393,7 @@ export function CookieConsent() {
         <button
           type="button"
           onClick={openModal}
-          className="fixed bottom-[18px] left-[18px] z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#1d64b7] text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#165094] hover:shadow-xl focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-gold focus-visible:ring-offset-2 active:translate-y-0 active:scale-95 md:bottom-6 md:left-6"
+          className="fixed bottom-[18px] left-[18px] z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#1d64b7] text-white shadow-lg transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#165094] hover:shadow-xl focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-gold focus-visible:ring-offset-2 active:translate-y-0 active:scale-95 md:bottom-6 md:left-6"
           aria-label="Open cookie settings"
           title="Cookie Settings"
         >
