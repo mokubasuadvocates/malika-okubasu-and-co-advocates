@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { X } from "lucide-react";
+import { X, ShieldCheck } from "lucide-react";
 
 type ConsentChoices = {
   necessary: boolean;
@@ -29,6 +29,7 @@ declare global {
 export function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [hasChoice, setHasChoice] = useState(false);
   const [choices, setChoices] = useState<ConsentChoices>(DEFAULT_CHOICES);
   const modalRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -37,13 +38,16 @@ export function CookieConsent() {
     const saved = localStorage.getItem(CONSENT_KEY);
     if (!saved) {
       setShowBanner(true);
+      setHasChoice(false);
     } else {
+      setHasChoice(true);
       try {
         const parsed = JSON.parse(saved);
         setChoices(parsed);
         applyConsent(parsed);
       } catch {
         setShowBanner(true);
+        setHasChoice(false);
       }
     }
 
@@ -93,6 +97,7 @@ export function CookieConsent() {
     setChoices(newChoices);
     applyConsent(newChoices);
     setShowBanner(false);
+    setHasChoice(true);
     closeModal();
   };
 
@@ -130,6 +135,7 @@ export function CookieConsent() {
     setShowModal(false);
     if (!localStorage.getItem(CONSENT_KEY)) {
       setShowBanner(true);
+      setHasChoice(false);
     }
     if (previousFocusRef.current) {
       previousFocusRef.current.focus();
@@ -380,6 +386,19 @@ export function CookieConsent() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Floating Icon */}
+      {!showBanner && hasChoice && (
+        <button
+          type="button"
+          onClick={openModal}
+          className="fixed bottom-[18px] left-[18px] z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#1d64b7] text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#165094] hover:shadow-xl focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-gold focus-visible:ring-offset-2 active:translate-y-0 active:scale-95 md:bottom-6 md:left-6"
+          aria-label="Open cookie settings"
+          title="Cookie Settings"
+        >
+          <ShieldCheck className="h-6 w-6" />
+        </button>
       )}
     </>
   );
