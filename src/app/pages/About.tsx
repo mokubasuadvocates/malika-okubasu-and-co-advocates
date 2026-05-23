@@ -28,7 +28,7 @@ export function About() {
   ];
 
   return (
-    <div className="lg:pt-0 pt-[72px]">
+    <div>
       {/* Hero Section */}
       <section className="relative bg-soft-blue border-b border-brand-border py-20 lg:py-32">
         <div className="absolute inset-0 overflow-hidden">
@@ -74,7 +74,7 @@ export function About() {
       <section className="py-16 lg:py-24 xl:py-28 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <Divider className="mb-12 lg:mb-16" />
-          <div className="grid lg:grid-cols-[40%_60%] gap-12 lg:gap-16 xl:gap-20">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] lg:gap-16 xl:gap-20">
             {/* Left: H2 */}
             <div>
               <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-heading leading-tight">

@@ -1,100 +1,208 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Linkedin, Mail, MapPin, Menu, Phone, X } from "lucide-react";
+import { OFFICIAL_LINKEDIN_URL } from "../constants/social";
+
+const mainLinks = [
+  { label: "Home", path: "/" },
+  { label: "About Us", path: "/about-us" },
+  { label: "Our Team", path: "/our-team" },
+  { label: "Publications", path: "/publications" },
+];
+
+const practiceLinks = [
+  { label: "Dispute Resolution", path: "/practice-areas/dispute-resolution" },
+  {
+    label: "Corporate & Commercial Law",
+    path: "/practice-areas/corporate-commercial-law",
+  },
+  {
+    label: "Conveyancing & Real Estate",
+    path: "/practice-areas/conveyancing-real-estate",
+  },
+  { label: "Employment Law", path: "/practice-areas/employment-law" },
+  { label: "Family Law", path: "/practice-areas/family-law" },
+  { label: "Legal Consultancy", path: "/practice-areas/legal-consultancy" },
+];
 
 export function MobileHeader() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isPracticeOpen, setIsPracticeOpen] = useState(false);
 
-  const navLinks = [
-    { label: "Home", path: "/" },
-    { label: "About Us", path: "/about-us" },
-    { label: "Practice Areas", path: "/practice-areas" },
-    { label: "Our Team", path: "/our-team" },
-    { label: "Publications", path: "/publications" },
-    { label: "Get In Touch", path: "/contact" },
-  ];
-
-  // Prevent body scroll when menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
+
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
+  const closeMenu = () => {
+    setIsOpen(false);
+    setIsPracticeOpen(false);
+  };
+
   return (
     <>
-      {/* Mobile Header Bar */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex border-b border-brand-border bg-white shadow-sm lg:hidden">
-        <div className="flex-1 px-5 py-4">
+      <header className="sticky top-0 z-50 border-b border-[rgba(0,62,99,0.12)] bg-white shadow-[0_10px_30px_rgba(0,62,99,0.08)] lg:hidden">
+        <div className="h-11 overflow-x-auto bg-[linear-gradient(90deg,#002f4d_0%,#003e63_55%,#0b5f8f_100%)] text-white">
+          <div className="flex min-w-max items-center gap-5 px-4 py-2 text-[12px]">
+            <a
+              href="tel:+254141397048"
+              className="flex items-center gap-1.5 whitespace-nowrap transition-colors hover:text-gold-hover"
+            >
+              <Phone className="h-3.5 w-3.5 text-gold" aria-hidden="true" />
+              <span>+254 141 397 048</span>
+            </a>
+            <a
+              href="mailto:legal@mokubasuadvocates.com"
+              className="flex items-center gap-1.5 whitespace-nowrap transition-colors hover:text-gold-hover"
+            >
+              <Mail className="h-3.5 w-3.5 text-gold" aria-hidden="true" />
+              <span>legal@mokubasuadvocates.com</span>
+            </a>
+            <span className="flex items-center gap-1.5 whitespace-nowrap">
+              <MapPin className="h-3.5 w-3.5 text-gold" aria-hidden="true" />
+              <span>Ngong Road, Nairobi</span>
+            </span>
+            <a
+              href={OFFICIAL_LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Malika Okubasu & Company Advocates on LinkedIn"
+              className="flex items-center text-white transition-colors hover:text-gold-hover"
+            >
+              <Linkedin className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+
+        <div className="flex h-[72px] items-center justify-between bg-white px-4">
           <Link
             href="/"
             aria-label="Malika Okubasu & Company Advocates home"
-            className="flex items-center gap-3 text-heading"
+            className="flex min-w-0 items-center gap-3 text-navy"
+            onClick={closeMenu}
           >
             <Image
               src="/logo-mark.png"
               alt="Malika Okubasu & Company Advocates logo"
-              width={40}
-              height={40}
+              width={44}
+              height={44}
               priority
-              className="h-10 w-10 object-contain"
+              className="h-11 w-11 shrink-0 object-contain"
             />
-            <div className="leading-tight">
-              <div className="text-base font-bold tracking-tight">
-                Malika Okubasu,
-              </div>
-              <div className="text-xs font-bold tracking-tight">
+            <span className="min-w-0 leading-tight">
+              <span className="block truncate text-base font-bold">
+                Malika Okubasu
+              </span>
+              <span className="block truncate text-xs font-bold">
                 & Company Advocates
-              </div>
-            </div>
+              </span>
+            </span>
           </Link>
-        </div>
 
-        {/* Menu button segment */}
-        <div className="flex w-[72px] items-center justify-center bg-soft-blue">
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-link"
-            aria-label="Toggle menu"
+            type="button"
+            onClick={() => setIsOpen((value) => !value)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-navy text-white transition-colors hover:bg-gold"
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-primary-navigation"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? (
+              <X className="h-6 w-6" aria-hidden="true" />
+            ) : (
+              <Menu className="h-6 w-6" aria-hidden="true" />
+            )}
           </button>
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-40 flex flex-col bg-white pt-[72px] lg:hidden"
-          onClick={(e) => {
-            // Close if clicking the background
-            if (e.target === e.currentTarget) {
-              setIsOpen(false);
-            }
-          }}
-        >
-          <nav className="flex flex-1 flex-col gap-6 px-8 py-12">
-            {navLinks.map((link) => (
+      <div
+        id="mobile-primary-navigation"
+        className={`fixed inset-x-0 bottom-0 top-[116px] z-40 overflow-y-auto bg-white px-5 py-6 shadow-[0_20px_45px_rgba(0,47,77,0.18)] transition-all duration-200 lg:hidden ${
+          isOpen
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none -translate-y-3 opacity-0"
+        }`}
+      >
+        <nav aria-label="Mobile primary navigation" className="flex flex-col gap-2">
+          {mainLinks.slice(0, 2).map((link) => (
+            <Link
+              key={link.path}
+              href={link.path}
+              onClick={closeMenu}
+              className="rounded-lg px-3 py-3 text-xl font-bold text-navy transition-colors hover:bg-soft-bg hover:text-gold"
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <div className="rounded-lg border border-[rgba(0,62,99,0.12)]">
+            <div className="flex items-center">
               <Link
-                key={link.path}
-                href={link.path}
-                onClick={() => setIsOpen(false)}
-                className="text-3xl font-sans-primary font-bold tracking-tight text-heading transition-colors hover:text-link"
+                href="/practice-areas"
+                onClick={closeMenu}
+                className="flex-1 px-3 py-3 text-xl font-bold text-navy transition-colors hover:text-gold"
               >
-                {link.label}
+                Practice Areas
               </Link>
-            ))}
-          </nav>
-        </div>
-      )}
+              <button
+                type="button"
+                onClick={() => setIsPracticeOpen((value) => !value)}
+                className="mr-2 inline-flex h-10 w-10 items-center justify-center rounded-md text-navy transition-colors hover:bg-soft-bg hover:text-gold"
+                aria-label="Toggle practice areas links"
+                aria-expanded={isPracticeOpen}
+              >
+                <ChevronDown
+                  className={`h-5 w-5 transition-transform ${
+                    isPracticeOpen ? "rotate-180" : ""
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
+
+            {isPracticeOpen && (
+              <div className="grid gap-1 border-t border-[rgba(0,62,99,0.12)] bg-soft-bg p-2">
+                {practiceLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    href={link.path}
+                    onClick={closeMenu}
+                    className="rounded-md px-3 py-2 text-base font-semibold text-navy transition-colors hover:bg-white hover:text-gold"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {mainLinks.slice(2).map((link) => (
+            <Link
+              key={link.path}
+              href={link.path}
+              onClick={closeMenu}
+              className="rounded-lg px-3 py-3 text-xl font-bold text-navy transition-colors hover:bg-soft-bg hover:text-gold"
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <Link
+            href="/contact"
+            onClick={closeMenu}
+            className="mt-4 inline-flex items-center justify-center rounded-lg bg-navy px-5 py-3 text-base font-bold text-white shadow-[0_10px_24px_rgba(0,62,99,0.18)] transition-all hover:-translate-y-0.5 hover:bg-gold"
+          >
+            Get In Touch
+          </Link>
+        </nav>
+      </div>
     </>
   );
 }

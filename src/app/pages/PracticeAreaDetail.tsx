@@ -213,7 +213,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
   const overview = practiceArea.details.split(". ").filter((p) => p.trim());
 
   return (
-    <div className="lg:pt-0 pt-[72px]">
+    <div>
       {/* Hero */}
       <section className="relative bg-soft-blue border-b border-brand-border py-16 lg:py-20">
         <div className="absolute inset-0 overflow-hidden">

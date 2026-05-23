@@ -176,7 +176,7 @@ export function Contact() {
   };
 
   return (
-    <div className="lg:pt-0 pt-[72px]">
+    <div>
       {/* Hero Section */}
       <section className="relative bg-soft-blue border-b border-brand-border py-20 lg:py-32">
         <div className="absolute inset-0 overflow-hidden">

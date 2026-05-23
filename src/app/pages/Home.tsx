@@ -1,28 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Mail, Linkedin, Menu, X } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import { Button } from "../components/Button";
 import { Divider } from "../components/Divider";
-import { useState, useEffect } from "react";
 import { practiceAreas } from "../../../practiceAreas";
 
 export function Home() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isMobileMenuOpen]);
-
   const expectations = [
     {
       title: "Clear guidance and practical advice you can act on",
@@ -99,110 +83,19 @@ export function Home() {
 
   return (
     <div>
-      {/* 1) Bright Premium Hero Section with Integrated Navigation */}
-      <section className="relative overflow-hidden bg-soft-blue">
-        {/* Desktop: Header + Navigation */}
-        <div className="hidden h-[88px] border-b border-brand-border bg-white/95 px-6 shadow-sm backdrop-blur-sm lg:flex">
-          <div className="flex h-full w-[280px] items-center gap-4 py-4">
-            <Link
-              href="/"
-              aria-label="Malika Okubasu & Company Advocates home"
-              className="flex items-center gap-3 text-heading"
-            >
-              <Image
-                src="/logo-mark.png"
-                alt="Malika Okubasu & Company Advocates logo"
-                width={48}
-                height={48}
-                priority
-                className="h-12 w-12 object-contain"
-              />
-              <div className="leading-none">
-                <div className="text-2xl font-bold tracking-tight leading-[26px]">
-                  Malika Okubasu
-                </div>
-                <div className="mt-1 text-[13px] font-semibold tracking-tight leading-[16px]">
-                  & Company Advocates
-                </div>
-              </div>
-            </Link>
-          </div>
-
-          <div className="flex flex-1 items-center justify-center">
-            <nav className="flex items-center gap-12">
-              {[
-                ["Home", "/"],
-                ["About Us", "/about-us"],
-                ["Practice Areas", "/practice-areas"],
-                ["Our Team", "/our-team"],
-                ["Publications", "/publications"],
-              ].map(([label, href]) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="font-serif-editorial text-[17px] font-semibold tracking-normal text-heading underline-offset-4 decoration-2 decoration-brand-blue transition-all hover:text-link hover:underline"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          <div className="flex items-center">
-            <Link href="/contact">
-              <Button variant="primary" className="h-[44px] px-[22px]">
-                Get In Touch
-              </Button>
-            </Link>
-          </div>
-        </div>
-
-        {/* Mobile: Top Header Bar */}
-        <div className="absolute top-0 left-0 right-0 z-30 flex border-b border-brand-border bg-white/95 shadow-sm backdrop-blur-sm lg:hidden">
-          <div className="flex-1 px-5 py-5">
-            <Link
-              href="/"
-              aria-label="Malika Okubasu & Company Advocates home"
-              className="flex items-center gap-3 text-heading"
-            >
-              <Image
-                src="/logo-mark.png"
-                alt="Malika Okubasu & Company Advocates logo"
-                width={40}
-                height={40}
-                priority
-                className="h-10 w-10 object-contain"
-              />
-              <div className="leading-tight">
-                <div className="text-lg font-bold tracking-tight">
-                  Malika Okubasu
-                </div>
-                <div className="text-sm font-bold tracking-tight">
-                  & Company Advocates
-                </div>
-              </div>
-            </Link>
-          </div>
-
-          <div className="flex w-[72px] items-center justify-center bg-light-blue">
-            <button
-              className="p-2 text-link"
-              aria-label="Menu"
-              onClick={() => setIsMobileMenuOpen(true)}
-            >
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-
-        <div className="mx-auto grid min-h-screen max-w-[1280px] items-center gap-10 px-6 pt-28 pb-16 lg:min-h-[720px] lg:grid-cols-[52%_48%] lg:px-12 lg:pt-12 xl:gap-16">
+      {/* 1) Premium Hero Section */}
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#002f4d_0%,#003e63_58%,#0b5f8f_100%)] text-white">
+        <div className="absolute inset-x-0 top-0 h-px bg-gold/70" />
+        <div className="mx-auto grid min-h-[680px] max-w-[1280px] items-center gap-10 px-6 py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:px-12 xl:gap-16">
           <div>
-            <h1 className="max-w-[760px] text-4xl font-bold leading-[1.06] tracking-tight text-heading sm:text-5xl lg:text-6xl xl:text-7xl">
+            <div className="mb-5 h-1 w-20 rounded-full bg-gold" />
+            <h1 className="max-w-[760px] text-4xl font-bold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
               Malika Okubasu & Company Advocates
             </h1>
-            <p className="mt-6 max-w-[620px] text-lg leading-relaxed text-body lg:text-xl">
-              Practical, responsive legal support for individuals, institutions,
-              and businesses navigating high-stakes decisions.
+            <p className="mt-6 max-w-[650px] text-lg leading-relaxed text-white/85 lg:text-xl">
+              Malika Okubasu & Company Advocates is a leading law firm
+              providing comprehensive legal solutions to complex business
+              challenges.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               {process.env.NEXT_PUBLIC_BOOKINGS_URL ? (
@@ -211,21 +104,27 @@ export function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button variant="primary">Book a Consultation</Button>
+                  <Button variant="gold">
+                    Book a Consultation
+                  </Button>
                 </Link>
               ) : (
                 <Link href="/contact">
-                  <Button variant="primary">Book a Consultation</Button>
+                  <Button variant="gold">
+                    Book a Consultation
+                  </Button>
                 </Link>
               )}
               <Link href="/practice-areas">
-                <Button variant="outline">Explore Practice Areas</Button>
+                <Button variant="inverseOutline">
+                  Explore Practice Areas
+                </Button>
               </Link>
             </div>
           </div>
 
           <div className="relative">
-            <div className="overflow-hidden rounded-lg border border-brand-border bg-white p-3 shadow-xl shadow-brand-blue/10">
+            <div className="premium-card overflow-hidden rounded-lg border border-white/20 bg-white/10 p-3 shadow-xl shadow-black/20 backdrop-blur-sm">
               <img
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=90"
                 alt="Modern corporate architecture"
@@ -241,10 +140,10 @@ export function Home() {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <Divider className="mb-12 lg:mb-16 xl:mb-20" />
 
-          <div className="grid lg:grid-cols-[32%_68%] gap-12 lg:gap-16 xl:gap-20">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.45fr)_minmax(0,1fr)] lg:gap-16 xl:gap-20">
             {/* Left: Stacked Headline */}
             <div>
-              <h2 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-heading leading-[1.05]">
+              <h2 className="gold-accent-line text-5xl lg:text-6xl xl:text-7xl font-bold text-heading leading-[1.05]">
                 Practice
                 <br />
                 Areas
@@ -257,7 +156,7 @@ export function Home() {
                 <Link
                   key={area.id}
                   href={`/practice-areas/${area.id}`}
-                  className="font-serif-editorial text-lg lg:text-xl text-heading leading-relaxed underline-offset-4 hover:text-link hover:underline"
+                  className="font-serif-editorial text-lg lg:text-xl text-heading leading-relaxed underline-offset-4 transition-colors hover:text-gold hover:underline"
                 >
                   {area.title}
                 </Link>
@@ -266,10 +165,10 @@ export function Home() {
           </div>
 
           {/* CTA Bar */}
-          <div className="mt-12 lg:mt-16 xl:mt-20 bg-soft-blue h-[72px] lg:h-[80px] flex items-center px-6 lg:px-12">
+          <div className="mt-12 lg:mt-16 xl:mt-20 bg-navy h-[72px] lg:h-[80px] flex items-center px-6 lg:px-12">
             <Link
               href="/practice-areas"
-              className="font-bold text-heading text-base lg:text-lg hover:underline underline-offset-4 transition-all"
+              className="font-bold text-white text-base lg:text-lg hover:text-gold-hover hover:underline underline-offset-4 transition-all"
             >
               View All Practice Areas
             </Link>
@@ -287,7 +186,7 @@ export function Home() {
                 About the Firm
               </div>
 
-              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-6 lg:mb-8 leading-tight">
+              <h2 className="gold-accent-line text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-10 lg:mb-12 leading-tight">
                 Practical legal support. Clear outcomes.
               </h2>
 
@@ -328,7 +227,7 @@ export function Home() {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <Divider className="mb-12 lg:mb-16" />
 
-          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-12 lg:mb-16 xl:mb-20">
+          <h2 className="gold-accent-line text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-12 lg:mb-16 xl:mb-20">
             What Clients Can Expect
           </h2>
 
@@ -346,20 +245,20 @@ export function Home() {
           </div>
 
           {/* Compact CTA Strip */}
-          <div className="mt-12 lg:mt-16 xl:mt-20 bg-soft-blue h-[72px] lg:h-[80px] flex items-center px-6 lg:px-12">
+          <div className="mt-12 lg:mt-16 xl:mt-20 bg-navy h-[72px] lg:h-[80px] flex items-center px-6 lg:px-12">
             {process.env.NEXT_PUBLIC_BOOKINGS_URL ? (
               <a
                 href={process.env.NEXT_PUBLIC_BOOKINGS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold text-heading text-base lg:text-lg hover:underline underline-offset-4 transition-all"
+                className="font-bold text-white text-base lg:text-lg hover:text-gold-hover hover:underline underline-offset-4 transition-all"
               >
                 Book a Consultation
               </a>
             ) : (
               <Link
                 href="/contact"
-                className="font-bold text-heading text-base lg:text-lg hover:underline underline-offset-4 transition-all"
+                className="font-bold text-white text-base lg:text-lg hover:text-gold-hover hover:underline underline-offset-4 transition-all"
               >
                 Book a Consultation
               </Link>
@@ -375,7 +274,7 @@ export function Home() {
             Publications
           </div>
 
-          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-8 lg:mb-12 xl:mb-16">
+          <h2 className="gold-accent-line text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-12 lg:mb-16 xl:mb-20">
             Featured Insights
           </h2>
 
@@ -386,7 +285,7 @@ export function Home() {
                 href="/publications"
                 className="group block"
               >
-                <div className="bg-white rounded-lg border border-brand-border overflow-hidden hover:shadow-lg transition-all duration-300">
+                <div className="premium-card bg-white rounded-lg overflow-hidden">
                   <div className="grid lg:grid-cols-[300px_1fr] gap-0">
                     {/* Thumbnail */}
                     <div className="overflow-hidden">
@@ -403,7 +302,7 @@ export function Home() {
                         {insight.category}
                       </div>
 
-                      <h3 className="text-xl lg:text-2xl font-bold text-heading mb-4 group-hover:text-link-hover transition-colors leading-snug">
+                      <h3 className="text-xl lg:text-2xl font-bold text-heading mb-4 group-hover:text-gold transition-colors leading-snug">
                         {insight.title}
                       </h3>
 
@@ -433,7 +332,7 @@ export function Home() {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <Divider className="mb-12 lg:mb-16" />
 
-          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-4 lg:mb-6">
+          <h2 className="gold-accent-line text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-8 lg:mb-10">
             Our Team
           </h2>
 
@@ -454,7 +353,7 @@ export function Home() {
                 </div>
 
                 {/* Info Panel */}
-                <div className="bg-soft-blue p-5 lg:p-6 rounded-sm">
+                <div className="premium-card bg-soft-blue p-5 lg:p-6 rounded-sm">
                   <h3 className="text-lg lg:text-xl font-bold text-heading mb-1 leading-snug">
                     {member.name}
                   </h3>
@@ -468,7 +367,7 @@ export function Home() {
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-link-hover hover:underline underline-offset-4 transition-all"
+                        className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-gold hover:underline underline-offset-4 transition-all"
                       >
                         <Linkedin className="w-4 h-4" />
                         <span>LinkedIn</span>
@@ -491,10 +390,10 @@ export function Home() {
       {/* 7) Get In Touch Preview */}
       <section className="py-16 lg:py-24 xl:py-28 bg-soft-blue">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-[55%_45%] gap-12 lg:gap-16 xl:gap-20">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.82fr)] lg:gap-16 xl:gap-20">
             {/* Left */}
             <div>
-              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-4 lg:mb-6 leading-tight">
+              <h2 className="gold-accent-line text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-8 lg:mb-10 leading-tight">
                 Get In Touch
               </h2>
               <p className="text-lg lg:text-xl text-body leading-relaxed mb-10 lg:mb-12">
@@ -521,7 +420,7 @@ export function Home() {
                   </div>
                   <a
                     href="tel:+254141397048"
-                    className="text-lg lg:text-xl text-heading hover:text-link hover:underline underline-offset-4 transition-all"
+                    className="text-lg lg:text-xl text-heading hover:text-gold hover:underline underline-offset-4 transition-all"
                   >
                     +254 141 397 048
                   </a>
@@ -533,7 +432,7 @@ export function Home() {
                   </div>
                   <a
                     href="mailto:legal@mokubasuadvocates.com"
-                    className="text-lg lg:text-xl text-heading hover:text-link hover:underline underline-offset-4 transition-all"
+                    className="text-lg lg:text-xl text-heading hover:text-gold hover:underline underline-offset-4 transition-all"
                   >
                     legal@mokubasuadvocates.com
                   </a>
@@ -561,97 +460,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed top-0 left-0 right-0 bottom-0 bg-white z-50 transition-all duration-300 ${
-          isMobileMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="flex border-b border-brand-border bg-white">
-          <div className="flex-1 px-5 py-5">
-            <Link
-              href="/"
-              aria-label="Malika Okubasu & Company Advocates home"
-              className="flex items-center gap-3 text-heading"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <Image
-                src="/logo-mark.png"
-                alt="Malika Okubasu & Company Advocates logo"
-                width={40}
-                height={40}
-                priority
-                className="h-10 w-10 object-contain"
-              />
-              <div className="leading-tight">
-                <div className="text-lg font-bold tracking-tight">
-                  Malika Okubasu
-                </div>
-                <div className="text-sm font-bold tracking-tight">
-                  & Company Advocates
-                </div>
-              </div>
-            </Link>
-          </div>
-
-          <div className="w-[72px] bg-light-blue flex items-center justify-center">
-            <button
-              className="text-link p-2"
-              aria-label="Close"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <X className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-
-        <nav className="px-8 py-12 flex flex-col gap-6">
-          <Link
-            href="/"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-heading text-3xl font-bold tracking-tight hover:text-link transition-colors"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about-us"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-heading text-3xl font-bold tracking-tight hover:text-link transition-colors"
-          >
-            About Us
-          </Link>
-          <Link
-            href="/practice-areas"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-heading text-3xl font-bold tracking-tight hover:text-link transition-colors"
-          >
-            Practice Areas
-          </Link>
-          <Link
-            href="/our-team"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-heading text-3xl font-bold tracking-tight hover:text-link transition-colors"
-          >
-            Our Team
-          </Link>
-          <Link
-            href="/publications"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-heading text-3xl font-bold tracking-tight hover:text-link transition-colors"
-          >
-            Publications
-          </Link>
-          <Link
-            href="/contact"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-heading text-3xl font-bold tracking-tight hover:text-link transition-colors"
-          >
-            Get In Touch
-          </Link>
-        </nav>
-      </div>
     </div>
   );
 }

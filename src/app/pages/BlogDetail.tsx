@@ -359,7 +359,7 @@ export function BlogDetail({ id }: { id?: string }) {
   }
 
   return (
-    <div className="lg:pt-[88px] pt-[72px]">
+    <div>
       {/* Back Button */}
       <section className="bg-white py-6 border-b border-brand-border">
         <div className="max-w-[900px] mx-auto px-6 lg:px-12">

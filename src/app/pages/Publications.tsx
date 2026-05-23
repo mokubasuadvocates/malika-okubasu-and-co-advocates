@@ -81,7 +81,7 @@ export function Publications() {
   ];
 
   return (
-    <div className="lg:pt-0 pt-[72px]">
+    <div>
       {/* Hero Section */}
       <section className="relative bg-soft-blue border-b border-brand-border py-20 lg:py-32">
         <div className="absolute inset-0 overflow-hidden">
@@ -114,7 +114,7 @@ export function Publications() {
                 {index > 0 && <Divider className="mb-12 lg:mb-16" />}
 
                 <Link href={`/publications/${insight.id}`}>
-                  <article className="grid lg:grid-cols-[60%_40%] gap-8 lg:gap-12 group cursor-pointer">
+                  <article className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.72fr)] lg:gap-12 group cursor-pointer">
                     {/* Text Block */}
                     <div className="order-2 lg:order-1 flex flex-col justify-center">
                       {/* Tags */}

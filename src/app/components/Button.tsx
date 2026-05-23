@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: "solid" | "outline" | "text" | "primary";
+  variant?: "solid" | "outline" | "text" | "primary" | "gold" | "inverseOutline";
   onClick?: () => void;
   href?: string;
   className?: string;
@@ -22,14 +22,17 @@ export function Button({
   disabled = false,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center rounded-sm px-8 py-3.5 font-sans-primary font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-divider disabled:text-brand-grey";
+    "inline-flex items-center justify-center rounded-lg px-8 py-3.5 font-sans-primary font-semibold shadow-sm transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-divider disabled:text-brand-grey disabled:hover:translate-y-0";
 
   const variants = {
-    solid: "bg-button-blue text-white shadow-sm hover:bg-button-blue-hover",
+    solid: "bg-navy text-white hover:bg-gold hover:text-white",
     outline:
-      "border-2 border-navy-950 bg-white text-heading hover:bg-light-blue hover:border-brand-blue hover:text-link-hover",
-    text: "text-link hover:text-link-hover hover:underline underline-offset-4",
-    primary: "bg-button-blue text-white shadow-sm hover:bg-button-blue-hover",
+      "border-2 border-navy bg-white text-navy hover:border-gold hover:bg-navy hover:text-white",
+    text: "text-navy shadow-none hover:text-gold hover:underline underline-offset-4",
+    primary: "bg-navy text-white hover:bg-gold hover:text-white",
+    gold: "bg-gold text-white hover:bg-gold-hover hover:text-white",
+    inverseOutline:
+      "border-2 border-white bg-transparent text-white hover:border-gold hover:bg-white hover:text-navy",
   };
 
   const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
