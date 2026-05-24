@@ -1,12 +1,20 @@
 import nodemailer from 'nodemailer';
 import { NextResponse, NextRequest } from 'next/server';
+import { Redis } from '@upstash/redis';
 
 const isValidEmail = (value: string) => /^\S+@\S+\.\S+$/.test(value.trim());
 
-// Simple in-memory rate limiter
+// Initialize Redis if environment variables are present
+const redis = (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN)
+  ? new Redis({
+      url: process.env.UPSTASH_REDIS_REST_URL,
+      token: process.env.UPSTASH_REDIS_REST_TOKEN,
+    })
+  : null;
+
+// Simple in-memory rate limiter fallback
 // Note: This is best-effort only. On serverless platforms like Vercel,
 // each function invocation is isolated, so this will not persist across requests.
-// For production, use Redis or Upstash instead.
 const rateLimitStore = new Map<
   string,
   { count: number; resetTime: number }
@@ -23,7 +31,21 @@ function getClientIp(request: NextRequest): string {
   return request.headers.get('x-real-ip') || 'unknown';
 }
 
-function checkRateLimit(ip: string): boolean {
+async function checkRateLimit(ip: string): Promise<boolean> {
+  if (redis) {
+    try {
+      const key = `rate-limit:${ip}`;
+      const count = await redis.incr(key);
+      if (count === 1) {
+        await redis.pexpire(key, RATE_LIMIT_WINDOW);
+      }
+      return count <= RATE_LIMIT_MAX;
+    } catch (error) {
+      console.warn("Redis rate limit error, falling back to memory:", error);
+    }
+  }
+
+  // Fallback to in-memory rate limiting
   const now = Date.now();
   const record = rateLimitStore.get(ip);
 
@@ -82,7 +104,8 @@ export async function POST(request: NextRequest) {
     const clientIp = getClientIp(request);
 
     // Check rate limit
-    if (!checkRateLimit(clientIp)) {
+    const isAllowed = await checkRateLimit(clientIp);
+    if (!isAllowed) {
       return NextResponse.json(
         { success: false, error: 'Too many submissions. Please try again later.' },
         { status: 429 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { TeamProfile } from "@/components/views/TeamProfile";
-import { SITE_NAME, absoluteUrl } from "@/constants/seo";
+import { SITE_NAME, ORGANIZATION_ID, absoluteUrl } from "@/constants/seo";
+import JsonLd from "@/components/JsonLd";
 
 const teamProfiles = [
   {
@@ -64,5 +65,26 @@ export function generateMetadata({ params }: PageProps): Metadata {
 }
 
 export default function Page({ params }: PageProps) {
-  return <TeamProfile id={params.id} />;
+  const profile = teamProfiles.find((member) => member.id === params.id);
+  const url = absoluteUrl(`/our-team/${params.id}`);
+
+  const jsonLd = profile ? [
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: profile.name,
+      jobTitle: profile.role,
+      url: url,
+      worksFor: {
+        "@id": ORGANIZATION_ID,
+      },
+    },
+  ] : [];
+
+  return (
+    <>
+      {profile && <JsonLd data={jsonLd} />}
+      <TeamProfile id={params.id} />
+    </>
+  );
 }

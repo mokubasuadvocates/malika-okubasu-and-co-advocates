@@ -7,7 +7,7 @@ export function FloatingWhatsAppButton() {
   return (
     <a
       href={WHATSAPP_URL}
-      target="_blank"
+      target="_blank" rel="noopener noreferrer"
       rel="noopener noreferrer"
       aria-label="Chat with Malika Okubasu and Company Advocates on WhatsApp"
       title="Chat on WhatsApp"

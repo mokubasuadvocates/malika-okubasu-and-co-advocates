@@ -218,7 +218,7 @@
   body {
     @apply bg-background text-body;
     font-family:
-      "Gilroy", "Inter", "Poppins", "Helvetica Neue", Arial, sans-serif;
+      "Gilroy", var(--font-inter), var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
   }
 
   /**
@@ -299,12 +299,12 @@
   /* Historical class name retained; now maps to the primary UI font stack. */
   .font-serif-editorial {
     font-family:
-      "Gilroy", "Inter", "Poppins", "Helvetica Neue", Arial, sans-serif;
+      "Gilroy", var(--font-inter), var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
   }
 
   .font-sans-primary {
     font-family:
-      "Gilroy", "Inter", "Poppins", "Helvetica Neue", Arial, sans-serif;
+      "Gilroy", var(--font-inter), var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
   }
 }
 

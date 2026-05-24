@@ -275,7 +275,7 @@ export function Contact() {
                     <div className="font-bold text-heading mb-1">LinkedIn</div>
                     <a
                       href={OFFICIAL_LINKEDIN_URL}
-                      target="_blank"
+                      target="_blank" rel="noopener noreferrer"
                       rel="noopener noreferrer"
                       className="text-body hover:text-link hover:underline"
                     >
@@ -287,9 +287,9 @@ export function Contact() {
 
               <a 
                 href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-lg px-8 py-3.5 font-sans-primary font-semibold shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 bg-navy text-white hover:bg-gold hover:text-white mb-8"
+                className="inline-flex items-center justify-center rounded-lg px-8 py-3.5 font-sans-primary font-semibold shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 bg-navy text-white hover:bg-gold-text hover:text-white mb-8"
               >
                 Get Directions
                 <ArrowRight className="w-4 h-4 ml-2" />

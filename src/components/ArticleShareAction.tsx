@@ -182,9 +182,9 @@ export function ArticleShareAction({
         });
         pushGtmEvent("native_share");
       } catch (err) {
-        if ((err as Error).name !== 'AbortError') {
-          setModalView(modalView === "more" ? "share" : "more");
-        }
+        // Just fail silently or update modal view if needed
+        // but DO NOT leave the page stuck
+        console.error("Native share failed or was cancelled", err);
       }
     } else {
       setModalView(modalView === "more" ? "share" : "more");
@@ -253,11 +253,14 @@ export function ArticleShareAction({
       </button>
 
       {modalView !== "closed" && typeof document !== "undefined" && createPortal(
-        <div 
-          className="fixed inset-0 z-[9998] bg-navy/60 backdrop-blur-sm sm:backdrop-blur-sm transition-opacity"
-          onClick={handleBackdropClick}
-          aria-hidden="true"
-        >
+        <>
+          {/* Overlay */}
+          <div 
+            className="fixed inset-0 z-[9998] bg-navy/60 sm:backdrop-blur-sm transition-opacity"
+            onClick={handleBackdropClick}
+            aria-hidden="true"
+          />
+          {/* Dialog */}
           <div
             role="dialog"
             aria-modal="true"
@@ -347,7 +350,7 @@ export function ArticleShareAction({
 
                 <a
                   href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   rel="noopener noreferrer"
                   onClick={() => pushGtmEvent("facebook")}
                   className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:w-auto sm:p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
@@ -360,7 +363,7 @@ export function ArticleShareAction({
 
                 <a
                   href={`https://wa.me/?text=${encodedTitle}%20${encodedUrl}`}
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   rel="noopener noreferrer"
                   onClick={() => pushGtmEvent("whatsapp")}
                   className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:w-auto sm:p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
@@ -373,7 +376,7 @@ export function ArticleShareAction({
 
                 <a
                   href={`https://www.threads.net/intent/post?text=${encodedTitle}%20${encodedUrl}`}
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   rel="noopener noreferrer"
                   onClick={() => pushGtmEvent("threads")}
                   className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:w-auto sm:p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
@@ -387,7 +390,7 @@ export function ArticleShareAction({
                 {/* Mobile-only expanded horizontal scroll icons */}
                 <a
                   href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   rel="noopener noreferrer"
                   onClick={() => pushGtmEvent("x_twitter")}
                   className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:hidden transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
@@ -400,7 +403,7 @@ export function ArticleShareAction({
 
                 <a
                   href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   rel="noopener noreferrer"
                   onClick={() => pushGtmEvent("linkedin")}
                   className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:hidden transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
@@ -413,7 +416,7 @@ export function ArticleShareAction({
 
                 <a
                   href={`https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}`}
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   rel="noopener noreferrer"
                   onClick={() => pushGtmEvent("reddit")}
                   className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:hidden transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
@@ -493,7 +496,7 @@ export function ArticleShareAction({
                       <a
                         role="menuitem"
                         href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         rel="noopener noreferrer"
                         onClick={() => pushGtmEvent("x_twitter")}
                         className="flex min-h-[44px] w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-white sm:hover:bg-gray-50 hover:text-navy hover:shadow-sm sm:hover:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
@@ -505,7 +508,7 @@ export function ArticleShareAction({
                       <a
                         role="menuitem"
                         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         rel="noopener noreferrer"
                         onClick={() => pushGtmEvent("linkedin")}
                         className="flex min-h-[44px] w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-white sm:hover:bg-gray-50 hover:text-navy hover:shadow-sm sm:hover:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
@@ -517,7 +520,7 @@ export function ArticleShareAction({
                       <a
                         role="menuitem"
                         href={`https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}`}
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         rel="noopener noreferrer"
                         onClick={() => pushGtmEvent("reddit")}
                         className="flex min-h-[44px] w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-white sm:hover:bg-gray-50 hover:text-navy hover:shadow-sm sm:hover:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
@@ -626,9 +629,9 @@ export function ArticleShareAction({
                       </div>
                       <a
                         href={shareUrl}
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         rel="noopener noreferrer"
-                        className="rounded-full bg-soft-blue px-4 py-1.5 text-xs font-semibold text-navy transition-colors hover:bg-gold hover:text-white"
+                        className="rounded-full bg-soft-blue px-4 py-1.5 text-xs font-semibold text-navy transition-colors hover:bg-gold-text hover:text-white"
                       >
                         Read article
                       </a>
@@ -669,7 +672,7 @@ export function ArticleShareAction({
             </div>
           </div>
           </div>
-        </div>,
+        </>,
         document.body
       )}
     </section>

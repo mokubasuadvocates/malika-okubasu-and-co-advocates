@@ -1,7 +1,8 @@
 import { BlogDetail } from "@/components/views/BlogDetail";
-import { absoluteUrl } from "@/constants/seo";
+import { ORGANIZATION_ID, SITE_NAME, absoluteUrl } from "@/constants/seo";
 import { blogPosts, getBlogAuthor, getBlogPost } from "@/data/blogs";
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 
 type PageProps = {
   params: {
@@ -62,5 +63,40 @@ export function generateMetadata({ params }: PageProps): Metadata {
 }
 
 export default function Page({ params }: PageProps) {
-  return <BlogDetail slug={params.slug} />;
+  const post = getBlogPost(params.slug);
+  if (!post) return <BlogDetail slug={params.slug} />;
+
+  const author = getBlogAuthor(post);
+  const url = absoluteUrl(`/publications/${post.slug}`);
+  const imageUrl = absoluteUrl(post.image);
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": url,
+      },
+      headline: post.title,
+      description: post.seoDescription,
+      image: imageUrl,
+      author: {
+        "@type": "Person",
+        name: author.name,
+      },
+      publisher: {
+        "@id": ORGANIZATION_ID,
+      },
+      datePublished: post.datePublished,
+      dateModified: post.dateModified || post.datePublished,
+    },
+  ];
+
+  return (
+    <>
+      <JsonLd data={jsonLd} />
+      <BlogDetail slug={params.slug} />
+    </>
+  );
 }

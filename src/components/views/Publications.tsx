@@ -238,7 +238,7 @@ export function Publications({ initialPage = 1 }: { initialPage?: number }) {
               <p className="text-body mb-8">Try adjusting your search term, selecting another practice area, or clearing your filters.</p>
               <button
                 onClick={clearFilters}
-                className="inline-flex min-h-[48px] items-center justify-center rounded-sm bg-navy px-8 py-3 font-semibold text-white transition-all hover:bg-gold hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-sm bg-navy px-8 py-3 font-semibold text-white transition-all hover:bg-gold-text hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
               >
                 Clear filters
               </button>

@@ -64,7 +64,7 @@ export default function EmbedPublicationPage({ params }: Props) {
             {post.date && <span className="text-xs font-medium text-gray-500">{post.date}</span>}
           </div>
           
-          <h1 className="mb-3 text-xl font-bold leading-tight text-navy sm:text-2xl line-clamp-2 hover:text-gold transition-colors">
+          <h1 className="mb-3 text-xl font-bold leading-tight text-navy sm:text-2xl line-clamp-2 hover:text-gold-text transition-colors">
             <a href={url} target="_blank" rel="noopener noreferrer">
               {post.title}
             </a>
@@ -89,7 +89,7 @@ export default function EmbedPublicationPage({ params }: Props) {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-navy px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-gold hover:shadow-md active:scale-95"
+              className="rounded-full bg-navy px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-gold-text hover:shadow-md active:scale-95"
             >
               Read article
             </a>

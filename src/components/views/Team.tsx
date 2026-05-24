@@ -111,7 +111,7 @@ export function Team() {
                     )}
                     {member.phone && (
                       <a
-                        href={`tel:${member.phone}`}
+                        href={`tel:${member.phone.split(" / ")[0].replace(/\s+/g, "")}`}
                         className="flex items-center gap-2 text-heading hover:underline underline-offset-4"
                       >
                         <Phone className="w-4 h-4" />
@@ -121,7 +121,7 @@ export function Team() {
                     {member.linkedin && (
                       <a
                         href={member.linkedin}
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-heading hover:underline underline-offset-4"
                       >

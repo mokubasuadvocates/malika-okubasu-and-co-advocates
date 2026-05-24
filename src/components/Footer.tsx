@@ -52,7 +52,7 @@ export function Footer() {
             <div className="flex flex-col gap-4 text-sm text-white/75">
               <a 
                 href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 transition-all motion-safe:hover:translate-x-1 hover:text-gold-hover hover:underline"
               >
@@ -79,7 +79,7 @@ export function Footer() {
               </a>
               <a
                 href={OFFICIAL_LINKEDIN_URL}
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 transition-all motion-safe:hover:translate-x-1 hover:text-gold-hover hover:underline"
               >

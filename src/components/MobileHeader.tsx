@@ -191,7 +191,7 @@ export function MobileHeader() {
             </a>
             <a
               href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
               rel="noopener noreferrer"
               aria-label="View location on Google Maps"
               className="flex items-center gap-1.5 whitespace-nowrap transition-colors hover:text-gold-text-hover"
@@ -201,7 +201,7 @@ export function MobileHeader() {
             </a>
             <a
               href={OFFICIAL_LINKEDIN_URL}
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
               rel="noopener noreferrer"
               aria-label="Malika Okubasu & Company Advocates on LinkedIn"
               className="flex items-center gap-1.5 whitespace-nowrap text-white transition-colors hover:text-gold-text-hover"

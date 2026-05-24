@@ -1,11 +1,25 @@
 import './globals.css';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
+import { Inter, Poppins } from 'next/font/google';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Layout } from '@/components/Layout';
 import { CookieConsent } from '@/components/CookieConsent';
 import { TopLoadingBar } from '@/components/TopLoadingBar';
 import { NavigationEvents } from '@/components/NavigationEvents';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const poppins = Poppins({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  display: 'swap',
+});
 import {
   HOMEPAGE_DESCRIPTION,
   HOMEPAGE_TITLE,
@@ -67,7 +81,7 @@ export default function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{

@@ -188,7 +188,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
 
                 if (inReferencesSection) {
                   if (block.type === "paragraph") {
-                    const match = block.text.match(/^\[(\d+)\]\s(.*)/);
+                    const match = block.text.match(/^\[(\d{1,3})\]\s(.*)/);
                     if (match) {
                       extractedReferences.push({ id: parseInt(match[1]), title: match[2] });
                     } else {
@@ -196,7 +196,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
                     }
                   } else if (block.type === "list") {
                     block.items.forEach((item) => {
-                      const match = item.match(/^\[(\d+)\]\s(.*)/);
+                      const match = item.match(/^\[(\d{1,3})\]\s(.*)/);
                       if (match) {
                         extractedReferences.push({ id: parseInt(match[1]), title: match[2] });
                       } else {
@@ -208,7 +208,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
                 }
 
                 if (block.type === "paragraph") {
-                  const match = block.text.match(/^\[(\d+)\]\s(.*)/);
+                  const match = block.text.match(/^\[(\d{1,3})\]\s(.*)/);
                   if (match) {
                     inReferencesSection = true;
                     extractedReferences.push({ id: parseInt(match[1]), title: match[2] });
@@ -228,9 +228,9 @@ export function BlogDetail({ slug }: { slug?: string }) {
                 <>
                   {contentBlocks.map((block, index) => {
               const renderTextWithCitationsAndLinks = (text: string) => {
-                const parts = text.split(/(\[\d+\])/g);
+                const parts = text.split(/(\[\d{1,3}\])/g);
                 return parts.map((part, i) => {
-                  const match = part.match(/\[(\d+)\]/);
+                  const match = part.match(/\[(\d{1,3})\]/);
                   if (match) {
                     const num = match[1];
                     return (
@@ -253,7 +253,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
                         <Fragment key={`url-frag-${i}-${j}`}>
                           <a
                             href={cleanUrl}
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             rel="noopener noreferrer"
                             className="text-link underline underline-offset-4 transition-colors hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold break-words"
                           >
@@ -325,7 +325,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
                           {ref.url ? (
                             <a
                               href={ref.url}
-                              target="_blank"
+                              target="_blank" rel="noopener noreferrer"
                               rel="noopener noreferrer"
                               className="transition-colors hover:text-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                             >
@@ -370,7 +370,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
             </p>
             <Link
               href="/contact"
-              className="inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-navy px-8 py-4 font-semibold text-white transition-all motion-safe:hover:-translate-y-0.5 hover:bg-gold hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 sm:w-auto"
+              className="inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-navy px-8 py-4 font-semibold text-white transition-all motion-safe:hover:-translate-y-0.5 hover:bg-gold-text hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 sm:w-auto"
             >
               Get In Touch
             </Link>

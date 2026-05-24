@@ -145,7 +145,7 @@ export function DesktopHeader() {
             ))}
             <a 
               href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
               rel="noopener noreferrer"
               className="flex min-w-0 items-center gap-2 transition-colors hover:text-gold-text-hover"
             >
@@ -158,7 +158,7 @@ export function DesktopHeader() {
 
           <a
             href={OFFICIAL_LINKEDIN_URL}
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             rel="noopener noreferrer"
             aria-label="Malika Okubasu & Company Advocates on LinkedIn"
             className="inline-flex items-center gap-2 whitespace-nowrap rounded-sm px-2 py-1 text-white transition-colors hover:text-gold-text-hover"
@@ -279,7 +279,7 @@ export function DesktopHeader() {
 
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-lg bg-navy px-5 py-3 text-sm font-bold text-white shadow-[0_10px_24px_rgba(0,62,99,0.18)] transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:bg-gold hover:text-white"
+            className="inline-flex items-center justify-center rounded-lg bg-navy px-5 py-3 text-sm font-bold text-white shadow-[0_10px_24px_rgba(0,62,99,0.18)] transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:bg-gold-text hover:text-white"
           >
             Get In Touch
           </Link>

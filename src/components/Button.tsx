@@ -32,12 +32,12 @@ export function Button({
     "inline-flex items-center justify-center rounded-lg px-8 py-3.5 font-sans-primary font-semibold shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-divider disabled:text-brand-grey disabled:hover:translate-y-0";
 
   const variants = {
-    solid: "bg-navy text-white hover:bg-gold hover:text-white",
+    solid: "bg-navy text-white hover:bg-gold-text hover:text-white",
     outline:
-      "border-2 border-navy bg-white text-navy hover:border-gold hover:bg-navy hover:text-white",
+      "border-2 border-navy bg-white text-navy hover:border-gold-text hover:bg-navy hover:text-white",
     text: "text-navy shadow-none hover:text-gold-text hover:underline underline-offset-4",
-    primary: "bg-navy text-white hover:bg-gold hover:text-white",
-    gold: "bg-gold text-white hover:bg-gold-hover hover:text-white",
+    primary: "bg-navy text-white hover:bg-gold-text hover:text-white",
+    gold: "bg-gold-text text-white hover:bg-gold hover:text-white",
     goldBlue:
       "border-2 border-gold-text bg-gold-text text-white hover:border-navy hover:bg-navy hover:text-white active:scale-[0.98]",
     inverseOutline:
