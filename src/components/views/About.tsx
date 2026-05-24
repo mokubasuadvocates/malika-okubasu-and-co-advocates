@@ -61,7 +61,6 @@ export function About() {
               <a
                 href={process.env.NEXT_PUBLIC_BOOKINGS_URL}
                 target="_blank" rel="noopener noreferrer"
-                rel="noopener noreferrer"
               >
                 <Button variant="primary">Book a Consultation</Button>
               </a>

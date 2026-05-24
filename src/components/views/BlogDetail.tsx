@@ -254,7 +254,6 @@ export function BlogDetail({ slug }: { slug?: string }) {
                           <a
                             href={cleanUrl}
                             target="_blank" rel="noopener noreferrer"
-                            rel="noopener noreferrer"
                             className="text-link underline underline-offset-4 transition-colors hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold break-words"
                           >
                             {cleanUrl}
@@ -326,7 +325,6 @@ export function BlogDetail({ slug }: { slug?: string }) {
                             <a
                               href={ref.url}
                               target="_blank" rel="noopener noreferrer"
-                              rel="noopener noreferrer"
                               className="transition-colors hover:text-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                             >
                               {ref.title}

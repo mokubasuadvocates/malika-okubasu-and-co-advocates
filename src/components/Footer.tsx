@@ -53,7 +53,6 @@ export function Footer() {
               <a 
                 href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
                 target="_blank" rel="noopener noreferrer"
-                rel="noopener noreferrer"
                 className="flex items-start gap-3 transition-all motion-safe:hover:translate-x-1 hover:text-gold-hover hover:underline"
               >
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
@@ -80,7 +79,6 @@ export function Footer() {
               <a
                 href={OFFICIAL_LINKEDIN_URL}
                 target="_blank" rel="noopener noreferrer"
-                rel="noopener noreferrer"
                 className="flex items-center gap-3 transition-all motion-safe:hover:translate-x-1 hover:text-gold-hover hover:underline"
               >
                 <Linkedin className="w-4 h-4 flex-shrink-0" />

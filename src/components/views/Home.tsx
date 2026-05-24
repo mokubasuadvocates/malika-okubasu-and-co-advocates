@@ -81,7 +81,6 @@ export function Home() {
                 <Link
                   href={process.env.NEXT_PUBLIC_BOOKINGS_URL}
                   target="_blank" rel="noopener noreferrer"
-                  rel="noopener noreferrer"
                 >
                   <Button variant="gold">Book a Consultation</Button>
                 </Link>
@@ -232,7 +231,6 @@ export function Home() {
               <a
                 href={process.env.NEXT_PUBLIC_BOOKINGS_URL}
                 target="_blank" rel="noopener noreferrer"
-                rel="noopener noreferrer"
                 className="font-bold text-white text-base lg:text-lg hover:text-gold-hover hover:underline underline-offset-4 transition-all"
               >
                 Book a Consultation
@@ -341,7 +339,6 @@ export function Home() {
                       <a
                         href={member.linkedin}
                         target="_blank" rel="noopener noreferrer"
-                        rel="noopener noreferrer"
                         className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-gold-text hover:underline underline-offset-4 transition-all"
                       >
                         <Linkedin className="w-4 h-4 flex-shrink-0" />
@@ -394,7 +391,6 @@ export function Home() {
                 <a 
                   href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
                   target="_blank" rel="noopener noreferrer"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-lg px-6 py-3 font-sans-primary font-semibold shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 bg-navy text-white hover:bg-gold-text hover:text-white"
                 >
                   Get Directions

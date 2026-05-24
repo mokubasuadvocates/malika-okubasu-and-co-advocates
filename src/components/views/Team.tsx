@@ -122,7 +122,6 @@ export function Team() {
                       <a
                         href={member.linkedin}
                         target="_blank" rel="noopener noreferrer"
-                        rel="noopener noreferrer"
                         className="flex items-center gap-2 text-heading hover:underline underline-offset-4"
                       >
                         <Linkedin className="w-4 h-4" />

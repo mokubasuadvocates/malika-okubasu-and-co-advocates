@@ -146,7 +146,6 @@ export function DesktopHeader() {
             <a 
               href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
               target="_blank" rel="noopener noreferrer"
-              rel="noopener noreferrer"
               className="flex min-w-0 items-center gap-2 transition-colors hover:text-gold-text-hover"
             >
               <MapPin className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
@@ -159,7 +158,6 @@ export function DesktopHeader() {
           <a
             href={OFFICIAL_LINKEDIN_URL}
             target="_blank" rel="noopener noreferrer"
-            rel="noopener noreferrer"
             aria-label="Malika Okubasu & Company Advocates on LinkedIn"
             className="inline-flex items-center gap-2 whitespace-nowrap rounded-sm px-2 py-1 text-white transition-colors hover:text-gold-text-hover"
           >

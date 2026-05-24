@@ -1,5 +1,5 @@
 import { BlogDetail } from "@/components/views/BlogDetail";
-import { ORGANIZATION_ID, SITE_NAME, absoluteUrl } from "@/constants/seo";
+import { ORGANIZATION_ID, absoluteUrl } from "@/constants/seo";
 import { blogPosts, getBlogAuthor, getBlogPost } from "@/data/blogs";
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
