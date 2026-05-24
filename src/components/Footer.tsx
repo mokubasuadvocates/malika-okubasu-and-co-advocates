@@ -105,9 +105,22 @@ export function Footer() {
               Cookie Policy
             </Link>
           </div>
-          <p className="copy-protected">
-            &copy; {new Date().getFullYear()} Malika Okubasu & Company Advocates. All rights Reserved.
-          </p>
+          <div className="flex flex-col md:items-end gap-1.5">
+            <p className="copy-protected">
+              &copy; {new Date().getFullYear()} Malika Okubasu & Company Advocates. All rights Reserved.
+            </p>
+            <p className="text-xs text-white/40">
+              Built by{" "}
+              <a 
+                href="https://www.linkedin.com/in/obiero-michael/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-white/80 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold rounded-sm"
+              >
+                Michael Obiero
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
