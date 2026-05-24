@@ -148,6 +148,25 @@ export function ArticleShareAction({
     }
   };
 
+  const handleMoreClick = async () => {
+    if (window.innerWidth < 640 && navigator.share) {
+      try {
+        await navigator.share({
+          title: title,
+          text: excerpt || `Read ${title} on Malika Okubasu & Company Advocates`,
+          url: shareUrl,
+        });
+        pushGtmEvent("native_share");
+      } catch (err) {
+        if ((err as Error).name !== 'AbortError') {
+          setModalView(modalView === "more" ? "share" : "more");
+        }
+      }
+    } else {
+      setModalView(modalView === "more" ? "share" : "more");
+    }
+  };
+
   const handleNativeShare = async (platform: string) => {
     if (navigator.share) {
       try {
@@ -228,43 +247,46 @@ export function ArticleShareAction({
           ref={dialogRef}
           onClick={handleDialogClick}
           onCancel={handleDialogCancel}
-          className="fixed inset-x-0 bottom-0 m-0 w-full max-w-full overflow-hidden rounded-t-2xl bg-white p-0 shadow-2xl backdrop:bg-navy/60 backdrop:backdrop-blur-sm sm:inset-0 sm:m-auto sm:max-w-[620px] sm:rounded-2xl sm:max-h-[calc(100dvh-48px)] max-h-[90dvh]"
+          className="fixed inset-x-0 bottom-0 m-0 w-full max-w-full overflow-hidden rounded-t-2xl bg-white p-0 shadow-2xl backdrop:bg-navy/60 backdrop:backdrop-blur-sm sm:inset-0 sm:m-auto sm:max-w-[480px] sm:rounded-[20px] sm:max-h-[calc(100dvh-48px)] sm:overflow-visible max-h-[90dvh]"
           aria-labelledby="share-dialog-title"
         >
           <div className="flex flex-col h-full max-h-[90dvh] sm:max-h-[calc(100dvh-48px)]">
             {/* Header */}
-            <div className="shrink-0 flex items-center justify-between border-b border-gray-100 bg-white px-5 py-4 sm:px-6">
-              {modalView === "embed" ? (
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => {
-                      setModalView("share");
-                      setStatusMsg("");
-                    }}
-                    className="text-sm font-medium text-navy hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-sm px-2 py-1 -ml-2"
-                  >
-                    ← Back
-                  </button>
-                  <h2 id="share-dialog-title" className="text-lg font-bold text-navy border-l border-gray-200 pl-3">
-                    Embed article
+            <div className="shrink-0 flex flex-col border-b border-gray-100 bg-white">
+              <div className="mx-auto mt-3 h-1 w-10 rounded-full bg-gray-300 sm:hidden" aria-hidden="true" />
+              <div className="flex items-center justify-between px-5 py-3 sm:px-6 sm:py-4">
+                {modalView === "embed" ? (
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => {
+                        setModalView("share");
+                        setStatusMsg("");
+                      }}
+                      className="text-sm font-medium text-navy hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-sm px-2 py-1 -ml-2"
+                    >
+                      ← Back
+                    </button>
+                    <h2 id="share-dialog-title" className="text-lg font-bold text-navy border-l border-gray-200 pl-3">
+                      Embed article
+                    </h2>
+                  </div>
+                ) : (
+                  <h2 id="share-dialog-title" className="text-lg font-bold text-navy">
+                    Share this post
                   </h2>
-                </div>
-              ) : (
-                <h2 id="share-dialog-title" className="text-lg font-bold text-navy">
-                  Share this post
-                </h2>
-              )}
-              <button
-                onClick={closeModal}
-                aria-label="Close modal"
-                className="rounded-full p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-              >
-                <CloseIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
+                )}
+                <button
+                  onClick={closeModal}
+                  aria-label="Close modal"
+                  className="rounded-full p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                >
+                  <CloseIcon className="h-5 w-5" aria-hidden="true" />
+                </button>
+              </div>
             </div>
 
             {/* Scrollable Content Area */}
-            <div className="flex-1 overflow-y-auto p-5 sm:p-6">
+            <div className="flex-1 overflow-y-auto sm:overflow-visible p-5 sm:p-6">
               {modalView !== "embed" ? (
                 <>
                   {/* Article Preview Card */}
@@ -298,12 +320,12 @@ export function ArticleShareAction({
               </div>
 
               {/* Primary Actions Grid */}
-              <div className="mb-2 grid grid-cols-5 gap-2 relative">
+              <div className="mb-2 flex overflow-x-auto snap-x snap-mandatory gap-2 pb-4 sm:grid sm:grid-cols-5 sm:gap-2 sm:overflow-visible sm:pb-0 scrollbar-hide relative">
                 <button
                   onClick={handleCopyLink}
-                  className="group flex flex-col items-center gap-2 rounded-lg p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:w-auto sm:p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors group-hover:bg-gray-200 group-hover:text-navy">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 text-gray-700 transition-colors group-hover:bg-gray-200 group-hover:text-navy">
                     <LinkIcon className="h-5 w-5" />
                   </div>
                   <span className="text-xs font-medium text-gray-600 group-hover:text-navy">Copy</span>
@@ -314,9 +336,9 @@ export function ArticleShareAction({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => pushGtmEvent("facebook")}
-                  className="group flex flex-col items-center gap-2 rounded-lg p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:w-auto sm:p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2]/10 text-[#1877F2] transition-colors group-hover:bg-[#1877F2]/20">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1877F2]/10 text-[#1877F2] transition-colors group-hover:bg-[#1877F2]/20">
                     <FacebookIcon />
                   </div>
                   <span className="text-xs font-medium text-gray-600 group-hover:text-navy">Facebook</span>
@@ -327,9 +349,9 @@ export function ArticleShareAction({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => pushGtmEvent("whatsapp")}
-                  className="group flex flex-col items-center gap-2 rounded-lg p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:w-auto sm:p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366]/10 text-[#25D366] transition-colors group-hover:bg-[#25D366]/20">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#25D366]/10 text-[#25D366] transition-colors group-hover:bg-[#25D366]/20">
                     <WhatsAppIcon />
                   </div>
                   <span className="text-xs font-medium text-gray-600 group-hover:text-navy">WhatsApp</span>
@@ -340,23 +362,100 @@ export function ArticleShareAction({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => pushGtmEvent("threads")}
-                  className="group flex flex-col items-center gap-2 rounded-lg p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:w-auto sm:p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 text-black transition-colors group-hover:bg-gray-200">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 text-black transition-colors group-hover:bg-gray-200">
                     <AtSign className="h-5 w-5" />
                   </div>
                   <span className="text-xs font-medium text-gray-600 group-hover:text-navy">Threads</span>
                 </a>
 
+                {/* Mobile-only expanded horizontal scroll icons */}
+                <a
+                  href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => pushGtmEvent("x_twitter")}
+                  className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:hidden transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 text-gray-700 transition-colors group-hover:bg-gray-200">
+                    <XIcon />
+                  </div>
+                  <span className="text-xs font-medium text-gray-600 group-hover:text-navy">X</span>
+                </a>
+
+                <a
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => pushGtmEvent("linkedin")}
+                  className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:hidden transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0077b5]/10 text-[#0077b5] transition-colors group-hover:bg-[#0077b5]/20">
+                    <LinkedinIcon />
+                  </div>
+                  <span className="text-xs font-medium text-gray-600 group-hover:text-navy">LinkedIn</span>
+                </a>
+
+                <a
+                  href={`https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => pushGtmEvent("reddit")}
+                  className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:hidden transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ff4500]/10 text-[#ff4500] transition-colors group-hover:bg-[#ff4500]/20">
+                    <RedditIcon />
+                  </div>
+                  <span className="text-xs font-medium text-gray-600 group-hover:text-navy">Reddit</span>
+                </a>
+
+                <button
+                  onClick={() => {
+                    handleCopyTextFallback();
+                    pushGtmEvent("substack");
+                  }}
+                  className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:hidden transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ff6719]/10 text-[#ff6719] transition-colors group-hover:bg-[#ff6719]/20">
+                    <SubstackIcon />
+                  </div>
+                  <span className="text-xs font-medium text-gray-600 group-hover:text-navy">Substack</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    handleCopyTextFallback();
+                    pushGtmEvent("medium");
+                  }}
+                  className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:hidden transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 text-black transition-colors group-hover:bg-gray-200">
+                    <MediumIcon />
+                  </div>
+                  <span className="text-xs font-medium text-gray-600 group-hover:text-navy">Medium</span>
+                </button>
+
+                <a
+                  href={`mailto:?subject=${encodedTitle}&body=${encodedTitle}%0A%0A${encodedUrl}`}
+                  onClick={() => pushGtmEvent("email")}
+                  className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:hidden transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 text-gray-600 transition-colors group-hover:bg-gray-200">
+                    <Mail className="h-5 w-5" />
+                  </div>
+                  <span className="text-xs font-medium text-gray-600 group-hover:text-navy">Email</span>
+                </a>
+
                 <button
                   ref={moreButtonRef}
-                  onClick={() => setModalView(modalView === "more" ? "share" : "more")}
+                  onClick={handleMoreClick}
                   aria-expanded={modalView === "more"}
                   aria-haspopup="menu"
                   aria-controls="more-share-options"
-                  className="group flex flex-col items-center gap-2 rounded-lg p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  className="group flex w-16 shrink-0 snap-start flex-col items-center gap-2 rounded-lg p-1 sm:w-auto sm:p-2 transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 >
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-full transition-colors ${modalView === "more" ? "bg-navy text-white" : "bg-gray-100 text-gray-700 group-hover:bg-gray-200 group-hover:text-navy"}`}>
+                  <div className={`flex h-14 w-14 items-center justify-center rounded-2xl transition-colors ${modalView === "more" ? "bg-navy text-white" : "bg-gray-100 text-gray-700 group-hover:bg-gray-200 group-hover:text-navy"}`}>
                     <MoreHorizontal className="h-5 w-5" />
                   </div>
                   <span className="text-xs font-medium text-gray-600 group-hover:text-navy">More</span>
@@ -366,7 +465,7 @@ export function ArticleShareAction({
                 <div
                   id="more-share-options"
                   role="menu"
-                  className={`transition-all duration-200 ease-in-out origin-top-right
+                  className={`transition-all duration-200 ease-in-out origin-top-right motion-reduce:transition-none
                     ${modalView === "more" ? "opacity-100 visible scale-100" : "opacity-0 invisible scale-95 pointer-events-none"}
                     /* Mobile: inline expansion */
                     col-span-5 mt-2
@@ -376,7 +475,7 @@ export function ArticleShareAction({
                 >
                   <div className="rounded-xl sm:rounded-none border border-gray-100 sm:border-none bg-gray-50 sm:bg-transparent p-2 sm:p-0 shadow-inner sm:shadow-none">
                   <ul className="flex flex-col">
-                    <li role="none">
+                    <li role="none" className="hidden sm:block">
                       <a
                         role="menuitem"
                         href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
@@ -388,7 +487,7 @@ export function ArticleShareAction({
                         <XIcon /> X (Twitter)
                       </a>
                     </li>
-                    <li role="none">
+                    <li role="none" className="hidden sm:block">
                       <a
                         role="menuitem"
                         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
@@ -400,7 +499,7 @@ export function ArticleShareAction({
                         <LinkedinIcon /> LinkedIn
                       </a>
                     </li>
-                    <li role="none">
+                    <li role="none" className="hidden sm:block">
                       <a
                         role="menuitem"
                         href={`https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}`}
@@ -412,7 +511,7 @@ export function ArticleShareAction({
                         <RedditIcon /> Reddit
                       </a>
                     </li>
-                    <li role="none">
+                    <li role="none" className="hidden sm:block">
                       <button
                         role="menuitem"
                         onClick={() => {
@@ -424,7 +523,7 @@ export function ArticleShareAction({
                         <SubstackIcon /> Substack
                       </button>
                     </li>
-                    <li role="none">
+                    <li role="none" className="hidden sm:block">
                       <button
                         role="menuitem"
                         onClick={() => {
@@ -523,29 +622,32 @@ export function ArticleShareAction({
                   </div>
                 </div>
 
-                {/* Status Message */}
-                <div aria-live="polite" className="mb-2 h-5 text-sm font-medium">
-                  {statusMsg && (
-                    <span className={statusMsg.includes("failed") ? "text-red-600" : "text-green-700"}>
+                {/* Status Message for Errors */}
+                {statusMsg && statusMsg !== "Copied" && (
+                  <div aria-live="polite" className="mt-2 h-5 text-sm font-medium">
+                    <span className="text-red-600">
                       {statusMsg}
                     </span>
-                  )}
-                </div>
+                  </div>
+                )}
 
                 {/* Embed Code Field */}
-                <div className="relative">
-                  <textarea
-                    readOnly
-                    value={`<iframe\n  src="${typeof window !== "undefined" ? window.location.origin : ""}/embed/publications/${slug || ""}"\n  title="${title.replace(/"/g, '&quot;')} | Malika Okubasu & Company Advocates"\n  width="100%"\n  height="420"\n  style="border:1px solid #e5e7eb;border-radius:12px;max-width:680px;"\n  loading="lazy">\n</iframe>`}
-                    className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 p-3 pr-24 text-xs font-mono text-gray-600 focus:outline-none focus:ring-2 focus:ring-gold"
-                    rows={4}
-                    aria-label="Embed code snippet"
-                  />
+                <div className="relative rounded-lg border border-gray-200 bg-gray-50">
+                  <pre className="overflow-x-auto whitespace-pre p-4 pr-28 text-xs font-mono text-gray-600">
+{`<iframe
+  src="${typeof window !== "undefined" ? window.location.origin : ""}/embed/publications/${slug || ""}"
+  title="${title.replace(/"/g, '&quot;')} | Malika Okubasu & Company Advocates"
+  width="100%"
+  height="420"
+  style="border:0; overflow:hidden;"
+  loading="lazy">
+</iframe>`}
+                  </pre>
                   <button
                     onClick={handleCopyEmbed}
                     className="absolute right-3 top-3 rounded-md bg-white border border-gray-200 px-3 py-1.5 text-xs font-semibold text-navy shadow-sm transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                   >
-                    Copy code
+                    {statusMsg === "Copied" ? "Copied" : "Copy code"}
                   </button>
                 </div>
               </div>
