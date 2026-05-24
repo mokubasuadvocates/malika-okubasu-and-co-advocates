@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, Linkedin } from "lucide-react";
+import { GsapReveal } from "@/components/animations/GsapReveal";
 
 export function Team() {
   const team = [
@@ -67,19 +68,25 @@ export function Team() {
       {/* Team Cards */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-          <div className="grid sm:grid-cols-2 gap-8 lg:gap-12">
+          <GsapReveal staggerChildren mobileMode="fade" className="grid sm:grid-cols-2 gap-8 lg:gap-12">
             {team.map((member) => (
               <div key={member.id} className="group">
                 {/* Portrait */}
                 <div className="overflow-hidden mb-5">
-                  <Image
-                    src={member.image}
-                    alt=""
-                    width={600}
-                    height={800}
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                    className="w-full aspect-[3/4] object-cover lg:group-hover:grayscale motion-safe:group-hover:scale-105 motion-safe:transition-all duration-500"
-                  />
+                  <Link
+                    href={`/our-team/${member.id}`}
+                    aria-label={`View ${member.name}'s profile`}
+                    className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                  >
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={600}
+                      height={800}
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                      className="w-full aspect-[3/4] object-cover lg:group-hover:grayscale motion-safe:group-hover:scale-105 motion-safe:transition-all duration-500"
+                    />
+                  </Link>
                 </div>
 
                 {/* Info Panel */}
@@ -136,7 +143,7 @@ export function Team() {
                 </div>
               </div>
             ))}
-          </div>
+          </GsapReveal>
         </div>
       </section>
     </div>

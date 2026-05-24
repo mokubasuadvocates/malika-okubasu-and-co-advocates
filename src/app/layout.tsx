@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Layout } from '@/components/Layout';
 import { CookieConsent } from '@/components/CookieConsent';
+import { TopLoadingBar } from '@/components/TopLoadingBar';
+import { NavigationEvents } from '@/components/NavigationEvents';
 import {
   HOMEPAGE_DESCRIPTION,
   HOMEPAGE_TITLE,
@@ -89,6 +91,8 @@ export default function RootLayout({
       </head>
       <GoogleTagManager gtmId="GTM-M6PBWZL7" />
       <body>
+        <TopLoadingBar />
+        <NavigationEvents />
         <Layout>{children}</Layout>
         <CookieConsent />
       </body>

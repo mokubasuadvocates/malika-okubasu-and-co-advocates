@@ -6,6 +6,7 @@ import { Button } from "@/components/Button";
 import { Divider } from "@/components/Divider";
 import { practiceAreas } from "@/constants/practiceAreas";
 import { getPublishedBlogPosts } from "@/data/blogs";
+import { GsapReveal } from "@/components/animations/GsapReveal";
 
 export function Home() {
   const expectations = [
@@ -65,8 +66,8 @@ export function Home() {
       {/* 1) Premium Hero Section */}
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,#002f4d_0%,#003e63_58%,#0b5f8f_100%)] text-white">
         <div className="absolute inset-x-0 top-0 h-px bg-gold/70" />
-        <div className="mx-auto grid min-h-[680px] max-w-[1280px] items-center gap-10 px-6 py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:px-12 xl:gap-16">
-          <div>
+        <GsapReveal className="mx-auto grid min-h-[680px] max-w-[1280px] items-center gap-10 px-6 py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:px-12 xl:gap-16">
+          <GsapReveal staggerChildren mobileMode="fade">
             <div className="mb-5 h-1 w-20 rounded-full bg-gold" />
             <h1 className="max-w-[760px] text-4xl font-bold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
               Malika Okubasu & Company Advocates
@@ -93,9 +94,9 @@ export function Home() {
                 <Button variant="inverseOutline">Explore Practice Areas</Button>
               </Link>
             </div>
-          </div>
+          </GsapReveal>
 
-          <div className="relative">
+          <GsapReveal mobileMode="fade">
             <div className="premium-card overflow-hidden rounded-lg border border-white/20 bg-white/10 p-3 shadow-xl shadow-black/20 backdrop-blur-sm">
               <Image
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=90"
@@ -107,8 +108,8 @@ export function Home() {
                 className="h-[360px] w-full rounded-md object-cover lg:h-[520px]"
               />
             </div>
-          </div>
-        </div>
+          </GsapReveal>
+        </GsapReveal>
       </section>
 
       {/* 2) Practice Areas Section */}
@@ -118,16 +119,16 @@ export function Home() {
 
           <div className="grid gap-12 lg:grid-cols-[minmax(0,0.45fr)_minmax(0,1fr)] lg:gap-16 xl:gap-20">
             {/* Left: Stacked Headline */}
-            <div>
+            <GsapReveal mobileMode="fade">
               <h2 className="gold-accent-line text-5xl lg:text-6xl xl:text-7xl font-bold text-heading leading-[1.05]">
                 Practice
                 <br />
                 Areas
               </h2>
-            </div>
+            </GsapReveal>
 
             {/* Right: 3-column list */}
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-8">
+            <GsapReveal staggerChildren mobileMode="fade" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-8">
               {practiceAreas.map((area) => (
                 <Link
                   key={area.id}
@@ -139,7 +140,7 @@ export function Home() {
                   </span>
                 </Link>
               ))}
-            </div>
+            </GsapReveal>
           </div>
 
           {/* CTA Bar */}
@@ -212,7 +213,7 @@ export function Home() {
             What Clients Can Expect
           </h2>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-x-16 lg:gap-y-12 xl:gap-x-20 xl:gap-y-16">
+          <GsapReveal staggerChildren mobileMode="fade" className="grid lg:grid-cols-2 gap-8 lg:gap-x-16 lg:gap-y-12 xl:gap-x-20 xl:gap-y-16">
             {expectations.map((item, index) => (
               <div key={index}>
                 <h3 className="text-xl lg:text-2xl font-bold text-heading mb-3 leading-snug">
@@ -223,7 +224,7 @@ export function Home() {
                 </p>
               </div>
             ))}
-          </div>
+          </GsapReveal>
 
           {/* Compact CTA Strip */}
           <div className="mt-12 lg:mt-16 xl:mt-20 bg-navy h-[72px] lg:h-[80px] flex items-center px-6 lg:px-12">
@@ -259,7 +260,7 @@ export function Home() {
             Featured Insights
           </h2>
 
-          <div className="flex flex-col gap-10 lg:gap-12">
+          <GsapReveal staggerChildren mobileMode="fade" className="flex flex-col gap-10 lg:gap-12">
             {featuredInsights.map((insight, index) => (
               <BlogPreviewCard
                 key={insight.slug}
@@ -267,7 +268,7 @@ export function Home() {
                 priority={index === 0}
               />
             ))}
-          </div>
+          </GsapReveal>
 
           {/* CTA Button */}
           <div className="mt-12 lg:mt-16 text-center">
@@ -293,7 +294,7 @@ export function Home() {
             Meet the people behind Malika Okubasu & Company Advocates.
           </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <GsapReveal staggerChildren mobileMode="fade" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {teamPreview.map((member) => (
               <div key={member.id} className="group">
                 {/* Portrait */}
@@ -351,7 +352,7 @@ export function Home() {
                 </div>
               </div>
             ))}
-          </div>
+          </GsapReveal>
 
           <div className="mt-10 lg:mt-14">
             <Link href="/our-team">

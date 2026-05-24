@@ -357,6 +357,10 @@ export function BlogDetail({ slug }: { slug?: string }) {
             url={articleUrl} 
             image={post.image}
             practiceArea={post.practiceArea || post.practiceAreas?.[0]}
+            authorName={author.name}
+            authorRole={author.role}
+            slug={post.slug}
+            date={post.date}
           />
 
           {/* CTA */}

@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
 import { DesktopHeader } from './DesktopHeader';
 import { MobileHeader } from './MobileHeader';
 import { Footer } from './Footer';
@@ -9,6 +10,17 @@ import { ScrollToTopButton } from './ScrollToTopButton';
 import { ScrollRestoration } from './ScrollRestoration';
 
 export function Layout({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const isEmbed = pathname?.startsWith('/embed');
+
+  if (isEmbed) {
+    return (
+      <main className="min-h-screen bg-white">
+        {children}
+      </main>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       <a 

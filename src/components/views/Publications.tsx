@@ -8,6 +8,7 @@ import { getPublishedBlogPosts, getBlogAuthor } from "@/data/blogs";
 import { ChevronDown, ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { GsapReveal } from "@/components/animations/GsapReveal";
 
 const POSTS_PER_PAGE = 9;
 
@@ -223,14 +224,14 @@ export function Publications({ initialPage = 1 }: { initialPage?: number }) {
       <section className="bg-white pb-12 sm:pb-16 lg:pb-24">
         <div className="mx-auto max-w-[1280px] px-5 sm:px-6 lg:px-12">
           {currentInsights.length > 0 ? (
-            <div className="flex flex-col gap-10 sm:gap-12 lg:gap-16">
+            <GsapReveal staggerChildren mobileMode="fade" className="flex flex-col gap-10 sm:gap-12 lg:gap-16">
               {currentInsights.map((insight, index) => (
                 <div key={insight.slug}>
                   {index > 0 && <Divider className="mb-10 sm:mb-12 lg:mb-16" />}
                   <BlogPreviewCard post={insight} priority={index === 0 && !filtersActive && currentPage === 1} />
                 </div>
               ))}
-            </div>
+            </GsapReveal>
           ) : (
             <div className="rounded-sm border border-brand-border bg-gray-50 py-16 px-6 text-center shadow-sm">
               <h3 className="text-[1.125rem] font-bold text-navy mb-3">The publication you are looking for is not available under the selected filters.</h3>

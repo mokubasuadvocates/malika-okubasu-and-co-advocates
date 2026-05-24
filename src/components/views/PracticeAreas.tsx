@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { practiceAreas } from "@/constants/practiceAreas";
+import { GsapReveal } from "@/components/animations/GsapReveal";
 
 export function PracticeAreas() {
   return (
@@ -36,7 +37,7 @@ export function PracticeAreas() {
       {/* Practice Areas List */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-          <div className="grid gap-6 lg:grid-cols-2">
+          <GsapReveal staggerChildren mobileMode="fade" className="grid gap-6 lg:grid-cols-2">
             {practiceAreas.map((area) => (
               <Link
                 key={area.id}
@@ -60,7 +61,7 @@ export function PracticeAreas() {
                 </div>
               </Link>
             ))}
-          </div>
+          </GsapReveal>
         </div>
       </section>
     </div>
