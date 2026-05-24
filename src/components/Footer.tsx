@@ -108,7 +108,7 @@ export function Footer() {
             </Link>
           </div>
           <p className="copy-protected">
-            &copy; 2026 Malika Okubasu & Company Advocates. All rights Reserved.
+            &copy; {new Date().getFullYear()} Malika Okubasu & Company Advocates. All rights Reserved.
           </p>
         </div>
       </div>
