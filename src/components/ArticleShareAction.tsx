@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { 
   Share2, X as CloseIcon, Link as LinkIcon, Mail, MoreHorizontal, 
@@ -75,7 +76,6 @@ export function ArticleShareAction({
   const [modalView, setModalView] = useState<"closed" | "share" | "more" | "embed">("closed");
   const [statusMsg, setStatusMsg] = useState("");
   
-  const dialogRef = useRef<HTMLDialogElement>(null);
   const shareTriggerRef = useRef<HTMLButtonElement>(null);
   const moreButtonRef = useRef<HTMLButtonElement>(null);
   
@@ -91,21 +91,45 @@ export function ArticleShareAction({
     }
   }, [statusMsg]);
 
-  // Handle dialog open/close manually since we want to control the state
+  // Handle scroll locking and escape key for custom portal modal
+  useEffect(() => {
+    if (modalView === "closed") {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    // Lock scroll
+    document.body.style.overflow = "hidden";
+
+    // Listen for escape
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (modalView === "more") {
+          setModalView("share");
+          setTimeout(() => moreButtonRef.current?.focus(), 0);
+        } else {
+          setModalView("closed");
+          setTimeout(() => shareTriggerRef.current?.focus(), 0);
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [modalView]);
+
   const openModal = () => {
     setModalView("share");
     setStatusMsg("");
-    // Use setTimeout to allow render before calling showModal
-    setTimeout(() => {
-      dialogRef.current?.showModal();
-    }, 0);
   };
 
   const closeModal = () => {
-    dialogRef.current?.close();
     setModalView("closed");
     // Return focus to the trigger button for accessibility
-    shareTriggerRef.current?.focus();
+    setTimeout(() => shareTriggerRef.current?.focus(), 0);
   };
 
   const handleCopyLink = async () => {
@@ -207,23 +231,9 @@ export function ArticleShareAction({
     }
   };
 
-  // Close dialog on backdrop click
-  const handleDialogClick = (e: React.MouseEvent<HTMLDialogElement>) => {
-    if (e.target === dialogRef.current) {
-      closeModal();
-    }
-  };
-
-  // Listen for escape key on dialog itself
-  const handleDialogCancel = (e: React.SyntheticEvent) => {
-    e.preventDefault(); // Prevent default close so we can sync state
-    if (modalView === "more") {
-      setModalView("share");
-      // Return focus to the More button
-      setTimeout(() => {
-        moreButtonRef.current?.focus();
-      }, 0);
-    } else {
+  // Close modal on backdrop click
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
       closeModal();
     }
   };
@@ -242,14 +252,18 @@ export function ArticleShareAction({
         <span>Share</span>
       </button>
 
-      {modalView !== "closed" && (
-        <dialog
-          ref={dialogRef}
-          onClick={handleDialogClick}
-          onCancel={handleDialogCancel}
-          className="fixed inset-x-0 bottom-0 m-0 w-full max-w-full overflow-hidden rounded-t-2xl bg-white p-0 shadow-2xl backdrop:bg-navy/60 backdrop:backdrop-blur-sm sm:inset-0 sm:m-auto sm:max-w-[480px] sm:rounded-[20px] sm:max-h-[calc(100dvh-48px)] sm:overflow-visible max-h-[90dvh]"
-          aria-labelledby="share-dialog-title"
+      {modalView !== "closed" && typeof document !== "undefined" && createPortal(
+        <div 
+          className="fixed inset-0 z-[9998] bg-navy/60 backdrop-blur-sm sm:backdrop-blur-sm transition-opacity"
+          onClick={handleBackdropClick}
+          aria-hidden="true"
         >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="share-dialog-title"
+            className="fixed inset-x-0 bottom-0 z-[9999] m-0 w-full max-w-full overflow-hidden rounded-t-2xl bg-white p-0 shadow-2xl sm:inset-0 sm:m-auto sm:max-w-[480px] sm:rounded-[20px] sm:max-h-[calc(100dvh-48px)] sm:overflow-visible max-h-[100dvh] pb-[calc(env(safe-area-inset-bottom)+16px)] sm:pb-0"
+          >
           <div className="flex flex-col h-full max-h-[90dvh] sm:max-h-[calc(100dvh-48px)]">
             {/* Header */}
             <div className="shrink-0 flex flex-col border-b border-gray-100 bg-white">
@@ -654,7 +668,9 @@ export function ArticleShareAction({
             )}
             </div>
           </div>
-        </dialog>
+          </div>
+        </div>,
+        document.body
       )}
     </section>
   );
