@@ -100,7 +100,7 @@ export default function PrivacyPolicyPage() {
           <section className="mb-10">
             <h2 className="mb-4 text-2xl font-bold text-heading">7. Cookies and Analytics</h2>
             <p className="mb-4">
-              We may use cookies and similar tracking technologies to access or store information. You can manage your cookie preferences at any time using our Cookie Settings banner. For specific information about how we use cookies and how you can refuse certain cookies, please review our{" "}
+              We may use cookies and similar tracking technologies to access or store information. You can manage your cookie preferences when the consent banner appears or later by selecting the floating Cookie Settings icon, shown as a shield button at the bottom-left of the page. For specific information about how we use cookies and how you can refuse certain cookies, please review our{" "}
               <Link href="/cookie-policy" className="text-navy font-semibold hover:text-gold-text hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-sm">
                 Cookie Policy
               </Link>.

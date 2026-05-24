@@ -82,10 +82,10 @@ export default function CookiePolicyPage() {
           <section className="mb-10">
             <h2 className="mb-4 text-2xl font-bold text-heading">4. Managing Cookies</h2>
             <p className="mb-4">
-              You have the right to decide whether to accept or reject optional cookies. You can exercise your cookie preferences when you first visit our website via the Cookie Consent Banner.
+              You have the right to decide whether to accept or reject optional cookies. You can exercise your cookie preferences when you first visit our website via the cookie consent banner.
             </p>
             <p className="mb-4">
-              You can also modify your preferences at any time by clicking the &quot;Cookie Settings&quot; link located in the footer of our website. This will reopen the consent modal, allowing you to toggle categories on or off.
+              You can also modify your preferences at any time by selecting the floating Cookie Settings icon, shown as a shield button at the bottom-left of the page after you make a choice. This will reopen the consent modal, allowing you to toggle categories on or off.
             </p>
             <p className="mb-4">
               In addition, most web browsers allow you to control cookies through their settings preferences. Please note that if you choose to reject cookies via your browser settings, you may still use our website, but your access to some functionality and areas of our website may be restricted.

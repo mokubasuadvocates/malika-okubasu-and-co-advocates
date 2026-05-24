@@ -49,7 +49,7 @@ const mobileContactItems = [
     ariaLabel: "View location on Google Maps",
   },
   {
-    label: "LinkedIn",
+    label: "Malika Okubasu & Co Advocates",
     href: OFFICIAL_LINKEDIN_URL,
     icon: Linkedin,
     isExternal: true,
@@ -142,7 +142,7 @@ export function MobileHeader() {
           >
             <ChevronLeft className="h-3.5 w-3.5" aria-hidden="true" />
           </button>
-          <div className="flex h-full items-center justify-center px-10 py-2 text-[12px]">
+          <div className="flex h-full items-center justify-center px-10 py-2 text-[14px]">
             {activeContactItem.href ? (
               <a
                 key={activeContactItem.label}
@@ -174,7 +174,7 @@ export function MobileHeader() {
         </div>
 
         <div className="hidden h-11 overflow-x-auto bg-[linear-gradient(90deg,#002f4d_0%,#003e63_55%,#0b5f8f_100%)] text-white md:block">
-          <div className="flex min-w-max items-center gap-5 px-4 py-2 text-[12px]">
+          <div className="flex min-w-max items-center gap-5 px-4 py-2 text-[14px]">
             <a
               href="tel:+254141397048"
               className="flex items-center gap-1.5 whitespace-nowrap transition-colors hover:text-gold-text-hover"
@@ -204,9 +204,10 @@ export function MobileHeader() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Malika Okubasu & Company Advocates on LinkedIn"
-              className="flex items-center text-white transition-colors hover:text-gold-text-hover"
+              className="flex items-center gap-1.5 whitespace-nowrap text-white transition-colors hover:text-gold-text-hover"
             >
               <Linkedin className="h-3.5 w-3.5" aria-hidden="true" />
+              <span>Malika Okubasu & Co Advocates</span>
             </a>
           </div>
         </div>
@@ -230,7 +231,7 @@ export function MobileHeader() {
               <span className="block truncate text-base font-bold">
                 Malika Okubasu
               </span>
-              <span className="block truncate text-xs font-bold">
+              <span className="block truncate text-sm font-bold">
                 & Company Advocates
               </span>
             </span>

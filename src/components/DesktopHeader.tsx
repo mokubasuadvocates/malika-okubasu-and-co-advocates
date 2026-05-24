@@ -29,6 +29,30 @@ const utilityItems = [
   },
 ];
 
+const compactUtilityItems = [
+  { label: "+254 141 397 048", href: "tel:+254141397048", icon: Phone },
+  {
+    label: "legal@mokubasuadvocates.com",
+    href: "mailto:legal@mokubasuadvocates.com",
+    icon: Mail,
+  },
+  {
+    label: "Ngong Road, Nairobi",
+    href: "https://maps.app.goo.gl/enkR4yrDCPXHHYpSA",
+    icon: MapPin,
+    isExternal: true,
+    ariaLabel: "View location on Google Maps",
+  },
+  {
+    label: "Malika Okubasu & Co Advocates",
+    href: OFFICIAL_LINKEDIN_URL,
+    icon: Linkedin,
+    isExternal: true,
+    ariaLabel: "Malika Okubasu & Company Advocates on LinkedIn",
+    iconClassName: "text-white",
+  },
+];
+
 export function DesktopHeader() {
   const pathname = usePathname();
   const isPracticeActive = pathname === "/practice-areas" || pathname.startsWith("/practice-areas/");
@@ -84,7 +108,30 @@ export function DesktopHeader() {
   return (
     <header className="sticky top-0 z-50 hidden bg-white shadow-[0_10px_30px_rgba(0,62,99,0.08)] lg:block">
       <div className="bg-[linear-gradient(90deg,#002f4d_0%,#003e63_55%,#0b5f8f_100%)] text-white">
-        <div className="mx-auto flex h-10 max-w-[1280px] items-center justify-between gap-6 px-6 text-[13px] lg:px-12">
+        <div className="mx-auto flex h-11 max-w-[1280px] items-center overflow-x-auto px-6 py-2 text-[14px] lg:px-12 xl:hidden">
+          <div className="flex min-w-max items-center gap-5">
+            {compactUtilityItems.map(
+              ({ label, href, icon: Icon, isExternal, ariaLabel, iconClassName }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  aria-label={ariaLabel}
+                  className="flex items-center gap-1.5 whitespace-nowrap transition-colors hover:text-gold-text-hover"
+                >
+                  <Icon
+                    className={`h-3.5 w-3.5 shrink-0 ${iconClassName ?? "text-gold"}`}
+                    aria-hidden="true"
+                  />
+                  <span>{label}</span>
+                </a>
+              ),
+            )}
+          </div>
+        </div>
+
+        <div className="mx-auto hidden h-10 max-w-[1280px] items-center justify-between gap-6 px-6 text-[14px] lg:px-12 xl:flex">
           <div className="flex min-w-0 items-center gap-6">
             {utilityItems.map(({ label, href, icon: Icon }) => (
               <a
@@ -114,9 +161,10 @@ export function DesktopHeader() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Malika Okubasu & Company Advocates on LinkedIn"
-            className="rounded-full p-1 text-white transition-colors hover:text-gold-text-hover"
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-sm px-2 py-1 text-white transition-colors hover:text-gold-text-hover"
           >
-            <Linkedin className="h-4 w-4" aria-hidden="true" />
+            <Linkedin className="h-4 w-4 shrink-0" aria-hidden="true" />
+            <span>Malika Okubasu & Co Advocates</span>
           </a>
         </div>
       </div>
@@ -151,14 +199,14 @@ export function DesktopHeader() {
             <Link
               href="/"
               aria-current={pathname === "/" ? "page" : undefined}
-              className="nav-underline text-[15px] font-bold text-navy transition-colors hover:text-gold-text"
+              className="nav-underline text-[16px] font-bold text-navy transition-colors hover:text-gold-text"
             >
               Home
             </Link>
             <Link
               href="/about-us"
               aria-current={isActive("/about-us") ? "page" : undefined}
-              className="nav-underline text-[15px] font-bold text-navy transition-colors hover:text-gold-text"
+              className="nav-underline text-[16px] font-bold text-navy transition-colors hover:text-gold-text"
             >
               About Us
             </Link>
@@ -177,7 +225,7 @@ export function DesktopHeader() {
                 aria-expanded={isDropdownOpen}
                 aria-controls="desktop-practice-dropdown"
                 aria-current={isPracticeActive ? "page" : undefined}
-                className="nav-underline flex items-center gap-1 text-[15px] font-bold text-navy transition-colors hover:text-gold-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 rounded-sm"
+                className="nav-underline flex items-center gap-1 text-[16px] font-bold text-navy transition-colors hover:text-gold-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 rounded-sm"
               >
                 Practice Areas
                 <ChevronDown
@@ -192,7 +240,7 @@ export function DesktopHeader() {
                   isDropdownOpen ? "pointer-events-auto translate-y-2 opacity-100 visible" : "pointer-events-none opacity-0 invisible"
                 }`}
               >
-                <div className="border-b border-[rgba(0,62,99,0.1)] px-3 pb-2 text-xs font-bold uppercase text-gold">
+                <div className="border-b border-[rgba(0,62,99,0.1)] px-3 pb-2 text-sm font-bold uppercase text-gold">
                   Legal Services
                 </div>
                 <div className="grid gap-1 pt-2">
@@ -222,7 +270,7 @@ export function DesktopHeader() {
                 key={link.path}
                 href={link.path}
                 aria-current={isActive(link.path) ? "page" : undefined}
-                className="nav-underline text-[15px] font-bold text-navy transition-colors hover:text-gold-text"
+                className="nav-underline text-[16px] font-bold text-navy transition-colors hover:text-gold-text"
               >
                 {link.label}
               </Link>
