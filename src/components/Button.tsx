@@ -4,7 +4,14 @@ import { ReactNode } from "react";
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: "solid" | "outline" | "text" | "primary" | "gold" | "inverseOutline";
+  variant?:
+    | "solid"
+    | "outline"
+    | "text"
+    | "primary"
+    | "gold"
+    | "goldBlue"
+    | "inverseOutline";
   onClick?: () => void;
   href?: string;
   className?: string;
@@ -31,6 +38,8 @@ export function Button({
     text: "text-navy shadow-none hover:text-gold-text hover:underline underline-offset-4",
     primary: "bg-navy text-white hover:bg-gold hover:text-white",
     gold: "bg-gold text-white hover:bg-gold-hover hover:text-white",
+    goldBlue:
+      "border-2 border-gold-text bg-gold-text text-white hover:border-navy hover:bg-navy hover:text-white active:scale-[0.98]",
     inverseOutline:
       "border-2 border-white bg-transparent text-white hover:border-gold hover:bg-white hover:text-navy",
   };

@@ -5,16 +5,12 @@ import { ArrowLeft } from "lucide-react";
 import { Divider } from "@/components/Divider";
 import JsonLd from "@/components/JsonLd";
 import { ReadingProgress } from "@/components/ReadingProgress";
+import { LOGO_URL, SITE_NAME, SITE_URL, absoluteUrl } from "@/constants/seo";
 import {
   getBlogAuthor,
   getBlogPost,
   getDisplayPracticeArea,
 } from "@/data/blogs";
-
-const siteUrl = "https://mokubasuadvocates.com";
-
-const absoluteUrl = (path: string) =>
-  path.startsWith("http") ? path : `${siteUrl}${path}`;
 
 export function BlogDetail({ slug }: { slug?: string }) {
   const post = slug ? getBlogPost(slug) : null;
@@ -25,7 +21,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
 
   const author = getBlogAuthor(post);
   const displayPracticeArea = getDisplayPracticeArea(post);
-  const articleUrl = `${siteUrl}/publications/${post.slug}`;
+  const articleUrl = absoluteUrl(`/publications/${post.slug}`);
   const articleImage = absoluteUrl(post.image);
   const jsonLd = [
     {
@@ -41,10 +37,10 @@ export function BlogDetail({ slug }: { slug?: string }) {
       },
       publisher: {
         "@type": "Organization",
-        name: "Malika Okubasu & Company Advocates",
+        name: SITE_NAME,
         logo: {
           "@type": "ImageObject",
-          url: `${siteUrl}/icon-192x192.png`,
+          url: LOGO_URL,
         },
       },
       datePublished: post.datePublished,
@@ -59,13 +55,13 @@ export function BlogDetail({ slug }: { slug?: string }) {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: siteUrl,
+          item: `${SITE_URL}/`,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Publications",
-          item: `${siteUrl}/publications`,
+          item: absoluteUrl("/publications"),
         },
         {
           "@type": "ListItem",
@@ -134,7 +130,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
                 alt=""
                 width={48}
                 height={48}
-                className="h-11 w-11 flex-shrink-0 rounded-full object-cover lg:grayscale lg:hover:grayscale-0 transition-all duration-500 sm:h-12 sm:w-12"
+                className="h-11 w-11 flex-shrink-0 rounded-full object-cover lg:hover:grayscale transition-all duration-500 sm:h-12 sm:w-12"
               />
               <div className="min-w-0">
                 <Link
@@ -209,7 +205,7 @@ export function BlogDetail({ slug }: { slug?: string }) {
                 alt=""
                 width={64}
                 height={64}
-                className="h-14 w-14 flex-shrink-0 rounded-full object-cover lg:grayscale lg:hover:grayscale-0 transition-all duration-500 sm:h-16 sm:w-16"
+                className="h-14 w-14 flex-shrink-0 rounded-full object-cover lg:hover:grayscale transition-all duration-500 sm:h-16 sm:w-16"
               />
               <div className="min-w-0">
                 <Link

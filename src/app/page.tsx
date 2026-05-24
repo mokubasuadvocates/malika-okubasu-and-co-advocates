@@ -1,25 +1,35 @@
 import JsonLd from "@/components/JsonLd";
 import { OFFICIAL_LINKEDIN_URL } from "@/constants/social";
 import { Home } from "@/components/views/Home";
+import {
+  HOMEPAGE_DESCRIPTION,
+  HOMEPAGE_TITLE,
+  LOGO_URL,
+  OG_IMAGE_URL,
+  ORGANIZATION_ID,
+  SITE_EMAIL,
+  SITE_NAME,
+  SITE_TELEPHONE,
+  SITE_URL,
+  WEBSITE_ID,
+} from "@/constants/seo";
 
 export const metadata = {
   title: {
-    absolute: "Malika Okubasu & Company Advocates | Law Firm in Nairobi, Kenya",
+    absolute: HOMEPAGE_TITLE,
   },
-  description:
-    "Malika Okubasu & Company Advocates is a leading law firm providing comprehensive legal solutions to complex business challenges. We combine deep expertise with practical insight to deliver exceptional results for our clients.",
+  description: HOMEPAGE_DESCRIPTION,
   alternates: {
-    canonical: "/",
+    canonical: `${SITE_URL}/`,
   },
   openGraph: {
-    title: "Malika Okubasu & Company Advocates | Law Firm in Nairobi, Kenya",
-    description:
-      "Malika Okubasu & Company Advocates is a leading law firm providing comprehensive legal solutions to complex business challenges. We combine deep expertise with practical insight to deliver exceptional results for our clients.",
-    url: "https://mokubasuadvocates.com",
-    siteName: "Malika Okubasu & Company Advocates",
+    title: HOMEPAGE_TITLE,
+    description: HOMEPAGE_DESCRIPTION,
+    url: `${SITE_URL}/`,
+    siteName: SITE_NAME,
     images: [
       {
-        url: "/og-image.png",
+        url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
         alt: "Malika Okubasu & Company Advocates",
@@ -30,10 +40,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Malika Okubasu & Company Advocates | Law Firm in Nairobi, Kenya",
-    description:
-      "Malika Okubasu & Company Advocates is a leading law firm providing comprehensive legal solutions to complex business challenges. We combine deep expertise with practical insight to deliver exceptional results for our clients.",
-    images: ["/og-image.png"],
+    title: HOMEPAGE_TITLE,
+    description: HOMEPAGE_DESCRIPTION,
+    images: [OG_IMAGE_URL],
   },
 };
 
@@ -41,17 +50,16 @@ export default function Page() {
   const legalServiceSchema = {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    "@id": "https://mokubasuadvocates.com/#legalservice",
-    name: "Malika Okubasu & Company Advocates",
-    url: "https://mokubasuadvocates.com",
-    logo: "https://mokubasuadvocates.com/icon-192x192.png",
-    image: "https://mokubasuadvocates.com/og-image.png",
-    description:
-      "Malika Okubasu & Company Advocates is a leading law firm providing comprehensive legal solutions to complex business challenges. We combine deep expertise with practical insight to deliver exceptional results for our clients.",
+    "@id": ORGANIZATION_ID,
+    name: SITE_NAME,
+    url: `${SITE_URL}/`,
+    logo: LOGO_URL,
+    image: OG_IMAGE_URL,
+    description: HOMEPAGE_DESCRIPTION,
     areaServed: "Kenya",
     serviceType: "Legal Services",
-    telephone: "+254141397048",
-    email: "legal@mokubasuadvocates.com",
+    telephone: SITE_TELEPHONE,
+    email: SITE_EMAIL,
     sameAs: [OFFICIAL_LINKEDIN_URL],
     address: {
       "@type": "PostalAddress",
@@ -66,11 +74,11 @@ export default function Page() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://mokubasuadvocates.com/#website",
-    name: "Malika Okubasu & Company Advocates",
-    url: "https://mokubasuadvocates.com",
+    "@id": WEBSITE_ID,
+    name: SITE_NAME,
+    url: `${SITE_URL}/`,
     publisher: {
-      "@id": "https://mokubasuadvocates.com/#legalservice",
+      "@id": ORGANIZATION_ID,
     },
   };
 

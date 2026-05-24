@@ -4,7 +4,14 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Mail, Phone } from "lucide-react";
 import { BlogPreviewCard } from "@/components/BlogPreviewCard";
 import { Button } from "@/components/Button";
+import JsonLd from "@/components/JsonLd";
 import { practiceAreas } from "@/constants/practiceAreas";
+import {
+  ORGANIZATION_ID,
+  SITE_NAME,
+  SITE_URL,
+  absoluteUrl,
+} from "@/constants/seo";
 import { getRelatedBlogPosts } from "@/data/blogs";
 
 interface PracticeAreaDetailProps {
@@ -55,9 +62,60 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
   const strapline = "Practical advice. Strong representation. Clear outcomes.";
 
   const overview = [practiceArea.details];
+  const pageUrl = absoluteUrl(`/practice-areas/${practiceArea.id}`);
+  const practiceAreasUrl = absoluteUrl("/practice-areas");
+  const description =
+    practiceArea.metaDescription ?? practiceArea.excerpt ?? practiceArea.details;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${SITE_URL}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Practice Areas",
+          item: practiceAreasUrl,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: practiceArea.title,
+          item: pageUrl,
+        },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      name: practiceArea.title,
+      serviceType: practiceArea.title,
+      description,
+      provider: {
+        "@id": ORGANIZATION_ID,
+        "@type": "LegalService",
+        name: SITE_NAME,
+        url: `${SITE_URL}/`,
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "Kenya",
+      },
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
+    },
+  ];
 
   return (
     <div>
+      <JsonLd data={jsonLd} />
       {/* Hero */}
       <section className="relative bg-soft-blue border-b border-brand-border py-16 lg:py-20">
         <div className="absolute inset-0 overflow-hidden">
@@ -99,8 +157,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
                 <Button href="/contact">Request a Consultation</Button>
                 <Button
                   href="mailto:legal@mokubasuadvocates.com"
-                  variant="outline"
-                  className="border-brand-blue text-link hover:bg-light-blue"
+                  variant="goldBlue"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Email the Firm
@@ -114,16 +171,24 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
                   Quick Contact
                 </h3>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-4 h-4 text-link" />
-                    <span className="text-sm text-body">+254 141 397 048</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-4 h-4 text-link" />
-                    <span className="text-sm text-body">
+                  <a
+                    href="tel:+254141397048"
+                    aria-label="Call Malika Okubasu and Company Advocates"
+                    className="flex min-h-10 items-center gap-3 rounded-sm text-sm text-body transition-colors hover:text-gold-text hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                  >
+                    <Phone className="w-4 h-4 text-link" aria-hidden="true" />
+                    <span>+254 141 397 048</span>
+                  </a>
+                  <a
+                    href="mailto:legal@mokubasuadvocates.com"
+                    aria-label="Email Malika Okubasu and Company Advocates"
+                    className="flex min-h-10 items-center gap-3 rounded-sm text-sm text-body transition-colors hover:text-gold-text hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                  >
+                    <Mail className="w-4 h-4 text-link" aria-hidden="true" />
+                    <span className="break-all">
                       legal@mokubasuadvocates.com
                     </span>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -186,7 +251,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
                     alt=""
                     width={96}
                     height={96}
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-full object-cover lg:hover:grayscale transition-all duration-500"
                   />
                 </div>
                 <h3 className="text-lg font-bold text-heading mb-1">
@@ -241,8 +306,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
             </Button>
             <Button
               href="mailto:legal@mokubasuadvocates.com"
-              variant="text"
-              className="text-white hover:text-body"
+              variant="goldBlue"
             >
               Email the Firm
             </Button>

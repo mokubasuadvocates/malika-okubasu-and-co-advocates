@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PracticeAreaDetail } from "@/components/views/PracticeAreaDetail";
 import { practiceAreas } from "@/constants/practiceAreas";
+import { SITE_NAME, absoluteUrl } from "@/constants/seo";
 
 interface PageProps {
   params: {
@@ -26,11 +27,11 @@ export function generateMetadata({ params }: PageProps): Metadata {
 
   const title =
     practiceArea.metaTitle ??
-    `${practiceArea.title} | Malika Okubasu & Company Advocates`;
+    `${practiceArea.title} | ${SITE_NAME}`;
   const description =
     practiceArea.metaDescription ??
-    `${practiceArea.title} legal services from Malika Okubasu & Company Advocates in Nairobi, Kenya.`;
-  const url = `https://mokubasuadvocates.com/practice-areas/${practiceArea.id}`;
+    `${practiceArea.title} legal services from ${SITE_NAME} in Nairobi, Kenya.`;
+  const url = absoluteUrl(`/practice-areas/${practiceArea.id}`);
 
   return {
     title: {
@@ -44,7 +45,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
       title,
       description,
       url,
-      siteName: "Malika Okubasu & Company Advocates",
+      siteName: SITE_NAME,
       type: "website",
     },
     twitter: {

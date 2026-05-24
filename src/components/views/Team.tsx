@@ -78,7 +78,7 @@ export function Team() {
                     width={600}
                     height={800}
                     sizes="(max-width: 640px) 100vw, 50vw"
-                    className="w-full aspect-[3/4] object-cover lg:grayscale lg:group-hover:grayscale-0 motion-safe:group-hover:scale-105 motion-safe:transition-all duration-500"
+                    className="w-full aspect-[3/4] object-cover lg:group-hover:grayscale motion-safe:group-hover:scale-105 motion-safe:transition-all duration-500"
                   />
                 </div>
 

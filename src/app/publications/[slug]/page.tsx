@@ -1,4 +1,5 @@
 import { BlogDetail } from "@/components/views/BlogDetail";
+import { absoluteUrl } from "@/constants/seo";
 import { blogPosts, getBlogAuthor, getBlogPost } from "@/data/blogs";
 import type { Metadata } from "next";
 
@@ -25,6 +26,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
 
   const author = getBlogAuthor(post);
   const url = `/publications/${post.slug}`;
+  const imageUrl = absoluteUrl(post.image);
 
   return {
     title: {
@@ -45,7 +47,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
       authors: [author.name],
       images: [
         {
-          url: post.image,
+          url: imageUrl,
           alt: post.imageAlt,
         },
       ],
@@ -54,7 +56,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
       card: "summary_large_image",
       title: post.seoTitle,
       description: post.seoDescription,
-      images: [post.image],
+      images: [imageUrl],
     },
   };
 }

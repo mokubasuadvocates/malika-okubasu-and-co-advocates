@@ -4,17 +4,23 @@ import type { Metadata } from 'next';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Layout } from '@/components/Layout';
 import { CookieConsent } from '@/components/CookieConsent';
+import {
+  HOMEPAGE_DESCRIPTION,
+  HOMEPAGE_TITLE,
+  OG_IMAGE_URL,
+  SITE_NAME,
+  SITE_URL,
+} from '@/constants/seo';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Malika Okubasu & Company Advocates | Law Firm in Nairobi, Kenya',
-    template: '%s | Malika Okubasu & Company Advocates',
+    default: HOMEPAGE_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    'Malika Okubasu & Company Advocates is a leading law firm providing comprehensive legal solutions to complex business challenges. We combine deep expertise with practical insight to deliver exceptional results for our clients.',
-  metadataBase: new URL('https://mokubasuadvocates.com'),
+  description: HOMEPAGE_DESCRIPTION,
+  metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: '/',
+    canonical: `${SITE_URL}/`,
   },
   icons: {
     icon: [
@@ -30,14 +36,13 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   openGraph: {
-    title: 'Malika Okubasu & Company Advocates | Law Firm in Nairobi, Kenya',
-    description:
-      'Malika Okubasu & Company Advocates is a leading law firm providing comprehensive legal solutions to complex business challenges. We combine deep expertise with practical insight to deliver exceptional results for our clients.',
-    url: 'https://mokubasuadvocates.com',
-    siteName: 'Malika Okubasu & Company Advocates',
+    title: HOMEPAGE_TITLE,
+    description: HOMEPAGE_DESCRIPTION,
+    url: `${SITE_URL}/`,
+    siteName: SITE_NAME,
     images: [
       {
-        url: '/og-image.png',
+        url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
         alt: 'Malika Okubasu & Company Advocates',
@@ -48,10 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Malika Okubasu & Company Advocates | Law Firm in Nairobi, Kenya',
-    description:
-      'Malika Okubasu & Company Advocates is a leading law firm providing comprehensive legal solutions to complex business challenges. We combine deep expertise with practical insight to deliver exceptional results for our clients.',
-    images: ['/og-image.png'],
+    title: HOMEPAGE_TITLE,
+    description: HOMEPAGE_DESCRIPTION,
+    images: [OG_IMAGE_URL],
   },
 };
 

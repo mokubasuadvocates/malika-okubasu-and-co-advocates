@@ -1,25 +1,27 @@
 import { Publications } from "@/components/views/Publications";
+import { SITE_NAME, absoluteUrl } from "@/constants/seo";
+
+const description =
+  "Read legal updates, insights, and publications from Malika Okubasu & Company Advocates.";
+const url = absoluteUrl("/publications");
 
 export const metadata = {
   title: "Publications",
-  description:
-    "Read legal updates, insights, and publications from Malika Okubasu & Company Advocates.",
+  description,
   alternates: {
     canonical: "/publications",
   },
   openGraph: {
-    title: "Publications | Malika Okubasu & Company Advocates",
-    description:
-      "Read legal updates, insights, and publications from Malika Okubasu & Company Advocates.",
-    url: "https://mokubasuadvocates.com/publications",
-    siteName: "Malika Okubasu & Company Advocates",
+    title: `Publications | ${SITE_NAME}`,
+    description,
+    url,
+    siteName: SITE_NAME,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Publications | Malika Okubasu & Company Advocates",
-    description:
-      "Read legal updates, insights, and publications from Malika Okubasu & Company Advocates.",
+    title: `Publications | ${SITE_NAME}`,
+    description,
   },
 };
 

@@ -3,6 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Mail, Phone, Linkedin } from "lucide-react";
 import { Button } from "@/components/Button";
+import JsonLd from "@/components/JsonLd";
+import {
+  ORGANIZATION_ID,
+  SITE_NAME,
+  SITE_URL,
+  absoluteUrl,
+} from "@/constants/seo";
 
 interface TeamProfileProps {
   id: string;
@@ -141,9 +148,55 @@ export function TeamProfile({ id }: TeamProfileProps) {
     profile.phone || profile.email || profile.linkedin,
   );
   const hasDirectContact = Boolean(profile.phone || profile.email);
+  const pageUrl = absoluteUrl(`/our-team/${id}`);
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": `${pageUrl}#person`,
+      name: profile.name,
+      jobTitle: profile.role,
+      worksFor: {
+        "@id": ORGANIZATION_ID,
+        "@type": "LegalService",
+        name: SITE_NAME,
+        url: `${SITE_URL}/`,
+      },
+      url: pageUrl,
+      image: absoluteUrl(profile.image),
+      ...(profile.email ? { email: profile.email } : {}),
+      ...(profile.phone ? { telephone: profile.phone } : {}),
+      ...(profile.linkedin ? { sameAs: [profile.linkedin] } : {}),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${SITE_URL}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Our Team",
+          item: absoluteUrl("/our-team"),
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: profile.name,
+          item: pageUrl,
+        },
+      ],
+    },
+  ];
 
   return (
     <div>
+      <JsonLd data={jsonLd} />
       {/* Hero Section */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
@@ -166,7 +219,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
                 height={533}
                 priority
                 sizes="(max-width: 1024px) 100vw, 400px"
-                className="w-full aspect-[3/4] object-cover lg:grayscale lg:hover:grayscale-0 transition-all duration-500"
+                className="w-full aspect-[3/4] object-cover lg:hover:grayscale transition-all duration-500"
               />
             </div>
 

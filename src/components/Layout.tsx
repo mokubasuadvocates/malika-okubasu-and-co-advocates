@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import { DesktopHeader } from './DesktopHeader';
 import { MobileHeader } from './MobileHeader';
 import { Footer } from './Footer';
+import { FloatingWhatsAppButton } from './FloatingWhatsAppButton';
 import { ScrollToTopButton } from './ScrollToTopButton';
 import { ScrollRestoration } from './ScrollRestoration';
 
@@ -23,6 +24,7 @@ export function Layout({ children }: { children: ReactNode }) {
         {children}
       </main>
       <Footer />
+      <FloatingWhatsAppButton />
       <ScrollToTopButton />
     </div>
   );

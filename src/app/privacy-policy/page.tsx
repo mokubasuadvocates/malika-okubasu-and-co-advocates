@@ -1,9 +1,28 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { SITE_NAME, absoluteUrl } from "@/constants/seo";
+
+const description = "Privacy Policy for Malika Okubasu & Company Advocates.";
+const url = absoluteUrl("/privacy-policy");
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy Policy for Malika Okubasu & Company Advocates.",
+  description,
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+  openGraph: {
+    title: `Privacy Policy | ${SITE_NAME}`,
+    description,
+    url,
+    siteName: SITE_NAME,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Privacy Policy | ${SITE_NAME}`,
+    description,
+  },
 };
 
 export default function PrivacyPolicyPage() {

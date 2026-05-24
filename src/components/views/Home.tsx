@@ -304,7 +304,7 @@ export function Home() {
                     width={400}
                     height={533}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="w-full aspect-[3/4] object-cover lg:grayscale lg:group-hover:grayscale-0 motion-safe:group-hover:scale-105 motion-safe:transition-all duration-500"
+                    className="w-full aspect-[3/4] object-cover lg:group-hover:grayscale motion-safe:group-hover:scale-105 motion-safe:transition-all duration-500"
                   />
                 </div>
 

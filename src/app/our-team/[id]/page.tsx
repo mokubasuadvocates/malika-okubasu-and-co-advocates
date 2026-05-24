@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { TeamProfile } from "@/components/views/TeamProfile";
+import { SITE_NAME, absoluteUrl } from "@/constants/seo";
 
 const teamProfiles = [
   {
@@ -43,16 +44,21 @@ export function generateMetadata({ params }: PageProps): Metadata {
 
   return {
     title: `${profile.name} | Our Team`,
-    description: `${profile.name}, ${profile.role} at Malika Okubasu & Company Advocates in Nairobi, Kenya.`,
+    description: `${profile.name}, ${profile.role} at ${SITE_NAME} in Nairobi, Kenya.`,
     alternates: {
       canonical: `/our-team/${profile.id}`,
     },
     openGraph: {
-      title: `${profile.name} | Malika Okubasu & Company Advocates`,
-      description: `${profile.name}, ${profile.role} at Malika Okubasu & Company Advocates in Nairobi, Kenya.`,
-      url: `https://mokubasuadvocates.com/our-team/${profile.id}`,
-      siteName: "Malika Okubasu & Company Advocates",
+      title: `${profile.name} | ${SITE_NAME}`,
+      description: `${profile.name}, ${profile.role} at ${SITE_NAME} in Nairobi, Kenya.`,
+      url: absoluteUrl(`/our-team/${profile.id}`),
+      siteName: SITE_NAME,
       type: "profile",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${profile.name} | ${SITE_NAME}`,
+      description: `${profile.name}, ${profile.role} at ${SITE_NAME} in Nairobi, Kenya.`,
     },
   };
 }

@@ -1,9 +1,28 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { SITE_NAME, absoluteUrl } from "@/constants/seo";
+
+const description = "Cookie Policy for Malika Okubasu & Company Advocates.";
+const url = absoluteUrl("/cookie-policy");
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
-  description: "Cookie Policy for Malika Okubasu & Company Advocates.",
+  description,
+  alternates: {
+    canonical: "/cookie-policy",
+  },
+  openGraph: {
+    title: `Cookie Policy | ${SITE_NAME}`,
+    description,
+    url,
+    siteName: SITE_NAME,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Cookie Policy | ${SITE_NAME}`,
+    description,
+  },
 };
 
 export default function CookiePolicyPage() {
