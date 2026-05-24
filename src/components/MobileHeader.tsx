@@ -122,9 +122,9 @@ export function MobileHeader() {
   const activeContactItem = mobileContactItems[activeContactIndex];
   const ActiveContactIcon = activeContactItem.icon;
   const mobileContactContent = (
-    <span className="flex min-w-0 items-center justify-center gap-1.5 whitespace-nowrap">
+    <span className="flex min-w-0 items-center justify-center gap-1.5">
       <ActiveContactIcon className="h-3.5 w-3.5 shrink-0 text-gold" aria-hidden="true" />
-      <span className="truncate">{activeContactItem.label}</span>
+      <span className="line-clamp-2 text-center text-[11.5px] leading-tight sm:text-[13px]">{activeContactItem.label}</span>
     </span>
   );
 
@@ -142,7 +142,7 @@ export function MobileHeader() {
           >
             <ChevronLeft className="h-3.5 w-3.5" aria-hidden="true" />
           </button>
-          <div className="flex h-full items-center justify-center px-10 py-2 text-[14px]">
+          <div className="flex h-full items-center justify-center px-10 py-2 text-[13px]">
             {activeContactItem.href ? (
               <a
                 key={activeContactItem.label}
