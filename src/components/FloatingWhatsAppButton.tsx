@@ -11,7 +11,7 @@ export function FloatingWhatsAppButton() {
       rel="noopener noreferrer"
       aria-label="Chat with Malika Okubasu and Company Advocates on WhatsApp"
       title="Chat on WhatsApp"
-      className="fixed bottom-[78px] left-[18px] z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#128C7E] text-white shadow-lg transition-all duration-300 motion-safe:hover:-translate-y-[2px] hover:bg-[#075E54] hover:shadow-xl focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-gold focus-visible:ring-offset-2 active:translate-y-0 active:scale-95 md:bottom-[88px] md:left-6"
+      className="fixed bottom-[78px] left-[18px] z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 motion-safe:hover:-translate-y-[2px] hover:bg-[#1DA851] hover:shadow-xl focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-gold focus-visible:ring-offset-2 active:translate-y-0 active:scale-95 md:bottom-[88px] md:left-6"
     >
       <svg
         className="h-6 w-6"
