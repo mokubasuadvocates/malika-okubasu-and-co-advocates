@@ -23,7 +23,7 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">About Us</h3>
             <p className="text-sm leading-relaxed text-white/75">
-              Malika Okubasu & Company Advocates is a leading law firm providing
+              Malika Okubasu & Company Advocates is a leading law firm based in Nairobi, Kenya providing
               comprehensive legal solutions to complex business challenges. We
               combine deep expertise with practical insight to deliver exceptional
               results for our clients.
