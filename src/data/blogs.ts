@@ -24,6 +24,7 @@ export type BlogPost = {
   seoTitle: string;
   seoDescription: string;
   content: BlogContentBlock[];
+  references?: { id: number; title: string; url?: string }[];
 };
 
 // Add future publications by adding one object to this array and placing the
@@ -893,7 +894,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Best Cars Limited t/a Impact Motors v Omoke & another (Civil Appeal E409 of 2023) [2025] KEHC 474 (KLR) (Civ) (23 January 2025) (Judgment), being an appeal from the judgment of D.S. Aswani (Adjudicator) (RM) Small Claims Court delivered on 25th May, 2023 in Nairobi Milimani SCCC No. E7883 of 2022",
+        text: "Best Cars Limited t/a Impact Motors v Omoke & another (Civil Appeal E409 of 2023) [1] KEHC 474 (KLR) (Civ) (23 January 2025) (Judgment), being an appeal from the judgment of D.S. Aswani (Adjudicator) (RM) Small Claims Court delivered on 25th May, 2023 in Nairobi Milimani SCCC No. E7883 of 2022",
       },
       {
         type: "paragraph",
@@ -1361,11 +1362,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Under the Rome Statute, the obligation to cooperate is explicitly articulated in Article 86, which states that parties shall, in accordance with the provisions of the Statute, fully cooperate with the court in its investigation and prosecution of crimes within its jurisdiction. However, the mandatory nature of this obligation has proven to be less effective in practice when international warrants are issued. The court's dependence on the cooperation of both state parties and non-state parties often yields limited results due to various factors, including political considerations, diplomatic relations, and geopolitical dynamics. For instance, non-state parties may be requested by the Security Council to execute warrants or assist in investigations; however, such requests may go unfulfilled in cases where states maintain political connections with the country or political leader subject to the issued arrest warrants[11].",
+        text: "Under the Rome Statute, the obligation to cooperate is explicitly articulated in Article 86, which states that parties shall, in accordance with the provisions of the Statute, fully cooperate with the court in its investigation and prosecution of crimes within its jurisdiction. However, the mandatory nature of this obligation has proven to be less effective in practice when international warrants are issued. The court's dependence on the cooperation of both state parties and non-state parties often yields limited results due to various factors, including political considerations, diplomatic relations, and geopolitical dynamics. For instance, non-state parties may be requested by the Security Council to execute warrants or assist in investigations; however, such requests may go unfulfilled in cases where states maintain political connections with the country or political leader subject to the issued arrest warrants[8].",
       },
       {
         type: "paragraph",
-        text: "The lack of cooperation described above constitutes a deliberate effort by the state to avoid enforcing international warrants, rather than stemming from a lack of capacity. It can be argued that if a democratic state possesses a functioning judiciary, executive, legislature, and operational law enforcement agencies, then claims of the state’s inability to enforce international warrants are untenable. While inherent challenges exist in least developed and developing countries—such as corruption and insufficient funding for operations requiring cross-border cooperation and intelligence—these challenges do not excuse the inability to fulfil international obligations. ICC Prosecutor Mrs. Fatou Bensouda has acknowledged the necessity of establishing credible national judicial institutions, which significantly affect the effectiveness of warrants and the enforcement of ICC mandates. However, it is crucial to recognize that without the political will to enforce international obligations under the treaty, such efforts may ultimately prove futile[12].",
+        text: "The lack of cooperation described above constitutes a deliberate effort by the state to avoid enforcing international warrants, rather than stemming from a lack of capacity. It can be argued that if a democratic state possesses a functioning judiciary, executive, legislature, and operational law enforcement agencies, then claims of the state’s inability to enforce international warrants are untenable. While inherent challenges exist in least developed and developing countries—such as corruption and insufficient funding for operations requiring cross-border cooperation and intelligence—these challenges do not excuse the inability to fulfil international obligations. ICC Prosecutor Mrs. Fatou Bensouda has acknowledged the necessity of establishing credible national judicial institutions, which significantly affect the effectiveness of warrants and the enforcement of ICC mandates. However, it is crucial to recognize that without the political will to enforce international obligations under the treaty, such efforts may ultimately prove futile[9].",
       },
       {
         type: "paragraph",
@@ -1373,19 +1374,19 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Geopolitical factors significantly influence the effectiveness of the enforcement of international warrants. Due to these factors, many states that are parties to the Rome Statute exhibit reluctance to enforce warrants issued by the ICC. The prosecution actions of the ICC have sparked contentious debates between the African Union (AU) and the United Nations (UN). Critics argue that the ICC functions as a tool of imperialism, alleging that it imposes its interpretation of justice at the expense of exacerbating conflict and neglecting the interests of victims. In response to these concerns, the AU has adopted a resolution prohibiting its member states from arresting Omar al-Bashir, thereby further complicating the enforcement of ICC warrants[13].",
+        text: "Geopolitical factors significantly influence the effectiveness of the enforcement of international warrants. Due to these factors, many states that are parties to the Rome Statute exhibit reluctance to enforce warrants issued by the ICC. The prosecution actions of the ICC have sparked contentious debates between the African Union (AU) and the United Nations (UN). Critics argue that the ICC functions as a tool of imperialism, alleging that it imposes its interpretation of justice at the expense of exacerbating conflict and neglecting the interests of victims. In response to these concerns, the AU has adopted a resolution prohibiting its member states from arresting Omar al-Bashir, thereby further complicating the enforcement of ICC warrants[10].",
       },
       {
         type: "paragraph",
-        text: "This situation has resulted in a significant lack of cooperation, as member states are both unwilling and dissuaded from collaborating with the ICC and the AU in prosecuting international crimes or executing warrants perceived as targeting African nations by the Global North. Consequently, even when countries possess the capacity to effectuate an arrest, they are often less inclined to enforce such warrants due to geopolitical factors that are unrelated to the merits of the warrants or the crimes in question. International political dynamics have fostered the perception that Sudan is a victim of Western hypocrisy and hegemony, leading numerous countries, particularly in Africa, to oppose the issuance of warrants. These sentiments are echoed in Arab nations, many of which reject the proceedings concerning the Darfur situation. The Arab League has issued a statement opposing the warrants against Omar al-Bashir, signalling that these nations will refrain from arresting him if he is within their jurisdiction. Notably, al-Bashir has been permitted to make several visits to Arab countries without facing arrest, further undermining the authority of the ICC’s mandates[14].",
+        text: "This situation has resulted in a significant lack of cooperation, as member states are both unwilling and dissuaded from collaborating with the ICC and the AU in prosecuting international crimes or executing warrants perceived as targeting African nations by the Global North. Consequently, even when countries possess the capacity to effectuate an arrest, they are often less inclined to enforce such warrants due to geopolitical factors that are unrelated to the merits of the warrants or the crimes in question. International political dynamics have fostered the perception that Sudan is a victim of Western hypocrisy and hegemony, leading numerous countries, particularly in Africa, to oppose the issuance of warrants. These sentiments are echoed in Arab nations, many of which reject the proceedings concerning the Darfur situation. The Arab League has issued a statement opposing the warrants against Omar al-Bashir, signalling that these nations will refrain from arresting him if he is within their jurisdiction. Notably, al-Bashir has been permitted to make several visits to Arab countries without facing arrest, further undermining the authority of the ICC’s mandates[11].",
       },
       {
         type: "paragraph",
-        text: "The African Union (AU) has publicly advised its member states to disregard and refuse cooperation with the ICC in matters concerning President Omar al-Bashir of Sudan. This stance has resulted in warrants remaining unenforced, thereby adversely affecting the operations of the ICC. Such sentiments are likely to extend to warrants issued for other offences in various jurisdictions, which may not necessarily pertain to international crimes against humanity. The consequence is a marked lack of cooperation between international agencies and member states regarding the arrest and extradition of suspects[15].",
+        text: "The African Union (AU) has publicly advised its member states to disregard and refuse cooperation with the ICC in matters concerning President Omar al-Bashir of Sudan. This stance has resulted in warrants remaining unenforced, thereby adversely affecting the operations of the ICC. Such sentiments are likely to extend to warrants issued for other offences in various jurisdictions, which may not necessarily pertain to international crimes against humanity. The consequence is a marked lack of cooperation between international agencies and member states regarding the arrest and extradition of suspects[12].",
       },
       {
         type: "paragraph",
-        text: "This lack of cooperation also impacts warrants issued for serious offenders who may seek refuge in countries that have extradition treaties with the requesting nations. Arrests are primarily contingent upon diplomatic relations, as the requesting state must submit a formal diplomatic request to the country harbouring the suspect. The success of such requests often depends on the strength of diplomatic ties and longstanding international cooperation between the involved states. Consequently, allied nations such as the United States and the United Kingdom are more likely to execute arrest and extradition requests, whereas requests involving nations with strained relations, such as China or Russia, may be met with reluctance. As a result, such warrants may prove ineffective. These geopolitical considerations are indicative of a broader unwillingness among states to enforce international warrants, rather than a lack of capacity. This phenomenon has been extensively documented by various civil rights organizations, non-governmental organizations (NGOs), and media outlets[16].",
+        text: "This lack of cooperation also impacts warrants issued for serious offenders who may seek refuge in countries that have extradition treaties with the requesting nations. Arrests are primarily contingent upon diplomatic relations, as the requesting state must submit a formal diplomatic request to the country harbouring the suspect. The success of such requests often depends on the strength of diplomatic ties and longstanding international cooperation between the involved states. Consequently, allied nations such as the United States and the United Kingdom are more likely to execute arrest and extradition requests, whereas requests involving nations with strained relations, such as China or Russia, may be met with reluctance. As a result, such warrants may prove ineffective. These geopolitical considerations are indicative of a broader unwillingness among states to enforce international warrants, rather than a lack of capacity. This phenomenon has been extensively documented by various civil rights organizations, non-governmental organizations (NGOs), and media outlets[13].",
       },
       {
         type: "paragraph",
@@ -1393,7 +1394,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "The challenges associated with the enforcement of international warrants by the ICC are exemplified in the case of President Omar al-Bashir. This case illustrates that the difficulties in enforcing international warrants arise not from an inability to do so, but rather from internal factors within member states, including political and geopolitical considerations. These factors contribute to a disinclination to cooperate, creating a significant barrier to effective enforcement[17].",
+        text: "The challenges associated with the enforcement of international warrants by the ICC are exemplified in the case of President Omar al-Bashir. This case illustrates that the difficulties in enforcing international warrants arise not from an inability to do so, but rather from internal factors within member states, including political and geopolitical considerations. These factors contribute to a disinclination to cooperate, creating a significant barrier to effective enforcement[14].",
       },
       {
         type: "paragraph",
@@ -1401,27 +1402,27 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "the [South African authorities] are forthwith compelled to take all reasonable steps to prepare to arrest President Bashir … and detain him, pending a formal request for his surrender from the International Criminal Court[18].",
+        text: "the [South African authorities] are forthwith compelled to take all reasonable steps to prepare to arrest President Bashir … and detain him, pending a formal request for his surrender from the International Criminal Court[15].",
       },
       {
         type: "paragraph",
-        text: "The failure to arrest President Bashir is viewed as an action facilitated by the executive branch and authorities who were complicit and aware of the explicit order issued by the South African Court[19]. This situation reveals a clear disconnect between judicial bodies that issue arrest warrants for individuals accused of crimes against humanity and war crimes, and the lack of political will among South African authorities to fulfil these obligations. The authorities possessed the capacity and capability to arrest and detain Bashir but consciously chose not to do so[20].",
+        text: "The failure to arrest President Bashir is viewed as an action facilitated by the executive branch and authorities who were complicit and aware of the explicit order issued by the South African Court[16]. This situation reveals a clear disconnect between judicial bodies that issue arrest warrants for individuals accused of crimes against humanity and war crimes, and the lack of political will among South African authorities to fulfil these obligations. The authorities possessed the capacity and capability to arrest and detain Bashir but consciously chose not to do so[17].",
       },
       {
         type: "paragraph",
-        text: "A similar situation occurred in Kenya, further illustrating that the ineffective enforcement of ICC warrants stems more from political will than from a lack of capability. In the case of Bashir, he was invited to attend the promulgation of the Kenyan Constitution on 27 August 2010, as well as to participate in a meeting of the Intergovernmental Authority on Development (IGAD) in October 2010. In response to outcry from Western nations, the meeting was subsequently relocated to Addis Ababa[21].",
+        text: "A similar situation occurred in Kenya, further illustrating that the ineffective enforcement of ICC warrants stems more from political will than from a lack of capability. In the case of Bashir, he was invited to attend the promulgation of the Kenyan Constitution on 27 August 2010, as well as to participate in a meeting of the Intergovernmental Authority on Development (IGAD) in October 2010. In response to outcry from Western nations, the meeting was subsequently relocated to Addis Ababa[18].",
       },
       {
         type: "paragraph",
-        text: "Furthermore, Malawi hosted Bashir in October 2011 at the invitation of President Bingu wa Mutharika. However, upon assuming office, President Joyce Banda opted to disinvite Bashir to avoid potential conflicts with Western donors due to the outstanding ICC warrant. The decision drew criticism from the AU, resulting in the relocation of the meeting to Addis Ababa[22].",
+        text: "Furthermore, Malawi hosted Bashir in October 2011 at the invitation of President Bingu wa Mutharika. However, upon assuming office, President Joyce Banda opted to disinvite Bashir to avoid potential conflicts with Western donors due to the outstanding ICC warrant. The decision drew criticism from the AU, resulting in the relocation of the meeting to Addis Ababa[19].",
       },
       {
         type: "paragraph",
-        text: "Similarly, to South Africa, the Kenyan High Court issued a ruling regarding President Bashir, affirming the warrants for his arrest and stipulating that he should be apprehended should he visit the country. The court directed the Attorney General to ensure that the Internal Security Minister was responsible for enforcing this order and for surrendering Bashir if he were to be arrested[23]. In response, the Sudanese government threatened to expel the Kenyan ambassador to Sudan, prompting the Kenyan government to dispatch an envoy to assure the Sudanese authorities that the ruling would be appealed. Additionally, the Kenyan Foreign Minister expressed concerns that the High Court's ruling could jeopardize the amicable and fraternal relations between the two nations[24]. President Bashir has also travelled to other countries, including Palestine and Jakarta, Indonesia, to attend meetings of the Organisation of Islamic Cooperation, where he was not arrested. Notably, these countries, while not parties to the Rome Statute, are members of the United Nations.",
+        text: "Similarly, to South Africa, the Kenyan High Court issued a ruling regarding President Bashir, affirming the warrants for his arrest and stipulating that he should be apprehended should he visit the country. The court directed the Attorney General to ensure that the Internal Security Minister was responsible for enforcing this order and for surrendering Bashir if he were to be arrested[20]. In response, the Sudanese government threatened to expel the Kenyan ambassador to Sudan, prompting the Kenyan government to dispatch an envoy to assure the Sudanese authorities that the ruling would be appealed. Additionally, the Kenyan Foreign Minister expressed concerns that the High Court's ruling could jeopardize the amicable and fraternal relations between the two nations[21]. President Bashir has also travelled to other countries, including Palestine and Jakarta, Indonesia, to attend meetings of the Organisation of Islamic Cooperation, where he was not arrested. Notably, these countries, while not parties to the Rome Statute, are members of the United Nations.",
       },
       {
         type: "paragraph",
-        text: "The aforementioned case exemplifies a scenario in which a country possesses the necessary institutional framework to enforce an international warrant, yet elects not to do so for various reasons. In the instances of South Africa, Malawi, and Kenya, these nations had the opportunity to enforce ICC warrants but failed to do so due to a lack of political will. Even in situations where the judiciary has mandated the enforcement of such warrants, enforcement may be impeded by a lack of inclination stemming from policy considerations, geopolitical factors, and foreign relations[25].",
+        text: "The aforementioned case exemplifies a scenario in which a country possesses the necessary institutional framework to enforce an international warrant, yet elects not to do so for various reasons. In the instances of South Africa, Malawi, and Kenya, these nations had the opportunity to enforce ICC warrants but failed to do so due to a lack of political will. Even in situations where the judiciary has mandated the enforcement of such warrants, enforcement may be impeded by a lack of inclination stemming from policy considerations, geopolitical factors, and foreign relations[22].",
       },
       {
         type: "paragraph",
@@ -1433,11 +1434,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "The ICC has issued warrants for the arrest of Vladimir Putin, President of Russia, alleging war crimes, unlawful deportation, and violations of human rights in the context of the Russo-Ukrainian War. According to Article 124 of the Rome Statute, member states are obligated to arrest, detain, and transfer individuals who enter their territory under such warrants. Notwithstanding this obligation, President Putin was able to visit Mongolia after the issuance of the warrants against him. In 2023, Putin’s planned visit to South Africa was cancelled following a ruling from the South African High Court. This cancellation suggested that the warrants had, in some capacity, constrained his ability to travel internationally. However, this assumption was called into question when he successfully travelled to Mongolia, an ICC signatory, after the warrants had been issued. The failure to arrest Putin can be attributed to Mongolia's historically close ties with Russia, as well as its reliance on Russia for affordable electricity and fossil fuels[26].",
+        text: "The ICC has issued warrants for the arrest of Vladimir Putin, President of Russia, alleging war crimes, unlawful deportation, and violations of human rights in the context of the Russo-Ukrainian War. According to Article 124 of the Rome Statute, member states are obligated to arrest, detain, and transfer individuals who enter their territory under such warrants. Notwithstanding this obligation, President Putin was able to visit Mongolia after the issuance of the warrants against him. In 2023, Putin’s planned visit to South Africa was cancelled following a ruling from the South African High Court. This cancellation suggested that the warrants had, in some capacity, constrained his ability to travel internationally. However, this assumption was called into question when he successfully travelled to Mongolia, an ICC signatory, after the warrants had been issued. The failure to arrest Putin can be attributed to Mongolia's historically close ties with Russia, as well as its reliance on Russia for affordable electricity and fossil fuels[23].",
       },
       {
         type: "paragraph",
-        text: "Countries within the BRICS alliance, such as Brazil, are also unlikely to execute an arrest warrant against President Putin. This reluctance arises from the close diplomatic and economic relationships among BRICS members and the complexities of overlapping interests for those signatories of the Rome Statute. Similar to Mongolia, it is improbable that any BRICS nation would take action against the Russian President, as such a move could be unprecedented and risk straining relations with Russia. Furthermore, geopolitical considerations and economic interests shape the perspectives of various countries, with many viewing the conflict in Ukraine as a by-product of NATO's expansionist agenda and provocation of Russia. It has been argued by many scholars that the Ukraine conflict was largely engineered by NATO which sought to expand its read to Russian borders, making NATO missiles within striking distance from Moscow[27].",
+        text: "Countries within the BRICS alliance, such as Brazil, are also unlikely to execute an arrest warrant against President Putin. This reluctance arises from the close diplomatic and economic relationships among BRICS members and the complexities of overlapping interests for those signatories of the Rome Statute. Similar to Mongolia, it is improbable that any BRICS nation would take action against the Russian President, as such a move could be unprecedented and risk straining relations with Russia. Furthermore, geopolitical considerations and economic interests shape the perspectives of various countries, with many viewing the conflict in Ukraine as a by-product of NATO's expansionist agenda and provocation of Russia. It has been argued by many scholars that the Ukraine conflict was largely engineered by NATO which sought to expand its read to Russian borders, making NATO missiles within striking distance from Moscow[24].",
       },
       {
         type: "heading",
@@ -1486,83 +1487,83 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "[8] Judge Sang-Hyun Song (The 2nd President of the ICC), Past Achievements and Future Challenges of the ICC: keynote speech for the 20th Anniversary of the Rome Statute’ (International Criminal Court - The Hague, 17 July 2018) <https://www.icc-cpi.int/sites/default/files/itemsDocuments/20a-ceremony/20180717-sang-speech.pdf> accessed 23 September 2024",
+        text: "[25] Judge Sang-Hyun Song (The 2nd President of the ICC), Past Achievements and Future Challenges of the ICC: keynote speech for the 20th Anniversary of the Rome Statute’ (International Criminal Court - The Hague, 17 July 2018) <https://www.icc-cpi.int/sites/default/files/itemsDocuments/20a-ceremony/20180717-sang-speech.pdf> accessed 23 September 2024",
       },
       {
         type: "paragraph",
-        text: "[9] Phooko Moses Retselisitsoe, ‘How effective the International Criminal Court has been: evaluating the work and progress of the International Criminal Court’ (2011) 1 Notre Dame J. Int'l Comp. & Hum. Rts. L. 182.",
+        text: "[26] Phooko Moses Retselisitsoe, ‘How effective the International Criminal Court has been: evaluating the work and progress of the International Criminal Court’ (2011) 1 Notre Dame J. Int'l Comp. & Hum. Rts. L. 182.",
       },
       {
         type: "paragraph",
-        text: "[10] Judge Sang-Hyun Song, supra note 7",
+        text: "[27] Judge Sang-Hyun Song, supra note 7",
       },
       {
         type: "paragraph",
-        text: "[11] Dapo Akande, ‘The Effect of Security Council Resolutions and Domestic Proceedings on State Obligations to Cooperate with the ICC’ (2012) 10 Journal of International Criminal Justice 299, 301.",
+        text: "[8] Dapo Akande, ‘The Effect of Security Council Resolutions and Domestic Proceedings on State Obligations to Cooperate with the ICC’ (2012) 10 Journal of International Criminal Justice 299, 301.",
       },
       {
         type: "paragraph",
-        text: "[12] Mrs. Fatou Bensouda Prosecutor of the International Criminal, ‘Lecture: The International Criminal Court – Current Challenges and Future Prospects’ (International Criminal Court 16 December 2013) <https://www.dfa.ie/media/dfa/alldfawebsitemedia/ourrolesandpolicies/ourwork/iccprosecutorvisitsireland/Lecture-delivered-by-Prosecutor-of-ICC-at-RIA-in-Dublin-on-16-December-2013.pdf> accessed 23 September 2024",
+        text: "[9] Mrs. Fatou Bensouda Prosecutor of the International Criminal, ‘Lecture: The International Criminal Court – Current Challenges and Future Prospects’ (International Criminal Court 16 December 2013) <https://www.dfa.ie/media/dfa/alldfawebsitemedia/ourrolesandpolicies/ourwork/iccprosecutorvisitsireland/Lecture-delivered-by-Prosecutor-of-ICC-at-RIA-in-Dublin-on-16-December-2013.pdf> accessed 23 September 2024",
       },
       {
         type: "paragraph",
-        text: "[13] Petrovic Jadranka, Dale Stephens and Vasko Nastevski. ‘To arrest or not to arrest the incumbent head of state: the Bashir case and the interplay between law and politics’ (2016) 42 Monash UL Rev. 740.",
+        text: "[10] Petrovic Jadranka, Dale Stephens and Vasko Nastevski. ‘To arrest or not to arrest the incumbent head of state: the Bashir case and the interplay between law and politics’ (2016) 42 Monash UL Rev. 740.",
       },
       {
         type: "paragraph",
-        text: "[14] BBC News, ‘Arab leaders back 'wanted' Bashir’ (BBC 30 march 2009) <http://news.bbc.co.uk/2/hi/middle_east/7971624.stm> accessed 1 December 2023; see also France 24 News, ‘Omar al-Bashir disregards arrest warrant to attend Arab summit’ (France24 25 March 2012) <https://www.france24.com/en/20120325-omar-al-bashir-disregards-arrest-warrant-attend-arab-summit-iraq-icc> accessed 23 September 2024",
+        text: "[11] BBC News, ‘Arab leaders back 'wanted' Bashir’ (BBC 30 march 2009) <http://news.bbc.co.uk/2/hi/middle_east/7971624.stm> accessed 1 December 2023; see also France 24 News, ‘Omar al-Bashir disregards arrest warrant to attend Arab summit’ (France24 25 March 2012) <https://www.france24.com/en/20120325-omar-al-bashir-disregards-arrest-warrant-attend-arab-summit-iraq-icc> accessed 23 September 2024",
       },
       {
         type: "paragraph",
-        text: "[15] Decision on the Progress Report of The Commission on The Implementation of Decision Assembly/AU/DEC.270(XIV) On the Second Ministerial Meeting on The Rome Statute of The International Criminal Court (ICC) Doc. Assembly/AU/10(XV)",
+        text: "[12] Decision on the Progress Report of The Commission on The Implementation of Decision Assembly/AU/DEC.270(XIV) On the Second Ministerial Meeting on The Rome Statute of The International Criminal Court (ICC) Doc. Assembly/AU/10(XV)",
       },
       {
         type: "paragraph",
-        text: "[16] Maryam Jamshidi, ‘The enforcement gap: How the International Criminal Court failed in Darfur’ (Aljazeera 25 March 2013) <https://www.aljazeera.com/opinions/2013/3/25/the-enforcement-gap-how-the-international-criminal-court-failed-in-darfur> accessed 1 December 2023; see also The Guardian, ‘Kenya defends failure to arrest Sudan's president Omar al-Bashir in Nairobi’ (The Guardian 29 August 2010) <https://www.theguardian.com/world/2010/aug/29/kenya-omar-al-bashir-arrest-failure> accessed 1 December 2023; see also Amnesty International, ‘Kenya refuses to arrest Sudanese President Omar Al-Bashir’ (Amnesty International August 27 2010) <https://www.amnesty.org/en/latest/news/2010/08/kenia-se-niega-detener-presidente-sudanes/> accessed 1 December 2023",
+        text: "[13] Maryam Jamshidi, ‘The enforcement gap: How the International Criminal Court failed in Darfur’ (Aljazeera 25 March 2013) <https://www.aljazeera.com/opinions/2013/3/25/the-enforcement-gap-how-the-international-criminal-court-failed-in-darfur> accessed 1 December 2023; see also The Guardian, ‘Kenya defends failure to arrest Sudan's president Omar al-Bashir in Nairobi’ (The Guardian 29 August 2010) <https://www.theguardian.com/world/2010/aug/29/kenya-omar-al-bashir-arrest-failure> accessed 1 December 2023; see also Amnesty International, ‘Kenya refuses to arrest Sudanese President Omar Al-Bashir’ (Amnesty International August 27 2010) <https://www.amnesty.org/en/latest/news/2010/08/kenia-se-niega-detener-presidente-sudanes/> accessed 1 December 2023",
       },
       {
         type: "paragraph",
-        text: "[17] Maryam Jamshidi, supra note 18",
+        text: "[14] Maryam Jamshidi, supra note 18",
       },
       {
         type: "paragraph",
-        text: "[18] Southern Africa Litigation Centre v Minister of Justice and Constitutional Development [2015] 5 SA 1, 3 [2] (High Court) (‘Southern Africa Litigation Centre’).",
+        text: "[15] Southern Africa Litigation Centre v Minister of Justice and Constitutional Development [28] 5 SA 1, 3 [2] (High Court) (‘Southern Africa Litigation Centre’).",
       },
       {
         type: "paragraph",
-        text: "[19] The Minister of Justice and Constitutional Development v The Southern African Litigation Centre (867/15) [2016] ZASCA 17 (15 March 2016)",
+        text: "[16] The Minister of Justice and Constitutional Development v The Southern African Litigation Centre (867/15) [29] ZASCA 17 (15 March 2016)",
       },
       {
         type: "paragraph",
-        text: "[20] David E Kiwuwa, ‘Al-Bashir: South Africa’s Moment of Glory and Shame’ (The Conversation 19 June 2015 <https://theconversation.com/al-bashir-south-africas-moment-of-glory-and-shame-43283> accessed 23 September 2024",
+        text: "[17] David E Kiwuwa, ‘Al-Bashir: South Africa’s Moment of Glory and Shame’ (The Conversation 19 June 2015 <https://theconversation.com/al-bashir-south-africas-moment-of-glory-and-shame-43283> accessed 23 September 2024",
       },
       {
         type: "paragraph",
-        text: "[21] Bower Adam, ‘Contesting the International Criminal Court: Bashir, Kenyatta, and the status of the nonimpunity norm in world politics’ (2019) 4(1) Journal of Global Security Studies, 88.",
+        text: "[18] Bower Adam, ‘Contesting the International Criminal Court: Bashir, Kenyatta, and the status of the nonimpunity norm in world politics’ (2019) 4(1) Journal of Global Security Studies, 88.",
       },
       {
         type: "paragraph",
-        text: "[22] Aljazeera 'Malawi cancels AU summit over Sudan's Bashir' (Aljazeera 9 June 2012) <http://www.aljazeera.com/news/africa/2012/06/20126974132905285.html> accessed 23 September 2024",
+        text: "[19] Aljazeera 'Malawi cancels AU summit over Sudan's Bashir' (Aljazeera 9 June 2012) <http://www.aljazeera.com/news/africa/2012/06/20126974132905285.html> accessed 23 September 2024",
       },
       {
         type: "paragraph",
-        text: "[23] Republic of Kenya, In the High Court at Nairobi, Misc Criminal Application 685 (2010), 28 November 2011 (unreported)",
+        text: "[20] Republic of Kenya, In the High Court at Nairobi, Misc Criminal Application 685 (2010), 28 November 2011 (unreported)",
       },
       {
         type: "paragraph",
-        text: "[24] Keppler Elise, ‘Managing setbacks for the international criminal court in Africa’ (2012) 56(1) Journal of African Law 1, 8.",
+        text: "[21] Keppler Elise, ‘Managing setbacks for the international criminal court in Africa’ (2012) 56(1) Journal of African Law 1, 8.",
       },
       {
         type: "paragraph",
-        text: "[25] Dyani-Mhango Ntombizozuko, ‘South Africa's dilemma: immunity laws, international obligations, and the visit by Sudan's president Omar Al Bashir’ (2017) 26 Wash. Int'l LJ 535.",
+        text: "[22] Dyani-Mhango Ntombizozuko, ‘South Africa's dilemma: immunity laws, international obligations, and the visit by Sudan's president Omar Al Bashir’ (2017) 26 Wash. Int'l LJ 535.",
       },
       {
         type: "paragraph",
-        text: "[26] Wanigasuriya B. A., ‘Putin Travels to Mongolia: What Prevents His Arrest?’ (2024) <https://opiniojuris.org/2024/09/04/putin-travels-to-mongolia-what-prevents-his-arrest/> accessed 23 September 2024",
+        text: "[23] Wanigasuriya B. A., ‘Putin Travels to Mongolia: What Prevents His Arrest?’ (2024) <https://opiniojuris.org/2024/09/04/putin-travels-to-mongolia-what-prevents-his-arrest/> accessed 23 September 2024",
       },
       {
         type: "paragraph",
-        text: "[27] Walker Edward, ‘Between east and west: NATO enlargement and the geopolitics of the Ukraine crisis’ (2015) Ukraine and Russia: People, politics, propaganda and perspectives 134, 142; see also Donaldson Robert, ‘The Role of NATO enlargement in the Ukraine crisis’ (2017) 44(1) The soviet and post-soviet review 32..",
+        text: "[24] Walker Edward, ‘Between east and west: NATO enlargement and the geopolitics of the Ukraine crisis’ (2015) Ukraine and Russia: People, politics, propaganda and perspectives 134, 142; see also Donaldson Robert, ‘The Role of NATO enlargement in the Ukraine crisis’ (2017) 44(1) The soviet and post-soviet review 32..",
       },
     ],
   },
@@ -1677,7 +1678,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "The Kenyan Employment Courts have extended “sham’ to redundancy, restructuring and reorganization of an employer’s business. For instance, the Court in Agnes Ongadi v Kenya Electricity Transmission Company Limited[5] held that:",
+        text: "The Kenyan Employment Courts have extended “sham’ to redundancy, restructuring and reorganization of an employer’s business. For instance, the Court in Agnes Ongadi v Kenya Electricity Transmission Company Limited[3] held that:",
       },
       {
         type: "paragraph",
@@ -2189,15 +2190,15 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "In the English case of Howard Smith Ltd v Ampol Petroleum Ltd [1974] UKPC 3, the landmark case established that even if an allotment is within the directors' powers and is not a breach of the Articles, it will be set aside if the pith and substance of the decision was to dilute a majority shareholder rather than to raise necessary capital.",
+        text: "In the English case of Howard Smith Ltd v Ampol Petroleum Ltd [1] UKPC 3, the landmark case established that even if an allotment is within the directors' powers and is not a breach of the Articles, it will be set aside if the pith and substance of the decision was to dilute a majority shareholder rather than to raise necessary capital.",
       },
       {
         type: "paragraph",
-        text: "In the decision of Singh Rai v Tarlochan Singh Rai [2002] eKLR (The Rai Family Case), the court held that in private family-owned companies, the court often views the company as a ‘quasi-partnership.’ In such cases, pre-emption rights are strictly enforced because they represent the ‘mutual trust and confidence’ among the members. Breach of these rights can be used as evidence of oppressive or unfairly prejudicial conduct.",
+        text: "In the decision of Singh Rai v Tarlochan Singh Rai [2] eKLR (The Rai Family Case), the court held that in private family-owned companies, the court often views the company as a ‘quasi-partnership.’ In such cases, pre-emption rights are strictly enforced because they represent the ‘mutual trust and confidence’ among the members. Breach of these rights can be used as evidence of oppressive or unfairly prejudicial conduct.",
       },
       {
         type: "paragraph",
-        text: "In the decision of Mohamed Jelle Omar & another v Ali Salal & another [2020] KEHC 6423 (KLR), the court discussed the right of a shareholder to exercise their pre-emptive rights when a fellow shareholder seeks to exit. It clarified that a shareholder cannot be coerced into abandoning their rights or forfeiting shares if the proper pre-emption and valuation mechanisms in the Articles are not followed.",
+        text: "In the decision of Mohamed Jelle Omar & another v Ali Salal & another [3] KEHC 6423 (KLR), the court discussed the right of a shareholder to exercise their pre-emptive rights when a fellow shareholder seeks to exit. It clarified that a shareholder cannot be coerced into abandoning their rights or forfeiting shares if the proper pre-emption and valuation mechanisms in the Articles are not followed.",
       },
       {
         type: "paragraph",
@@ -2345,7 +2346,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "The court will typically approve or allow a derivative action to continue after the shareholder meets very specific criteria. The case of Joseph Munyoki Nzioka v Raindrops Limited & 3 others [2019] eKLR outlines all the requirements and tests which must be met for a derivative action to be allowed by the Judge:",
+        text: "The court will typically approve or allow a derivative action to continue after the shareholder meets very specific criteria. The case of Joseph Munyoki Nzioka v Raindrops Limited & 3 others [1] eKLR outlines all the requirements and tests which must be met for a derivative action to be allowed by the Judge:",
       },
       {
         type: "list",
@@ -2367,7 +2368,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "The applicant is required to prove that he or she has a cause of action that has reasonable success prospects. This ratio can be found in the case of Isaiah Waweru Ngumi & 2 others v Muturi Ndungu [2016] eKLR, where the judge held that for the High Court to grant leave and allow a derivative action, the shareholder must have precisely particularised the allegations. When the allegations disclose misconduct like corporate mismanagement or waste of assets, revealing a sufficient cause of action that will benefit the company if proven, then the court will most likely make an order granting leave to allow a derivative action.",
+        text: "The applicant is required to prove that he or she has a cause of action that has reasonable success prospects. This ratio can be found in the case of Isaiah Waweru Ngumi & 2 others v Muturi Ndungu [2] eKLR, where the judge held that for the High Court to grant leave and allow a derivative action, the shareholder must have precisely particularised the allegations. When the allegations disclose misconduct like corporate mismanagement or waste of assets, revealing a sufficient cause of action that will benefit the company if proven, then the court will most likely make an order granting leave to allow a derivative action.",
       },
       {
         type: "heading",
@@ -2422,7 +2423,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "The Court in David Langat v St Luke’s Orthopaedic & Trauma Hospital Limited & 2 Others [2013] eKLR, the Judge held that derivative claims trace their origin under equitable maxims, such that the applicant shareholder must come with clean hands with conduct that is not tainted. If the applicant shareholder was also part of the problem leading to the said claim, the court cannot allow such a cause of action.",
+        text: "The Court in David Langat v St Luke’s Orthopaedic & Trauma Hospital Limited & 2 Others [3] eKLR, the Judge held that derivative claims trace their origin under equitable maxims, such that the applicant shareholder must come with clean hands with conduct that is not tainted. If the applicant shareholder was also part of the problem leading to the said claim, the court cannot allow such a cause of action.",
       },
       {
         type: "heading",
@@ -2431,7 +2432,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "The process of bringing a derivative claim is that the leave stage comes first, then the substantive stage of the claim. However, recent jurisprudence, including the Court of Appeal decision in Raindrops Limited & 3 others v Nzioka [2025], clarifies that contemporaneous filing is allowed. This means that filing the main claim at the same time as the application for leave is not fatal. The Judge is permitted to grant leave post commencement to save the main derivative claim from being dismissed, as long as the claim is valid and meets the threshold under the law.",
+        text: "The process of bringing a derivative claim is that the leave stage comes first, then the substantive stage of the claim. However, recent jurisprudence, including the Court of Appeal decision in Raindrops Limited & 3 others v Nzioka [4], clarifies that contemporaneous filing is allowed. This means that filing the main claim at the same time as the application for leave is not fatal. The Judge is permitted to grant leave post commencement to save the main derivative claim from being dismissed, as long as the claim is valid and meets the threshold under the law.",
       },
       {
         type: "paragraph",
@@ -2443,7 +2444,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "The case of Mohamedin Mohamed & another v Ibrahim Ismail Isaak & another [2021] KEHC 7313 (KLR) is a good example. In this case, the Plaintiffs (minority shareholders) sued the Defendants (directors and majority shareholders) of Hish Company Limited. The minority shareholders alleged that the majority had:",
+        text: "The case of Mohamedin Mohamed & another v Ibrahim Ismail Isaak & another [5] KEHC 7313 (KLR) is a good example. In this case, the Plaintiffs (minority shareholders) sued the Defendants (directors and majority shareholders) of Hish Company Limited. The minority shareholders alleged that the majority had:",
       },
       {
         type: "list",
@@ -2535,7 +2536,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "In the decision of Ghelani Metals Limited & 3 others v Elesh Ghelani Natwarlal & another [2017] eKLR states that:",
+        text: "In the decision of Ghelani Metals Limited & 3 others v Elesh Ghelani Natwarlal & another [6] eKLR states that:",
       },
       {
         type: "paragraph",
@@ -2547,11 +2548,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "In the case of Joseph Munyoki Nzioka v Raindrops Limited & 3 others [2019] eKLR, the High Court has emphasised that a derivative action is a representative suit where the company is the true beneficiary of any relief granted. It held that. A derivative claim is one brought by a member of a company in respect of a cause of action vested in the company and seeking relief on behalf of the company. Minority shareholders have locus standi to sue where directors or majority shareholders engage in conduct involving negligence, default, breach of duty or breach of trust to the detriment of the company. The company will be made a party to the suit as the defendant.",
+        text: "In the case of Joseph Munyoki Nzioka v Raindrops Limited & 3 others [1] eKLR, the High Court has emphasised that a derivative action is a representative suit where the company is the true beneficiary of any relief granted. It held that. A derivative claim is one brought by a member of a company in respect of a cause of action vested in the company and seeking relief on behalf of the company. Minority shareholders have locus standi to sue where directors or majority shareholders engage in conduct involving negligence, default, breach of duty or breach of trust to the detriment of the company. The company will be made a party to the suit as the defendant.",
       },
       {
         type: "paragraph",
-        text: "This is the position as enumerated by Lord A.L. Smith in Spokes vs the Grosvenor and West End Railway Terminus Hotel Company Limited and Others and endorsed in the case of Joseph Munyoki Nzioka v Raindrops Limited & 3 others [2019] KEHC 9387 (KLR):",
+        text: "This is the position as enumerated by Lord A.L. Smith in Spokes vs the Grosvenor and West End Railway Terminus Hotel Company Limited and Others and endorsed in the case of Joseph Munyoki Nzioka v Raindrops Limited & 3 others [1] KEHC 9387 (KLR):",
       },
       {
         type: "paragraph",
@@ -2559,7 +2560,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "In the case of Sultan Hasham Lalji and 2 Others vs Ahmed Hasham Lalji and 4 Others [2014] eKLR, it was held as follows:-",
+        text: "In the case of Sultan Hasham Lalji and 2 Others vs Ahmed Hasham Lalji and 4 Others [7] eKLR, it was held as follows:-",
       },
       {
         type: "paragraph",
@@ -2567,7 +2568,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Further in Altaf Abdulrasul Dadani Vs. Amini Akberazi & 3 Others, Nairobi (Milimani) Hccc No. 913 of 2002 [2004] 1 KLR 95, Mwera, J (as he then was) stated as follows:-",
+        text: "Further in Altaf Abdulrasul Dadani Vs. Amini Akberazi & 3 Others, Nairobi (Milimani) Hccc No. 913 of 2002 [8] 1 KLR 95, Mwera, J (as he then was) stated as follows:-",
       },
       {
         type: "paragraph",
@@ -2664,7 +2665,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "According to the case of JM Mativo Justice in Velani & 6 others v Naran & 2 others (Petition E002 of 2020) [2021] KEHC 75 (KLR) (Commercial and Tax) (21 September 2021) (Judgment):",
+        text: "According to the case of JM Mativo Justice in Velani & 6 others v Naran & 2 others (Petition E002 of 2020) [1] KEHC 75 (KLR) (Commercial and Tax) (21 September 2021) (Judgment):",
       },
       {
         type: "paragraph",
@@ -2692,7 +2693,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Petitions for unfair prejudice often arise from internal corporate conflicts, such as disputes concerning shareholder representation on the board, the scope of management participation, executive compensation structures, and the contentious declaration or withholding of dividends. Furthermore, litigation frequently stems from complex inter-company dealings between subsidiaries and parent entities, as well as actions resulting in the dilution of a minority shareholder's equity, as seen in Ruo v Muthaiga Travel Limited & 4 others [2024] KEHC 14558 (KLR). When grievances involve the conduct of directors, practitioners must exercise precise drafting to navigate the legal reality that directors’ duties are primarily owed to the company itself, requiring the petitioner to clearly articulate how those breaches have specifically resulted in unfair prejudice to their individual interests.",
+        text: "Petitions for unfair prejudice often arise from internal corporate conflicts, such as disputes concerning shareholder representation on the board, the scope of management participation, executive compensation structures, and the contentious declaration or withholding of dividends. Furthermore, litigation frequently stems from complex inter-company dealings between subsidiaries and parent entities, as well as actions resulting in the dilution of a minority shareholder's equity, as seen in Ruo v Muthaiga Travel Limited & 4 others [2] KEHC 14558 (KLR). When grievances involve the conduct of directors, practitioners must exercise precise drafting to navigate the legal reality that directors’ duties are primarily owed to the company itself, requiring the petitioner to clearly articulate how those breaches have specifically resulted in unfair prejudice to their individual interests.",
       },
       {
         type: "paragraph",
@@ -2738,7 +2739,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "In John Muturi Nyaga v Graham Alexander Walsh & 3 Others [2017] eKLR, Tuiyott J held that an application under Section 780 should be by way of a petition (rather than a motion) to allow for the substantive interrogation of the applicant’s grievances.",
+        text: "In John Muturi Nyaga v Graham Alexander Walsh & 3 Others [3] eKLR, Tuiyott J held that an application under Section 780 should be by way of a petition (rather than a motion) to allow for the substantive interrogation of the applicant’s grievances.",
       },
       {
         type: "paragraph",
@@ -2755,7 +2756,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "The court is expected to uphold the equitable expectation of the shareholders. These expectations can be found in the articles and shareholder agreements. According to the decision of Velani & 6 others v Naran & 2 others (Petition E002 of 2020) [2021] KEHC 75 (KLR) (Commercial and Tax) (21 September 2021) (Judgment), the courts are allowed to find that members have expectations and rights beyond the articles. This is because the words unfair and oppressive give wider equitable considerations.",
+        text: "The court is expected to uphold the equitable expectation of the shareholders. These expectations can be found in the articles and shareholder agreements. According to the decision of Velani & 6 others v Naran & 2 others (Petition E002 of 2020) [1] KEHC 75 (KLR) (Commercial and Tax) (21 September 2021) (Judgment), the courts are allowed to find that members have expectations and rights beyond the articles. This is because the words unfair and oppressive give wider equitable considerations.",
       },
       {
         type: "heading",
@@ -2764,7 +2765,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "The courts have shown that they will respect arbitration clauses found in a company’s Articles of Association. In Lettau vs Paradiso Toys Limited & another (Commercial Petition E002 of 2023) [2024] KEHC 3793 (KLR), the court stayed proceedings and referred the matter to arbitration because the Articles contained a mandatory arbitration clause.",
+        text: "The courts have shown that they will respect arbitration clauses found in a company’s Articles of Association. In Lettau vs Paradiso Toys Limited & another (Commercial Petition E002 of 2023) [2] KEHC 3793 (KLR), the court stayed proceedings and referred the matter to arbitration because the Articles contained a mandatory arbitration clause.",
       },
       {
         type: "heading",
@@ -2868,7 +2869,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Judicial Principle is that the fees and commissions by an auctioneer are based on the value of goods proclaimed or attached. In National Industrial Credit Bank Limited v S.K. Ndegwa Auctioneer [2005] eKLR, the Court of Appeal held that an auctioneer’s charges should be based on the value of the goods attached, not the total debt (decretal sum). If no goods were attached, there is no value upon which to base a commission.",
+        text: "Judicial Principle is that the fees and commissions by an auctioneer are based on the value of goods proclaimed or attached. In National Industrial Credit Bank Limited v S.K. Ndegwa Auctioneer [1] eKLR, the Court of Appeal held that an auctioneer’s charges should be based on the value of the goods attached, not the total debt (decretal sum). If no goods were attached, there is no value upon which to base a commission.",
       },
       {
         type: "paragraph",
@@ -2922,15 +2923,15 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "In Oscar Otieno Odongo t/a Odongo Investment Auctioneers v Diamond Trust Bank Kenya Limited (Civil Appeal 127 of 2021) [2022] KEHC 15050 (KLR) (31 October 2022) (Judgment), the court reaffirmed that fees are confined to the Fourth Schedule and must be based on the actual value of goods attached. It explicitly stated that the auctioneer is remunerated for the work actually performed, and not hypothetical scenarios based on the debt amount.",
+        text: "In Oscar Otieno Odongo t/a Odongo Investment Auctioneers v Diamond Trust Bank Kenya Limited (Civil Appeal 127 of 2021) [2] KEHC 15050 (KLR) (31 October 2022) (Judgment), the court reaffirmed that fees are confined to the Fourth Schedule and must be based on the actual value of goods attached. It explicitly stated that the auctioneer is remunerated for the work actually performed, and not hypothetical scenarios based on the debt amount.",
       },
       {
         type: "paragraph",
-        text: "Further in Kindest Auctioneers v Orbit Chemicals Industries Limited (Miscellaneous Appeal E038 of 2023) [2023] KEELC 21782 (KLR) (13 November 2023) (Ruling), the Taxing Master has assessed the Bill based on the value of the goods attached, about (Kshs. 1,966,846.52. The court dismissed an appeal against a Taxing Master’s assessment, upholding the principle that the commission of an Auctioneer is to be based upon the value of goods attached and not on the decretal sum.",
+        text: "Further in Kindest Auctioneers v Orbit Chemicals Industries Limited (Miscellaneous Appeal E038 of 2023) [3] KEELC 21782 (KLR) (13 November 2023) (Ruling), the Taxing Master has assessed the Bill based on the value of the goods attached, about (Kshs. 1,966,846.52. The court dismissed an appeal against a Taxing Master’s assessment, upholding the principle that the commission of an Auctioneer is to be based upon the value of goods attached and not on the decretal sum.",
       },
       {
         type: "paragraph",
-        text: "Opportunity Kenya v Wanjalal t/a Mako Auctioneers (Civil Appeal 67 of 2020) [2024] KEHC 3296 (KLR) (19 March 2024) (Judgment), the court remitted a bill of costs for reassessment, reiterating that a Taxing Master must provide clear reasons and ensure that fees are tied to the actual value of goods attached rather than an arbitrary percentage of the decretal sum.",
+        text: "Opportunity Kenya v Wanjalal t/a Mako Auctioneers (Civil Appeal 67 of 2020) [4] KEHC 3296 (KLR) (19 March 2024) (Judgment), the court remitted a bill of costs for reassessment, reiterating that a Taxing Master must provide clear reasons and ensure that fees are tied to the actual value of goods attached rather than an arbitrary percentage of the decretal sum.",
       },
       {
         type: "heading",
