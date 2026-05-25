@@ -66,7 +66,7 @@ export function Home() {
       {/* 1) Premium Hero Section */}
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,#002f4d_0%,#003e63_58%,#0b5f8f_100%)] text-white">
         <div className="absolute inset-x-0 top-0 h-px bg-gold/70" />
-        <GsapReveal className="mx-auto grid min-h-[680px] max-w-[1280px] items-center gap-10 px-6 py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:px-12 xl:gap-16">
+        <GsapReveal className="mx-auto grid grid-cols-1 min-h-[680px] max-w-[1280px] items-center gap-10 px-6 py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:px-12 xl:gap-16">
           <GsapReveal staggerChildren mobileMode="fade">
             <div className="mb-5 h-1 w-20 rounded-full bg-gold" />
             <h1 className="max-w-[760px] text-4xl font-bold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
@@ -127,7 +127,7 @@ export function Home() {
             </GsapReveal>
 
             {/* Right: 3-column list */}
-            <GsapReveal staggerChildren mobileMode="fade" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-8">
+            <GsapReveal staggerChildren mobileMode="fade" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-8">
               {practiceAreas.map((area) => (
                 <Link
                   key={area.id}
@@ -292,7 +292,7 @@ export function Home() {
             Meet the people behind Malika Okubasu & Company Advocates.
           </p>
 
-          <GsapReveal staggerChildren mobileMode="fade" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <GsapReveal staggerChildren mobileMode="fade" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {teamPreview.map((member) => (
               <div key={member.id} className="group">
                 {/* Portrait */}

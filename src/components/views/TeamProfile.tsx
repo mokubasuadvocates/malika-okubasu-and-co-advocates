@@ -209,7 +209,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
             <span className="text-heading">{profile.name}</span>
           </div>
 
-          <div className="grid lg:grid-cols-[400px_1fr] gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-12 lg:gap-16">
             {/* Image */}
             <div>
               <Image
@@ -317,7 +317,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
               <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-6">
                 Areas of Expertise
               </h2>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {profile.expertise.map((area, index) => (
                   <div
                     key={index}

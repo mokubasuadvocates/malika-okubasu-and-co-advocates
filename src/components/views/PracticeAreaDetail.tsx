@@ -220,7 +220,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
             We provide legal advice and services on
           </h2>
 
-          <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             {practiceArea.services && practiceArea.services.length > 0 ? (
               practiceArea.services.map((service, index) => (
                 <div key={index} className="flex items-start gap-3">
@@ -242,7 +242,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
             Key Contacts
           </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamContacts.map((contact, index) => (
               <div key={index} className="text-center">
                 <div className="w-24 h-24 mx-auto mb-4 overflow-hidden rounded-full">
