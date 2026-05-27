@@ -5,9 +5,11 @@ import { usePathname } from 'next/navigation';
 import { DesktopHeader } from './DesktopHeader';
 import { MobileHeader } from './MobileHeader';
 import { Footer } from './Footer';
-import { FloatingWhatsAppButton } from './FloatingWhatsAppButton';
-import { ScrollToTopButton } from './ScrollToTopButton';
+import dynamic from 'next/dynamic';
 import { ScrollRestoration } from './ScrollRestoration';
+
+const FloatingWhatsAppButton = dynamic(() => import('./FloatingWhatsAppButton').then(mod => mod.FloatingWhatsAppButton), { ssr: false });
+const ScrollToTopButton = dynamic(() => import('./ScrollToTopButton').then(mod => mod.ScrollToTopButton), { ssr: false });
 
 export function Layout({ children }: { children: ReactNode }) {
   const pathname = usePathname();

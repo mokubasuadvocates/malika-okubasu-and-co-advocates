@@ -187,6 +187,13 @@ export default function PrivacyPolicyPage() {
               Nairobi, Kenya
             </p>
           </section>
+
+          <section className="mb-10">
+            <h2 className="mb-4 text-2xl font-bold text-heading">13. Legal Disclaimer</h2>
+            <p className="mb-4">
+              The information on this website is for general informational purposes only and does not constitute legal advice. Accessing this website does not create an advocate-client relationship.
+            </p>
+          </section>
         </div>
       </div>
     </main>

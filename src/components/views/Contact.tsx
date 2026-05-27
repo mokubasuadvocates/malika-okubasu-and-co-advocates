@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Phone, Mail, ArrowRight, Linkedin } from "lucide-react";
 import { Button } from "@/components/Button";
 import { OFFICIAL_LINKEDIN_URL } from "@/constants/social";
-import { GsapReveal } from "@/components/animations/GsapReveal";
 import { MapPin } from "lucide-react";
 
 type TurnstileApi = {
@@ -225,7 +224,7 @@ export function Contact() {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left: Contact Details */}
-            <GsapReveal mobileMode="fade" className="flex flex-col">
+            <div className="flex flex-col">
               <h2 className="text-4xl lg:text-5xl font-bold text-heading mb-8 leading-tight">
                 Get In Touch
               </h2>
@@ -306,10 +305,10 @@ export function Contact() {
                   Malika Okubasu & Company Advocates, 5th Avenue Suites, Ngong Road, Nairobi
                 </div>
               </div>
-            </GsapReveal>
+            </div>
 
             {/* Right: Contact Form */}
-            <GsapReveal mobileMode="fade" className="h-full">
+            <div className="h-full">
               <div className="bg-soft-blue p-8 lg:p-10 h-full rounded-lg">
                 <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-2">
                   Send us a message
@@ -536,7 +535,7 @@ export function Contact() {
                   </form>
                 )}
               </div>
-            </GsapReveal>
+            </div>
           </div>
         </div>
       </section>

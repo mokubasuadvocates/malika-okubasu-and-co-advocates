@@ -95,11 +95,18 @@ export function ArticleShareAction({
   useEffect(() => {
     if (modalView === "closed") {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.top = "";
       return;
     }
 
-    // Lock scroll
+    // Lock scroll (iOS safe)
+    const scrollY = window.scrollY;
     document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.top = `-${scrollY}px`;
 
     // Listen for escape
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -116,7 +123,12 @@ export function ArticleShareAction({
 
     document.addEventListener("keydown", handleKeyDown);
     return () => {
+      const top = document.body.style.top;
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.top = "";
+      window.scrollTo(0, parseInt(top || "0") * -1);
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [modalView]);
@@ -265,7 +277,7 @@ export function ArticleShareAction({
             role="dialog"
             aria-modal="true"
             aria-labelledby="share-dialog-title"
-            className="fixed inset-x-0 bottom-0 z-[9999] m-0 w-full max-w-full overflow-hidden rounded-t-2xl bg-white p-0 shadow-2xl sm:inset-0 sm:m-auto sm:max-w-[480px] sm:rounded-[20px] sm:max-h-[calc(100dvh-48px)] sm:overflow-visible max-h-[100dvh] pb-[calc(env(safe-area-inset-bottom)+16px)] sm:pb-0"
+            className="fixed inset-x-0 bottom-0 z-[9999] m-0 w-full max-w-full overflow-hidden rounded-t-2xl bg-white p-0 shadow-2xl sm:inset-0 sm:m-auto sm:max-w-[480px] sm:rounded-[20px] sm:max-h-[calc(100dvh-48px)] sm:overflow-visible max-h-[90dvh] overscroll-contain pb-[calc(env(safe-area-inset-bottom)+16px)] sm:pb-0"
           >
           <div className="flex flex-col h-full max-h-[90dvh] sm:max-h-[calc(100dvh-48px)]">
             {/* Header */}

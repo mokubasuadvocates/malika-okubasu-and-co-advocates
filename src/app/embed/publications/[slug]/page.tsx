@@ -1,12 +1,18 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getBlogPost, getBlogAuthor } from '@/data/blogs';
+import { getBlogPost, getBlogAuthor, blogPosts } from '@/data/blogs';
 
 interface Props {
   params: {
     slug: string;
   };
+}
+
+export function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

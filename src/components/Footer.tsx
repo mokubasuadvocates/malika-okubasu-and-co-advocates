@@ -106,9 +106,6 @@ export function Footer() {
             </Link>
           </div>
           <div className="flex flex-col md:items-end gap-2 text-right">
-            <p className="text-xs text-white/50 max-w-md">
-              Disclaimer: The information on this website is for general informational purposes only and does not constitute legal advice. Accessing this website does not create an advocate-client relationship.
-            </p>
             <p className="copy-protected mt-2">
               &copy; {new Date().getFullYear()} Malika Okubasu & Company Advocates. All rights Reserved.
             </p>

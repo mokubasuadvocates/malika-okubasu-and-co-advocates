@@ -104,6 +104,7 @@ export function Home() {
                 width={1200}
                 height={800}
                 priority
+                fetchPriority="high"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="h-[360px] w-full rounded-md object-cover lg:h-[520px]"
               />
