@@ -65,52 +65,95 @@ export function Home() {
   return (
     <div>
       {/* 1) Premium Hero Section */}
-      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#002f4d_0%,#003e63_58%,#0b5f8f_100%)] text-white">
-        <div className="absolute inset-x-0 top-0 h-px bg-gold/70" />
-        <GsapReveal className="mx-auto grid grid-cols-1 min-h-[680px] max-w-[1280px] items-center gap-10 px-6 py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:px-12 xl:gap-16">
-          <GsapReveal staggerChildren mobileMode="fade">
-            <div className="mb-5 h-1 w-20 rounded-full bg-gold" />
-            <h1 className="max-w-[760px] text-4xl font-bold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+      <section className="relative flex min-h-[75vh] w-full items-center overflow-hidden bg-[#0B2F4A] lg:min-h-[85vh]">
+        {/* Fallback Image / Poster for pre-load and reduced motion */}
+        <div
+          className="absolute inset-0 z-0 bg-[#0B2F4A] bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url(/images/nairobi-kenya-hero-poster.webp)",
+          }}
+        />
+
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/nairobi-kenya-hero-poster.webp"
+          className="absolute inset-0 z-0 hidden h-full w-full object-cover motion-safe:block"
+          aria-hidden="true"
+        >
+          <source src="/videos/nairobi-kenya-hero.mp4" type="video/mp4" />
+        </video>
+
+        {/* Custom Overlay Gradient */}
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(8, 32, 52, 0.94) 0%, rgba(8, 32, 52, 0.84) 42%, rgba(8, 32, 52, 0.58) 100%)",
+          }}
+        />
+        <div className="absolute inset-x-0 top-0 z-[2] h-px bg-[#9B8042]/70" />
+
+        {/* Content Container */}
+        <div className="relative z-[2] mx-auto w-full max-w-[1280px] px-6 py-16 lg:px-12">
+          <GsapReveal
+            staggerChildren
+            mobileMode="fade"
+            className="max-w-[760px]"
+          >
+            <div className="mb-5 h-1 w-20 rounded-full bg-[#9B8042]" />
+            <h1
+              className="font-bold tracking-tight text-[#FFFFFF] text-[clamp(3rem,6vw,6rem)] leading-[0.95]"
+              style={{ textShadow: "0 2px 12px rgba(0, 0, 0, 0.35)" }}
+            >
               Malika Okubasu & Company Advocates
             </h1>
-            <p className="mt-6 max-w-[650px] text-lg leading-relaxed text-white/85 lg:text-xl">
+            <p
+              className="mt-6 max-w-[650px] leading-relaxed text-[rgba(255,255,255,0.9)] text-[clamp(1.125rem,2vw,1.25rem)]"
+              style={{ textShadow: "0 2px 12px rgba(0, 0, 0, 0.35)" }}
+            >
               Malika Okubasu & Company Advocates is a leading law firm providing
               comprehensive legal solutions to complex business challenges.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:gap-6">
               {process.env.NEXT_PUBLIC_BOOKINGS_URL ? (
                 <Link
                   href={process.env.NEXT_PUBLIC_BOOKINGS_URL}
-                  target="_blank" rel="noopener noreferrer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto"
                 >
-                  <Button variant="gold">Book a Consultation</Button>
+                  <Button
+                    variant="gold"
+                    className="w-full sm:w-auto text-[clamp(1rem,1.5vw,1.125rem)]"
+                  >
+                    Book a Consultation
+                  </Button>
                 </Link>
               ) : (
-                <Link href="/contact">
-                  <Button variant="gold">Book a Consultation</Button>
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <Button
+                    variant="gold"
+                    className="w-full sm:w-auto text-[clamp(1rem,1.5vw,1.125rem)]"
+                  >
+                    Book a Consultation
+                  </Button>
                 </Link>
               )}
-              <Link href="/practice-areas">
-                <Button variant="inverseOutline">Explore Practice Areas</Button>
+              <Link href="/practice-areas" className="w-full sm:w-auto">
+                <Button
+                  variant="inverseOutline"
+                  className="w-full sm:w-auto border-white text-[clamp(1rem,1.5vw,1.125rem)]"
+                >
+                  Explore Practice Areas
+                </Button>
               </Link>
             </div>
           </GsapReveal>
-
-          <GsapReveal mobileMode="fade">
-            <div className="premium-card overflow-hidden rounded-lg border border-white/20 bg-white/10 p-3 shadow-xl shadow-black/20 backdrop-blur-sm">
-              <Image
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=90"
-                alt="Modern corporate architecture"
-                width={1200}
-                height={800}
-                priority
-                fetchPriority="high"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="h-[360px] w-full rounded-md object-cover lg:h-[520px]"
-              />
-            </div>
-          </GsapReveal>
-        </GsapReveal>
+        </div>
       </section>
 
       {/* 2) Practice Areas Section */}
@@ -129,7 +172,11 @@ export function Home() {
             </GsapReveal>
 
             {/* Right: 3-column list */}
-            <GsapReveal staggerChildren mobileMode="fade" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-8">
+            <GsapReveal
+              staggerChildren
+              mobileMode="fade"
+              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-8"
+            >
               {practiceAreas.map((area) => (
                 <Link
                   key={area.id}
@@ -214,7 +261,11 @@ export function Home() {
             What Clients Can Expect
           </h2>
 
-          <GsapReveal staggerChildren mobileMode="fade" className="grid lg:grid-cols-2 gap-8 lg:gap-x-16 lg:gap-y-12 xl:gap-x-20 xl:gap-y-16">
+          <GsapReveal
+            staggerChildren
+            mobileMode="fade"
+            className="grid lg:grid-cols-2 gap-8 lg:gap-x-16 lg:gap-y-12 xl:gap-x-20 xl:gap-y-16"
+          >
             {expectations.map((item, index) => (
               <div key={index}>
                 <h3 className="text-xl lg:text-2xl font-bold text-heading mb-3 leading-snug">
@@ -232,7 +283,8 @@ export function Home() {
             {process.env.NEXT_PUBLIC_BOOKINGS_URL ? (
               <a
                 href={process.env.NEXT_PUBLIC_BOOKINGS_URL}
-                target="_blank" rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-bold text-white text-base lg:text-lg hover:text-gold-hover hover:underline underline-offset-4 transition-all"
               >
                 Book a Consultation
@@ -260,7 +312,11 @@ export function Home() {
             Featured Insights
           </h2>
 
-          <GsapReveal staggerChildren mobileMode="fade" className="flex flex-col gap-10 lg:gap-12">
+          <GsapReveal
+            staggerChildren
+            mobileMode="fade"
+            className="flex flex-col gap-10 lg:gap-12"
+          >
             {featuredInsights.map((insight, index) => (
               <BlogPreviewCard
                 key={insight.slug}
@@ -297,7 +353,11 @@ export function Home() {
             Meet the people behind Malika Okubasu & Company Advocates.
           </p>
 
-          <GsapReveal staggerChildren mobileMode="fade" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <GsapReveal
+            staggerChildren
+            mobileMode="fade"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+          >
             {teamPreview.map((member) => (
               <div key={member.id} className="group">
                 {/* Portrait */}
@@ -343,7 +403,8 @@ export function Home() {
                     {member.linkedin && (
                       <a
                         href={member.linkedin}
-                        target="_blank" rel="noopener noreferrer"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 text-sm lg:text-base text-heading hover:text-gold-text hover:underline underline-offset-4 transition-all"
                       >
                         <Linkedin className="w-4 h-4 flex-shrink-0" />
@@ -388,14 +449,16 @@ export function Home() {
                   className="w-full h-full border-0"
                 />
                 <div className="sr-only">
-                  Malika Okubasu & Company Advocates, 5th Avenue Suites, Ngong Road, Nairobi
+                  Malika Okubasu & Company Advocates, 5th Avenue Suites, Ngong
+                  Road, Nairobi
                 </div>
               </div>
 
               <div className="mt-6">
-                <a 
+                <a
                   href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
-                  target="_blank" rel="noopener noreferrer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-lg px-6 py-3 font-sans-primary font-semibold shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 bg-navy text-white hover:bg-gold-text hover:text-white"
                 >
                   Get Directions

@@ -55,7 +55,8 @@ const compactUtilityItems = [
 
 export function DesktopHeader() {
   const pathname = usePathname();
-  const isPracticeActive = pathname === "/practice-areas" || pathname.startsWith("/practice-areas/");
+  const isPracticeActive =
+    pathname === "/practice-areas" || pathname.startsWith("/practice-areas/");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -81,7 +82,10 @@ export function DesktopHeader() {
       }
     };
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
         setIsDropdownOpen(false);
       }
     };
@@ -111,7 +115,14 @@ export function DesktopHeader() {
         <div className="mx-auto flex h-11 max-w-[1280px] items-center overflow-x-auto px-6 py-2 text-[14px] lg:px-12 xl:hidden">
           <div className="flex min-w-max items-center gap-5">
             {compactUtilityItems.map(
-              ({ label, href, icon: Icon, isExternal, ariaLabel, iconClassName }) => (
+              ({
+                label,
+                href,
+                icon: Icon,
+                isExternal,
+                ariaLabel,
+                iconClassName,
+              }) => (
                 <a
                   key={href}
                   href={href}
@@ -126,7 +137,7 @@ export function DesktopHeader() {
                   />
                   <span>{label}</span>
                 </a>
-              ),
+              )
             )}
           </div>
         </div>
@@ -143,12 +154,16 @@ export function DesktopHeader() {
                 <span>{label}</span>
               </a>
             ))}
-            <a 
+            <a
               href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
-              target="_blank" rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex min-w-0 items-center gap-2 transition-colors hover:text-gold-text-hover"
             >
-              <MapPin className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
+              <MapPin
+                className="h-4 w-4 shrink-0 text-gold"
+                aria-hidden="true"
+              />
               <span className="truncate">
                 5th Avenue Suites Ngong Road, Suite No. 6 4th Floor
               </span>
@@ -157,7 +172,8 @@ export function DesktopHeader() {
 
           <a
             href={OFFICIAL_LINKEDIN_URL}
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Malika Okubasu & Company Advocates on LinkedIn"
             className="inline-flex items-center gap-2 whitespace-nowrap rounded-sm px-2 py-1 text-white transition-colors hover:text-gold-text-hover"
           >
@@ -175,7 +191,9 @@ export function DesktopHeader() {
             onClick={(e) => {
               if (pathname === "/") {
                 e.preventDefault();
-                const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+                const mediaQuery = window.matchMedia(
+                  "(prefers-reduced-motion: reduce)"
+                );
                 window.scrollTo({
                   top: 0,
                   behavior: mediaQuery.matches ? "instant" : "smooth",
@@ -211,7 +229,9 @@ export function DesktopHeader() {
               onClick={(e) => {
                 if (pathname === "/") {
                   e.preventDefault();
-                  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+                  const mediaQuery = window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                  );
                   window.scrollTo({
                     top: 0,
                     behavior: mediaQuery.matches ? "instant" : "smooth",
@@ -231,8 +251,8 @@ export function DesktopHeader() {
               About Us
             </Link>
 
-            <div 
-              className="group relative" 
+            <div
+              className="group relative"
               ref={dropdownRef}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -254,10 +274,12 @@ export function DesktopHeader() {
                 />
               </button>
 
-              <div 
+              <div
                 id="desktop-practice-dropdown"
                 className={`absolute left-1/2 top-full w-[420px] max-w-[calc(100vw-2rem)] -translate-x-1/2 translate-y-3 rounded-lg border border-[rgba(0,62,99,0.12)] bg-white p-3 shadow-[0_18px_45px_rgba(0,47,77,0.16)] transition-all duration-200 ${
-                  isDropdownOpen ? "pointer-events-auto translate-y-2 opacity-100 visible" : "pointer-events-none opacity-0 invisible"
+                  isDropdownOpen
+                    ? "pointer-events-auto translate-y-2 opacity-100 visible"
+                    : "pointer-events-none opacity-0 invisible"
                 }`}
               >
                 <div className="border-b border-[rgba(0,62,99,0.1)] px-3 pb-2 text-sm font-bold uppercase text-gold">

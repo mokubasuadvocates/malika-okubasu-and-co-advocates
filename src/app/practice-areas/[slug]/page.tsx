@@ -26,8 +26,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
   }
 
   const title =
-    practiceArea.metaTitle ??
-    `${practiceArea.title} | ${SITE_NAME}`;
+    practiceArea.metaTitle ?? `${practiceArea.title} | ${SITE_NAME}`;
   const description =
     practiceArea.metaDescription ??
     `${practiceArea.title} legal services from ${SITE_NAME} in Nairobi, Kenya.`;

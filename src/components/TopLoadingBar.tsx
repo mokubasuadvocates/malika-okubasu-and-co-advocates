@@ -14,7 +14,7 @@ function TopLoadingBarInner() {
   const finishProgress = () => {
     setProgress(100);
     clearInterval(progressInterval.current);
-    
+
     // Hide and reset after a tiny delay so the user sees it hit 100%
     setTimeout(() => {
       setIsNavigating(false);
@@ -43,7 +43,8 @@ function TopLoadingBarInner() {
       // Allow modifier keys (opens in new tab)
       if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
 
-      const isInternal = href.startsWith(window.location.origin) || href.startsWith("/");
+      const isInternal =
+        href.startsWith(window.location.origin) || href.startsWith("/");
       const isTargetBlank = target.target === "_blank";
       const isMailto = href.startsWith("mailto:");
       const isTel = href.startsWith("tel:");
@@ -53,9 +54,18 @@ function TopLoadingBarInner() {
       // Check if it's a hash link on the same page
       const currentUrlWithoutHash = window.location.href.split("#")[0];
       const hrefWithoutHash = href.split("#")[0];
-      const isHash = target.hash !== "" && currentUrlWithoutHash === hrefWithoutHash;
+      const isHash =
+        target.hash !== "" && currentUrlWithoutHash === hrefWithoutHash;
 
-      if (!isInternal || isTargetBlank || isMailto || isTel || isWhatsApp || isHash || isDownload) {
+      if (
+        !isInternal ||
+        isTargetBlank ||
+        isMailto ||
+        isTel ||
+        isWhatsApp ||
+        isHash ||
+        isDownload
+      ) {
         return;
       }
 
@@ -106,7 +116,8 @@ function TopLoadingBarInner() {
         className="h-full w-full bg-gold origin-left transition-transform ease-out"
         style={{
           transform: `scaleX(${progress / 100})`,
-          transitionDuration: isNavigating && progress !== 100 ? "300ms" : "200ms",
+          transitionDuration:
+            isNavigating && progress !== 100 ? "300ms" : "200ms",
         }}
       />
     </div>

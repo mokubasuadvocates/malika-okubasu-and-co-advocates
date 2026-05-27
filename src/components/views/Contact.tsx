@@ -37,7 +37,9 @@ export function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [submissionMessage, setSubmissionMessage] = useState<string | null>(null);
+  const [submissionMessage, setSubmissionMessage] = useState<string | null>(
+    null
+  );
   const [submissionError, setSubmissionError] = useState<string | null>(null);
   const errorSummaryRef = useRef<HTMLDivElement>(null);
   const turnstileContainerRef = useRef<HTMLDivElement>(null);
@@ -82,8 +84,7 @@ export function Contact() {
     }
   }, [hasTurnstile]);
 
-  const validateEmail = (value: string) =>
-    /^\S+@\S+\.\S+$/.test(value.trim());
+  const validateEmail = (value: string) => /^\S+@\S+\.\S+$/.test(value.trim());
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -109,8 +110,7 @@ export function Contact() {
       newErrors.email = "Please enter a valid email address";
     }
     if (!trimmedData.message) newErrors.message = "Message is required";
-    if (!trimmedData.consent)
-      newErrors.consent = "You must agree to continue";
+    if (!trimmedData.consent) newErrors.consent = "You must agree to continue";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -125,9 +125,14 @@ export function Contact() {
 
     // Get Turnstile token if available
     let turnstileToken = "";
-    if (hasTurnstile && window.turnstile && turnstileWidgetId.current !== null) {
+    if (
+      hasTurnstile &&
+      window.turnstile &&
+      turnstileWidgetId.current !== null
+    ) {
       try {
-        turnstileToken = window.turnstile.getResponse(turnstileWidgetId.current) || "";
+        turnstileToken =
+          window.turnstile.getResponse(turnstileWidgetId.current) || "";
       } catch (error) {
         console.error("Error getting Turnstile response:", error);
       }
@@ -152,7 +157,9 @@ export function Contact() {
         throw new Error(result.error || "Message could not be sent.");
       }
 
-      setSubmissionMessage("Thank you. Your message has been sent successfully.");
+      setSubmissionMessage(
+        "Thank you. Your message has been sent successfully."
+      );
       setIsSubmitted(true);
       setFormData({
         fullName: "",
@@ -166,7 +173,11 @@ export function Contact() {
       });
 
       // Reset Turnstile
-      if (hasTurnstile && window.turnstile && turnstileWidgetId.current !== null) {
+      if (
+        hasTurnstile &&
+        window.turnstile &&
+        turnstileWidgetId.current !== null
+      ) {
         try {
           window.turnstile.reset(turnstileWidgetId.current);
         } catch (error) {
@@ -274,7 +285,8 @@ export function Contact() {
                     <div className="font-bold text-heading mb-1">LinkedIn</div>
                     <a
                       href={OFFICIAL_LINKEDIN_URL}
-                      target="_blank" rel="noopener noreferrer"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-body hover:text-link hover:underline"
                     >
                       Malika Okubasu & Company Advocates
@@ -283,9 +295,10 @@ export function Contact() {
                 </div>
               </div>
 
-              <a 
+              <a
                 href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
-                target="_blank" rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg px-8 py-3.5 font-sans-primary font-semibold shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 bg-navy text-white hover:bg-gold-text hover:text-white mb-8"
               >
                 Get Directions
@@ -302,7 +315,8 @@ export function Contact() {
                   className="w-full h-full border-0"
                 />
                 <div className="sr-only">
-                  Malika Okubasu & Company Advocates, 5th Avenue Suites, Ngong Road, Nairobi
+                  Malika Okubasu & Company Advocates, 5th Avenue Suites, Ngong
+                  Road, Nairobi
                 </div>
               </div>
             </div>
@@ -367,7 +381,9 @@ export function Contact() {
                           handleChange("fullName", e.target.value)
                         }
                         aria-invalid={!!errors.fullName}
-                        aria-describedby={errors.fullName ? "fullName-error" : undefined}
+                        aria-describedby={
+                          errors.fullName ? "fullName-error" : undefined
+                        }
                         className={`w-full px-4 py-3 bg-white border ${
                           errors.fullName
                             ? "border-error"
@@ -375,7 +391,10 @@ export function Contact() {
                         } focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2`}
                       />
                       {errors.fullName && (
-                        <p id="fullName-error" className="text-sm text-error mt-1">
+                        <p
+                          id="fullName-error"
+                          className="text-sm text-error mt-1"
+                        >
                           {errors.fullName}
                         </p>
                       )}
@@ -396,7 +415,9 @@ export function Contact() {
                         value={formData.email}
                         onChange={(e) => handleChange("email", e.target.value)}
                         aria-invalid={!!errors.email}
-                        aria-describedby={errors.email ? "email-error" : undefined}
+                        aria-describedby={
+                          errors.email ? "email-error" : undefined
+                        }
                         className={`w-full px-4 py-3 bg-white border ${
                           errors.email ? "border-error" : "border-form-border"
                         } focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2`}
@@ -463,13 +484,18 @@ export function Contact() {
                           handleChange("message", e.target.value)
                         }
                         aria-invalid={!!errors.message}
-                        aria-describedby={errors.message ? "message-error" : undefined}
+                        aria-describedby={
+                          errors.message ? "message-error" : undefined
+                        }
                         className={`w-full px-4 py-3 bg-white border ${
                           errors.message ? "border-error" : "border-form-border"
                         } focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2 resize-none`}
                       />
                       {errors.message && (
-                        <p id="message-error" className="text-sm text-error mt-1">
+                        <p
+                          id="message-error"
+                          className="text-sm text-error mt-1"
+                        >
                           {errors.message}
                         </p>
                       )}
@@ -486,7 +512,9 @@ export function Contact() {
                             handleChange("consent", e.target.checked)
                           }
                           aria-invalid={!!errors.consent}
-                          aria-describedby={errors.consent ? "consent-error" : undefined}
+                          aria-describedby={
+                            errors.consent ? "consent-error" : undefined
+                          }
                           className="mt-1 w-4 h-4 border-form-border text-link focus:ring-brand-blue"
                         />
                         <span className="text-sm text-body">
@@ -495,7 +523,10 @@ export function Contact() {
                         </span>
                       </label>
                       {errors.consent && (
-                        <p id="consent-error" className="text-sm text-error mt-1">
+                        <p
+                          id="consent-error"
+                          className="text-sm text-error mt-1"
+                        >
                           {errors.consent}
                         </p>
                       )}
@@ -521,7 +552,9 @@ export function Contact() {
                     )}
 
                     <div className="text-xs text-body italic bg-white/50 p-4 border-l-2 border-gold mb-2">
-                      <strong>Disclaimer:</strong> Please do not include confidential legal information. Submitting this form does not create an advocate-client relationship.
+                      <strong>Disclaimer:</strong> Please do not include
+                      confidential legal information. Submitting this form does
+                      not create an advocate-client relationship.
                     </div>
 
                     <Button

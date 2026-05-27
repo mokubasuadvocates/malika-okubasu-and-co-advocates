@@ -65,7 +65,9 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
   const pageUrl = absoluteUrl(`/practice-areas/${practiceArea.id}`);
   const practiceAreasUrl = absoluteUrl("/practice-areas");
   const description =
-    practiceArea.metaDescription ?? practiceArea.excerpt ?? practiceArea.details;
+    practiceArea.metaDescription ??
+    practiceArea.excerpt ??
+    practiceArea.details;
   const jsonLd = [
     {
       "@context": "https://schema.org",

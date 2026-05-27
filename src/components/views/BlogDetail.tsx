@@ -156,7 +156,9 @@ export function BlogDetail({ slug }: { slug?: string }) {
                   className="h-11 w-11 flex-shrink-0 rounded-full object-cover sm:h-12 sm:w-12"
                 />
                 <div className="min-w-0">
-                  <div className="text-sm font-bold text-heading">{author.name}</div>
+                  <div className="text-sm font-bold text-heading">
+                    {author.name}
+                  </div>
                   <div className="text-sm text-body">{author.role}</div>
                 </div>
               </div>
@@ -171,8 +173,13 @@ export function BlogDetail({ slug }: { slug?: string }) {
           {/* Main Content */}
           <div className="space-y-6 sm:space-y-7">
             {(() => {
-              const contentBlocks: import("@/data/blogs").BlogContentBlock[] = [];
-              const extractedReferences: { id: number; title: string; url?: string }[] = [];
+              const contentBlocks: import("@/data/blogs").BlogContentBlock[] =
+                [];
+              const extractedReferences: {
+                id: number;
+                title: string;
+                url?: string;
+              }[] = [];
               let inReferencesSection = false;
 
               post.content.forEach((block) => {
@@ -190,17 +197,29 @@ export function BlogDetail({ slug }: { slug?: string }) {
                   if (block.type === "paragraph") {
                     const match = block.text.match(/^\[(\d{1,3})\]\s(.*)/);
                     if (match) {
-                      extractedReferences.push({ id: parseInt(match[1]), title: match[2] });
+                      extractedReferences.push({
+                        id: parseInt(match[1]),
+                        title: match[2],
+                      });
                     } else {
-                      extractedReferences.push({ id: extractedReferences.length + 1, title: block.text });
+                      extractedReferences.push({
+                        id: extractedReferences.length + 1,
+                        title: block.text,
+                      });
                     }
                   } else if (block.type === "list") {
                     block.items.forEach((item) => {
                       const match = item.match(/^\[(\d{1,3})\]\s(.*)/);
                       if (match) {
-                        extractedReferences.push({ id: parseInt(match[1]), title: match[2] });
+                        extractedReferences.push({
+                          id: parseInt(match[1]),
+                          title: match[2],
+                        });
                       } else {
-                        extractedReferences.push({ id: extractedReferences.length + 1, title: item });
+                        extractedReferences.push({
+                          id: extractedReferences.length + 1,
+                          title: item,
+                        });
                       }
                     });
                   }
@@ -211,7 +230,10 @@ export function BlogDetail({ slug }: { slug?: string }) {
                   const match = block.text.match(/^\[(\d{1,3})\]\s(.*)/);
                   if (match) {
                     inReferencesSection = true;
-                    extractedReferences.push({ id: parseInt(match[1]), title: match[2] });
+                    extractedReferences.push({
+                      id: parseInt(match[1]),
+                      title: match[2],
+                    });
                     return;
                   }
                 }
@@ -219,125 +241,151 @@ export function BlogDetail({ slug }: { slug?: string }) {
                 contentBlocks.push(block);
               });
 
-              const finalReferences = [...(post.references || []), ...extractedReferences];
+              const finalReferences = [
+                ...(post.references || []),
+                ...extractedReferences,
+              ];
               const uniqueReferences = finalReferences.filter(
-                (ref, index, self) => index === self.findIndex((t) => t.id === ref.id)
+                (ref, index, self) =>
+                  index === self.findIndex((t) => t.id === ref.id)
               );
 
               return (
                 <>
                   {contentBlocks.map((block, index) => {
-              const renderTextWithCitationsAndLinks = (text: string) => {
-                const parts = text.split(/(\[\d{1,3}\])/g);
-                return parts.map((part, i) => {
-                  const match = part.match(/\[(\d{1,3})\]/);
-                  if (match) {
-                    const num = match[1];
-                    return (
-                      <sup key={`cite-${i}`} className="article-citation">
-                        <a href={`#ref-${num}`} id={`cite-${num}`} aria-label={`Reference ${num}`}>
-                          <em>({num})</em>
-                        </a>
-                      </sup>
-                    );
-                  }
-                  
-                  const urlParts = part.split(/(https?:\/\/[^\s]+)/g);
-                  return urlParts.map((uPart, j) => {
-                    if (uPart.match(/^https?:\/\/[^\s]+$/)) {
-                      // Remove trailing punctuation like commas or periods from the URL if any
-                      const cleanUrl = uPart.replace(/[.,;:]$/, '');
-                      const punctuation = uPart.slice(cleanUrl.length);
-                      
+                    const renderTextWithCitationsAndLinks = (text: string) => {
+                      const parts = text.split(/(\[\d{1,3}\])/g);
+                      return parts.map((part, i) => {
+                        const match = part.match(/\[(\d{1,3})\]/);
+                        if (match) {
+                          const num = match[1];
+                          return (
+                            <sup key={`cite-${i}`} className="article-citation">
+                              <a
+                                href={`#ref-${num}`}
+                                id={`cite-${num}`}
+                                aria-label={`Reference ${num}`}
+                              >
+                                <em>({num})</em>
+                              </a>
+                            </sup>
+                          );
+                        }
+
+                        const urlParts = part.split(/(https?:\/\/[^\s]+)/g);
+                        return urlParts.map((uPart, j) => {
+                          if (uPart.match(/^https?:\/\/[^\s]+$/)) {
+                            // Remove trailing punctuation like commas or periods from the URL if any
+                            const cleanUrl = uPart.replace(/[.,;:]$/, "");
+                            const punctuation = uPart.slice(cleanUrl.length);
+
+                            return (
+                              <Fragment key={`url-frag-${i}-${j}`}>
+                                <a
+                                  href={cleanUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-link underline underline-offset-4 transition-colors hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold break-words"
+                                >
+                                  {cleanUrl}
+                                </a>
+                                {punctuation}
+                              </Fragment>
+                            );
+                          }
+                          return (
+                            <Fragment key={`text-${i}-${j}`}>{uPart}</Fragment>
+                          );
+                        });
+                      });
+                    };
+
+                    if (block.type === "heading") {
+                      const HeadingTag = block.level === 3 ? "h3" : "h2";
+
                       return (
-                        <Fragment key={`url-frag-${i}-${j}`}>
-                          <a
-                            href={cleanUrl}
-                            target="_blank" rel="noopener noreferrer"
-                            className="text-link underline underline-offset-4 transition-colors hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold break-words"
+                        <div key={index}>
+                          {block.level === 2 && index > 0 && (
+                            <Divider className="mb-7 sm:mb-9" />
+                          )}
+                          <HeadingTag
+                            className={
+                              block.level === 3
+                                ? "break-words text-xl font-bold leading-tight text-navy sm:text-2xl font-serif-editorial"
+                                : "break-words text-2xl font-bold leading-tight text-navy sm:text-3xl font-serif-editorial"
+                            }
                           >
-                            {cleanUrl}
-                          </a>
-                          {punctuation}
-                        </Fragment>
+                            {block.text}
+                          </HeadingTag>
+                        </div>
                       );
                     }
-                    return <Fragment key={`text-${i}-${j}`}>{uPart}</Fragment>;
-                  });
-                });
-              };
 
-              if (block.type === "heading") {
-                const HeadingTag = block.level === 3 ? "h3" : "h2";
+                    if (block.type === "list") {
+                      return (
+                        <ul
+                          key={index}
+                          className="list-disc space-y-3 break-words pl-6 text-base leading-[1.8] text-body sm:text-[1.0625rem] lg:text-lg"
+                        >
+                          {block.items.map((item) => (
+                            <li key={item}>
+                              {renderTextWithCitationsAndLinks(item)}
+                            </li>
+                          ))}
+                        </ul>
+                      );
+                    }
 
-                return (
-                  <div key={index}>
-                    {block.level === 2 && index > 0 && (
-                      <Divider className="mb-7 sm:mb-9" />
-                    )}
-                    <HeadingTag
-                      className={
-                        block.level === 3
-                          ? "break-words text-xl font-bold leading-tight text-navy sm:text-2xl font-serif-editorial"
-                          : "break-words text-2xl font-bold leading-tight text-navy sm:text-3xl font-serif-editorial"
-                      }
+                    return (
+                      <p
+                        key={index}
+                        className="break-words text-base leading-[1.8] text-body sm:text-[1.0625rem] lg:text-lg"
+                      >
+                        {renderTextWithCitationsAndLinks(block.text)}
+                      </p>
+                    );
+                  })}
+
+                  {/* References */}
+                  {uniqueReferences.length > 0 && (
+                    <section
+                      className="mt-10 sm:mt-12 article-references"
+                      aria-labelledby="references-heading"
                     >
-                      {block.text}
-                    </HeadingTag>
-                  </div>
-                );
-              }
-
-              if (block.type === "list") {
-                return (
-                  <ul
-                    key={index}
-                    className="list-disc space-y-3 break-words pl-6 text-base leading-[1.8] text-body sm:text-[1.0625rem] lg:text-lg"
-                  >
-                    {block.items.map((item) => (
-                      <li key={item}>{renderTextWithCitationsAndLinks(item)}</li>
-                    ))}
-                  </ul>
-                );
-              }
-
-              return (
-                <p
-                  key={index}
-                  className="break-words text-base leading-[1.8] text-body sm:text-[1.0625rem] lg:text-lg"
-                >
-                  {renderTextWithCitationsAndLinks(block.text)}
-                </p>
-                  );
-                })}
-
-                {/* References */}
-                {uniqueReferences.length > 0 && (
-                  <section className="mt-10 sm:mt-12 article-references" aria-labelledby="references-heading">
-                    <Divider className="mb-7 sm:mb-9" />
-                    <h2 id="references-heading" className="mb-6 text-2xl font-bold leading-tight text-navy sm:text-3xl font-serif-editorial">
-                      {uniqueReferences.length === 1 ? "Reference" : "References"}
-                    </h2>
-                    <ol className="article-references-list list-decimal space-y-3 pl-5 text-sm leading-[1.6] text-body sm:text-[0.9375rem] marker:text-body marker:font-normal">
-                      {uniqueReferences.map((ref) => (
-                        <li key={ref.id} id={`ref-${ref.id}`} className="pl-2">
-                          {ref.url ? (
-                            <a
-                              href={ref.url}
-                              target="_blank" rel="noopener noreferrer"
-                              className="transition-colors hover:text-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-                            >
-                              {ref.title}
-                            </a>
-                          ) : (
-                            <span>{ref.title}</span>
-                          )}
-                        </li>
-                      ))}
-                    </ol>
-                  </section>
-                )}
-              </>
+                      <Divider className="mb-7 sm:mb-9" />
+                      <h2
+                        id="references-heading"
+                        className="mb-6 text-2xl font-bold leading-tight text-navy sm:text-3xl font-serif-editorial"
+                      >
+                        {uniqueReferences.length === 1
+                          ? "Reference"
+                          : "References"}
+                      </h2>
+                      <ol className="article-references-list list-decimal space-y-3 pl-5 text-sm leading-[1.6] text-body sm:text-[0.9375rem] marker:text-body marker:font-normal">
+                        {uniqueReferences.map((ref) => (
+                          <li
+                            key={ref.id}
+                            id={`ref-${ref.id}`}
+                            className="pl-2"
+                          >
+                            {ref.url ? (
+                              <a
+                                href={ref.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="transition-colors hover:text-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                              >
+                                {ref.title}
+                              </a>
+                            ) : (
+                              <span>{ref.title}</span>
+                            )}
+                          </li>
+                        ))}
+                      </ol>
+                    </section>
+                  )}
+                </>
               );
             })()}
           </div>
@@ -345,14 +393,16 @@ export function BlogDetail({ slug }: { slug?: string }) {
           {/* Disclaimer */}
           <div className="mt-14 sm:mt-16 rounded-sm bg-gray-50 p-5 text-sm leading-relaxed text-body sm:p-6 border-l-4 border-gold">
             <p>
-              <strong>Disclaimer:</strong> This publication is for general information only and does not constitute legal advice. Specific advice should be sought for individual circumstances.
+              <strong>Disclaimer:</strong> This publication is for general
+              information only and does not constitute legal advice. Specific
+              advice should be sought for individual circumstances.
             </p>
           </div>
 
-          <ArticleShareAction 
-            title={post.title} 
-            excerpt={post.excerpt} 
-            url={articleUrl} 
+          <ArticleShareAction
+            title={post.title}
+            excerpt={post.excerpt}
+            url={articleUrl}
             image={post.image}
             practiceArea={post.practiceArea || post.practiceAreas?.[0]}
             authorName={author.name}

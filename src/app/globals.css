@@ -1,4 +1,4 @@
-@import '../styles/index.css';
+@import "../styles/index.css";
 
 .article-citation {
   vertical-align: super;
@@ -56,4 +56,3 @@
     animation: none !important;
   }
 }
-

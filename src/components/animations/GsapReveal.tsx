@@ -35,7 +35,11 @@ export function GsapReveal({
 
   useEffect(() => {
     // Progressive enhancement: Check network conditions
-    if (disabledOnLowBandwidth && typeof navigator !== "undefined" && "connection" in navigator) {
+    if (
+      disabledOnLowBandwidth &&
+      typeof navigator !== "undefined" &&
+      "connection" in navigator
+    ) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const conn = (navigator as any).connection;
       if (
@@ -46,7 +50,7 @@ export function GsapReveal({
         setShouldAnimate(false);
       }
     }
-    
+
     // Check for reduced motion
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mediaQuery.matches) {
@@ -54,64 +58,76 @@ export function GsapReveal({
     }
   }, [disabledOnLowBandwidth]);
 
-  useGSAP(() => {
-    if (!shouldAnimate || !container.current) return;
+  useGSAP(
+    () => {
+      if (!shouldAnimate || !container.current) return;
 
-    const mm = gsap.matchMedia();
+      const mm = gsap.matchMedia();
 
-    mm.add(
-      {
-        isDesktop: "(min-width: 1024px)",
-        isTablet: "(min-width: 768px) and (max-width: 1023px)",
-        isMobile: "(max-width: 767px)"
-      },
-      (context) => {
-        const { isDesktop, isTablet, isMobile } = context.conditions as {
-          isDesktop: boolean;
-          isTablet: boolean;
-          isMobile: boolean;
-        };
+      mm.add(
+        {
+          isDesktop: "(min-width: 1024px)",
+          isTablet: "(min-width: 768px) and (max-width: 1023px)",
+          isMobile: "(max-width: 767px)",
+        },
+        (context) => {
+          const { isDesktop, isTablet, isMobile } = context.conditions as {
+            isDesktop: boolean;
+            isTablet: boolean;
+            isMobile: boolean;
+          };
 
-        let yOffset = 0;
-        let duration = 0.5;
-        let stagger = 0;
+          let yOffset = 0;
+          let duration = 0.5;
+          let stagger = 0;
 
-        if (isDesktop) {
-          yOffset = desktopMode === "fade-up" ? 14 : 0;
-          duration = 0.5;
-          stagger = staggerChildren ? 0.08 : 0;
-        } else if (isTablet) {
-          yOffset = desktopMode === "fade-up" ? 10 : 0;
-          duration = 0.4;
-          stagger = staggerChildren ? 0.06 : 0;
-        } else if (isMobile) {
-          if (mobileMode === "none") return;
-          yOffset = mobileMode === "fade-up" ? 8 : 0;
-          duration = 0.35;
-          stagger = staggerChildren ? 0.04 : 0;
+          if (isDesktop) {
+            yOffset = desktopMode === "fade-up" ? 14 : 0;
+            duration = 0.5;
+            stagger = staggerChildren ? 0.08 : 0;
+          } else if (isTablet) {
+            yOffset = desktopMode === "fade-up" ? 10 : 0;
+            duration = 0.4;
+            stagger = staggerChildren ? 0.06 : 0;
+          } else if (isMobile) {
+            if (mobileMode === "none") return;
+            yOffset = mobileMode === "fade-up" ? 8 : 0;
+            duration = 0.35;
+            stagger = staggerChildren ? 0.04 : 0;
+          }
+
+          const targets = staggerChildren
+            ? gsap.utils.toArray(container.current!.children)
+            : container.current;
+
+          gsap.from(targets, {
+            opacity: 0,
+            y: yOffset,
+            duration: duration,
+            stagger: stagger,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: container.current,
+              start: "top 90%",
+              once: once,
+            },
+          });
         }
+      );
 
-        const targets = staggerChildren 
-          ? gsap.utils.toArray(container.current!.children) 
-          : container.current;
-
-        gsap.from(targets, {
-          opacity: 0,
-          y: yOffset,
-          duration: duration,
-          stagger: stagger,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: container.current,
-            start: "top 90%",
-            once: once,
-          },
-        });
-      }
-    );
-
-    return () => mm.revert();
-  }, { scope: container, dependencies: [shouldAnimate, staggerChildren, once, mobileMode, desktopMode] });
+      return () => mm.revert();
+    },
+    {
+      scope: container,
+      dependencies: [
+        shouldAnimate,
+        staggerChildren,
+        once,
+        mobileMode,
+        desktopMode,
+      ],
+    }
+  );
 
   return (
     <Component ref={container} className={className}>

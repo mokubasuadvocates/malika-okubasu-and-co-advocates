@@ -1,14 +1,17 @@
-import './globals.css';
-import type { ReactNode } from 'react';
-import type { Metadata } from 'next';
-import { Inter, Poppins } from 'next/font/google';
-import { GoogleTagManager } from '@next/third-parties/google';
-import { Layout } from '@/components/Layout';
-import dynamic from 'next/dynamic';
-const CookieConsent = dynamic(() => import('@/components/CookieConsent').then(mod => mod.CookieConsent), { ssr: false });
-import { TopLoadingBar } from '@/components/TopLoadingBar';
-import { NavigationEvents } from '@/components/NavigationEvents';
-import JsonLd from '@/components/JsonLd';
+import "./globals.css";
+import type { ReactNode } from "react";
+import type { Metadata } from "next";
+import { Inter, Poppins } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
+import { Layout } from "@/components/Layout";
+import dynamic from "next/dynamic";
+const CookieConsent = dynamic(
+  () => import("@/components/CookieConsent").then((mod) => mod.CookieConsent),
+  { ssr: false }
+);
+import { TopLoadingBar } from "@/components/TopLoadingBar";
+import { NavigationEvents } from "@/components/NavigationEvents";
+import JsonLd from "@/components/JsonLd";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -23,24 +26,22 @@ const organizationSchema = {
     contactType: "Customer Service",
     email: "legal@mokubasuadvocates.com",
     areaServed: "KE",
-    availableLanguage: "en"
+    availableLanguage: "en",
   },
-  sameAs: [
-    "https://www.linkedin.com/company/malika-okubasu-co-advocates/"
-  ]
+  sameAs: ["https://www.linkedin.com/company/malika-okubasu-co-advocates/"],
 };
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const poppins = Poppins({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
-  variable: '--font-poppins',
-  display: 'swap',
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  display: "swap",
 });
 import {
   HOMEPAGE_DESCRIPTION,
@@ -48,7 +49,7 @@ import {
   OG_IMAGE_URL,
   SITE_NAME,
   SITE_URL,
-} from '@/constants/seo';
+} from "@/constants/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -62,17 +63,17 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico?v=2', sizes: 'any' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/icon-48x48.png', sizes: '48x48', type: 'image/png' },
-      { url: '/icon-96x96.png', sizes: '96x96', type: 'image/png' },
-      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
-  manifest: '/site.webmanifest',
+  manifest: "/site.webmanifest",
   openGraph: {
     title: HOMEPAGE_TITLE,
     description: HOMEPAGE_DESCRIPTION,
@@ -83,25 +84,21 @@ export const metadata: Metadata = {
         url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: 'Malika Okubasu & Company Advocates',
+        alt: "Malika Okubasu & Company Advocates",
       },
     ],
-    locale: 'en_KE',
-    type: 'website',
+    locale: "en_KE",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: HOMEPAGE_TITLE,
     description: HOMEPAGE_DESCRIPTION,
     images: [OG_IMAGE_URL],
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <head>

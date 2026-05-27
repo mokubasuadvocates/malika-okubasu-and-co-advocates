@@ -104,7 +104,7 @@ export function MobileHeader() {
   const showPreviousContactItem = () => {
     setActiveContactIndex(
       (index) =>
-        (index - 1 + mobileContactItems.length) % mobileContactItems.length,
+        (index - 1 + mobileContactItems.length) % mobileContactItems.length
     );
   };
 
@@ -116,17 +116,20 @@ export function MobileHeader() {
   const ActiveContactIcon = activeContactItem.icon;
   const mobileContactContent = (
     <span className="flex min-w-0 items-center justify-center gap-1.5">
-      <ActiveContactIcon className="h-3.5 w-3.5 shrink-0 text-gold" aria-hidden="true" />
-      <span className="line-clamp-2 text-center text-[11.5px] leading-tight sm:text-[13px]">{activeContactItem.label}</span>
+      <ActiveContactIcon
+        className="h-3.5 w-3.5 shrink-0 text-gold"
+        aria-hidden="true"
+      />
+      <span className="line-clamp-2 text-center text-[11.5px] leading-tight sm:text-[13px]">
+        {activeContactItem.label}
+      </span>
     </span>
   );
 
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
       <header className="sticky top-0 z-50 border-b border-[rgba(0,62,99,0.12)] bg-white shadow-[0_10px_30px_rgba(0,62,99,0.08)] lg:hidden">
-        <div
-          className="relative h-11 bg-[linear-gradient(90deg,#002f4d_0%,#003e63_55%,#0b5f8f_100%)] text-white md:hidden"
-        >
+        <div className="relative h-11 bg-[linear-gradient(90deg,#002f4d_0%,#003e63_55%,#0b5f8f_100%)] text-white md:hidden">
           <button
             type="button"
             onClick={showPreviousContactItem}
@@ -141,7 +144,11 @@ export function MobileHeader() {
                 key={activeContactItem.label}
                 href={activeContactItem.href}
                 target={activeContactItem.isExternal ? "_blank" : undefined}
-                rel={activeContactItem.isExternal ? "noopener noreferrer" : undefined}
+                rel={
+                  activeContactItem.isExternal
+                    ? "noopener noreferrer"
+                    : undefined
+                }
                 aria-label={activeContactItem.ariaLabel}
                 className="mobile-contact-rotator flex max-w-[calc(100vw-5rem)] items-center justify-center transition-colors hover:text-gold-text-hover"
               >
@@ -184,7 +191,8 @@ export function MobileHeader() {
             </a>
             <a
               href="https://maps.app.goo.gl/enkR4yrDCPXHHYpSA"
-              target="_blank" rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="View location on Google Maps"
               className="flex items-center gap-1.5 whitespace-nowrap transition-colors hover:text-gold-text-hover"
             >
@@ -193,7 +201,8 @@ export function MobileHeader() {
             </a>
             <a
               href={OFFICIAL_LINKEDIN_URL}
-              target="_blank" rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Malika Okubasu & Company Advocates on LinkedIn"
               className="flex items-center gap-1.5 whitespace-nowrap text-white transition-colors hover:text-gold-text-hover"
             >
@@ -212,7 +221,9 @@ export function MobileHeader() {
             onClick={(e) => {
               if (pathname === "/") {
                 e.preventDefault();
-                const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+                const mediaQuery = window.matchMedia(
+                  "(prefers-reduced-motion: reduce)"
+                );
                 window.scrollTo({
                   top: 0,
                   behavior: mediaQuery.matches ? "instant" : "smooth",
@@ -243,7 +254,9 @@ export function MobileHeader() {
             <button
               type="button"
               className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-navy text-white transition-colors hover:bg-gold"
-              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-label={
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+              }
             >
               {isOpen ? (
                 <X className="h-6 w-6" aria-hidden="true" />
@@ -262,111 +275,116 @@ export function MobileHeader() {
           className="fixed inset-x-0 bottom-0 top-[116px] z-40 overflow-y-auto bg-white px-5 py-6 shadow-[0_20px_45px_rgba(0,47,77,0.18)] lg:hidden outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:slide-out-to-top-3 data-[state=open]:slide-in-from-top-3"
         >
           <Dialog.Title className="sr-only">Mobile Navigation</Dialog.Title>
-          <nav aria-label="Mobile primary navigation" className="flex flex-col gap-2">
-          {mainLinks.slice(0, 2).map((link) => (
-            <Link
-              key={link.path}
-              href={link.path}
-              scroll={true}
-              onClick={(e) => {
-                if (link.path === "/" && pathname === "/") {
-                  e.preventDefault();
-                  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-                  window.scrollTo({
-                    top: 0,
-                    behavior: mediaQuery.matches ? "instant" : "smooth",
-                  });
-                }
-                closeMenu();
-              }}
-              aria-current={isActive(link.path) ? "page" : undefined}
-              className={`rounded-lg px-3 py-3 text-xl font-bold transition-colors hover:bg-soft-bg hover:text-gold-text ${
-                isActive(link.path) ? "text-gold bg-soft-bg" : "text-navy"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-
-          <div className="rounded-lg border border-[rgba(0,62,99,0.12)]">
-            <div className="flex items-center">
+          <nav
+            aria-label="Mobile primary navigation"
+            className="flex flex-col gap-2"
+          >
+            {mainLinks.slice(0, 2).map((link) => (
               <Link
-                href="/practice-areas"
-                onClick={closeMenu}
-                className="flex-1 px-3 py-3 text-xl font-bold text-navy transition-colors hover:text-gold-text"
+                key={link.path}
+                href={link.path}
+                scroll={true}
+                onClick={(e) => {
+                  if (link.path === "/" && pathname === "/") {
+                    e.preventDefault();
+                    const mediaQuery = window.matchMedia(
+                      "(prefers-reduced-motion: reduce)"
+                    );
+                    window.scrollTo({
+                      top: 0,
+                      behavior: mediaQuery.matches ? "instant" : "smooth",
+                    });
+                  }
+                  closeMenu();
+                }}
+                aria-current={isActive(link.path) ? "page" : undefined}
+                className={`rounded-lg px-3 py-3 text-xl font-bold transition-colors hover:bg-soft-bg hover:text-gold-text ${
+                  isActive(link.path) ? "text-gold bg-soft-bg" : "text-navy"
+                }`}
               >
-                Practice Areas
+                {link.label}
               </Link>
-              <button
-                type="button"
-                onClick={() => setIsPracticeOpen((value) => !value)}
-                className="mr-2 inline-flex h-11 w-11 items-center justify-center rounded-md text-navy transition-colors hover:bg-soft-bg hover:text-gold-text"
-                aria-label="Toggle practice areas links"
-                aria-expanded={isPracticeOpen}
-                aria-controls="mobile-practice-areas"
-              >
-                <ChevronDown
-                  className={`h-5 w-5 transition-transform ${
-                    isPracticeOpen ? "rotate-180" : ""
-                  }`}
-                  aria-hidden="true"
-                />
-              </button>
-            </div>
+            ))}
 
-            <div
-              id="mobile-practice-areas"
-              className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-                isPracticeOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-              }`}
-            >
-              <div className="overflow-hidden">
-                <div className="grid gap-1 border-t border-[rgba(0,62,99,0.12)] bg-soft-bg p-2">
-                  <Link
-                    href="/practice-areas"
-                    onClick={closeMenu}
-                    className="rounded-md px-3 py-2 text-base font-semibold text-navy transition-colors hover:bg-white hover:text-gold-text focus-visible:outline-none focus-visible:bg-white focus-visible:text-gold"
-                  >
-                    View All Practice Areas
-                  </Link>
-                  {practiceLinks.map((link) => (
+            <div className="rounded-lg border border-[rgba(0,62,99,0.12)]">
+              <div className="flex items-center">
+                <Link
+                  href="/practice-areas"
+                  onClick={closeMenu}
+                  className="flex-1 px-3 py-3 text-xl font-bold text-navy transition-colors hover:text-gold-text"
+                >
+                  Practice Areas
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setIsPracticeOpen((value) => !value)}
+                  className="mr-2 inline-flex h-11 w-11 items-center justify-center rounded-md text-navy transition-colors hover:bg-soft-bg hover:text-gold-text"
+                  aria-label="Toggle practice areas links"
+                  aria-expanded={isPracticeOpen}
+                  aria-controls="mobile-practice-areas"
+                >
+                  <ChevronDown
+                    className={`h-5 w-5 transition-transform ${
+                      isPracticeOpen ? "rotate-180" : ""
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
+              </div>
+
+              <div
+                id="mobile-practice-areas"
+                className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                  isPracticeOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="grid gap-1 border-t border-[rgba(0,62,99,0.12)] bg-soft-bg p-2">
                     <Link
-                      key={link.path}
-                      href={link.path}
+                      href="/practice-areas"
                       onClick={closeMenu}
                       className="rounded-md px-3 py-2 text-base font-semibold text-navy transition-colors hover:bg-white hover:text-gold-text focus-visible:outline-none focus-visible:bg-white focus-visible:text-gold"
                     >
-                      {link.label}
+                      View All Practice Areas
                     </Link>
-                  ))}
+                    {practiceLinks.map((link) => (
+                      <Link
+                        key={link.path}
+                        href={link.path}
+                        onClick={closeMenu}
+                        className="rounded-md px-3 py-2 text-base font-semibold text-navy transition-colors hover:bg-white hover:text-gold-text focus-visible:outline-none focus-visible:bg-white focus-visible:text-gold"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {mainLinks.slice(2).map((link) => (
+            {mainLinks.slice(2).map((link) => (
+              <Link
+                key={link.path}
+                href={link.path}
+                onClick={closeMenu}
+                aria-current={isActive(link.path) ? "page" : undefined}
+                className={`rounded-lg px-3 py-3 text-xl font-bold transition-colors hover:bg-soft-bg hover:text-gold-text ${
+                  isActive(link.path) ? "text-gold bg-soft-bg" : "text-navy"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+
             <Link
-              key={link.path}
-              href={link.path}
+              href="/contact"
               onClick={closeMenu}
-              aria-current={isActive(link.path) ? "page" : undefined}
-              className={`rounded-lg px-3 py-3 text-xl font-bold transition-colors hover:bg-soft-bg hover:text-gold-text ${
-                isActive(link.path) ? "text-gold bg-soft-bg" : "text-navy"
-              }`}
+              className="mt-4 inline-flex items-center justify-center rounded-lg bg-navy px-5 py-3 text-base font-bold text-white shadow-[0_10px_24px_rgba(0,62,99,0.18)] transition-all motion-safe:hover:-translate-y-0.5 hover:bg-gold"
             >
-              {link.label}
+              Get In Touch
             </Link>
-          ))}
-
-          <Link
-            href="/contact"
-            onClick={closeMenu}
-            className="mt-4 inline-flex items-center justify-center rounded-lg bg-navy px-5 py-3 text-base font-bold text-white shadow-[0_10px_24px_rgba(0,62,99,0.18)] transition-all motion-safe:hover:-translate-y-0.5 hover:bg-gold"
-          >
-            Get In Touch
-          </Link>
-        </nav>
-      </Dialog.Content>
+          </nav>
+        </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
   );

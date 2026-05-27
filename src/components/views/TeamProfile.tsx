@@ -145,7 +145,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
   }
 
   const hasContactButtons = Boolean(
-    profile.phone || profile.email || profile.linkedin,
+    profile.phone || profile.email || profile.linkedin
   );
   const hasDirectContact = Boolean(profile.phone || profile.email);
   const pageUrl = absoluteUrl(`/our-team/${id}`);
@@ -204,9 +204,9 @@ export function TeamProfile({ id }: TeamProfileProps) {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-body mb-8">
-                <Link href="/our-team" className="hover:text-link">
-                  Our Team
-                </Link>
+            <Link href="/our-team" className="hover:text-link">
+              Our Team
+            </Link>
             <span>/</span>
             <span className="text-heading">{profile.name}</span>
           </div>

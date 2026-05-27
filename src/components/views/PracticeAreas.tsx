@@ -37,7 +37,11 @@ export function PracticeAreas() {
       {/* Practice Areas List */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-          <GsapReveal staggerChildren mobileMode="fade" className="grid gap-6 lg:grid-cols-2">
+          <GsapReveal
+            staggerChildren
+            mobileMode="fade"
+            className="grid gap-6 lg:grid-cols-2"
+          >
             {practiceAreas.map((area) => (
               <Link
                 key={area.id}
@@ -50,9 +54,7 @@ export function PracticeAreas() {
                     <h2 className="text-xl lg:text-2xl font-bold text-heading mb-3 transition-colors group-hover:text-gold-text">
                       {area.title}
                     </h2>
-                    <p className="text-body leading-relaxed">
-                      {area.excerpt}
-                    </p>
+                    <p className="text-body leading-relaxed">{area.excerpt}</p>
                     <span className="mt-5 inline-block text-sm font-bold text-heading transition-colors group-hover:text-gold-text">
                       View Practice Area
                     </span>

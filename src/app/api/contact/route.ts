@@ -1,39 +1,37 @@
-import nodemailer from 'nodemailer';
-import { NextResponse, NextRequest } from 'next/server';
-import { Redis } from '@upstash/redis';
+import nodemailer from "nodemailer";
+import { NextResponse, NextRequest } from "next/server";
+import { Redis } from "@upstash/redis";
 
 const isValidEmail = (value: string) => /^\S+@\S+\.\S+$/.test(value.trim());
 
 // Initialize Redis if environment variables are present
-const redis = (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN)
-  ? new Redis({
-      url: process.env.UPSTASH_REDIS_REST_URL,
-      token: process.env.UPSTASH_REDIS_REST_TOKEN,
-    })
-  : null;
+const redis =
+  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
+    ? new Redis({
+        url: process.env.UPSTASH_REDIS_REST_URL,
+        token: process.env.UPSTASH_REDIS_REST_TOKEN,
+      })
+    : null;
 
 // Simple in-memory rate limiter fallback
 // Note: This is best-effort only. On serverless platforms like Vercel,
 // each function invocation is isolated, so this will not persist across requests.
-const rateLimitStore = new Map<
-  string,
-  { count: number; resetTime: number }
->();
+const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
 
 const RATE_LIMIT_WINDOW = 10 * 60 * 1000; // 10 minutes
 const RATE_LIMIT_MAX = 3; // 3 submissions per window
 
 function getClientIp(request: NextRequest): string {
-  const forwarded = request.headers.get('x-forwarded-for');
+  const forwarded = request.headers.get("x-forwarded-for");
   if (forwarded) {
-    return forwarded.split(',')[0].trim();
+    return forwarded.split(",")[0].trim();
   }
-  return request.headers.get('x-real-ip') || 'unknown';
+  return request.headers.get("x-real-ip") || "unknown";
 }
 
 async function checkRateLimit(ip: string): Promise<boolean> {
-  if (process.env.NODE_ENV === 'production' && !redis) {
-    console.error('CRITICAL: Redis configuration missing in production');
+  if (process.env.NODE_ENV === "production" && !redis) {
+    console.error("CRITICAL: Redis configuration missing in production");
     return false;
   }
 
@@ -46,7 +44,7 @@ async function checkRateLimit(ip: string): Promise<boolean> {
       }
       return count <= RATE_LIMIT_MAX;
     } catch (error) {
-      if (process.env.NODE_ENV === 'production') {
+      if (process.env.NODE_ENV === "production") {
         console.error("CRITICAL: Redis rate limit error in production:", error);
         return false;
       }
@@ -73,7 +71,7 @@ async function checkRateLimit(ip: string): Promise<boolean> {
 
 // Sanitize input to prevent email header injection
 function sanitizeForEmail(value: string): string {
-  return value.trim().replace(/[\r\n]/g, ' ');
+  return value.trim().replace(/[\r\n]/g, " ");
 }
 
 // Count URLs in text
@@ -84,8 +82,11 @@ function countUrls(text: string): number {
 }
 
 async function verifyTurnstile(token: string): Promise<boolean> {
-  if (process.env.NODE_ENV === 'production' && !process.env.TURNSTILE_SECRET_KEY) {
-    console.error('CRITICAL: TURNSTILE_SECRET_KEY missing in production');
+  if (
+    process.env.NODE_ENV === "production" &&
+    !process.env.TURNSTILE_SECRET_KEY
+  ) {
+    console.error("CRITICAL: TURNSTILE_SECRET_KEY missing in production");
     return false;
   }
 
@@ -94,21 +95,24 @@ async function verifyTurnstile(token: string): Promise<boolean> {
   }
 
   try {
-    const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        secret: process.env.TURNSTILE_SECRET_KEY,
-        response: token,
-      }),
-    });
+    const response = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          secret: process.env.TURNSTILE_SECRET_KEY,
+          response: token,
+        }),
+      }
+    );
 
     const data = await response.json();
     return data.success === true;
   } catch (error) {
-    console.error('Turnstile verification error:', error);
+    console.error("Turnstile verification error:", error);
     return false;
   }
 }
@@ -121,26 +125,33 @@ export async function POST(request: NextRequest) {
     const isAllowed = await checkRateLimit(clientIp);
     if (!isAllowed) {
       return NextResponse.json(
-        { success: false, error: 'Too many submissions. Please try again later.' },
+        {
+          success: false,
+          error: "Too many submissions. Please try again later.",
+        },
         { status: 429 }
       );
     }
 
     const body = await request.json();
-    const fullName = String(body.fullName || '').trim();
-    const email = String(body.email || '').trim();
-    const phone = String(body.phone || '').trim();
-    const subjectInput = String(body.subject || '').trim();
-    const message = String(body.message || '').trim();
+    const fullName = String(body.fullName || "").trim();
+    const email = String(body.email || "").trim();
+    const phone = String(body.phone || "").trim();
+    const subjectInput = String(body.subject || "").trim();
+    const message = String(body.message || "").trim();
     const consent = Boolean(body.consent);
-    const companyWebsite = String(body.companyWebsite || '').trim();
-    const turnstileToken = String(body.turnstileToken || '').trim();
+    const companyWebsite = String(body.companyWebsite || "").trim();
+    const turnstileToken = String(body.turnstileToken || "").trim();
 
     // Honeypot check
     if (companyWebsite) {
       // Return generic error to not reveal honeypot
       return NextResponse.json(
-        { success: false, error: 'Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.' },
+        {
+          success: false,
+          error:
+            "Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.",
+        },
         { status: 400 }
       );
     }
@@ -148,70 +159,90 @@ export async function POST(request: NextRequest) {
     // Strict validation
     if (!fullName) {
       return NextResponse.json(
-        { success: false, error: 'Full name is required.' },
+        { success: false, error: "Full name is required." },
         { status: 400 }
       );
     }
 
     if (fullName.length > 100) {
       return NextResponse.json(
-        { success: false, error: 'Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.' },
+        {
+          success: false,
+          error:
+            "Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.",
+        },
         { status: 400 }
       );
     }
 
     if (!email) {
       return NextResponse.json(
-        { success: false, error: 'Email is required.' },
+        { success: false, error: "Email is required." },
         { status: 400 }
       );
     }
 
     if (!isValidEmail(email)) {
       return NextResponse.json(
-        { success: false, error: 'A valid email address is required.' },
+        { success: false, error: "A valid email address is required." },
         { status: 400 }
       );
     }
 
     if (email.length > 120) {
       return NextResponse.json(
-        { success: false, error: 'Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.' },
+        {
+          success: false,
+          error:
+            "Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.",
+        },
         { status: 400 }
       );
     }
 
     if (phone && phone.length > 40) {
       return NextResponse.json(
-        { success: false, error: 'Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.' },
+        {
+          success: false,
+          error:
+            "Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.",
+        },
         { status: 400 }
       );
     }
 
     if (subjectInput && subjectInput.length > 150) {
       return NextResponse.json(
-        { success: false, error: 'Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.' },
+        {
+          success: false,
+          error:
+            "Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.",
+        },
         { status: 400 }
       );
     }
 
     if (!message) {
       return NextResponse.json(
-        { success: false, error: 'Message is required.' },
+        { success: false, error: "Message is required." },
         { status: 400 }
       );
     }
 
     if (message.length > 2000) {
       return NextResponse.json(
-        { success: false, error: 'Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.' },
+        {
+          success: false,
+          error:
+            "Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.",
+        },
         { status: 400 }
       );
     }
 
     if (!consent) {
       return NextResponse.json(
-        { success: false, error: 'Consent is required.' },
+        { success: false, error: "Consent is required." },
         { status: 400 }
       );
     }
@@ -220,17 +251,29 @@ export async function POST(request: NextRequest) {
     const urlCount = countUrls(subjectInput) + countUrls(message);
     if (urlCount > 2) {
       return NextResponse.json(
-        { success: false, error: 'Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.' },
+        {
+          success: false,
+          error:
+            "Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.",
+        },
         { status: 400 }
       );
     }
 
     // Turnstile verification if configured or in production
-    const isProd = process.env.NODE_ENV === 'production';
-    if (isProd || (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && process.env.TURNSTILE_SECRET_KEY)) {
+    const isProd = process.env.NODE_ENV === "production";
+    if (
+      isProd ||
+      (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY &&
+        process.env.TURNSTILE_SECRET_KEY)
+    ) {
       if (!turnstileToken) {
         return NextResponse.json(
-          { success: false, error: 'Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.' },
+          {
+            success: false,
+            error:
+              "Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.",
+          },
           { status: 400 }
         );
       }
@@ -238,7 +281,11 @@ export async function POST(request: NextRequest) {
       const isValidTurnstile = await verifyTurnstile(turnstileToken);
       if (!isValidTurnstile) {
         return NextResponse.json(
-          { success: false, error: 'Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.' },
+          {
+            success: false,
+            error:
+              "Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.",
+          },
           { status: 400 }
         );
       }
@@ -251,7 +298,7 @@ export async function POST(request: NextRequest) {
 
     const mailSubject = sanitizedSubject
       ? `Website Inquiry: ${sanitizedSubject}`
-      : 'New Website Inquiry';
+      : "New Website Inquiry";
 
     const transport = nodemailer.createTransport({
       host: process.env.M365_SMTP_HOST,
@@ -267,7 +314,7 @@ export async function POST(request: NextRequest) {
 
     await transport.sendMail({
       from: '"Malika Okubasu Website" <legal@mokubasuadvocates.com>',
-      to: process.env.CONTACT_TO_EMAIL || 'legal@mokubasuadvocates.com',
+      to: process.env.CONTACT_TO_EMAIL || "legal@mokubasuadvocates.com",
       replyTo: email,
       subject: mailSubject,
       text: emailBody,
@@ -275,12 +322,12 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: 'Message sent successfully.',
+      message: "Message sent successfully.",
     });
   } catch (error) {
-    console.error('Contact API error:', error);
+    console.error("Contact API error:", error);
     return NextResponse.json(
-      { success: false, error: 'Message could not be sent.' },
+      { success: false, error: "Message could not be sent." },
       { status: 500 }
     );
   }

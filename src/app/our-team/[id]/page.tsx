@@ -68,18 +68,20 @@ export default function Page({ params }: PageProps) {
   const profile = teamProfiles.find((member) => member.id === params.id);
   const url = absoluteUrl(`/our-team/${params.id}`);
 
-  const jsonLd = profile ? [
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      name: profile.name,
-      jobTitle: profile.role,
-      url: url,
-      worksFor: {
-        "@id": ORGANIZATION_ID,
-      },
-    },
-  ] : [];
+  const jsonLd = profile
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: profile.name,
+          jobTitle: profile.role,
+          url: url,
+          worksFor: {
+            "@id": ORGANIZATION_ID,
+          },
+        },
+      ]
+    : [];
 
   return (
     <>

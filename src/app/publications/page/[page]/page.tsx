@@ -25,7 +25,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: Props): Metadata {
   const page = parseInt(params.page, 10);
-  
+
   if (isNaN(page) || page < 2) {
     return {};
   }

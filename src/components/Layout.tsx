@@ -1,32 +1,37 @@
-'use client';
+"use client";
 
-import { ReactNode } from 'react';
-import { usePathname } from 'next/navigation';
-import { DesktopHeader } from './DesktopHeader';
-import { MobileHeader } from './MobileHeader';
-import { Footer } from './Footer';
-import dynamic from 'next/dynamic';
-import { ScrollRestoration } from './ScrollRestoration';
+import { ReactNode } from "react";
+import { usePathname } from "next/navigation";
+import { DesktopHeader } from "./DesktopHeader";
+import { MobileHeader } from "./MobileHeader";
+import { Footer } from "./Footer";
+import dynamic from "next/dynamic";
+import { ScrollRestoration } from "./ScrollRestoration";
 
-const FloatingWhatsAppButton = dynamic(() => import('./FloatingWhatsAppButton').then(mod => mod.FloatingWhatsAppButton), { ssr: false });
-const ScrollToTopButton = dynamic(() => import('./ScrollToTopButton').then(mod => mod.ScrollToTopButton), { ssr: false });
+const FloatingWhatsAppButton = dynamic(
+  () =>
+    import("./FloatingWhatsAppButton").then(
+      (mod) => mod.FloatingWhatsAppButton
+    ),
+  { ssr: false }
+);
+const ScrollToTopButton = dynamic(
+  () => import("./ScrollToTopButton").then((mod) => mod.ScrollToTopButton),
+  { ssr: false }
+);
 
 export function Layout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const isEmbed = pathname?.startsWith('/embed');
+  const isEmbed = pathname?.startsWith("/embed");
 
   if (isEmbed) {
-    return (
-      <main className="min-h-screen bg-white">
-        {children}
-      </main>
-    );
+    return <main className="min-h-screen bg-white">{children}</main>;
   }
 
   return (
     <div className="min-h-screen flex flex-col">
-      <a 
-        href="#main-content" 
+      <a
+        href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-navy focus:text-white focus:font-bold focus:rounded-sm"
       >
         Skip to main content
@@ -34,7 +39,11 @@ export function Layout({ children }: { children: ReactNode }) {
       <ScrollRestoration />
       <DesktopHeader />
       <MobileHeader />
-      <main id="main-content" className="flex-1 focus:outline-none" tabIndex={-1}>
+      <main
+        id="main-content"
+        className="flex-1 focus:outline-none"
+        tabIndex={-1}
+      >
         {children}
       </main>
       <Footer />

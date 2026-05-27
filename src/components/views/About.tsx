@@ -60,7 +60,8 @@ export function About() {
             {process.env.NEXT_PUBLIC_BOOKINGS_URL ? (
               <a
                 href={process.env.NEXT_PUBLIC_BOOKINGS_URL}
-                target="_blank" rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Button variant="primary">Book a Consultation</Button>
               </a>
@@ -91,8 +92,8 @@ export function About() {
                 We approach every instruction with a commercial mindset and a
                 human touch. Whether we are advising on transactions, resolving
                 disputes, or providing ongoing legal support, our focus is
-                simple: protect our clients&apos; interests, reduce risk, and help
-                them move forward with confidence.
+                simple: protect our clients&apos; interests, reduce risk, and
+                help them move forward with confidence.
               </p>
 
               <p className="text-base lg:text-lg text-body leading-relaxed">

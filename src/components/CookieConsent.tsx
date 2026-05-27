@@ -68,8 +68,12 @@ export function CookieConsent() {
           ad_storage: currentChoices.advertising ? "granted" : "denied",
           ad_user_data: currentChoices.advertising ? "granted" : "denied",
           ad_personalization: currentChoices.advertising ? "granted" : "denied",
-          functionality_storage: currentChoices.functional ? "granted" : "denied",
-          personalization_storage: currentChoices.functional ? "granted" : "denied",
+          functionality_storage: currentChoices.functional
+            ? "granted"
+            : "denied",
+          personalization_storage: currentChoices.functional
+            ? "granted"
+            : "denied",
           security_storage: "granted",
         });
       }
@@ -157,7 +161,8 @@ export function CookieConsent() {
               <p className="text-sm leading-relaxed text-body md:text-base">
                 At Malika Okubasu & Company Advocates, we use cookies and
                 similar technologies to improve your browsing experience,
-                understand website usage, and support essential website functions.
+                understand website usage, and support essential website
+                functions.
               </p>
             </div>
             <div className="flex w-full flex-col gap-3 sm:flex-row sm:w-auto">
@@ -184,10 +189,13 @@ export function CookieConsent() {
         </div>
       )}
 
-      <Dialog.Root open={showModal} onOpenChange={(open) => {
-        if (!open) closeModal();
-        else setShowModal(true);
-      }}>
+      <Dialog.Root
+        open={showModal}
+        onOpenChange={(open) => {
+          if (!open) closeModal();
+          else setShowModal(true);
+        }}
+      >
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-50 bg-navy/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
           <Dialog.Content
@@ -300,11 +308,13 @@ export function CookieConsent() {
                       <input
                         type="checkbox"
                         className="peer sr-only"
-                        checked={choices.functional} 
+                        checked={choices.functional}
                         onChange={() => toggleChoice("functional")}
                       />
                       <div className="peer h-6 w-11 rounded-full bg-gray-300 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-navy peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gold/30"></div>
-                      <span className="sr-only">Enable Performance Cookies</span>
+                      <span className="sr-only">
+                        Enable Performance Cookies
+                      </span>
                     </label>
                   </div>
                   <p className="text-sm text-body">
@@ -327,12 +337,15 @@ export function CookieConsent() {
                         onChange={() => toggleChoice("advertising")}
                       />
                       <div className="peer h-6 w-11 rounded-full bg-gray-300 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-navy peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gold/30"></div>
-                      <span className="sr-only">Enable Advertising Cookies</span>
+                      <span className="sr-only">
+                        Enable Advertising Cookies
+                      </span>
                     </label>
                   </div>
                   <p className="text-sm text-body">
                     Advertising cookies may be used to measure campaigns or
-                    deliver relevant content where advertising tools are enabled.
+                    deliver relevant content where advertising tools are
+                    enabled.
                   </p>
                 </div>
               </div>

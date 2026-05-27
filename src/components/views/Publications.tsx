@@ -5,7 +5,13 @@ import { useState, useMemo } from "react";
 import { BlogPreviewCard } from "@/components/BlogPreviewCard";
 import { Divider } from "@/components/Divider";
 import { getPublishedBlogPosts, getBlogAuthor } from "@/data/blogs";
-import { ChevronDown, ChevronLeft, ChevronRight, Search, X } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Search,
+  X,
+} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { GsapReveal } from "@/components/animations/GsapReveal";
@@ -17,7 +23,9 @@ export function Publications({ initialPage = 1 }: { initialPage?: number }) {
   const allInsights = getPublishedBlogPosts();
   const categories = [
     "All",
-    ...Array.from(new Set(allInsights.map((p) => p.practiceArea))).filter(Boolean).sort(),
+    ...Array.from(new Set(allInsights.map((p) => p.practiceArea)))
+      .filter(Boolean)
+      .sort(),
   ];
 
   const [activeCategory, setActiveCategory] = useState("All");
@@ -57,14 +65,20 @@ export function Publications({ initialPage = 1 }: { initialPage?: number }) {
     return results;
   }, [allInsights, activeCategory, searchQuery, sortBy]);
 
-  const totalPages = Math.max(1, Math.ceil(filteredAndSortedInsights.length / POSTS_PER_PAGE));
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredAndSortedInsights.length / POSTS_PER_PAGE)
+  );
   const currentPage = Math.min(initialPage, totalPages);
-  
+
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const endIndex = startIndex + POSTS_PER_PAGE;
   const currentInsights = filteredAndSortedInsights.slice(startIndex, endIndex);
 
-  const filtersActive = activeCategory !== "All" || searchQuery.trim() !== "" || sortBy !== "latest";
+  const filtersActive =
+    activeCategory !== "All" ||
+    searchQuery.trim() !== "" ||
+    sortBy !== "latest";
 
   const getResultsCountText = () => {
     const count = filteredAndSortedInsights.length;
@@ -198,14 +212,17 @@ export function Publications({ initialPage = 1 }: { initialPage?: number }) {
 
             {/* Results Count & Clear Filters Row */}
             <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4 border-t border-gray-100">
-              <div className="text-sm text-body font-medium leading-snug break-words max-w-full" aria-live="polite">
+              <div
+                className="text-sm text-body font-medium leading-snug break-words max-w-full"
+                aria-live="polite"
+              >
                 {filteredAndSortedInsights.length === 0 ? (
                   "Showing 0 publications"
                 ) : (
                   <span>{getResultsCountText()}</span>
                 )}
               </div>
-              
+
               {filtersActive && (
                 <button
                   onClick={clearFilters}
@@ -224,18 +241,33 @@ export function Publications({ initialPage = 1 }: { initialPage?: number }) {
       <section className="bg-white pb-12 sm:pb-16 lg:pb-24">
         <div className="mx-auto max-w-[1280px] px-5 sm:px-6 lg:px-12">
           {currentInsights.length > 0 ? (
-            <GsapReveal staggerChildren mobileMode="fade" className="flex flex-col gap-10 sm:gap-12 lg:gap-16">
+            <GsapReveal
+              staggerChildren
+              mobileMode="fade"
+              className="flex flex-col gap-10 sm:gap-12 lg:gap-16"
+            >
               {currentInsights.map((insight, index) => (
                 <div key={insight.slug}>
                   {index > 0 && <Divider className="mb-10 sm:mb-12 lg:mb-16" />}
-                  <BlogPreviewCard post={insight} priority={index === 0 && !filtersActive && currentPage === 1} />
+                  <BlogPreviewCard
+                    post={insight}
+                    priority={
+                      index === 0 && !filtersActive && currentPage === 1
+                    }
+                  />
                 </div>
               ))}
             </GsapReveal>
           ) : (
             <div className="rounded-sm border border-brand-border bg-gray-50 py-16 px-6 text-center shadow-sm">
-              <h3 className="text-[1.125rem] font-bold text-navy mb-3">The publication you are looking for is not available under the selected filters.</h3>
-              <p className="text-body mb-8">Try adjusting your search term, selecting another practice area, or clearing your filters.</p>
+              <h3 className="text-[1.125rem] font-bold text-navy mb-3">
+                The publication you are looking for is not available under the
+                selected filters.
+              </h3>
+              <p className="text-body mb-8">
+                Try adjusting your search term, selecting another practice area,
+                or clearing your filters.
+              </p>
               <button
                 onClick={clearFilters}
                 className="inline-flex min-h-[48px] items-center justify-center rounded-sm bg-navy px-8 py-3 font-semibold text-white transition-all hover:bg-gold-text hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
@@ -282,7 +314,9 @@ export function Publications({ initialPage = 1 }: { initialPage?: number }) {
                     <Link
                       key={pageNum}
                       href={getPageLink(pageNum)}
-                      aria-current={pageNum === currentPage ? "page" : undefined}
+                      aria-current={
+                        pageNum === currentPage ? "page" : undefined
+                      }
                       className={`inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                         pageNum === currentPage
                           ? "border-navy text-navy"

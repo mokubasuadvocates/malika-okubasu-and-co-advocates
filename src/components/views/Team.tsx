@@ -68,7 +68,11 @@ export function Team() {
       {/* Team Cards */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-          <GsapReveal staggerChildren mobileMode="fade" className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
+          <GsapReveal
+            staggerChildren
+            mobileMode="fade"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12"
+          >
             {team.map((member) => (
               <div key={member.id} className="group">
                 {/* Portrait */}
@@ -121,7 +125,8 @@ export function Team() {
                     {member.linkedin && (
                       <a
                         href={member.linkedin}
-                        target="_blank" rel="noopener noreferrer"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 text-heading hover:underline underline-offset-4"
                       >
                         <Linkedin className="w-4 h-4" />
