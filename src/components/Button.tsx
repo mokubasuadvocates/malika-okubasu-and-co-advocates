@@ -48,10 +48,16 @@ export function Button({
   const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
 
   if (href) {
-    const isExternal = href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:');
-    if (isExternal) {
+    const isHttpExternal = href.startsWith('http');
+    const isAppExternal = href.startsWith('mailto:') || href.startsWith('tel:');
+
+    if (isHttpExternal || isAppExternal) {
       return (
-        <a href={href} className={combinedClassName} target="_blank" rel="noopener noreferrer">
+        <a 
+          href={href} 
+          className={combinedClassName} 
+          {...(isHttpExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
           {children}
         </a>
       );

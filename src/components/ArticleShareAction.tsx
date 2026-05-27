@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
 import Image from "next/image";
+import * as Dialog from "@radix-ui/react-dialog";
 import { 
   Share2, X as CloseIcon, Link as LinkIcon, Mail, MoreHorizontal, 
   Send, Code, AtSign
@@ -91,48 +91,6 @@ export function ArticleShareAction({
     }
   }, [statusMsg]);
 
-  // Handle scroll locking and escape key for custom portal modal
-  useEffect(() => {
-    if (modalView === "closed") {
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-      document.body.style.top = "";
-      return;
-    }
-
-    // Lock scroll (iOS safe)
-    const scrollY = window.scrollY;
-    document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.width = "100%";
-    document.body.style.top = `-${scrollY}px`;
-
-    // Listen for escape
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        if (modalView === "more") {
-          setModalView("share");
-          setTimeout(() => moreButtonRef.current?.focus(), 0);
-        } else {
-          setModalView("closed");
-          setTimeout(() => shareTriggerRef.current?.focus(), 0);
-        }
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      const top = document.body.style.top;
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-      document.body.style.top = "";
-      window.scrollTo(0, parseInt(top || "0") * -1);
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [modalView]);
-
   const openModal = () => {
     setModalView("share");
     setStatusMsg("");
@@ -140,8 +98,6 @@ export function ArticleShareAction({
 
   const closeModal = () => {
     setModalView("closed");
-    // Return focus to the trigger button for accessibility
-    setTimeout(() => shareTriggerRef.current?.focus(), 0);
   };
 
   const handleCopyLink = async () => {
@@ -243,12 +199,6 @@ export function ArticleShareAction({
     }
   };
 
-  // Close modal on backdrop click
-  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) {
-      closeModal();
-    }
-  };
 
   return (
     <section className="mt-14 sm:mt-16 article-share" aria-labelledby="share-heading">
@@ -264,20 +214,14 @@ export function ArticleShareAction({
         <span>Share</span>
       </button>
 
-      {modalView !== "closed" && typeof document !== "undefined" && createPortal(
-        <>
-          {/* Overlay */}
-          <div 
-            className="fixed inset-0 z-[9998] bg-navy/60 sm:backdrop-blur-sm transition-opacity"
-            onClick={handleBackdropClick}
-            aria-hidden="true"
-          />
-          {/* Dialog */}
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="share-dialog-title"
-            className="fixed inset-x-0 bottom-0 z-[9999] m-0 w-full max-w-full overflow-hidden rounded-t-2xl bg-white p-0 shadow-2xl sm:inset-0 sm:m-auto sm:max-w-[480px] sm:rounded-[20px] sm:max-h-[calc(100dvh-48px)] sm:overflow-visible max-h-[90dvh] overscroll-contain pb-[calc(env(safe-area-inset-bottom)+16px)] sm:pb-0"
+      <Dialog.Root open={modalView !== "closed"} onOpenChange={(open) => {
+        if (!open) closeModal();
+      }}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 z-[9998] bg-navy/60 sm:backdrop-blur-sm transition-opacity data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+          <Dialog.Content
+            aria-describedby={undefined}
+            className="fixed inset-x-0 bottom-0 z-[9999] m-0 w-full max-w-full overflow-hidden rounded-t-2xl bg-white p-0 shadow-2xl sm:inset-0 sm:m-auto sm:max-w-[480px] sm:rounded-[20px] sm:max-h-[calc(100dvh-48px)] sm:overflow-visible max-h-[90dvh] overscroll-contain pb-[calc(env(safe-area-inset-bottom)+16px)] sm:pb-0 outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-bottom-full sm:data-[state=closed]:slide-out-to-bottom-0 sm:data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-bottom-full sm:data-[state=open]:slide-in-from-bottom-0 sm:data-[state=open]:slide-in-from-top-[48%]"
           >
           <div className="flex flex-col h-full max-h-[90dvh] sm:max-h-[calc(100dvh-48px)]">
             {/* Header */}
@@ -295,14 +239,14 @@ export function ArticleShareAction({
                     >
                       ← Back
                     </button>
-                    <h2 id="share-dialog-title" className="text-lg font-bold text-navy border-l border-gray-200 pl-3">
+                    <Dialog.Title id="share-dialog-title" className="text-lg font-bold text-navy border-l border-gray-200 pl-3">
                       Embed article
-                    </h2>
+                    </Dialog.Title>
                   </div>
                 ) : (
-                  <h2 id="share-dialog-title" className="text-lg font-bold text-navy">
+                  <Dialog.Title id="share-dialog-title" className="text-lg font-bold text-navy">
                     Share this post
-                  </h2>
+                  </Dialog.Title>
                 )}
                 <button
                   onClick={closeModal}
@@ -673,10 +617,9 @@ export function ArticleShareAction({
             )}
             </div>
           </div>
-          </div>
-        </>,
-        document.body
-      )}
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </section>
   );
 }

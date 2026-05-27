@@ -32,6 +32,11 @@ function getClientIp(request: NextRequest): string {
 }
 
 async function checkRateLimit(ip: string): Promise<boolean> {
+  if (process.env.NODE_ENV === 'production' && !redis) {
+    console.error('CRITICAL: Redis configuration missing in production');
+    return false;
+  }
+
   if (redis) {
     try {
       const key = `rate-limit:${ip}`;
@@ -41,11 +46,15 @@ async function checkRateLimit(ip: string): Promise<boolean> {
       }
       return count <= RATE_LIMIT_MAX;
     } catch (error) {
+      if (process.env.NODE_ENV === 'production') {
+        console.error("CRITICAL: Redis rate limit error in production:", error);
+        return false;
+      }
       console.warn("Redis rate limit error, falling back to memory:", error);
     }
   }
 
-  // Fallback to in-memory rate limiting
+  // Fallback to in-memory rate limiting (development only)
   const now = Date.now();
   const record = rateLimitStore.get(ip);
 
@@ -75,8 +84,13 @@ function countUrls(text: string): number {
 }
 
 async function verifyTurnstile(token: string): Promise<boolean> {
+  if (process.env.NODE_ENV === 'production' && !process.env.TURNSTILE_SECRET_KEY) {
+    console.error('CRITICAL: TURNSTILE_SECRET_KEY missing in production');
+    return false;
+  }
+
   if (!process.env.TURNSTILE_SECRET_KEY) {
-    return true; // No verification needed if not configured
+    return true; // No verification needed if not configured in dev
   }
 
   try {
@@ -211,8 +225,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Turnstile verification if configured
-    if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && process.env.TURNSTILE_SECRET_KEY) {
+    // Turnstile verification if configured or in production
+    const isProd = process.env.NODE_ENV === 'production';
+    if (isProd || (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && process.env.TURNSTILE_SECRET_KEY)) {
       if (!turnstileToken) {
         return NextResponse.json(
           { success: false, error: 'Your message could not be sent. Please email us directly at legal@mokubasuadvocates.com.' },

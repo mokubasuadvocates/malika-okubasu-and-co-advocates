@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { X, ShieldCheck } from "lucide-react";
+import * as Dialog from "@radix-ui/react-dialog";
 
 type ConsentChoices = {
   necessary: boolean;
@@ -31,8 +32,6 @@ export function CookieConsent() {
   const [showModal, setShowModal] = useState(false);
   const [hasChoice, setHasChoice] = useState(false);
   const [choices, setChoices] = useState<ConsentChoices>(DEFAULT_CHOICES);
-  const modalRef = useRef<HTMLDivElement>(null);
-  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem(CONSENT_KEY);
@@ -126,7 +125,6 @@ export function CookieConsent() {
   };
 
   const openModal = () => {
-    previousFocusRef.current = document.activeElement as HTMLElement;
     setShowModal(true);
     setShowBanner(false);
   };
@@ -137,30 +135,7 @@ export function CookieConsent() {
       setShowBanner(true);
       setHasChoice(false);
     }
-    if (previousFocusRef.current) {
-      previousFocusRef.current.focus();
-    }
   };
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && showModal) {
-        closeModal();
-      }
-    };
-    if (showModal) {
-      document.body.style.overflow = "hidden";
-      document.addEventListener("keydown", handleKeyDown);
-      modalRef.current?.focus();
-    } else {
-      document.body.style.overflow = "";
-      document.removeEventListener("keydown", handleKeyDown);
-    }
-    return () => {
-      document.body.style.overflow = "";
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [showModal]);
 
   const toggleChoice = (key: keyof ConsentChoices) => {
     if (key === "necessary") return;
@@ -209,30 +184,28 @@ export function CookieConsent() {
         </div>
       )}
 
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-navy/80 p-4 backdrop-blur-sm sm:p-6">
-          <div
-            ref={modalRef}
-            tabIndex={-1}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="cookie-modal-title"
-            className="flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-lg bg-white shadow-2xl outline-none"
+      <Dialog.Root open={showModal} onOpenChange={(open) => {
+        if (!open) closeModal();
+        else setShowModal(true);
+      }}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 z-50 bg-navy/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+          <Dialog.Content
+            aria-describedby={undefined}
+            className="fixed left-[50%] top-[50%] z-50 flex max-h-[90vh] w-[95vw] max-w-2xl translate-x-[-50%] translate-y-[-50%] flex-col overflow-hidden rounded-lg bg-white shadow-2xl outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]"
           >
             <div className="flex items-center justify-between border-b border-navy/10 p-5 md:p-6">
-              <h2
-                id="cookie-modal-title"
-                className="text-xl font-bold text-heading md:text-2xl"
-              >
+              <Dialog.Title className="text-xl font-bold text-heading md:text-2xl">
                 Customize Consent Preferences
-              </h2>
-              <button
-                onClick={closeModal}
-                className="rounded-full p-2 text-secondary-text transition-colors hover:bg-soft-bg hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-                aria-label="Close modal"
-              >
-                <X className="h-5 w-5" />
-              </button>
+              </Dialog.Title>
+              <Dialog.Close asChild>
+                <button
+                  className="rounded-full p-2 text-secondary-text transition-colors hover:bg-soft-bg hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  aria-label="Close modal"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </Dialog.Close>
             </div>
 
             <div className="flex-1 overflow-y-auto p-5 md:p-6">
@@ -385,9 +358,9 @@ export function CookieConsent() {
                 Accept All
               </button>
             </div>
-          </div>
-        </div>
-      )}
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
 
       {/* Floating Icon */}
       {!showBanner && hasChoice && (

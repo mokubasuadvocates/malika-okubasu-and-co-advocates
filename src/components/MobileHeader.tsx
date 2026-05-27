@@ -15,6 +15,7 @@ import {
   Phone,
   X,
 } from "lucide-react";
+import * as Dialog from "@radix-ui/react-dialog";
 import { OFFICIAL_LINKEDIN_URL } from "@/constants/social";
 import { practiceAreas } from "@/constants/practiceAreas";
 
@@ -70,14 +71,6 @@ export function MobileHeader() {
     pathname === path || (path !== "/" && pathname.startsWith(`${path}/`));
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "unset";
-
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
 
@@ -129,7 +122,7 @@ export function MobileHeader() {
   );
 
   return (
-    <>
+    <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
       <header className="sticky top-0 z-50 border-b border-[rgba(0,62,99,0.12)] bg-white shadow-[0_10px_30px_rgba(0,62,99,0.08)] lg:hidden">
         <div
           className="relative h-11 bg-[linear-gradient(90deg,#002f4d_0%,#003e63_55%,#0b5f8f_100%)] text-white md:hidden"
@@ -246,32 +239,30 @@ export function MobileHeader() {
             </span>
           </Link>
 
-          <button
-            type="button"
-            onClick={() => setIsOpen((value) => !value)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-navy text-white transition-colors hover:bg-gold"
-            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={isOpen}
-            aria-controls="mobile-primary-navigation"
-          >
-            {isOpen ? (
-              <X className="h-6 w-6" aria-hidden="true" />
-            ) : (
-              <Menu className="h-6 w-6" aria-hidden="true" />
-            )}
-          </button>
+          <Dialog.Trigger asChild>
+            <button
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-navy text-white transition-colors hover:bg-gold"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            >
+              {isOpen ? (
+                <X className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </Dialog.Trigger>
         </div>
       </header>
 
-      <div
-        id="mobile-primary-navigation"
-        className={`fixed inset-x-0 bottom-0 top-[116px] z-40 overflow-y-auto bg-white px-5 py-6 shadow-[0_20px_45px_rgba(0,47,77,0.18)] transition-all duration-200 lg:hidden ${
-          isOpen
-            ? "translate-y-0 opacity-100 visible"
-            : "pointer-events-none -translate-y-3 opacity-0 invisible"
-        }`}
-      >
-        <nav aria-label="Mobile primary navigation" className="flex flex-col gap-2">
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-x-0 bottom-0 top-[116px] z-40 bg-navy/20 backdrop-blur-sm lg:hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <Dialog.Content
+          aria-describedby={undefined}
+          className="fixed inset-x-0 bottom-0 top-[116px] z-40 overflow-y-auto bg-white px-5 py-6 shadow-[0_20px_45px_rgba(0,47,77,0.18)] lg:hidden outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:slide-out-to-top-3 data-[state=open]:slide-in-from-top-3"
+        >
+          <Dialog.Title className="sr-only">Mobile Navigation</Dialog.Title>
+          <nav aria-label="Mobile primary navigation" className="flex flex-col gap-2">
           {mainLinks.slice(0, 2).map((link) => (
             <Link
               key={link.path}
@@ -375,7 +366,8 @@ export function MobileHeader() {
             Get In Touch
           </Link>
         </nav>
-      </div>
-    </>
+      </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 }
