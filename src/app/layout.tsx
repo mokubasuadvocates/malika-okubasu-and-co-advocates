@@ -98,9 +98,17 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: import("next").Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: "#0B2F4A",
+  viewportFit: "cover",
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={`antialiased scroll-smooth ${inter.variable} ${poppins.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{

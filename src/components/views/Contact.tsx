@@ -384,7 +384,7 @@ export function Contact() {
                         aria-describedby={
                           errors.fullName ? "fullName-error" : undefined
                         }
-                        className={`w-full px-4 py-3 bg-white border ${
+                        className={`w-full text-base px-4 py-3 bg-white border ${
                           errors.fullName
                             ? "border-error"
                             : "border-form-border"
@@ -418,7 +418,7 @@ export function Contact() {
                         aria-describedby={
                           errors.email ? "email-error" : undefined
                         }
-                        className={`w-full px-4 py-3 bg-white border ${
+                        className={`w-full text-base px-4 py-3 bg-white border ${
                           errors.email ? "border-error" : "border-form-border"
                         } focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2`}
                       />
@@ -443,7 +443,7 @@ export function Contact() {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => handleChange("phone", e.target.value)}
-                        className="w-full px-4 py-3 bg-white border border-form-border focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
+                        className="w-full text-base px-4 py-3 bg-white border border-form-border focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
                       />
                     </div>
 
@@ -463,7 +463,7 @@ export function Contact() {
                         onChange={(e) =>
                           handleChange("subject", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-white border border-form-border focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
+                        className="w-full text-base px-4 py-3 bg-white border border-form-border focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
                       />
                     </div>
 
@@ -487,7 +487,7 @@ export function Contact() {
                         aria-describedby={
                           errors.message ? "message-error" : undefined
                         }
-                        className={`w-full px-4 py-3 bg-white border ${
+                        className={`w-full text-base px-4 py-3 bg-white border ${
                           errors.message ? "border-error" : "border-form-border"
                         } focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2 resize-none`}
                       />

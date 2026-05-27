@@ -48,7 +48,7 @@ export default function EmbedPublicationPage({ params }: Props) {
   const url = `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.mokubasuadvocates.com"}/publications/${post.slug}`;
 
   return (
-    <div className="flex min-h-screen w-full items-center justify-center p-0">
+    <div className="flex min-h-[100dvh] w-full items-center justify-center p-0">
       <div className="w-full h-full bg-white sm:rounded-xl sm:border sm:border-gray-200 overflow-hidden shadow-sm flex flex-col">
         {post.image && (
           <div className="relative h-48 w-full bg-soft-blue flex-shrink-0">

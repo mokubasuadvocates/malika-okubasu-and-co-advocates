@@ -80,8 +80,9 @@ export function Home() {
           loop
           muted
           playsInline
+          controls={false}
           poster="/images/nairobi-kenya-law-firm-hero-poster.v1.webp"
-          className="absolute inset-0 z-0 hidden h-full w-full object-cover motion-safe:block"
+          className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full object-cover motion-safe:block"
           aria-hidden="true"
         >
           <source src="/videos/nairobi-kenya-hero.v1.mp4" type="video/mp4" />
