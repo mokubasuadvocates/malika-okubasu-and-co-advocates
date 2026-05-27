@@ -1,5 +1,6 @@
 import { PracticeAreas } from "@/components/views/PracticeAreas";
-import { SITE_NAME, absoluteUrl } from "@/constants/seo";
+import { SITE_NAME, SITE_URL, absoluteUrl } from "@/constants/seo";
+import JsonLd from "@/components/JsonLd";
 
 const description =
   "Explore the legal services offered by Malika Okubasu & Company Advocates, including corporate and commercial law, dispute resolution, technology and intellectual property, real estate, employment, policy, cross-border advisory, and succession planning.";
@@ -26,5 +27,31 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <PracticeAreas />;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${SITE_URL}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Practice Areas",
+          item: url,
+        },
+      ],
+    },
+  ];
+
+  return (
+    <>
+      <JsonLd data={jsonLd} />
+      <PracticeAreas />
+    </>
+  );
 }

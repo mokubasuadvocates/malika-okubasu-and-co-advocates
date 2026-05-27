@@ -1,5 +1,6 @@
 import { Team } from "@/components/views/Team";
-import { SITE_NAME, absoluteUrl } from "@/constants/seo";
+import { SITE_NAME, SITE_URL, absoluteUrl } from "@/constants/seo";
+import JsonLd from "@/components/JsonLd";
 
 const description =
   "Meet the advocates and legal professionals at Malika Okubasu & Company Advocates.";
@@ -26,5 +27,31 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <Team />;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${SITE_URL}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Our Team",
+          item: url,
+        },
+      ],
+    },
+  ];
+
+  return (
+    <>
+      <JsonLd data={jsonLd} />
+      <Team />
+    </>
+  );
 }
