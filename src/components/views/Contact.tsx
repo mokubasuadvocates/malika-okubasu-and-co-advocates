@@ -231,7 +231,7 @@ export function Contact() {
       </section>
 
       {/* Contact Content */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-12 lg:py-16 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left: Contact Details */}

@@ -349,7 +349,13 @@ export function FAQSection() {
   // Ref array for the category buttons to allow smooth scrolling into view
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
+  const isFirstMount = useRef(true);
+
   useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
     const activeIndex = CATEGORIES.findIndex((c) => c.label === activeCategory);
     if (activeIndex !== -1 && tabRefs.current[activeIndex]) {
       // Scroll the active tab into the center of the viewport smoothly
@@ -373,7 +379,7 @@ export function FAQSection() {
   };
 
   return (
-    <section className="py-16 lg:py-24 xl:py-28 bg-[#f8f9fa] border-y border-gray-200 overflow-hidden">
+    <section className="py-12 lg:py-16 xl:py-20 bg-[#f8f9fa] border-y border-gray-200 overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-[380px_1fr] xl:grid-cols-[420px_1fr] gap-12 lg:gap-16 xl:gap-24 items-start">
           {/* Left Column: Sticky Context Area */}

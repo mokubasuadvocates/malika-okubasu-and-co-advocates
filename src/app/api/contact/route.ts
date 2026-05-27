@@ -2,6 +2,9 @@ import nodemailer from "nodemailer";
 import { NextResponse, NextRequest } from "next/server";
 import { Redis } from "@upstash/redis";
 
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
+
 const isValidEmail = (value: string) => /^\S+@\S+\.\S+$/.test(value.trim());
 
 // Initialize Redis if environment variables are present

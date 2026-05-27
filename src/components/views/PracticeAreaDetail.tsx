@@ -119,7 +119,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
     <div>
       <JsonLd data={jsonLd} />
       {/* Hero */}
-      <section className="relative bg-soft-blue border-b border-brand-border py-16 lg:py-20">
+      <section className="relative bg-soft-blue border-b border-brand-border py-12 lg:py-16">
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80"
@@ -199,7 +199,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
       </section>
 
       {/* Overview */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-12 lg:py-16 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <div className="max-w-4xl">
             <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-8">
@@ -216,7 +216,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
       </section>
 
       {/* Services */}
-      <section className="py-16 lg:py-24 bg-soft-blue">
+      <section className="py-12 lg:py-16 bg-soft-blue">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-8">
             We provide legal advice and services on
@@ -238,7 +238,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
       </section>
 
       {/* Key Contacts */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-12 lg:py-16 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-8">
             Key Contacts
@@ -273,7 +273,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
 
       {/* Related Insights */}
       {relatedInsights.length > 0 && (
-        <section className="py-16 lg:py-24 bg-soft-blue">
+        <section className="py-12 lg:py-16 bg-soft-blue">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
             <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-8">
               Related Insights
@@ -294,7 +294,7 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
       )}
 
       {/* Bottom CTA */}
-      <section className="py-16 lg:py-20 bg-light-blue">
+      <section className="py-12 lg:py-16 bg-light-blue">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12 text-center">
           <h2 className="text-3xl lg:text-5xl font-bold text-heading mb-8">
             Need guidance in {practiceArea.title}?

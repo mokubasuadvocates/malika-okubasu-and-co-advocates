@@ -75,7 +75,7 @@ export function About() {
       </section>
 
       {/* 2) Core Narrative Section */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-white">
+      <section className="py-12 lg:py-16 xl:py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <Divider className="mb-12 lg:mb-16" />
           <div className="grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] lg:gap-16 xl:gap-20">
@@ -121,7 +121,7 @@ export function About() {
       </div>
 
       {/* 3) Objectives */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-soft-blue">
+      <section className="py-12 lg:py-16 xl:py-20 bg-soft-blue">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-10 lg:mb-14 xl:mb-16">
             Our Objectives
@@ -147,7 +147,7 @@ export function About() {
       </div>
 
       {/* 4) Our Services */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-white">
+      <section className="py-12 lg:py-16 xl:py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-6 lg:mb-8">
             Our Services
@@ -182,7 +182,7 @@ export function About() {
       </div>
 
       {/* 5) What Clients Can Expect */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-soft-blue">
+      <section className="py-12 lg:py-16 xl:py-20 bg-soft-blue">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-10 lg:mb-14 xl:mb-16">
             What Clients Can Expect
@@ -206,7 +206,7 @@ export function About() {
       </div>
 
       {/* 6) Vision + Mission */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-white">
+      <section className="py-12 lg:py-16 xl:py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20">
             {/* Vision */}
@@ -241,7 +241,7 @@ export function About() {
       </div>
 
       {/* 7) Core Values */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-soft-blue">
+      <section className="py-12 lg:py-16 xl:py-20 bg-soft-blue">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-10 lg:mb-14 xl:mb-16">
             Core Values
@@ -265,7 +265,7 @@ export function About() {
       </div>
 
       {/* 8) Practice Areas - LAST SECTION */}
-      <section id="practice-areas" className="py-16 lg:py-24 xl:py-28 bg-white">
+      <section id="practice-areas" className="py-12 lg:py-16 xl:py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <div className="text-xs lg:text-sm uppercase tracking-wider text-body mb-4 lg:mb-6">
             Practice Areas

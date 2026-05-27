@@ -13,6 +13,33 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: "/videos/nairobi-kenya-hero.v1.mp4",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/images/nairobi-kenya-law-firm-hero-poster.v1.webp",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/api/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, no-cache, must-revalidate, proxy-revalidate",
+          },
+        ],
+      },
+      {
         source: "/(.*)",
         headers: [
           {

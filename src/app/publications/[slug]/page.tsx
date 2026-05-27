@@ -10,6 +10,8 @@ type PageProps = {
   };
 };
 
+export const revalidate = 86400; // 24 hours
+
 export function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,

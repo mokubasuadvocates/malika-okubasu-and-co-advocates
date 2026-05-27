@@ -6,6 +6,8 @@ const description =
   "Read legal updates, insights, and publications from Malika Okubasu & Company Advocates.";
 const url = absoluteUrl("/publications");
 
+export const revalidate = 86400; // 24 hours
+
 export const metadata = {
   title: "Publications",
   description,

@@ -200,7 +200,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
     <div>
       <JsonLd data={jsonLd} />
       {/* Hero Section */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-12 lg:py-16 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-body mb-8">
@@ -297,7 +297,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
       </section>
 
       {/* Bio */}
-      <section className="py-16 lg:py-24 bg-soft-blue">
+      <section className="py-12 lg:py-16 bg-soft-blue">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <div className="max-w-4xl">
             <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-6">
@@ -313,7 +313,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
       </section>
 
       {profile.expertise?.length ? (
-        <section className="py-16 lg:py-24 bg-white">
+        <section className="py-12 lg:py-16 bg-white">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
               <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-6">
@@ -336,7 +336,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
 
       {/* Experience */}
       {profile.experience?.length ? (
-        <section className="py-16 lg:py-24 bg-soft-blue">
+        <section className="py-12 lg:py-16 bg-soft-blue">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
               <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-8">
@@ -365,7 +365,7 @@ export function TeamProfile({ id }: TeamProfileProps) {
 
       {/* Education */}
       {profile.education?.length ? (
-        <section className="py-16 lg:py-24 bg-white">
+        <section className="py-12 lg:py-16 bg-white">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
               <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-6">

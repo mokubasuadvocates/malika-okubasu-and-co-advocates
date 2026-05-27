@@ -65,12 +65,12 @@ export function Home() {
   return (
     <div>
       {/* 1) Premium Hero Section */}
-      <section className="relative flex min-h-[75vh] w-full items-center overflow-hidden bg-[#0B2F4A] lg:min-h-[85vh]">
+      <section className="relative flex min-h-[60vh] w-full items-center overflow-hidden bg-[#0B2F4A] lg:min-h-[65vh]">
         {/* Fallback Image / Poster for pre-load and reduced motion */}
         <div
           className="absolute inset-0 z-0 bg-[#0B2F4A] bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url(/images/nairobi-kenya-hero-poster.webp)",
+            backgroundImage: "url(/images/nairobi-kenya-law-firm-hero-poster.v1.webp)",
           }}
         />
 
@@ -80,11 +80,11 @@ export function Home() {
           loop
           muted
           playsInline
-          poster="/images/nairobi-kenya-hero-poster.webp"
+          poster="/images/nairobi-kenya-law-firm-hero-poster.v1.webp"
           className="absolute inset-0 z-0 hidden h-full w-full object-cover motion-safe:block"
           aria-hidden="true"
         >
-          <source src="/videos/nairobi-kenya-hero.mp4" type="video/mp4" />
+          <source src="/videos/nairobi-kenya-hero.v1.mp4" type="video/mp4" />
         </video>
 
         {/* Custom Overlay Gradient */}
@@ -157,7 +157,7 @@ export function Home() {
       </section>
 
       {/* 2) Practice Areas Section */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-white">
+      <section className="py-12 lg:py-16 xl:py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <Divider className="mb-12 lg:mb-16 xl:mb-20" />
 
@@ -204,7 +204,7 @@ export function Home() {
       </section>
 
       {/* 3) Firm Snapshot Module */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-light-blue">
+      <section className="py-12 lg:py-16 xl:py-20 bg-light-blue">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20">
             {/* Left Column */}
@@ -253,7 +253,7 @@ export function Home() {
       </section>
 
       {/* 4) What Clients Can Expect */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-white">
+      <section className="py-12 lg:py-16 xl:py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <Divider className="mb-12 lg:mb-16" />
 
@@ -302,7 +302,7 @@ export function Home() {
       </section>
 
       {/* 5) Featured Insights */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-white">
+      <section className="py-12 lg:py-16 xl:py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <div className="text-xs lg:text-sm uppercase tracking-wider text-link mb-4 lg:mb-6">
             Publications
@@ -341,7 +341,7 @@ export function Home() {
       <FAQSection />
 
       {/* 6) Our Team Preview */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-white">
+      <section className="py-12 lg:py-16 xl:py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <Divider className="mb-12 lg:mb-16" />
 
@@ -426,7 +426,7 @@ export function Home() {
       </section>
 
       {/* 7) Get In Touch Preview */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-soft-blue">
+      <section className="py-12 lg:py-16 xl:py-20 bg-soft-blue">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.82fr)] lg:gap-16 xl:gap-20">
             {/* Left */}

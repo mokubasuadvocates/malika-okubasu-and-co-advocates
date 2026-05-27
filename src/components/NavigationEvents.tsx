@@ -18,9 +18,19 @@ function NavigationEventsInner() {
   }, []);
 
   useEffect(() => {
-    // Skip scroll on initial load since browser handles it
+    // Skip scroll on initial load since browser handles it,
+    // EXCEPT on the homepage where we force scroll to top to fix refresh bug.
     if (isFirstMount.current) {
       isFirstMount.current = false;
+      if (pathname === "/") {
+        if ("scrollRestoration" in window.history) {
+          window.history.scrollRestoration = "manual";
+        }
+        if (!window.location.hash) {
+          window.scrollTo(0, 0);
+          setTimeout(() => window.scrollTo(0, 0), 50);
+        }
+      }
       return;
     }
 
