@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
+import Link from "next/link";
 
 interface ButtonProps {
   children: ReactNode;
@@ -47,10 +48,18 @@ export function Button({
   const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
 
   if (href) {
+    const isExternal = href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:');
+    if (isExternal) {
+      return (
+        <a href={href} className={combinedClassName} target="_blank" rel="noopener noreferrer">
+          {children}
+        </a>
+      );
+    }
     return (
-      <a href={href} className={combinedClassName}>
+      <Link href={href} className={combinedClassName}>
         {children}
-      </a>
+      </Link>
     );
   }
 

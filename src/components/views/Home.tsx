@@ -7,6 +7,7 @@ import { Divider } from "@/components/Divider";
 import { practiceAreas } from "@/constants/practiceAreas";
 import { getPublishedBlogPosts } from "@/data/blogs";
 import { GsapReveal } from "@/components/animations/GsapReveal";
+import { FAQSection } from "@/components/FAQSection";
 
 export function Home() {
   const expectations = [
@@ -280,47 +281,7 @@ export function Home() {
       </section>
 
       {/* 5.5) Frequently Asked Questions */}
-      <section className="py-16 lg:py-24 xl:py-28 bg-soft-blue">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-          <div className="text-xs lg:text-sm uppercase tracking-wider text-link mb-4 lg:mb-6">
-            FAQ
-          </div>
-
-          <h2 className="gold-accent-line text-3xl lg:text-4xl xl:text-5xl font-bold text-heading mb-12 lg:mb-16 xl:mb-20">
-            Frequently Asked Questions
-          </h2>
-
-          <GsapReveal staggerChildren mobileMode="fade" className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16">
-            <div className="bg-white p-6 lg:p-8 rounded-sm shadow-sm border border-brand-border">
-              <h3 className="text-xl font-bold text-heading mb-3">Where is your firm located?</h3>
-              <p className="text-body leading-relaxed">
-                Our main office is located in Nairobi, Kenya, at 5th Avenue Suites on Ngong Road (Suite No. 6, 4th Floor). We serve clients both locally in Kenya and internationally.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 lg:p-8 rounded-sm shadow-sm border border-brand-border">
-              <h3 className="text-xl font-bold text-heading mb-3">What are your main practice areas?</h3>
-              <p className="text-body leading-relaxed">
-                We focus on Corporate and Commercial Law, Dispute Resolution, Real Estate and Conveyancing, Employment Law, Family Law, and Technology/Intellectual Property Law.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 lg:p-8 rounded-sm shadow-sm border border-brand-border">
-              <h3 className="text-xl font-bold text-heading mb-3">Do you handle cross-border disputes?</h3>
-              <p className="text-body leading-relaxed">
-                Yes. We frequently advise clients on cross-border transactions and regional integration matters, particularly within the East African Community (EAC) and AfCFTA frameworks.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 lg:p-8 rounded-sm shadow-sm border border-brand-border">
-              <h3 className="text-xl font-bold text-heading mb-3">How do I book a consultation?</h3>
-              <p className="text-body leading-relaxed">
-                You can request a consultation by visiting our Contact page, calling us directly at +254 141 397 048, or emailing legal@mokubasuadvocates.com. We aim to respond to all inquiries within 24 hours.
-              </p>
-            </div>
-          </GsapReveal>
-        </div>
-      </section>
+      <FAQSection />
 
       {/* 6) Our Team Preview */}
       <section className="py-16 lg:py-24 xl:py-28 bg-white">
