@@ -213,9 +213,20 @@ export function MobileHeader() {
         <div className="flex h-[72px] items-center justify-between bg-white px-4">
           <Link
             href="/"
+            scroll={true}
             aria-label="Malika Okubasu & Company Advocates home"
             className="flex min-w-0 items-center gap-3 text-navy"
-            onClick={closeMenu}
+            onClick={(e) => {
+              if (pathname === "/") {
+                e.preventDefault();
+                const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+                window.scrollTo({
+                  top: 0,
+                  behavior: mediaQuery.matches ? "instant" : "smooth",
+                });
+              }
+              closeMenu();
+            }}
           >
             <Image
               src="/logo-mark.png"
@@ -265,7 +276,18 @@ export function MobileHeader() {
             <Link
               key={link.path}
               href={link.path}
-              onClick={closeMenu}
+              scroll={true}
+              onClick={(e) => {
+                if (link.path === "/" && pathname === "/") {
+                  e.preventDefault();
+                  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+                  window.scrollTo({
+                    top: 0,
+                    behavior: mediaQuery.matches ? "instant" : "smooth",
+                  });
+                }
+                closeMenu();
+              }}
               aria-current={isActive(link.path) ? "page" : undefined}
               className={`rounded-lg px-3 py-3 text-xl font-bold transition-colors hover:bg-soft-bg hover:text-gold-text ${
                 isActive(link.path) ? "text-gold bg-soft-bg" : "text-navy"

@@ -171,6 +171,17 @@ export function DesktopHeader() {
         <div className="mx-auto flex h-20 max-w-[1280px] items-center gap-8 px-6 lg:px-12">
           <Link
             href="/"
+            scroll={true}
+            onClick={(e) => {
+              if (pathname === "/") {
+                e.preventDefault();
+                const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+                window.scrollTo({
+                  top: 0,
+                  behavior: mediaQuery.matches ? "instant" : "smooth",
+                });
+              }
+            }}
             aria-label="Malika Okubasu & Company Advocates home"
             className="flex min-w-[245px] items-center gap-3 text-navy"
           >
@@ -196,6 +207,17 @@ export function DesktopHeader() {
           >
             <Link
               href="/"
+              scroll={true}
+              onClick={(e) => {
+                if (pathname === "/") {
+                  e.preventDefault();
+                  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+                  window.scrollTo({
+                    top: 0,
+                    behavior: mediaQuery.matches ? "instant" : "smooth",
+                  });
+                }
+              }}
               aria-current={pathname === "/" ? "page" : undefined}
               className="nav-underline text-[16px] font-bold text-navy transition-colors hover:text-gold-text"
             >

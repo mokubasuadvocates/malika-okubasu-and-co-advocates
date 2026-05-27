@@ -7,11 +7,26 @@ function NavigationEventsInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const isFirstMount = useRef(true);
+  const isPopState = useRef(false);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      isPopState.current = true;
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   useEffect(() => {
     // Skip scroll on initial load since browser handles it
     if (isFirstMount.current) {
       isFirstMount.current = false;
+      return;
+    }
+
+    if (isPopState.current) {
+      // Browser handles scroll restoration for back/forward
+      isPopState.current = false;
       return;
     }
 
@@ -24,10 +39,15 @@ function NavigationEventsInner() {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const behavior = mediaQuery.matches ? "instant" : "smooth";
 
-    window.scrollTo({
-      top: 0,
-      behavior: behavior as ScrollBehavior,
-    });
+    // Use a short timeout to allow DOM to update during page transition
+    const timeout = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: behavior as ScrollBehavior,
+      });
+    }, 50);
+
+    return () => clearTimeout(timeout);
   }, [pathname, searchParams]);
 
   return null;
