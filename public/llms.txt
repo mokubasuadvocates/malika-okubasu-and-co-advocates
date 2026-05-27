@@ -1,0 +1,43 @@
+# Malika Okubasu & Company Advocates
+
+> This file is intended for LLMs, AI agents, and web crawlers to quickly understand our firm's core identity, services, and contact information.
+
+## Firm Identity
+- **Name:** Malika Okubasu & Company Advocates
+- **Type:** Law Firm / Legal Services
+- **Location:** Nairobi, Kenya
+- **Description:** A leading Kenyan law firm providing comprehensive legal solutions to complex business challenges. We combine deep expertise with practical insight to deliver exceptional results for our clients.
+- **Website:** https://www.mokubasuadvocates.com
+
+## Practice Areas (Services)
+We provide tailored legal services across the following areas:
+- **Corporate and Commercial Law:** Business advisory, incorporation, structuring, contracts, corporate governance.
+- **Dispute Resolution:** Civil/commercial dispute representation across courts (Small Claims, High Court, Supreme Court) and alternative dispute resolution.
+- **Media, Technology and Intellectual Property:** IP registration, technology agreements, Data Protection Act 2019 compliance, digital regulation.
+- **Energy, Natural Resources and Climate Change:** Regulatory compliance, project structuring, ESG advisory, licensing.
+- **Real Estate, Banking and Finance:** Property transactions, secured lending, due diligence, Ardhisasa processes, Sectional Properties Act compliance.
+- **Employment and Labour Relations:** Employment contracts, redundancy, OSHA 2007 advisory, court representation.
+- **Policy and Legislative Drafting:** Policy drafting, legislation analysis, regulatory compliance.
+- **Regional Integration and Cross-Border Advisory:** Cross-border transactions, EAC, and AfCFTA advisory.
+- **Family Law and Succession Planning:** Matrimonial disputes, child custody, wills, trusts, probate.
+
+## Key Team Members
+- **Brenton Okubasu:** Founding Partner (On leave of absence)
+- **Oduor Khamati:** Managing Partner
+- **Susan Anyango:** Associate
+
+## Contact & Office Information
+- **Physical Address:** 5th Avenue Suites Ngong Road, Suite No. 6 4th Floor, Nairobi, Kenya
+- **Postal Address:** P.O. Box 25926 - 00603, Nairobi, Kenya
+- **Email:** legal@mokubasuadvocates.com
+- **Phone:** +254 141 397 048 / +254 717 259 196 / +254 721 789 389
+- **LinkedIn:** https://www.linkedin.com/company/malika-okubasu-co-advocates/
+
+## Important Links
+- About the Firm: https://www.mokubasuadvocates.com/about-us
+- Practice Areas: https://www.mokubasuadvocates.com/practice-areas
+- Our Team: https://www.mokubasuadvocates.com/our-team
+- Contact Us: https://www.mokubasuadvocates.com/contact
+
+## Legal Disclaimer
+The information provided on our website is for general informational purposes only and does not constitute legal advice. No advocate-client relationship is created by accessing our website.

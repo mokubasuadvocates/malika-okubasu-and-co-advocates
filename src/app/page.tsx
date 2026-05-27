@@ -49,15 +49,26 @@ export const metadata = {
 export default function Page() {
   const legalServiceSchema = {
     "@context": "https://schema.org",
-    "@type": "LegalService",
+    "@type": ["LegalService", "LocalBusiness"],
     "@id": ORGANIZATION_ID,
     name: SITE_NAME,
     url: `${SITE_URL}/`,
     logo: LOGO_URL,
     image: OG_IMAGE_URL,
     description: HOMEPAGE_DESCRIPTION,
-    areaServed: "Kenya",
-    serviceType: "Legal Services",
+    areaServed: {
+      "@type": "Country",
+      name: "Kenya",
+    },
+    serviceType: [
+      "Corporate Law",
+      "Commercial Law",
+      "Dispute Resolution",
+      "Real Estate and Conveyancing",
+      "Employment Law",
+      "Family Law",
+      "Intellectual Property",
+    ],
     telephone: SITE_TELEPHONE,
     email: SITE_EMAIL,
     sameAs: [OFFICIAL_LINKEDIN_URL],
@@ -68,6 +79,11 @@ export default function Page() {
       addressLocality: "Nairobi",
       postalCode: "00603",
       addressCountry: "KE",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "-1.2954",
+      longitude: "36.7903"
     },
   };
 
@@ -82,10 +98,50 @@ export default function Page() {
     },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Where is your firm located?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Our main office is located in Nairobi, Kenya, at 5th Avenue Suites on Ngong Road (Suite No. 6, 4th Floor). We serve clients both locally in Kenya and internationally."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "What are your main practice areas?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We focus on Corporate and Commercial Law, Dispute Resolution, Real Estate and Conveyancing, Employment Law, Family Law, and Technology/Intellectual Property Law."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "Do you handle cross-border disputes?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. We frequently advise clients on cross-border transactions and regional integration matters, particularly within the East African Community (EAC) and AfCFTA frameworks."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "How do I book a consultation?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "You can request a consultation by visiting our Contact page, calling us directly at +254 141 397 048, or emailing legal@mokubasuadvocates.com. We aim to respond to all inquiries within 24 hours."
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <JsonLd data={legalServiceSchema} />
       <JsonLd data={websiteSchema} />
+      <JsonLd data={faqSchema} />
       <Home />
     </>
   );

@@ -7,6 +7,27 @@ import { Layout } from '@/components/Layout';
 import { CookieConsent } from '@/components/CookieConsent';
 import { TopLoadingBar } from '@/components/TopLoadingBar';
 import { NavigationEvents } from '@/components/NavigationEvents';
+import JsonLd from '@/components/JsonLd';
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  name: "Malika Okubasu & Company Advocates",
+  url: `${SITE_URL}/`,
+  logo: `${SITE_URL}/icon-192x192.png`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+254141397048",
+    contactType: "Customer Service",
+    email: "legal@mokubasuadvocates.com",
+    areaServed: "KE",
+    availableLanguage: "en"
+  },
+  sameAs: [
+    "https://www.linkedin.com/company/malika-okubasu-co-advocates/"
+  ]
+};
 
 const inter = Inter({
   subsets: ['latin'],
@@ -105,6 +126,7 @@ export default function RootLayout({
       </head>
       <GoogleTagManager gtmId="GTM-M6PBWZL7" />
       <body>
+        <JsonLd data={organizationSchema} />
         <TopLoadingBar />
         <NavigationEvents />
         <Layout>{children}</Layout>

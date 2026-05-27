@@ -164,6 +164,8 @@ export function TeamProfile({ id }: TeamProfileProps) {
       },
       url: pageUrl,
       image: absoluteUrl(profile.image),
+      description: profile.bio.join(" "),
+      ...(profile.expertise?.length ? { knowsAbout: profile.expertise } : {}),
       ...(profile.email ? { email: profile.email } : {}),
       ...(profile.phone ? { telephone: profile.phone } : {}),
       ...(profile.linkedin ? { sameAs: [profile.linkedin] } : {}),
