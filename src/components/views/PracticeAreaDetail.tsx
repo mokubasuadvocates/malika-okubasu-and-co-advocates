@@ -270,24 +270,26 @@ export function PracticeAreaDetail({ slug }: PracticeAreaDetailProps) {
       </section>
 
       {/* Related Insights */}
-      <section className="py-16 lg:py-24 bg-soft-blue">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-          <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-8">
-            Related Insights
-          </h2>
+      {relatedInsights.length > 0 && (
+        <section className="py-16 lg:py-24 bg-soft-blue">
+          <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+            <h2 className="text-2xl lg:text-3xl font-bold text-heading mb-8">
+              Related Insights
+            </h2>
 
-          <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12">
-            {relatedInsights.map((insight) => (
-              <div
-                key={insight.slug}
-                className="rounded-sm border border-brand-border bg-white p-5 shadow-sm sm:p-6 lg:p-8"
-              >
-                <BlogPreviewCard post={insight} />
-              </div>
-            ))}
+            <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12">
+              {relatedInsights.map((insight) => (
+                <div
+                  key={insight.slug}
+                  className="rounded-sm border border-brand-border bg-white p-5 shadow-sm sm:p-6 lg:p-8"
+                >
+                  <BlogPreviewCard post={insight} />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Bottom CTA */}
       <section className="py-16 lg:py-20 bg-light-blue">

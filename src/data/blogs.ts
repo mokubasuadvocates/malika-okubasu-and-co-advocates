@@ -3230,5 +3230,5 @@ export const getRelatedBlogPosts = (practiceAreaTitle: string, limit = 3) => {
     post.practiceAreas.includes(practiceAreaTitle)
   );
 
-  return (related.length ? related : getPublishedBlogPosts()).slice(0, limit);
+  return related.slice(0, limit);
 };
