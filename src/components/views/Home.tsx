@@ -226,10 +226,7 @@ export function Home() {
 
               <div>
                 <Link href="/about-us">
-                  <Button
-                    variant="outline"
-                    className="border-brand-blue bg-white text-link hover:bg-white"
-                  >
+                  <Button variant="outline">
                     Learn About the Firm
                   </Button>
                 </Link>
