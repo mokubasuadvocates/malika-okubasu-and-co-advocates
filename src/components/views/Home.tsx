@@ -237,8 +237,8 @@ export function Home() {
             <div className="order-first lg:order-last">
               <div className="relative overflow-hidden rounded-lg border border-brand-border bg-white p-3 shadow-lg shadow-brand-blue/10">
                 <Image
-                  src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80"
-                  alt="Firm office"
+                  src="/images/team-members/legal-team-mokubasuadvocates.jpeg"
+                  alt="Malika Okubasu & Company Advocates Legal Team"
                   width={800}
                   height={600}
                   sizes="(max-width: 1024px) 100vw, 50vw"
