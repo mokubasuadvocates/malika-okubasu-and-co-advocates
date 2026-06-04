@@ -96,6 +96,9 @@ export const metadata: Metadata = {
     description: HOMEPAGE_DESCRIPTION,
     images: [OG_IMAGE_URL],
   },
+  verification: {
+    google: "Oh6L6YCmRaIymy11CO45Ro8fw-jIiI-uNeGOYTsnUSo",
+  },
 };
 
 export const viewport: import("next").Viewport = {
