@@ -58,13 +58,9 @@ export function About() {
             </p>
 
             {process.env.NEXT_PUBLIC_BOOKINGS_URL ? (
-              <a
-                href={process.env.NEXT_PUBLIC_BOOKINGS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href={process.env.NEXT_PUBLIC_BOOKINGS_URL}>
                 <Button variant="primary">Book a Consultation</Button>
-              </a>
+              </Link>
             ) : (
               <Link href="/contact">
                 <Button variant="primary">Book a Consultation</Button>

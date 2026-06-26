@@ -123,8 +123,6 @@ export function Home() {
               {process.env.NEXT_PUBLIC_BOOKINGS_URL ? (
                 <Link
                   href={process.env.NEXT_PUBLIC_BOOKINGS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="w-full sm:w-auto"
                 >
                   <Button
@@ -279,14 +277,12 @@ export function Home() {
           {/* Compact CTA Strip */}
           <div className="mt-12 lg:mt-16 xl:mt-20 bg-navy h-[72px] lg:h-[80px] flex items-center px-6 lg:px-12">
             {process.env.NEXT_PUBLIC_BOOKINGS_URL ? (
-              <a
+              <Link
                 href={process.env.NEXT_PUBLIC_BOOKINGS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="font-bold text-white text-base lg:text-lg hover:text-gold-hover hover:underline underline-offset-4 transition-all"
               >
                 Book a Consultation
-              </a>
+              </Link>
             ) : (
               <Link
                 href="/contact"
