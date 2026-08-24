@@ -31,6 +31,128 @@ export type BlogPost = {
 // featured image under /public/images/blogs. Keep slugs stable once published.
 export const blogPosts: BlogPost[] = [
   {
+    title:
+      "Bigamy, Customary Unions, and Inheritance: Unpacking High Court Decision [2026] KEHC 9445 (KLR)",
+    slug: "bigamy-customary-unions-inheritance-kenya",
+    date: "August 24, 2026",
+    datePublished: "2026-08-24T00:00:00Z",
+    dateModified: "2026-08-24T00:00:00Z",
+    category: "Family Law",
+    practiceArea: "Family Law and Succession Planning",
+    practiceAreas: ["Family Law and Succession Planning", "Dispute Resolution"],
+    tags: [
+      "Bigamy",
+      "Customary Law",
+      "Inheritance",
+      "Law of Succession",
+      "Marriage Act",
+      "Succession",
+    ],
+    image: "/images/blogs/bigamy-customary-unions-inheritance-kenya.png",
+    imageAlt:
+      "Probate documents, wedding rings, and scales of justice representing succession and customary union disputes in Kenya",
+    excerpt:
+      "A case update on how the High Court applied Section 3(5) of the Law of Succession Act to protect a surviving partner and children despite the technical invalidity of a second marriage.",
+    authorSlug: "oduor-khamati",
+    readTime: "5 min read",
+    seoTitle:
+      "Bigamy, Customary Unions and Inheritance in Kenya | Malika Okubasu & Company Advocates",
+    seoDescription:
+      "A case update on In re Estate of the Late Musyimi and how Section 3(5) of the Law of Succession Act may protect surviving dependants despite a void second marriage.",
+    content: [
+      {
+        type: "paragraph",
+        text: "When a person in a monogamous statutory marriage contracts a second marriage before divorce is finalised, marriage law generally treats the second union as null and void. The harder question arises when the estate goes to probate: what becomes of the second wife and the children born or raised within that relationship?",
+      },
+      {
+        type: "paragraph",
+        text: "In In re Estate of the Late Musyimi (Deceased) (Succession Cause E600 of 2022) [2026] KEHC 9445 (KLR), the High Court addressed the tension between strict civil marriage law and the protective policy of Kenyan succession law. [1]",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Background",
+      },
+      {
+        type: "paragraph",
+        text: "In 1987, the deceased contracted a statutory monogamous marriage under the African Christian Marriage and Divorce Act with his first wife. In 2015, while that statutory marriage was still legally subsisting, he paid dowry under customary law and subsequently entered into a civil marriage in Tanzania with the objector.",
+      },
+      {
+        type: "paragraph",
+        text: "In 2020, the original statutory marriage was formally dissolved by a decree absolute. The deceased then passed away in 2021. When members of the first family petitioned for letters of administration, the objector sought recognition as a co-administrator and beneficiary for herself and her minor children.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Primary Legal Issue",
+      },
+      {
+        type: "paragraph",
+        text: "The first wife argued that because the statutory monogamous marriage was still active in 2015, the deceased lacked legal capacity to marry the objector. On that view, the subsequent union was a nullity and could not confer spousal rights.",
+      },
+      {
+        type: "paragraph",
+        text: "The core issue was whether Section 3(5) of the Law of Succession Act protects a woman who contracts a customary union, followed by a civil marriage, while a prior monogamous marriage is still subsisting.",
+      },
+      {
+        type: "paragraph",
+        text: "Section 3(5) provides that notwithstanding any other written law, a woman married under a system of law that permits polygamy remains a wife for succession purposes where her husband has contracted a previous or subsequent monogamous marriage to another woman. Her children are accordingly treated as children within the meaning of the Act.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Key Findings of the Court",
+      },
+      {
+        type: "list",
+        items: [
+          "The Court acknowledged that, under general family law, the second union was technically void and constituted bigamy because the earlier monogamous marriage was still subsisting.",
+          "The Court reiterated that Parliament used the phrase \"notwithstanding the provisions of any other written law\" in Section 3(5) to insulate surviving dependants in estate disputes.",
+          "The judgment treated succession law as concerned not only with strict contractual validity, but also with protecting women and children who were treated as family during the deceased's lifetime.",
+          "The Court extended the provision beyond the more familiar scenario of a subsequent customary wife by holding that the protection also applied where the deceased underwent customary dowry rites and later contracted a civil union.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "The High Court allowed the objection, declared the objector a legal wife for succession purposes, and appointed her as a joint administrator of the estate alongside the petitioners. The Court also directed that an application for confirmation of grant be filed within 45 days.",
+      },
+      {
+        type: "paragraph",
+        text: "Importantly, the Court noted that disputes over whether specific assets, including property acquired during the first marriage, amount to matrimonial property would be determined at the distribution stage.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Takeaway for Estate Practitioners and Families",
+      },
+      {
+        type: "paragraph",
+        text: "The decision reinforces the protective policy underlying Kenyan succession law. Technical invalidity under the Marriage Act does not automatically strip a surviving partner or children of dependant rights under the Law of Succession Act.",
+      },
+      {
+        type: "paragraph",
+        text: "For estate practitioners, the judgment is a reminder to separate two questions: whether a marriage is valid under marriage law, and whether a person is recognised as a wife or child for purposes of succession. The latter question may be answered by Section 3(5), especially where the deceased treated the second household as family during his lifetime.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Discussion Point",
+      },
+      {
+        type: "paragraph",
+        text: "What are your thoughts on the Court's extension of Section 3(5) to subsequent civil unions contracted during an active statutory marriage?",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        title:
+          "In re Estate of the Late Musyimi (Deceased) (Succession Cause E600 of 2022) [2026] KEHC 9445 (KLR) (Family) (2 July 2026) (Judgment)",
+        url: "https://new.kenyalaw.org/akn/ke/judgment/kehc/2026/9445/eng@2026-07-02",
+      },
+    ],
+  },
+  {
     title: "Factoring Accounts Receivable in Kenya: A Legal Perspective",
     slug: "factoring-accounts-receivable-kenya",
     date: "June 23, 2026",
