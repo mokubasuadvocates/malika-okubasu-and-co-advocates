@@ -8,7 +8,7 @@ export function Team() {
     {
       id: "brenton-okubasu",
       name: "Brenton Okubasu",
-      role: "Founding Partner (On leave of absence), Malika Okubasu and Company Advocates",
+      role: "Founding Partner, Malika Okubasu and Company Advocates",
       location: "Nairobi, Kenya",
       email: "legal@mokubasuadvocates.com",
       phone: "+254 721 789 389 / +254 141 397 048",
