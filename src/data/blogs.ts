@@ -32,6 +32,257 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     title:
+      "Think California Law Applies to Your Nairobi Staff? The Kenyan Employment and Labour Relations Court May Say Otherwise",
+    slug: "california-law-nairobi-staff-elrc",
+    date: "September 22, 2026",
+    datePublished: "2026-09-22T00:00:00Z",
+    dateModified: "2026-09-22T00:00:00Z",
+    category: "Employment Law",
+    practiceArea: "Employment and Labour Law",
+    practiceAreas: ["Employment and Labour Law", "Corporate and Commercial Law"],
+    tags: [
+      "CrossBorderEmployment",
+      "EmploymentLaw",
+      "KenyaLaw",
+      "LabourLaw",
+      "HRCompliance",
+      "LegalRisk",
+      "CorporateGovernance",
+      "ELRC"
+    ],
+    image: "/images/blogs/kenyan-elrc-foreign-employment-law.png",
+    imageAlt: "Kenyan Employment and Labour Relations Court",
+    excerpt:
+      "Governing law clauses in international employment contracts often attempt to subject disputes to foreign jurisdictions, but Kenyan courts prioritise local statutory protections whenever the work is performed within the country.",
+    authorSlug: "oduor-khamati",
+    readTime: "7 min read",
+    seoTitle:
+      "Foreign Law in Kenyan Employment Contracts | Malika Okubasu & Company Advocates",
+    seoDescription:
+      "Explore how the Kenyan Employment and Labour Relations Court applies local statutory protections over foreign governing law clauses.",
+    content: [
+      {
+        type: "heading",
+        level: 2,
+        text: "1. INTRODUCTION",
+      },
+      {
+        type: "paragraph",
+        text: "Governing law clauses in international employment contracts often attempt to subject disputes to foreign jurisdictions, but Kenyan courts prioritise local statutory protections whenever the work is performed within the country. Grounded in the principle of lex loci solutionis (the law of the place of performance), a foreign governing-law clause does not necessarily deprive the Kenyan ELRC of jurisdiction, nor does it necessarily displace all mandatory Kenyan employment protections. The court will consider the contractual choice of law, the connecting factors and applicable mandatory Kenyan employment rules.",
+      },
+      {
+        type: "paragraph",
+        text: "While international employment agreements routinely feature governing law clauses pointing to foreign jurisdictions, the Employment and Labour Relations Court (ELRC) consistently upholds mandatory local protections whenever performance occurs in Kenya. Here is what legal, HR, and executive teams managing cross-border operations need to keep in mind:",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "2. MANDATORY STATUTORY PROTECTIONS OVERRIDE FOREIGN LAW",
+      },
+      {
+        type: "paragraph",
+        text: "Under Kenya's Employment Act (2007), core statutory standards cannot be contracted away via a choice-of-law clause. These include valid and fair reasons related to sound capacity, compatibility and operational requirements, and fair procedure in termination (Sections 41, 43 and 45), statutory benefits, and remedies.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "3. LOCATION OF PERFORMANCE (LEX LOCI SOLUTIONIS) RULE",
+      },
+      {
+        type: "paragraph",
+        text: "Where employment duties are physically executed or primarily carried out in Kenya, and the employee is a Kenyan national, Kenyan courts have jurisdiction to ensure full compliance with mandatory local labour standards. This is the case even when an employee is working under cross-border, remote, or secondment arrangements.",
+      },
+      {
+        type: "paragraph",
+        text: "Under this principle, choice-of-law clauses cannot be used to bypass local mandatory provisions under the statute. In the Dorcas case, the court expressly recognised party autonomy in international employment contracts and noted the possibility that a Kenyan court could have jurisdiction while applying foreign law.",
+      },
+      {
+        type: "paragraph",
+        text: "Indeed, the court referred approvingly to the international employment-law approach under Article 6 of the Rome Convention: a contractual choice of law can stand, provided it does not deprive the employee of mandatory protections that would otherwise apply. The court expressly noted that Kenya was not bound by that Convention.",
+      },
+      {
+        type: "paragraph",
+        text: "In employment matters where applicable law is in question, the Employment and Labour Relations Court (ELRC) formally adopted the Objective Test to determine the applicable law in cross-border employment contracts.",
+      },
+      {
+        type: "paragraph",
+        text: "The core principle established is that rather than relying solely on express choice-of-law provisions in an international contract, the Courts must objectively evaluate which jurisdiction has the most real and substantial connection to the employment relationship.",
+      },
+      {
+        type: "paragraph",
+        text: "There are several factors which are assessed under the rule. These factors include:",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "3.1. Usual Place of Work (Lex Loci Solutionis)",
+      },
+      {
+        type: "paragraph",
+        text: "The physical location where the employee executes their day-to-day duties. If, for instance, the physical location of work is Nairobi, the court is likely to apply Kenyan Employment Law.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "3.2. Location of Alleged Breach",
+      },
+      {
+        type: "paragraph",
+        text: "Where the underlying actions, misconduct, or termination took place.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "3.3. Local Operational Impact",
+      },
+      {
+        type: "paragraph",
+        text: "The extent to which the employer's operational presence and the contract's primary obligations centre on Kenya.",
+      },
+      {
+        type: "paragraph",
+        text: "In Dorcas Kemunto Wainaina v IPAS, the ELRC preferred an objective approach based on the jurisdiction with the most real connection to the employment relationship, considering connecting factors such as the place of performance, place of contracting, domicile and nationality.",
+      },
+      {
+        type: "paragraph",
+        text: "This objective test has since served as the foundation for subsequent ELRC rulings rejecting foreign choice-of-law clauses.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "4. PUBLIC POLICY LIMITS",
+      },
+      {
+        type: "paragraph",
+        text: "Section 3(6) of the Employment Act establishes statutory minimum terms and conditions and renders contractual attempts to relinquish, vary or amend those statutory minima void.",
+      },
+      {
+        type: "paragraph",
+        text: "Common Law Conflicts of Laws (Public Policy Doctrine) is also relevant. Under Kenyan conflict-of-laws principles, contractual terms that contract out of mandatory statutory rights or violate Kenyan public policy are void and unenforceable.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "4.1. Forum Non Conveniens & Jurisdiction",
+      },
+      {
+        type: "paragraph",
+        text: "An exclusive foreign jurisdiction clause will not automatically oust the jurisdiction of the ELRC if the employment relationship maintains a substantial connection to Kenya.",
+      },
+      {
+        type: "paragraph",
+        text: "Even when the applicable law is in a different country, the courts can have jurisdiction to hear and determine the case. Another ELRC decision, Captain (RTD) Charles K.W. Masinde v IGAD, specifically held that choosing Djibouti law did not mean a Kenyan court could not adjudicate the dispute.",
+      },
+      {
+        type: "paragraph",
+        text: "In the case, the court further held that:",
+      },
+      {
+        type: "paragraph",
+        text: "25. I concur with the foregoing precedent and proceed to hold that this court is clothed with the jurisdiction to determine the dispute herein based on the applicable law chosen by the parties, that is to say, the law of Djibouti. In any event, I am of the view that Djibouti is too far for the claimant, a retiree, to afford the cost of going there to pursue an employment benefits claim, yet the respondent has a local office within the jurisdiction of this court. Secondly, the presence of the local office almost guarantees the possibility of the decree of this court being executed effectively.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "4.2. Winnie Chira v Messier Inclusive Technology Limited (Cause E565 of 2023) [2026] KEELRC 1012 (KLR).",
+      },
+      {
+        type: "paragraph",
+        text: "Summary of jurisdictional facts",
+      },
+      {
+        type: "paragraph",
+        text: "While this case deals with termination and poor performance, issues were raised about the applicability of California law. In this employment claim, the Respondent argued that the Claimant was employed under a letter of offer (dated September 13, 2021) which specified that California law would govern matters of validity, interpretation, and performance. Relying on the choice of law clause, the Respondent asserted that California law applied to the employment relationship.",
+      },
+      {
+        type: "paragraph",
+        text: "Territorial nexus & Lex Loci Solutionis",
+      },
+      {
+        type: "paragraph",
+        text: "Where an international employment relationship has its predominant place of performance and other substantial connecting factors in Kenya, the ELRC may apply Kenyan law notwithstanding foreign elements in the relationship.",
+      },
+      {
+        type: "paragraph",
+        text: "The Court held that employment relationships performed within Kenya by a Kenyan national for foreign-registered entities are governed by Kenyan law, specifically the Employment Act, 2007.",
+      },
+      {
+        type: "paragraph",
+        text: "37. The Employment Act, 2007, applies where the employment relationship has a sufficient territorial nexus to Kenya, which is the situation in the instant case.",
+      },
+      {
+        type: "paragraph",
+        text: "38. In Kamurasi v Absa Bank Kenya PLC & another [2023] KEELRC 3229 (KLR), the court applied lex loci solutionis to hold that Kenyan law was the applicable law on the basis that performance of the contract occurred in Kenya, the breach occurred in Kenya, and finally that the employee resided in Kenya.",
+      },
+      {
+        type: "paragraph",
+        text: "39. Further, in Dorcas Kemunto Wainaina v. IPAS (2018) eKLR, the court held that in the absence of an express choice of law clause, the applicable law is determined by where the contract is predominantly performed.",
+      },
+      {
+        type: "paragraph",
+        text: "The Court further ruled that it possessed full jurisdiction to adjudicate the dispute because the contract was performed in Kenya, the alleged breach occurred in Kenya, and the Claimant resided in Kenya.",
+      },
+      {
+        type: "paragraph",
+        text: "Chira's case provides a recent illustration of the ELRC's approach to an international employment relationship and the application of Kenyan employment protections when there is a choice of law provision.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "5. STRATEGIC TAKEAWAYS FOR MULTINATIONAL EMPLOYERS",
+      },
+      {
+        type: "paragraph",
+        text: "Drafting foreign governing law provisions into international contracts provides internal corporate alignment, but it completely fails as a shield against local labour compliance. The Employment and Labour Relations Court strictly enforces lex loci solutionis, overriding foreign jurisdiction clauses the moment an employee's daily duties are executed within Kenya.",
+      },
+      {
+        type: "paragraph",
+        text: "To insulate operations from costly litigation and unfair termination awards, cross-border legal and HR teams must:",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "5.1. Adopt Local Procedural Baselines",
+      },
+      {
+        type: "paragraph",
+        text: "Global performance improvement plans (PIPs) and termination protocols related to section 41 must integrate Kenyan statutory requirements; employers should build a Kenyan-compliant notification and hearing process into their global procedures.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "5.2. Invalidate \"Contracting Out\"",
+      },
+      {
+        type: "paragraph",
+        text: "Recognise that mandatory protections under the Kenyan Employment Act, 2007, such as procedural fairness and statutory benefits, cannot be contracted away or bypassed via a foreign choice-of-law clause.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "5.3. Audit Remote and Secondment Roles",
+      },
+      {
+        type: "paragraph",
+        text: "Evaluate the actual physical location where employees execute their daily duties to determine true legal exposure, rather than relying on the governing law stated in the employment offer letter.",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        title: "Dorcas Kemunto Wainaina v. IPAS [2018] KEELRC 2065 (KLR)",
+        url: "https://new.kenyalaw.org/akn/ke/judgment/keelrc/2018/2065/eng@2018-04-13",
+      },
+      {
+        id: 2,
+        title:
+          "Captain (RTD) Charles K.W. Masinde v Intergovernmental Authority on Development [2018] KEELRC 520 (KLR)",
+        url: "https://kenyalaw.org/akn/ke/judgment/keelrc/2018/520/eng@2018-11-30",
+      },
+    ],
+  },
+  {
+    title:
       "Bigamy, Customary Unions, and Inheritance: Unpacking High Court Decision [2026] KEHC 9445 (KLR)",
     slug: "bigamy-customary-unions-inheritance-kenya",
     date: "August 24, 2026",
