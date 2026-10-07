@@ -31,6 +31,154 @@ export type BlogPost = {
 // featured image under /public/images/blogs. Keep slugs stable once published.
 export const blogPosts: BlogPost[] = [
   {
+    title: "Case Update: Diamond Trust Bank Kenya Ltd v Kariuki & Another",
+    slug: "case-update-dtb-v-kariuki",
+    date: "October 07, 2026",
+    datePublished: "2026-10-07T10:22:00Z",
+    dateModified: "2026-10-07T10:22:00Z",
+    category: "Dispute Resolution",
+    practiceArea: "Dispute Resolution",
+    practiceAreas: ["Dispute Resolution", "Corporate and Commercial Law"],
+    tags: [
+      "Banking Law",
+      "SIM Swap Fraud",
+      "Duty of Care",
+      "Mobile Banking",
+      "Kenya Law"
+    ],
+    image: "/images/blogs/dtb-v-kariuki-sim-swap.jpg",
+    imageAlt: "Digital banking security and SIM swap fraud concept",
+    excerpt: "An analysis of the High Court's decision holding Diamond Trust Bank and Safaricom concurrently liable for a customer's loss due to an unauthorised SIM swap and subsequent fraudulent mobile banking transactions.",
+    authorSlug: "oduor-khamati",
+    readTime: "5 min read",
+    seoTitle: "DTB v Kariuki: Bank & Telco Liability in SIM Swap Fraud | Malika Okubasu",
+    seoDescription: "A case update on [2026] KEHC 9771 where the High Court held Diamond Trust Bank and Safaricom liable for unauthorised SIM swap fraud.",
+    content: [
+      {
+        type: "heading",
+        level: 2,
+        text: "1. FACTUAL BACKGROUND"
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "a. The Unauthorised SIM Swap"
+      },
+      {
+        type: "paragraph",
+        text: "On February 6, 2022, Mercy Wairimu Kariuki received airtime and SIM swap notification alerts on her mobile line. She immediately contacted Safaricom’s customer care to report that she had not authorised the swap. Safaricom confirmed the unauthorised SIM swap had been done via an agent and promised to block the line. Her mobile line was subsequently reinstated at a dealer shop on February 7, 2022."
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "b. The Fraudulent Transactions"
+      },
+      {
+        type: "paragraph",
+        text: "On the morning of February 8, 2022 (with initial debit alerts occurring around 5:23 AM), Ms Kariuki received multiple transaction alerts. A total of Kshs. 4,418,601.00 had been fraudulently transferred from her DTB account through the bank’s mobile banking platform and PesaLink to multiple unrelated bank accounts and mobile numbers."
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "c. Customer’s Position"
+      },
+      {
+        type: "paragraph",
+        text: "Ms. Kariuki maintained that she never shared her Personal Identification Number (PIN) with anyone. She instituted legal proceedings in the Chief Magistrate's Court at Mavoko (Civil Suit No. 182 of 2020), alleging that both DTB and Safaricom breached their duties of care, committed data breaches, and acted negligently by failing to stop the fraud despite clear red flags."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "2. TRIAL COURT DECISION (MAVOKO CMCC NO. E182 OF 2022)"
+      },
+      {
+        type: "paragraph",
+        text: "The Chief Magistrate's Court (Hon. R.W. Gitau, SRM) delivered judgment on March 26, 2024, holding both DTB and Safaricom liable for breaching their respective duties of care."
+      },
+      {
+        type: "paragraph",
+        text: "The trial court apportioned liability as follows: (a) Safaricom PLC: 60% liable (ordered to pay Kshs. 2,630,000); and (b) Diamond Trust Bank Kenya Ltd: 40% liable (ordered to pay Kshs. 1,788,601). The court also awarded general damages for negligence and breach of confidentiality, along with costs and interest."
+      },
+      {
+        type: "paragraph",
+        text: "Dissatisfied with this outcome, DTB filed an appeal, and Safaricom filed a cross-appeal."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "3. ARGUMENTS ON APPEAL"
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "a. Appellant’s Arguments (Diamond Trust Bank Kenya Ltd)"
+      },
+      {
+        type: "paragraph",
+        text: "PIN Authentication: DTB argued that all disputed transactions were initiated via its mobile app upon input of the correct secret PIN. Under its General Terms and Conditions, the bank contended that entry of the correct PIN entitled it to treat the instructions as authorised without further verification."
+      },
+      {
+        type: "paragraph",
+        text: "Transaction Limits & Non-Business Days: DTB maintained that because the system operated over non-business days (Sunday to Monday), the transactions spanned separate system days and did not breach its hard daily limit of Kshs 2,000,000.00. The bank submitted that the court imposed an unrealistic standard by requiring manual monitoring outside business hours."
+      },
+      {
+        type: "paragraph",
+        text: "Causation (Novus Actus Interveniens): DTB argued that Safaricom’s unauthorised SIM swap was the sole proximate cause of the loss. It asserted that any failure by the bank to detect daily limit breaches was a secondary event that merely failed to mitigate a loss already set in motion by Safaricom."
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "b. 2nd Respondent’s Arguments (Safaricom PLC)"
+      },
+      {
+        type: "paragraph",
+        text: "Platform Separation: Safaricom contended that its mandate is strictly limited to providing telecommunications infrastructure and that it exercises no control or visibility over DTB's mobile banking system. No funds were lost from the customer's M-Pesa account."
+      },
+      {
+        type: "paragraph",
+        text: "Timeline of Control: Safaricom pointed out that the SIM card was swapped on February 6, but Ms. Kariuki regained full possession and control of her line on February 7. The fraudulent transactions were recorded on February 7 and 8, after line restoration."
+      },
+      {
+        type: "paragraph",
+        text: "Proximate Cause: Safaricom argued that the proximate cause of loss was either a security defect within DTB’s platform or the customer's failure to protect her PIN. It submitted that banks have an independent duty to flag and investigate unusual transactions."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "4. HIGH COURT FINDINGS AND LEGAL PRINCIPLES"
+      },
+      {
+        type: "paragraph",
+        text: "The High Court (Ongeri, J.) evaluated the evidence and dismissed both the appeal and cross-appeal, affirming the trial court's decision in full:"
+      },
+      {
+        type: "list",
+        items: [
+          "Independent Duty of Care & Inadequacy of PIN Entry: The Court reaffirmed that a bank owes a fiduciary duty to exercise reasonable skill and care in executing customer instructions (citing Fidelity Commercial Bank Ltd v Italian Market Kenya Ltd). Entering the correct PIN does not automatically absolve a bank where surrounding circumstances ought to arouse suspicion.",
+          "Failure to Respond to Red Flags: The rapid, sequential transfer of large sums to multiple unrelated bank accounts and phone numbers constituted significant \"red flags\". DTB breached its duty by failing to flag or verify these suspicious transactions.",
+          "24/7 Automated Systems Operating Environment: The Court rejected DTB's argument regarding non-business days. Because mobile banking systems operate automatically on a 24/7 basis, banks cannot rely on non-business days or technical compliance with daily limit resets to evade their ongoing duty to monitor and detect fraudulent patterns.",
+          "Concurrent Liability and Causation: The Court rejected DTB’s novus actus interveniens defence. The fraud was a continuous chain of events: Safaricom’s unauthorised SIM swap was the catalyst that compromised the line, but DTB’s subsequent failure to safeguard the account and respond to red flags was an equally operative cause of the financial loss. Both entities failed in their concurrent duties of care."
+        ]
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "5. FINAL DISPOSITION"
+      },
+      {
+        type: "paragraph",
+        text: "The court dismissed DTB’s Appeal and Safaricom’s cross-appeal and awarded costs to the 1st Respondent. The trial court’s finding of 60% liability against Safaricom and 40% liability against DTB (amounting to Kshs. 1,788,601.00 against DTB) was upheld in its entirety."
+      }
+    ],
+    references: [
+      {
+        id: 1,
+        title: "Diamond Trust Bank Kenya Ltd v Kariuki & Another [2026] KEHC 9771 (KLR)",
+        url: "https://kenyalaw.org/akn/ke/judgment/kehc/2026/9771/eng@2026-06-18"
+      }
+    ]
+  },
+  {
     title:
       "Think California Law Applies to Your Nairobi Staff? The Kenyan Employment and Labour Relations Court May Say Otherwise",
     slug: "california-law-nairobi-staff-elrc",
