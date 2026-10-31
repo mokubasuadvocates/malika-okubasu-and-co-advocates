@@ -31,6 +31,272 @@ export type BlogPost = {
 // featured image under /public/images/blogs. Keep slugs stable once published.
 export const blogPosts: BlogPost[] = [
   {
+    title: "Constructive Dismissal in Kenyan Employment Law",
+    slug: "constructive-dismissal-kenyan-employment-law",
+    date: "October 31, 2026",
+    datePublished: "2026-10-31T17:40:00Z",
+    dateModified: "2026-10-31T17:40:00Z",
+    category: "Employment Law",
+    practiceArea: "Employment and Labour Relations",
+    practiceAreas: ["Employment and Labour Relations", "Dispute Resolution"],
+    tags: [
+      "Constructive Dismissal",
+      "Employment Law",
+      "Labour Law",
+      "Unfair Termination",
+      "Employment Act 2007",
+      "Kenya Law"
+    ],
+    image: "/images/blogs/constructive-dismissal-kenya.jpg",
+    imageAlt:
+      "Employment contract, resignation folder, and scales of justice representing constructive dismissal in Kenyan employment law",
+    excerpt:
+      "An examination of constructive dismissal under Kenyan employment law, including the three-part contractual test, common grounds, burden of proof, available remedies, and the landmark decision in Coca-Cola East & Central Africa Limited v. Maria Kagai Ligaga.",
+    authorSlug: "oduor-khamati",
+    readTime: "6 min read",
+    seoTitle:
+      "Constructive Dismissal in Kenyan Employment Law | Malika Okubasu & Company Advocates",
+    seoDescription:
+      "Understand constructive dismissal in Kenya: legal elements, examples, how claimants prove forced resignation, remedies under the Employment Act, and the Coca-Cola v Maria Kagai Ligaga case.",
+    content: [
+      {
+        type: "heading",
+        level: 2,
+        text: "1. WHAT IS CONSTRUCTIVE DISMISSAL IN EMPLOYMENT LAW"
+      },
+      {
+        type: "paragraph",
+        text: "In Kenya, courts assess every employment termination against Article 41 of the Constitution, which requires procedural and substantive fairness. Although the statutory framework under the Employment Act, 2007 details explicit grounds for termination, constructive dismissal is not codified. Rather, the remedy is derived from common law principles: where an employer's severe breach of contractual duties forces an employee to resign, the law treats that forced departure as an unlawful dismissal."
+      },
+      {
+        type: "paragraph",
+        text: "Constructive dismissal is not the same as unfair termination. For unfair dismissal, the employer terminates the employment relationship by way of dismissal, while in constructive dismissal the employee terminates the relationship because of the fact that the employer's actions have fundamentally breached the agreement or made the performance of the employment duties impossible. The Employment Act does not provide a specific definition. But the court's constructive dismissal is governed by section 45 of the Employment Act. For example, constructive dismissal can happen when there are salary deductions, unilateral contract term changes, failure to pay employee wages, a hostile work environment, and an unreasonable increase in workload."
+      },
+      {
+        type: "paragraph",
+        text: "The law in section 45 states that an employer must act fairly in terminating an employee (Section 45(2)(b)). The law incorporates an equitable principle to uphold justice in employment termination. Hence, the conduct of the employer must be proven to be unreasonable and that the employee had no other option than to resign."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "2. WHAT CIRCUMSTANCES LEAD TO CONSTRUCTIVE DISMISSAL"
+      },
+      {
+        type: "paragraph",
+        text: "In Kenyan employment law, a resignation is treated as an unlawful termination when an employer’s conduct forces the worker out of their role. Based on the contractual test formulated, a valid claim of constructive dismissal depends on three main elements and pillars:"
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "2.1. The Employer's Action:"
+      },
+      {
+        type: "paragraph",
+        text: "There must be a clear, fundamental breach of express or implied contractual obligations that demonstrates the employer no longer intends to honour the employment agreement. This breach is evaluated using an objective standard."
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "2.2. The Employee's Response:"
+      },
+      {
+        type: "paragraph",
+        text: "The employee must resign from the employment relationship within a reasonable duration specifically because of the impugned actions of the employer, without having previously accepted or waived the employer's misconduct. The resignation must be as a consequence of the conduct of the employer. Employees must act promptly. Continued service for an unreasonable period after a fundamental breach often operates as a legal waiver, as courts will interpret continued performance as tacit acceptance of the modified conditions."
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "2.3. No Alternative:"
+      },
+      {
+        type: "paragraph",
+        text: "The employee should be proven to have had no reasonable alternatives other than resign from the position and work."
+      },
+      {
+        type: "paragraph",
+        text: "An active employment contract must have existed at the time, and the burden remains squarely on the claimant to prove all elements of the breach and causation. According to case law, the courts have held that the burden of proving that the action of the employer left the employee with no choice or option but to resign from work lies with the claimant-employee."
+      },
+      {
+        type: "paragraph",
+        text: "In assessing whether misconduct occurred, Kenyan courts focus on the practical effect of the employer's behaviour on the worker rather than whether the employer intended to terminate the contract."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "3. SOME OF THE EXAMPLES WHICH MAY LEAD TO A FINDING OF CONSTRUCTIVE DISMISSAL"
+      },
+      {
+        type: "paragraph",
+        text: "Constructive dismissal claims hinge on whether the employer committed an act that goes to the root of the employment contract. Common examples examined in employment cases are as follows:"
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Unilateral Contract Changes"
+      },
+      {
+        type: "paragraph",
+        text: "If the employer unilaterally changes the terms of the contract, the court may find constructive dismissal. Some of the unilateral changes include changing working hours and responsibilities without agreement with the employee."
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Harassment and Bullying"
+      },
+      {
+        type: "paragraph",
+        text: "If a specific employer allows and creates circumstances that allow bullying and harassment leading to the employee resigning, the employer can be held liable for constructive dismissal. This covers instances of sexual harassment and bullying. For example, when a male manager bullies and harasses a secretary."
+      },
+      {
+        type: "paragraph",
+        text: "The employer can raise a defence that the unaddressed workplace harassment, discriminatory treatment, or hostile environment by other employees was dealt with and the employee was protected. If such issues remain unaddressed, the defence will not hold up in court."
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Salary Reduction and Persistent Delays in Compensation"
+      },
+      {
+        type: "paragraph",
+        text: "An employer cannot arbitrarily reduce salary or make unconsulted job demotions/reassignments. This may expose such an employer to constructive dismissal claims. Also, prolonged and persistent delay or non-payment of statutory salaries of the employee and other entitlements can entitle the employee to a claim of constructive dismissal."
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "Other Reasons"
+      },
+      {
+        type: "list",
+        items: [
+          "Constructive lockouts or deliberately withholding work duties and work.",
+          "Forced employee resignations induced by severe workplace coercion."
+        ]
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "4. HOW A CLAIMANT CAN PROVE CONSTRUCTIVE DISMISSAL"
+      },
+      {
+        type: "paragraph",
+        text: "Based on the judicial framework articulated in this decision, a claimant seeking to establish constructive dismissal must satisfy the following core elements on a balance of probabilities:"
+      },
+      {
+        type: "list",
+        items: [
+          "Establish express or implied core terms of the employment relationship, particularly the mandatory implied duty of mutual trust, confidence, and fair dealing.",
+          "Present evidence showing that the employer breached essential terms going to the root of the contract, or engaged in conduct so unreasonable that continued employment became objectively intolerable. This can consist of a single severe act or a cumulative series of slights.",
+          "Prove a direct link between the employer's adverse conduct and the decision to quit. The resignation must be an immediate or eventual response to the intolerable conditions rather than personal choice.",
+          "Produce immediate, documented objections to every act of mistreatment. Written complaints, formal internal appeals, and explicit resignation letters confirming constructive dismissal serve as vital proof that the claimant did not acquiesce or waive the breach.",
+          "Show that any time elapsed between the misconduct and the resignation was actively used to pursue good-faith internal remedies rather than quietly accepting the altered work terms."
+        ]
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "5. REMEDIES FOR CONSTRUCTIVE DISMISSAL"
+      },
+      {
+        type: "paragraph",
+        text: "There are two remedies which can be awarded to an employee if an employer is found liable for constructive dismissal. First, the employer can be forced to pay compensation, which generally varies from three (3) months to twelve (12) months. The compensation is pegged on the circumstances and the facts of the case."
+      },
+      {
+        type: "paragraph",
+        text: "The courts hardly order reinstatement of the employee. This remedy is only granted in exceptional cases."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "6. CASE EXAMPLE: COCA-COLA EAST & CENTRAL AFRICA LIMITED V. MARIA KAGAI LIGAGA [2015] KECA 394 (KLR)"
+      },
+      {
+        type: "paragraph",
+        text: "The claimant filed a statement of claim alleging unfair termination of her employment contract, which the Industrial Court identified and evaluated under the legal concept of constructive dismissal."
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "6.1. Key Facts & Background"
+      },
+      {
+        type: "paragraph",
+        text: "The claimant was employed by the respondent starting September 1, 2005, as a Human Resources Manager (Horn of Africa and Mid-Africa). She was an industrious employee who received performance commendations, bonuses, a rare retention award, and briefly served as acting Human Resources Director in April 2008."
+      },
+      {
+        type: "paragraph",
+        text: "In July 2008, the newly appointed HR Director, David Ssegawa, offered the claimant a \"Local Plus Talent Mobility\" development assignment to transition her career from HR management to Operations Management. Over a span of six months, she was subjected to continuous, mismanaged relocations:"
+      },
+      {
+        type: "list",
+        items: [
+          "Uganda (December 2008): Relocated with her family to Kampala, but two months later was told the position did not exist.",
+          "Mozambique (February 2009): Offered an operations role, but the move collapsed after she sought reasonable clarifications and conditions regarding salary administration, allowances, and her daughter's schooling.",
+          "Nyeri, Kenya (April 2009): Redirected to a vaguely defined role overseeing the Nyeri territory and projects without proper definition or facilitation.",
+          "Kisumu, Kenya (May 2009): Moved to Kisumu to take over an operations role, but after a month, country management abruptly told her she could not continue because the incumbent manager refused to vacate the position."
+        ]
+      },
+      {
+        type: "paragraph",
+        text: "Following the collapse of the Kisumu posting, the claimant wrote an emotional letter detailing her distress. When she met with management and requested to revert to her substantive HR role, she was told it was impossible because a replacement had already been hired. On June 16, 2009, she tendered her notice of termination, citing inequitable and unjust treatment, which the company accepted. She subsequently secured employment at Mumias Sugar Company starting July 15, 2009."
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "6.2. Court's Findings and Legal Reasoning"
+      },
+      {
+        type: "paragraph",
+        text: "The Industrial Court ruled that the resignation was involuntary and amounted to constructive dismissal (an unfair termination of employment). The court noted that while constructive dismissal is not explicitly codified in Kenya's labor statutes, it is governed under common law principles (via Section 12 of the Labour Institutions Act No. 12 of 2007) and Section 45 of the Employment Act."
+      },
+      {
+        type: "paragraph",
+        text: "The respondent fundamentally breached the employment contract and its own adopted Workplace Rights Policy (which incorporated international human rights principles and women's empowerment standards) by severely mismanaging her career development, causing severe family disruption, and failing to provide a workable environment."
+      },
+      {
+        type: "paragraph",
+        text: "The claimant successfully discharged her legal burden by proving that the employer made unilateral, fundamental changes to her contract, created an intolerable work environment, and left her with no reasonable alternative but to resign."
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "6.3. Final Award and Compensation"
+      },
+      {
+        type: "paragraph",
+        text: "The court rejected the claimant's request for 28 years of future salary, noting that she had successfully mitigated her loss by promptly securing another decent job at Mumias Sugar Company."
+      },
+      {
+        type: "paragraph",
+        text: "The court ordered the respondent to pay the claimant 9 months' gross salary in compensation, totaling Ksh. 6,416,406, to be paid within 30 days, with both parties bearing their own costs."
+      },
+      {
+        type: "paragraph",
+        text: "The court held that:"
+      },
+      {
+        type: "paragraph",
+        text: "\"Constructive dismissal occurs where, 'an employee terminates the contract under which he is employed, (with or without notice) in circumstances in which he is entitled to terminate it without notice, by reason of the employer's conduct.' ... Common law, which has been embraced in our law through section 12 of the Labour Institutions Act Number 12 of 2007, treats constructive dismissal as a repudiatory breach by the employer of the contract of employment. The employer’s behaviour in either case must be shown to be so heinous, so intolerable, that it made it considerably difficult for the employee to continue working. The employee initiates the termination, believing herself, to have been fired. The employee needs to show that the employer, without reasonable or proper cause conducted himself in a manner likely to destroy or seriously damage the employment relationship. Resignation is regarded as constructive dismissal if the employer’s conduct is in significant breach of the contract of employment and that the conduct shows the employer is no longer interested in being bound by the terms of the contract.\" Paragraph 3.1"
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "7. CONCLUSION AND TAKEAWAY"
+      },
+      {
+        type: "paragraph",
+        text: "Our firm specialises in dealing with labour and employment claims, including those pertaining to constructive dismissal. We have a team of experienced advocates who guide employers through the process and ensure that the process aligns with the law and prevents decisions that may lead to legal risks. For employees, our team ensures the protection of rights and proper representation during court proceedings."
+      }
+    ],
+    references: [
+      {
+        id: 1,
+        title:
+          "Coca-Cola East & Central Africa Limited v. Maria Kagai Ligaga [2015] KECA 394 (KLR)",
+        url: "https://new.kenyalaw.org/akn/ke/judgment/keca/2015/394/eng@2015-10-16"
+      }
+    ]
+  },
+  {
     title: "Case Update: Diamond Trust Bank Kenya Ltd v Kariuki & Another",
     slug: "case-update-dtb-v-kariuki",
     date: "October 07, 2026",
