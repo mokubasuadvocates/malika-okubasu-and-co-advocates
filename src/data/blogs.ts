@@ -31,6 +31,156 @@ export type BlogPost = {
 // featured image under /public/images/blogs. Keep slugs stable once published.
 export const blogPosts: BlogPost[] = [
   {
+    title:
+      "Impartiality, Conflict of Interest and Bias in Employment Disciplinary Process: Daniel Okello v Kenya Airways Limited",
+    slug: "impartiality-conflict-of-interest-bias-disciplinary-process-okello-v-kenya-airways",
+    date: "November 16, 2026",
+    datePublished: "2026-11-16T00:46:00Z",
+    dateModified: "2026-11-16T00:46:00Z",
+    category: "Employment Law",
+    practiceArea: "Employment and Labour Relations",
+    practiceAreas: ["Employment and Labour Relations", "Dispute Resolution"],
+    tags: [
+      "Employment Law",
+      "Disciplinary Process",
+      "Procedural Fairness",
+      "Conflict of Interest",
+      "Natural Justice",
+      "Unfair Termination",
+      "Kenya Law"
+    ],
+    image: "/images/blogs/disciplinary-panel-impartiality-kenya-airways.jpg",
+    imageAlt:
+      "Corporate disciplinary hearing folder, Notice to Show Cause document, and scales of justice representing impartiality in employment disciplinary processes",
+    excerpt:
+      "A landmark 2026 judgment in Daniel Okello v Kenya Airways Limited offers a powerful lesson on how employers must constitute impartial disciplinary panels, why full disclosure of evidence is non-negotiable, and the legal price of cutting procedural corners.",
+    authorSlug: "oduor-khamati",
+    readTime: "5 min read",
+    seoTitle:
+      "Impartiality & Bias in Employment Disciplinary Panels: Okello v Kenya Airways | Malika Okubasu & Company Advocates",
+    seoDescription:
+      "Learn how employers should properly constitute a disciplinary panel in Kenya following Daniel Okello v Kenya Airways Limited [2026] KEELRC 1005 (KLR) on bias, conflict of interest, and disclosure of evidence.",
+    content: [
+      {
+        type: "heading",
+        level: 2,
+        text: "HOW AN EMPLOYER SHOULD CONSTITUTE THE DISCIPLINARY PANEL"
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "1. BACKGROUND"
+      },
+      {
+        type: "paragraph",
+        text: "When companies start a disciplinary process against an employee, ensuring a fair procedure is not just a polite corporate practice; it is a strict legal and constitutional requirement. A core part of that fairness is making sure the disciplinary panel is completely impartial, free from conflicts of interest, and untainted by bias."
+      },
+      {
+        type: "paragraph",
+        text: "A landmark 2026 judgment by the Employment and Labour Relations Court in Nairobi, Daniel Okello v Kenya Airways Limited (Cause 704 of 2019; [2026] KEELRC 1005 (KLR)) [1], delivered by Hon. Justice C. N. Baari, offers a powerful lesson on how employers should structure their disciplinary panels, why sharing evidence is non-negotiable, and the legal price of cutting corners."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "2. WHAT HAPPENED IN THE CASE?"
+      },
+      {
+        type: "paragraph",
+        text: "Daniel Okello worked as a B787 Materials and Tools Support Manager in Kenya Airways' Supply Chain Department, earning a gross monthly salary of KShs 450,000. Tensions flared during a Request for Proposals process to maintain and repair aircraft engines."
+      },
+      {
+        type: "paragraph",
+        text: "Okello’s supervisor, Irene Lempaka, instructed him to drop the top-ranked suppliers and instead award the work to a lower-ranked, more expensive bidder. Believing this directive violated internal procurement rules and risked heavy financial losses for an already struggling airline, Okello objected and tried to follow proper procedures."
+      },
+      {
+        type: "paragraph",
+        text: "Instead of addressing his concerns, the supervisor issued him a Notice to Show Cause accusing him of insubordination and insolence."
+      },
+      {
+        type: "paragraph",
+        text: "After being fired in July 2019, Okello took the airline to court, seeking over KShs 161 million in compensation, future earnings, and benefits."
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "3. THE COURT’S KEY LEGAL FINDINGS"
+      },
+      {
+        type: "paragraph",
+        text: "A foundational pillar of natural justice is that no one should judge their own dispute. Justice Baari strongly condemned the fact that Ms. Lempaka acted as the complainant, witness, and judge all at once. The court noted that her active participation on the panel created an undeniable sense of bias and conflict of interest, fatally compromising the fairness of the entire process."
+      },
+      {
+        type: "paragraph",
+        text: "Okello asked for witness statements regarding claims that he had shouted at colleagues, but Kenya Airways failed to provide them. Citing established case law, the court reiterated that a fair hearing requires full disclosure of evidence so an employee can properly prepare a defence. This failure to disclose was a violation of the right to a fair hearing, contrary to the case of Postal Corporation of Kenya v Tanui [2019] KECA 489 (KLR) [2], where it was held that a fair hearing includes disclosure of evidence to enable an adequate defence."
+      },
+      {
+        type: "paragraph",
+        text: "While the court acknowledged that the airline had a legitimate reason to look into insubordination, the flawed and biased procedure ruined their case. Because the panel was tainted by bias and evidence was withheld, the termination was declared procedurally unfair and unlawful."
+      },
+      {
+        type: "paragraph",
+        text: "Because the process was unfair, the court awarded Okello 6 months of salary as compensation (KShs 2,700,000) along with half the costs of the lawsuit. However, the court firmly rejected his massive claims for 22 years of future earnings, future pension, and flight tickets. Relying on recent Supreme Court rulings, the judge emphasised that speculative future earnings have no legal foundation."
+      },
+      {
+        type: "paragraph",
+        text: "The Honourable Court held that:"
+      },
+      {
+        type: "paragraph",
+        text: "\"57. On the attendance of the Claimant’s supervisor, it is not disputed that Irene Lempaka issued the Claimant with the instruction that resulted in the issuance of a show cause letter. It is also evident that the show cause letter was authored by the same Ms Lempaka who, again, constituted the disciplinary hearing panel.\""
+      },
+      {
+        type: "paragraph",
+        text: "\"58. There is therefore no denying that the Claimant’s supervisor fully participated in the decision-making process that resulted in the Claimant’s termination. This participation no doubt creates a sense of bias and a possible conflict of interest (See Ridge v. Baldwin, 1964 A.C 40).\""
+      },
+      {
+        type: "paragraph",
+        text: "\"59. In my considered view, it is apparent that a likelihood of bias was portrayed considering the role and the level of participation by Ms Lempaka in the disciplinary process.\""
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "4. HOW EMPLOYERS SHOULD PROPERLY CONSTITUTE A DISCIPLINARY PANEL"
+      },
+      {
+        type: "paragraph",
+        text: "To protect the organisation from costly lawsuits, HR teams and business leaders must follow these rules when setting up a disciplinary panel:"
+      },
+      {
+        type: "list",
+        items: [
+          "a. Keep Complainants and Witnesses Away: Anyone who reported the issue, investigated it, or is involved as a witness must never sit on the decision-making panel. The panel must consist of entirely neutral parties.",
+          "b. Disclose All Evidence Early: Employers must hand over all relevant documents, emails, and witness statements to the employee well before the hearing. Surprising an employee with hidden evidence destroys procedural fairness.",
+          "c. Guarantee the Right to Representation: Always notify employees of their right to bring a colleague or a union representative to the hearing.",
+          "d. Provide an Independent Appeal Process: Make sure any internal appeal is reviewed by senior management or an officer who had zero involvement in the original disciplinary hearing. This will ensure that there is impartiality and allegations of bias and conflict of interest are avoided."
+        ]
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "5. KEY TAKEAWAYS FOR BUSINESS AND HR PRACTITIONERS"
+      },
+      {
+        type: "paragraph",
+        text: "An employer might have a valid reason to discipline an employee, but if the process is handled unfairly, the court will rule against the company. When employees raise genuine ethical or financial concerns, management must address them transparently rather than resorting to biased disciplinary shortcuts. In the eyes of the law, a fair process is just as important as a valid reason."
+      }
+    ],
+    references: [
+      {
+        id: 1,
+        title:
+          "Okello v Kenya Airways Limited (Cause 704 of 2019) [2026] KEELRC 1005 (KLR) (23 April 2026) (Judgment)",
+        url: "https://new.kenyalaw.org/akn/ke/judgment/keelrc/2026/1005/eng@2026-04-23"
+      },
+      {
+        id: 2,
+        title:
+          "Postal Corporation of Kenya v Tanui [2019] KECA 489 (KLR)",
+        url: "https://new.kenyalaw.org/akn/ke/judgment/keca/2019/489/eng@2019-06-07"
+      }
+    ]
+  },
+  {
     title: "Constructive Dismissal in Kenyan Employment Law",
     slug: "constructive-dismissal-kenyan-employment-law",
     date: "October 31, 2026",
