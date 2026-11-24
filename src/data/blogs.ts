@@ -3,7 +3,8 @@ import { blogAuthors, type BlogAuthorSlug } from "@/data/authors";
 export type BlogContentBlock =
   | { type: "heading"; level: 2 | 3; text: string }
   | { type: "paragraph"; text: string }
-  | { type: "list"; items: string[] };
+  | { type: "list"; items: string[] }
+  | { type: "pre"; text: string };
 
 export type BlogPost = {
   slug: string;
@@ -30,6 +31,173 @@ export type BlogPost = {
 // Add future publications by adding one object to this array and placing the
 // featured image under /public/images/blogs. Keep slugs stable once published.
 export const blogPosts: BlogPost[] = [
+  {
+    title: "Navigating Kenya’s Trust Administration Act, 2026",
+    slug: "navigating-kenyas-trust-administration-act-2026",
+    date: "November 23, 2026",
+    datePublished: "2026-11-23T21:00:00Z",
+    dateModified: "2026-11-23T21:00:00Z",
+    category: "Family Law",
+    practiceArea: "Family Law and Succession Planning",
+    practiceAreas: [
+      "Family Law and Succession Planning",
+      "Corporate and Commercial Law",
+      "Dispute Resolution",
+    ],
+    tags: [
+      "Trust Administration Act 2026",
+      "Family Trusts",
+      "Succession Planning",
+      "Estate Planning",
+      "Corporate Governance",
+      "Business Registration Service",
+      "Kenya Law",
+    ],
+    image: "/images/blogs/kenya-trust-administration-act-2026.jpg",
+    imageAlt:
+      "Inter vivos Family Trust governance flowchart and key legislative advancements under Kenya's Trust Administration Act, 2026 (Act No. 28 of 2026)",
+    excerpt:
+      "The enactment of the Trust Administration Act, 2026 (Act No. 28 of 2026) fundamentally dismantles Kenya's historical estate planning paradigm, repealing the century-old Trustee Act (Cap. 167) and Trustees (Perpetual Succession) Act (Cap. 164) to transition wealth management from adversarial probate disputes to living, structured corporate governance.",
+    authorSlug: "oduor-khamati",
+    readTime: "4 min read",
+    seoTitle:
+      "Navigating Kenya’s Trust Administration Act, 2026 | Malika Okubasu & Company Advocates",
+    seoDescription:
+      "Explore how Kenya's Trust Administration Act, 2026 (Act No. 28 of 2026) transforms estate planning through codified Family Trusts, BRS incorporation, the statutory Enforcer, and strict fiduciary standards.",
+    content: [
+      {
+        type: "heading",
+        level: 2,
+        text: "Executive Summary",
+      },
+      {
+        type: "paragraph",
+        text: "The enactment of the Trust Administration Act, 2026 (Act No. 28 of 2026) fundamentally dismantles Kenya's historical estate planning paradigm. For decades, wealth transition has relied on the Law of Succession Act (Cap. 160)—a reactive, post-mortem framework highly susceptible to litigious disruption. High-profile disputes involving the estates of Gerishon Kirima, Jackson Kibor, and John Keen illustrate a systemic corporate risk: the traditional probate pipeline frequently triggers asset dissipation, commercial stagnation, and irreversible familial fragmentation.",
+      },
+      {
+        type: "paragraph",
+        text: "By repealing the century-old Trustee Act (Cap. 167) and the Trustees (Perpetual Succession) Act (Cap. 164), the 2026 Act introduces a modern legislative architecture. It transitions wealth management from adversarial courtroom battles to living, structured corporate governance.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "1. The Vulnerabilities of the Traditional Probate Pipeline",
+      },
+      {
+        type: "paragraph",
+        text: "Under Cap. 160, estate devolution only commences upon a decedent's demise. This temporal gap introduces severe structural exposures:",
+      },
+      {
+        type: "list",
+        items: [
+          "Asset Freezing and Dissipation: Upon death, accounts and commercial operations are effectively frozen pending the extraction of a Grant of Representation. Protracted confirmation processes frequently result in the decay of operating enterprises and the distressed liquidation of prime real estate to fund legal retainers.",
+          "Judicial Inelasticity: High Court Family Divisions and Kadhis' courts operate on binary outcomes. Court decrees divide physical assets; they cannot resolve underlying generational friction, polygamous family dynamics, or sibling rivalries.",
+          "Statutory Rigidity: Section 29 of the Law of Succession Act enforces narrow definitions of dependency. This leaves non-statutory relations, designated charities, and vulnerable dependents exposed to hostile gatekeeping by primary heirs.",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "2. Key Statutory Advancements under Act No. 28 of 2026",
+      },
+      {
+        type: "paragraph",
+        text: "The Trust Administration Act, 2026 shifts the center of gravity from post-mortem distribution to inter vivos (living) structured governance through the formal codification of Family Trusts.",
+      },
+      {
+        type: "pre",
+        text: `[Settlor Creates Family Trust] 
+            │
+            ▼
+[Assets Formally Transferred to Trust Body Corporate] ──► (No Probate / No Estate Freeze)
+            │
+      ┌─────┴────────────────────────┐
+      ▼                              ▼
+[Trustees Manage Operations]   [Enforcer Polices Fiduciaries]
+      │                              │
+      ▼                              ▼
+[Beneficiaries Receive Yields] [Beneficial Ownership Registered (BRS)]`,
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "I. Statutory Recognition of Family Trusts",
+      },
+      {
+        type: "paragraph",
+        text: "The Act formally establishes Family Trusts as recognized non-trading vehicles dedicated to wealth preservation. Crucially, a settlor may concurrently serve as a trustee and beneficiary during their lifetime, maintaining strategic and operational oversight.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "II. Incorporation and Perpetual Succession",
+      },
+      {
+        type: "paragraph",
+        text: "All express trusts must now be registered with the Registrar of Trusts under the Business Registration Service (BRS). Settlors can incorporate the trust into a body corporate. This grants it an independent legal personality to hold title deeds, execute commercial leases, and sue or be sued. Upon the settlor’s demise, the entity continues uninterrupted, entirely bypassing the probate Registry.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "III. The Institutionalization of the \"Enforcer\"",
+      },
+      {
+        type: "paragraph",
+        text: "To enhance accountability, the Act introduces the statutory role of an Enforcer. Appointed by the settlor, this independent fiduciary is legally empowered to monitor trustee actions, audit accounts, and initiate litigation to compel adherence to the Trust Deed.",
+      },
+      {
+        type: "heading",
+        level: 3,
+        text: "IV. Fiduciary Standards and Transparency",
+      },
+      {
+        type: "paragraph",
+        text: "The Act abolishes informal, unaccountable trusteeship by establishing strict statutory qualifications and reporting standards. It invalidates any clauses seeking to exculpate trustees from gross negligence, dishonesty, or breach of trust. Furthermore, mandatory beneficial ownership registers align Kenyan trusts with international anti-money laundering (AML) standards.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "3. Structural Capabilities of a Family Trust",
+      },
+      {
+        type: "paragraph",
+        text: "A robustly drafted Trust Deed provides tailored asset-protection mechanisms that traditional wills cannot replicate:",
+      },
+      {
+        type: "list",
+        items: [
+          "Corporate Governance Continuity: Rather than fragmenting equity in operating businesses among uncooperative heirs, operational control remains centralized within the trust body corporate. Professional executives manage the enterprise, while heirs receive structured dividend yields.",
+          "Conditional and Specialized Disbursals: Trusts can ring-fence specific income streams for vulnerable dependents or special-needs heirs, protecting them from familial neglect. Settlors can also establish strict conditional requirements for educational funding, including direct institutional payments.",
+          "Charitable and Purpose Endowments: Settlors can permanently fund religious, educational, or community initiatives through enforceable charitable trust provisions.",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "4. The Evolving Role of Legal Counsel",
+      },
+      {
+        type: "paragraph",
+        text: "The modern private wealth bar must transition from litigious post-mortem representation to forward-looking asset architecture:",
+      },
+      {
+        type: "list",
+        items: [
+          "Alternative Dispute Resolution (ADR): Legal practitioners must prioritize mediation to uncover root familial tensions and structure sustainable private agreements, utilizing the court room only as a last resort.",
+          "Fiduciary Compliance and Architecture: Counsel must focus on drafting robust, legally compliant deeds under Section 23 of the Act, navigating the BRS registry, and optimizing statutory fiscal incentives available under the Income Tax Act and the Stamp Duty Act.",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        text: "Conclusion",
+      },
+      {
+        type: "paragraph",
+        text: "Asset protection and generational harmony cannot be effectively engineered from an intensive care unit or beyond the grave. True estate stewardship requires proactive intervention while a client's faculties and voice remain intact. By leveraging alternative dispute resolution and the sophisticated framework of the Trust Administration Act, 2026, families can safeguard their legacies, eliminate probate risk, and ensure enduring stability across generations.",
+      },
+    ],
+  },
   {
     title:
       "Impartiality, Conflict of Interest and Bias in Employment Disciplinary Process: Daniel Okello v Kenya Airways Limited",

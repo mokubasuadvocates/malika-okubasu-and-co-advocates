@@ -336,6 +336,19 @@ export function BlogDetail({ slug }: { slug?: string }) {
                       );
                     }
 
+                    if (block.type === "pre") {
+                      return (
+                        <div
+                          key={index}
+                          className="my-6 overflow-x-auto rounded-sm border border-brand-border bg-soft-blue p-5 sm:p-6"
+                        >
+                          <pre className="font-mono text-xs leading-relaxed text-navy sm:text-sm">
+                            {block.text}
+                          </pre>
+                        </div>
+                      );
+                    }
+
                     return (
                       <p
                         key={index}
